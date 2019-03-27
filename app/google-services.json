@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "670368007911",
+    "firebase_url": "https://chineseedu-1005.firebaseio.com",
+    "project_id": "chineseedu-1005",
+    "storage_bucket": "chineseedu-1005.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670368007911:android:78bafe8238c43c10",
+        "android_client_info": {
+          "package_name": "com.littlefox.chinese.edu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670368007911-njugr94cr2ltd2vt1b3m2jk0j5hk43jj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-Tvd2sJxE6fn8DJPXoyeABVyEQnb0R5I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

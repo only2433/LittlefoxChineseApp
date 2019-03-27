@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ssomai.android.scalablelayout.ScalableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:scale_base_height="668"
+    app:scale_base_width="1080" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_gray1"
+        app:scale_height="628"
+        app:scale_left="26"
+        app:scale_top="0"
+        app:scale_width="1028" />
+
+    <TextView
+        android:id="@+id/addchild_show_child_titile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textColor="@color/color_000000"
+        app:scale_height="60"
+        app:scale_left="72"
+        app:scale_textsize="48"
+        app:scale_top="62"
+        app:scale_width="420" />
+
+    <TextView
+        android:id="@+id/addchild_show_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_yellow_button"
+        android:gravity="center"
+        android:textColor="@color/color_white"
+        app:scale_height="102"
+        app:scale_left="465"
+        app:scale_textsize="44"
+        app:scale_top="30"
+        app:scale_width="180" />
+
+    <TextView
+        android:id="@+id/addchild_show_info_modification_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_red_button"
+        android:gravity="center"
+        android:textColor="@color/color_white"
+        app:scale_height="102"
+        app:scale_left="667"
+        app:scale_textsize="44"
+        app:scale_top="30"
+        app:scale_width="340" />
+
+    <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+        android:id="@+id/addchild_modification_nickname_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_white"
+        android:gravity="center_vertical"
+        android:inputType="text"
+        android:textColor="@color/color_000000"
+        app:pd_add_image="@drawable/icon_nickname"
+        app:pd_drawable_padding="22"
+        app:pd_image_height="64"
+        app:pd_image_width="76"
+        app:pd_padding_left="22"
+        app:scale_height="114"
+        app:scale_left="72"
+        app:scale_textsize="48"
+        app:scale_top="176"
+        app:scale_width="936" />
+
+    <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+        android:id="@+id/addchild_modification_name_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_white"
+        android:gravity="center_vertical"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:textColor="@color/color_000000"
+        app:pd_add_image="@drawable/icon_id"
+        app:pd_drawable_padding="22"
+        app:pd_image_height="64"
+        app:pd_image_width="76"
+        app:pd_padding_left="22"
+        app:scale_height="114"
+        app:scale_left="72"
+        app:scale_textsize="48"
+        app:scale_top="320"
+        app:scale_width="936" />
+
+    <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+        android:id="@+id/addchild_modification_calendar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_white"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_000000"
+        app:pd_add_image="@drawable/icon_cake"
+        app:pd_drawable_padding="22"
+        app:pd_image_height="64"
+        app:pd_image_width="76"
+        app:pd_padding_left="22"
+        app:scale_height="114"
+        app:scale_left="72"
+        app:scale_textsize="48"
+        app:scale_top="464"
+        app:scale_width="936" />
+
+</com.ssomai.android.scalablelayout.ScalableLayout>

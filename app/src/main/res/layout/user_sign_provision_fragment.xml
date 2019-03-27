@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/sign_provision_base_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/sign_provision_webview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_height="1380"
+        app:scale_base_width="1080" >
+            <WebView
+        android:id="@+id/sign_provision_webview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        app:scale_top="0"
+        app:scale_left="0"
+        app:scale_width="1080"
+        app:scale_height="1380"/>
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sign_provision_webview_layout"
+        android:background="@color/color_ffffff"
+        app:scale_base_height="396"
+        app:scale_base_width="1080" >
+
+        <TextView
+            android:id="@+id/sign_provision_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_red_button"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            app:scale_height="120"
+            app:scale_left="72"
+            app:scale_textsize="48"
+            app:scale_top="0"
+            app:scale_width="936" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+    
+ 
+
+</LinearLayout>

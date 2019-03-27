@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Little fox Chinese</string>
+    <string name="title_quiz" translatable="false">Quiz</string>
+    <string name="btn_correct" translatable="false">Correct</string>
+    <string name="btn_incorrect" translatable="false">Incorrect</string>
+    <!-- 상품 구입 -->
+    <string name="product_buy_item_warning">The price of this story will not be deducted from the total price if you decide to purchase all stories in the future. Do you want to continue?</string>
+    <string name="product_download_one_item_message">You have successfully purchased 1 story. Do you want to download now?</string>
+    <string name="product_download_all_item_message">You have successfully purchased all stories. Do you want to download now?</string>
+    <string name="product_already_paid">This story has been purchased already.</string>
+    <string name="product_is_null">Your purchase cannot be completed. \nIn-app purchases are disabled on your device. </string>
+    <string name="title_facebook_login">Login</string>
+    <string name="app_id">1472967599665510</string>
+    <!-- for kakaolink -->
+    <string name="com_kakao_alert_appKey">need to declare com.kakao.sdk.AppKey in your AndroidManifest.xml</string>
+    <string name="com_kakao_alert_install_kakaotalk">There is no installed KakaoTalk version higher than 4.2.0</string>
+    <!-- TITLE -->
+    <string-array name="main_title_home">
+        <item>리틀팍스 중국어</item>
+        <item>Little Fox Chinese</item>
+    </string-array>
+    <string-array name="main_title_story">
+        <item>동화</item>
+        <item>Stories</item>
+    </string-array>
+    <string-array name="main_title_song">
+        <item>동요</item>
+        <item>Songs</item>
+    </string-array>
+    <string-array name="main_title_song_category">
+        <item>새로 나온 동요</item>
+        <item>New Songs</item>
+    </string-array>
+    <string-array name="main_title_study_data">
+        <item>학습 자료실</item>
+        <item>Chinese Pinyin</item>
+    </string-array>
+    <string-array name="title_study_data">
+        <item>학습 자료</item>
+        <item>Learning Resources</item>
+    </string-array>
+    <string-array name="title_user_sign">
+        <item>회원가입</item>
+        <item>Sign Up</item>
+    </string-array>
+    <string-array name="title_my_info">
+        <item>나의 정보</item>
+        <item>Account</item>
+    </string-array>
+    <string-array name="title_result_id">
+        <item>아이디 찾기 결과</item>
+        <item>ID Find Result</item>
+    </string-array>
+    <string-array name="title_result_password">
+        <item>비밀번호 찾기 결과</item>
+        <item>Password Find Result</item>
+    </string-array>
+    <string-array name="title_login">
+        <item>로그인</item>
+        <item>Log In</item>
+    </string-array>
+    <string-array name="title_user_select">
+        <item>사용자 선택</item>
+        <item>Select User</item>
+    </string-array>
+    <string-array name="title_base_user">
+        <item>기본 사용자</item>
+        <item>Main User</item>
+    </string-array>
+    <string-array name="title_add_user">
+        <item>추가 사용자</item>
+        <item>Child User</item>
+    </string-array>
+    <string-array name="title_step">
+        <item>단계</item>
+        <item>Level</item>
+    </string-array>
+    <string-array name="title_pay_1_month">
+        <item>1개월 기간 결제 이용권</item>
+        <item>1 Month Pass</item>
+    </string-array>
+    <string-array name="title_pay_1_year">
+        <item>1년 기간 결제 이용권</item>
+        <item>1 Year Pass</item>
+    </string-array>
+    <string-array name="title_pay_subscription">
+        <item>매월 결제 구독권</item>
+        <item>Monthly Subscription</item>
+    </string-array>
+    <string-array name="title_origin_password">
+        <item>기존 비밀번호</item>
+        <item>Current Password</item>
+    </string-array>
+    <string-array name="title_modification_password">
+        <item>변경할 비밀번호</item>
+        <item>New Password</item>
+    </string-array>
+    <string-array name="title_confirm_password">
+        <item>비밀번호 확인</item>
+        <item>Confirm Password</item>
+    </string-array>
+    <string-array name="title_paid_main">
+        <item>결제</item>
+        <item>Subscribe</item>
+    </string-array>
+    <string-array name="title_study_guide">
+        <item>학습 가이드</item>
+        <item>Learning Guide</item>
+    </string-array>
+    <string-array name="title_study_record">
+        <item>학습 기록</item>
+        <item>Learning Log</item>
+    </string-array>
+    <string-array name="title_littlefox_chinese_introduce">
+        <item>리틀팍스 중국어 소개</item>
+        <item>Introduction</item>
+    </string-array>
+    <string-array name="title_best_story">
+        <item>인기 동화</item>
+        <item>Best Story</item>
+    </string-array>
+    <string-array name="title_best_song">
+        <item>인기 동요</item>
+        <item>Best Song</item>
+    </string-array>
+    <string-array name="title_content_present">
+        <item>콘텐츠 발표 일정</item>
+        <item>Schedule</item>
+    </string-array>
+    <string-array name="title_add_user_manage">
+        <item>추가 사용자 관리</item>
+        <item>Manage Child Users</item>
+    </string-array>
+    <string-array name="title_autobiography">
+        <item>활용수기</item>
+        <item>Autobiography</item>
+    </string-array>
+    <!-- DATE -->
+    <string-array name="today_monday">
+        <item>월</item>
+        <item>MON</item>
+    </string-array>
+    <string-array name="today_tuesday">
+        <item>화</item>
+        <item>TUE</item>
+    </string-array>
+    <string-array name="today_wednesday">
+        <item>수</item>
+        <item>WED</item>
+    </string-array>
+    <string-array name="today_thursday">
+        <item>목</item>
+        <item>THU</item>
+    </string-array>
+    <string-array name="today_friday">
+        <item>금</item>
+        <item>FRI</item>
+    </string-array>
+    <string-array name="today_this">
+        <item>오늘</item>
+        <item>Today</item>
+    </string-array>
+    <string-array name="date_month">
+        <item>월</item>
+        <item>월</item>
+    </string-array>
+    <string-array name="date_week">
+        <item>주차</item>
+        <item>주차</item>
+    </string-array>
+    <!-- Button -->
+    <string-array name="button_login">
+        <item>로그인</item>
+        <item>Log In</item>
+    </string-array>
+    <string-array name="button_logout">
+        <item>로그아웃</item>
+        <item>Log Out</item>
+    </string-array>
+    <string-array name="button_sign">
+        <item>회원가입</item>
+        <item>Sign Up</item>
+    </string-array>
+    <string-array name="button_all_play">
+        <item>전체 재생</item>
+        <item>Play All</item>
+    </string-array>
+    <string-array name="button_choice">
+        <item>선택</item>
+        <item>Select</item>
+    </string-array>
+    <string-array name="button_choice_play">
+        <item>선택 재생</item>
+        <item>Play Selected</item>
+    </string-array>
+    <string-array name="button_subtitle_default">
+        <item>일반 영상</item>
+        <item>Normal Video</item>
+    </string-array>
+    <string-array name="button_subtitle_have">
+        <item>자막 포함 영상</item>
+        <item>Subtitle Video</item>
+    </string-array>
+    <string-array name="button_preview_sign">
+        <item>가입하기</item>
+        <item>Sign Up</item>
+    </string-array>
+    <string-array name="button_replay">
+        <item>다시보기</item>
+        <item>Replay</item>
+    </string-array>
+    <string-array name="button_quiz_play">
+        <item>퀴즈 풀기</item>
+        <item>Quiz</item>
+    </string-array>
+    <string-array name="button_remain_all_play">
+        <item>남은편 모두보기</item>
+        <item>View rest</item>
+    </string-array>
+    <string-array name="button_recommand_play">
+        <item>추천 동화 보기</item>
+        <item>Recommended story</item>
+    </string-array>
+    <string-array name="button_recommand_play_song">
+        <item>추천 동요 보기</item>
+        <item>Recommended song</item>
+    </string-array>
+    <string-array name="button_confirm">
+        <item>확인</item>
+        <item>OK</item>
+    </string-array>
+    <string-array name="button_cancel">
+        <item>취소</item>
+        <item>Cancel</item>
+    </string-array>
+    <string-array name="button_save">
+        <item>저장</item>
+        <item>Save</item>
+    </string-array>
+    <string-array name="button_search">
+        <item>찾기</item>
+        <item>Find</item>
+    </string-array>
+    <string-array name="button_login_doing">
+        <item>로그인 하기</item>
+        <item>Log in</item>
+    </string-array>
+    <string-array name="button_next">
+        <item>다음</item>
+        <item>Next</item>
+    </string-array>
+    <string-array name="button_email_send">
+        <item>메일 발송</item>
+        <item>Send to Mail</item>
+    </string-array>
+    <string-array name="button_change_password">
+        <item>비밀번호 변경</item>
+        <item>Change Password</item>
+    </string-array>
+    <string-array name="button_info_modification">
+        <item>정보 수정</item>
+        <item>Edit Account</item>
+    </string-array>
+    <string-array name="button_edit">
+        <item>정보 수정</item>
+        <item>Edit</item>
+    </string-array>
+    <string-array name="button_pay">
+        <item>결제</item>
+        <item>Subscribe</item>
+    </string-array>
+    <string-array name="button_pay_ing">
+        <item>결제하기</item>
+        <item>Subscribe</item>
+    </string-array>
+    <string-array name="button_delete">
+        <item>삭제</item>
+        <item>Remove</item>
+    </string-array>
+    <string-array name="button_add">
+        <item>추가</item>
+        <item>Add</item>
+    </string-array>
+    <string-array name="button_renew">
+        <item>새로고침</item>
+        <item>Refresh</item>
+    </string-array>
+    <string-array name="button_favorite_add">
+        <item>즐겨보는 동화 추가</item>
+        <item>Favorite Stories Add</item>
+    </string-array>
+    <string-array name="button_research">
+        <item>다시 찾기</item>
+        <item>Refind</item>
+    </string-array>
+    <string-array name="button_youtube">
+        <item>Youtube</item>
+        <item>Youtube</item>
+    </string-array>
+    <!-- Navigation Text -->
+    <string-array name="navi_study_record">
+        <item>학습기록</item>
+        <item>Learning Log</item>
+    </string-array>
+    <string-array name="navi_my_info">
+        <item>나의정보</item>
+        <item>Account</item>
+    </string-array>
+    <string-array name="navi_add_user_manage">
+        <item>추가 사용자 관리</item>
+        <item>Manage Child Users</item>
+    </string-array>
+    <string-array name="navi_question">
+        <item>문의하기</item>
+        <item>Contact Us</item>
+    </string-array>
+    <string-array name="navi_pay">
+        <item>결제</item>
+        <item>Subscribe</item>
+    </string-array>
+    <string-array name="navi_restore">
+        <item>구매복원</item>
+        <item>Restore Purchase</item>
+    </string-array>
+    <string-array name="navi_user_type">
+        <item>기본사용자</item>
+        <item>Main User</item>
+    </string-array>
+    <string-array name="navi_language">
+        <item>언어</item>
+        <item>Language</item>
+    </string-array>
+    <string-array name="login_id">
+        <item>아이디</item>
+        <item>ID</item>
+    </string-array>
+    <string-array name="login_pw">
+        <item>비밀번호</item>
+        <item>Password</item>
+    </string-array>
+    <string-array name="login_pw_confirm">
+        <item>비밀번호 확인</item>
+        <item>Password Confirm</item>
+    </string-array>
+    <string-array name="login_nickname">
+        <item>닉네임</item>
+        <item>Nickname</item>
+    </string-array>
+    <string-array name="login_name">
+        <item>이름</item>
+        <item>Name</item>
+    </string-array>
+    <string-array name="login_birthday">
+        <item>출생년도</item>
+        <item>Year of birth</item>
+    </string-array>
+    <string-array name="login_sex">
+        <item>성별</item>
+        <item>Sex</item>
+    </string-array>
+    <string-array name="login_phone">
+        <item>휴대전화</item>
+        <item>Mobile Number</item>
+    </string-array>
+    <string-array name="login_auto">
+        <item>자동 로그인</item>
+        <item>Remember me</item>
+    </string-array>
+    <string-array name="login_id_pw_search">
+        <item>아이디 / 비밀번호 찾기</item>
+        <item>Find your ID / Password</item>
+    </string-array>
+    <string-array name="login_id_search">
+        <item>아이디 찾기</item>
+        <item>Find user ID</item>
+    </string-array>
+    <string-array name="login_pw_search">
+        <item>비밀번호 찾기</item>
+        <item>Find password</item>
+    </string-array>
+    <string-array name="login_email">
+        <item>이메일</item>
+        <item>Email</item>
+    </string-array>
+    <string-array name="login_man">
+        <item>남</item>
+        <item>M</item>
+    </string-array>
+    <string-array name="login_woman">
+        <item>여</item>
+        <item>F</item>
+    </string-array>
+    <!-- Home -->
+    <string-array name="nihao_china">
+        <item>니하오! 중국어!</item>
+        <item>Nihao! Chinese!</item>
+    </string-array>
+    <string-array name="step_china">
+        <item>중국어 첫걸음</item>
+        <item>Basics of Chinese</item>
+    </string-array>
+    <!-- Story Main -->
+    <string-array name="story_favorite_title">
+        <item>즐겨보는 동화</item>
+        <item>Favorites</item>
+    </string-array>
+    <string-array name="story_all_title">
+        <item>리틀팍스 중국어 동화</item>
+        <item>Little Fox Chinese Stories</item>
+    </string-array>
+    <string-array name="song_all_title">
+        <item>리틀팍스 중국어 동요</item>
+        <item>Little Fox Chinese Songs</item>
+    </string-array>
+    <string-array name="text_level">
+        <item>단계</item>
+        <item>Level</item>
+    </string-array>
+    <!-- Study Data -->
+    <string-array name="study_data_intonation">
+        <item>성조</item>
+        <item>Tones</item>
+    </string-array>
+    <string-array name="study_data_syllable_back">
+        <item>운모</item>
+        <item>Finals</item>
+    </string-array>
+    <string-array name="study_data_syllable_front">
+        <item>성모</item>
+        <item>Initials</item>
+    </string-array>
+    <!-- Server Time -->
+    <string-array name="server_intro_message">
+        <item>현재 시간은</item>
+        <item>The Present Time is</item>
+    </string-array>
+    <string-array name="server_confirm">
+        <item>입니다.</item>
+        <item>.</item>
+    </string-array>
+    <string-array name="second">
+        <item>초</item>
+        <item>sec</item>
+    </string-array>
+    <!-- Intro -->
+    <string-array name="loading_progress">
+        <item>Loading...</item>
+        <item>Loading...</item>
+    </string-array>
+    <string-array name="introduce_title_1">
+        <item>중국어 학습의 새로운 경험</item>
+        <item>A New Way to Learn Chinese</item>
+    </string-array>
+    <string-array name="introduce_title_2">
+        <item>지속적인 흥미 유발</item>
+        <item>A New Story Every Day</item>
+    </string-array>
+    <string-array name="introduce_title_3">
+        <item>학습자 수준에 따른 학습 가능</item>
+        <item>Leveled Learning Curriculum</item>
+    </string-array>
+    <string-array name="introduce_message_1">
+        <item>매일 다양한 콘텐츠를\n듣고, 읽고, 말하고, 쓰기</item>
+        <item>Learn Chinese with animated\nstories and songs.</item>
+    </string-array>
+    <string-array name="introduce_message_2">
+        <item>새로운 애니메이션 콘텐츠 매일 발표</item>
+        <item>Stories with different themes are\npublished from Monday to Friday.</item>
+    </string-array>
+    <string-array name="introduce_message_3">
+        <item>단계별로 구성된 콘텐츠 제공</item>
+        <item>Learners follow a leveled curriculum \nthat develops and expands skills.</item>
+    </string-array>
+    <!-- Message -->
+    <string-array name="message_network_error">
+        <item>네트워크가 원활하지 않습니다.\n다시 시도해 주세요.</item>
+        <item>Network is unstable..\nPlease try again later.</item>
+    </string-array>
+    <string-array name="message_quiz_limit_end">
+        <item>제한된 시간이 종료되었습니다.</item>
+        <item>Your time as expired.</item>
+    </string-array>
+    <string-array name="message_quiz_limit_not_save">
+        <item>제한된 시간안에 문제를 풀지 못해 퀴즈를 저장할 수 없습니다.</item>
+        <item>Quiz cannot be saved because given time as expired.</item>
+    </string-array>
+    <string-array name="message_add_favorite">
+        <item>즐겨찾기 추가 완료</item>
+        <item>Added to Favorites</item>
+    </string-array>
+    <string-array name="message_delete_favorite">
+        <item>즐겨찾기 삭제 완료</item>
+        <item>Removed from Favorites</item>
+    </string-array>
+    <string-array name="message_selected_item_warning">
+        <item>선택한 영상이 없습니다.</item>
+        <item>No videos are selected.</item>
+    </string-array>
+    <string-array name="message_preview">
+        <item>미리보기 중 . . . </item>
+        <item>Preview . . . </item>
+    </string-array>
+    <string-array name="message_preview_end">
+        <item>미리보기가 종료되었습니다.\n전체 콘텐츠를 이용하시려면 결제해 주세요.</item>
+        <item>Preview has ended. \nTo watch all of the contents please purchase.</item>
+    </string-array>
+    <string-array name="message_preview_end_youtube">
+        <item>Youtube채널에서 무료로\n전체 콘텐츠를 이용하실 수 있습니다.</item>
+        <item>Watch our contents for free \non the official Little Fox Youtube Channel.</item>
+    </string-array>
+    <string-array name="message_input_use_email">
+        <item>아이디로 사용할 이메일 주소를 입력해주세요.</item>
+        <item>Your email address will be used as your username.</item>
+    </string-array>
+    <string-array name="message_input_error_email">
+        <item>올바른 형식의 이메일 주소를 입력해주세요.</item>
+        <item>Please enter a vaild email address.</item>
+    </string-array>
+    <string-array name="message_input_not_correct_origin">
+        <item>기존의 비밀번호가 맞지 않습니다.</item>
+        <item>Your passwords don`t match. Please try again.</item>
+    </string-array>
+    <string-array name="message_input_equal_origin">
+        <item>기존 비밀번호와 입력한 비밀번호가\n 일지하지 않습니다.</item>
+        <item>Your passwords don`t match. Please try again.</item>
+    </string-array>
+    <string-array name="message_password_not_input">
+        <item>비밀번호를 입력해주세요.</item>
+        <item>Enter your password.</item>
+    </string-array>
+    <string-array name="message_password_not_input_new">
+        <item>새 비밀번호를 입력해주세요.</item>
+        <item>Enter your new password.</item>
+    </string-array>
+    <string-array name="message_password_not_input_confirm">
+        <item>비밀번호 확인을 위해 다시 입력해주세요</item>
+        <item>Enter your password again to confirm.</item>
+    </string-array>
+    <string-array name="message_password_example">
+        <item>비밀번호는 4-10자의 숫자 혹은 영문으로 입력해주세요.</item>
+        <item>Password length must be 4-10 characters and must only contain numbers or letters.</item>
+    </string-array>
+    <string-array name="message_password_not_equal">
+        <item>비밀번호가 서로 같지 않습니다. 다시 입력해주세요.</item>
+        <item>Your passwords don`t match. Please try again.</item>
+    </string-array>
+    <string-array name="message_nickname_not_input">
+        <item>닉네임을 입력해주세요.</item>
+        <item>Enter your nickname.</item>
+    </string-array>
+    <string-array name="message_name_not_input">
+        <item>이름을 입력해주세요.</item>
+        <item>Enter your name.</item>
+    </string-array>
+    <string-array name="message_name_example">
+        <item>이름은 한글 2-8자, 영문 4-16자까지 가능합니다.</item>
+        <item>Name length must be 4-16 letters</item>
+    </string-array>
+    <string-array name="message_nickname_example">
+        <item>닉네임은 한글 2-8자, 영문·숫자 4-16자까지 가능합니다.</item>
+        <item>Nickname length must be 4-16 letters</item>
+    </string-array>
+    <string-array name="message_provision_warning">
+        <item>약관을 모두 동의 하셔야 합니다.</item>
+        <item>Agree to all.</item>
+    </string-array>
+    <string-array name="message_birthday_select">
+        <item>출생년도를 선택해주세요.</item>
+        <item>Select your year of birth.</item>
+    </string-array>
+    <string-array name="message_sex_select">
+        <item>성별을 선택해주세요.</item>
+        <item>Select your gender.</item>
+    </string-array>
+    <string-array name="message_phone_select">
+        <item>전화번호를 입력해주세요.</item>
+        <item>Enter your mobile phone number.</item>
+    </string-array>
+    <string-array name="message_select_auto_time">
+        <item>날짜 및 시간 자동 설정 , 시간대 자동설정 을 ON 해주세요.</item>
+        <item>For automatic time and date setting, please turn ON automatic time zone setting.</item>
+    </string-array>
+    <string-array name="message_success_user_sign">
+        <item>회원가입을 축하 드립니다.</item>
+        <item>Successful account registration.</item>
+    </string-array>
+    <string-array name="message_success_login">
+        <item>로그인에 성공 하셨습니다.</item>
+        <item>Log in successful.</item>
+    </string-array>
+    <string-array name="message_search_id">
+        <item>회원가입 시 등록한 이메일 주소를 \n입력해주세요.</item>
+        <item>Enter the email address used to register.</item>
+    </string-array>
+    <string-array name="message_search_password">
+        <item>비밀번호를 찾고자 하는 아이디를 \n입력해주세요.</item>
+        <item>Please enter your ID to find \nyour recover your password.</item>
+    </string-array>
+    <string-array name="message_search_result_id">
+        <item>개인정보 보호를 위해 아이디의 마지막 \n두 자리는 비공개 합니다.</item>
+        <item>For privacy purposes we do not show \nlast 2 characters of your ID.</item>
+    </string-array>
+    <string-array name="message_search_result_password">
+        <item>입력한 이메일 주소와 회원정보에 등록된 \n이메일 주소가 일치할 경우 비밀번호 \n재설정 메일이 발송됩니다.</item>
+        <item>If your email matches with the one in our system we will send you an email with the password reset.</item>
+    </string-array>
+    <string-array name="message_success_password_to_email">
+        <item>비밀번호를 재설정 할 수 있는 메일 \n전송을 완료하였습니다.</item>
+        <item>Password reset email has been sent.</item>
+    </string-array>
+    <string-array name="message_empty_id_warning">
+        <item>아이디를 입력해주세요.</item>
+        <item>Enter your ID.</item>
+    </string-array>
+    <string-array name="message_empty_password_warning">
+        <item>비밀번호를 입력해주세요.</item>
+        <item>Enter your password.</item>
+    </string-array>
+    <string-array name="message_empty_mail_warning">
+        <item>이메일을 입력해주세요.</item>
+        <item>Enter your email.</item>
+    </string-array>
+    <string-array name="message_not_equal_password">
+        <item>가입한 이메일과 입력한 이메일이 동일하지 않습니다.</item>
+        <item>Email does not match one on record.</item>
+    </string-array>
+    <string-array name="message_you_already_user">
+        <item>회원이신가요?</item>
+        <item>Existing member?</item>
+    </string-array>
+    <string-array name="message_you_not_user">
+        <item>회원이 아니신가요?</item>
+        <item>Not a member?</item>
+    </string-array>
+    <string-array name="message_child_delete">
+        <item>추가 사용자를 삭제 하시겠습니까?</item>
+        <item>Are you sure you want to remove additional user?</item>
+    </string-array>
+    <string-array name="message_login_success">
+        <item>로그인에 성공 하였습니다.</item>
+        <item>Log in successful.</item>
+    </string-array>
+    <string-array name="message_logout">
+        <item>로그아웃 하시겠습니까?</item>
+        <item>Do you want to log out?</item>
+    </string-array>
+    <string-array name="message_logout_success">
+        <item>로그아웃 되셨습니다.</item>
+        <item>Log out in successful.</item>
+    </string-array>
+    <string-array name="message_pay_not_yet">
+        <item>결제 내역이 없습니다.</item>
+        <item>You do not have any purchases.</item>
+    </string-array>
+    <string-array name="message_add_user_manage">
+        <item>추가 사용자는 3명까지 등록할 수 있습니다.\n단, 2명 이상의 동시 접속은 제한합니다.</item>
+        <item>Up to 3 additional users can be added. \nHowever, concurrent streaming is not available.</item>
+    </string-array>
+    <string-array name="message_user_modification_success">
+        <item>회원 정보가 변경 되었습니다.</item>
+        <item>Your changes have been saved.</item>
+    </string-array>
+    <string-array name="message_user_modification_fail">
+        <item>회원정보 변경에 실패 하였습니다.</item>
+        <item>Profile update failed.</item>
+    </string-array>
+    <string-array name="message_user_password_change_success">
+        <item>비밀번호가 변경 되었습니다.</item>
+        <item>Password has been successfully changed.</item>
+    </string-array>
+    <string-array name="message_user_password_change_fail">
+        <item>비밀번호 변경에 실패 하셨습니다.</item>
+        <item>Password change failed.</item>
+    </string-array>
+    <string-array name="message_user_access_fail">
+        <item>사용자 인증에 실패 하였습니다.</item>
+        <item>Failed to confirm the user.</item>
+    </string-array>
+    <string-array name="message_init_app_info_fail">
+        <item>초기 정보 인증을 실패 하였습니다.</item>
+        <item>Failed authentication.</item>
+    </string-array>
+    <string-array name="message_addchild_delete_success">
+        <item>추가 사용자 정보가 삭제 되었습니다.</item>
+        <item>Child user profile has been removed.</item>
+    </string-array>
+    <string-array name="message_addchild_add_success">
+        <item>추가 사용자 정보가 추가 되었습니다.</item>
+        <item>Child user profile has been edited.</item>
+    </string-array>
+    <string-array name="message_addchild_modification_success">
+        <item>추가 사용자 정보가 수정 되었습니다.</item>
+        <item>Child user profile has been edited.</item>
+    </string-array>
+    <string-array name="message_change_user">
+        <item>사용자가 변경되였습니다.</item>
+        <item>User was changed.</item>
+    </string-array>
+    <string-array name="message_quiz_save_record_success">
+        <item>퀴즈 결과가 저장되었습니다. \n학습기록에서 확인 가능합니다.</item>
+        <item>Your quiz score has been saved. \nYou can check your score on your Learning Log.</item>
+    </string-array>
+    <string-array name="message_pay_complete">
+        <item>결제에 성공 하셨습니다.</item>
+        <item>Subscribe successful.</item>
+    </string-array>
+    <string-array name="message_network_error_main">
+        <item>해당 페이지를 사용할 수 없습니다.</item>
+        <item>Page is not available.</item>
+    </string-array>
+    <string-array name="message_network_error_sub">
+        <item>해당 페이지가 일시적으로 다운되었거나\n네트워크 장애일 수 있습니다.\n잠시후 다시 시도해 주십시오.</item>
+        <item>This page may be temporarily down or \nexperiencing network failure. \nPlease try again later.</item>
+    </string-array>
+    <string-array name="message_network_error_sub_land">
+        <item>해당 페이지가 일시적으로 다운되었거나 네트워크 장애일 수 있습니다.\n잠시후 다시 시도해 주십시오.</item>
+        <item>This page may be temporarily down or nexperiencing network failure. \nPlease try again later.</item>
+    </string-array>
+    <string-array name="message_toast_network_error">
+        <item>네트워크가 불안정합니다.</item>
+        <item>Network is unstable.</item>
+    </string-array>
+    <string-array name="message_error_system_time">
+        <item>시간을 다시 설정해 주세요.</item>
+        <item>Please set the time again.</item>
+    </string-array>
+    <string-array name="message_storage_size_warning">
+        <item>영상을 실행할 수 없습니다. 저장소 용량을 확보하여 실행해 주세요.</item>
+        <item>Cannot play image due to insufficient storage. Please free up some space.</item>
+    </string-array>
+    <string-array name="message_change_language">
+        <item>언어를 변경하려면 앱을 다시 시작해야 합니다. 다시 시작하시겠습니까?</item>
+        <item>Restart needed to change the language. Restart now?</item>
+    </string-array>
+    <string-array name="message_change_language_eng">
+        <item>기본 언어를 영어로 바꾸시겠습니까?</item>
+        <item>Change default language to English?</item>
+    </string-array>
+    <string-array name="message_change_language_kor">
+        <item>기본 언어를 한국어로 바꾸시겠습니까?</item>
+        <item>Change default language to Korean?</item>
+    </string-array>
+    <string-array name="message_file_download_error">
+        <item>파일을 다운로드 할 수 없습니다.\n다시시도해주세요.</item>
+        <item>Network is unstable..\nPlease try again later.</item>
+    </string-array>
+    <string-array name="message_update_app">
+        <item>새로운 버젼의 앱이 출시 됐습니다.\n업데이트 하시겠습니까?</item>
+        <item>A new version of app is available. Do you want to update now?</item>
+    </string-array>
+    <string-array name="message_critical_update_app">
+        <item>중요 업데이트가 있습니다.\n원활한 앱 이용을 위해서는 반드시 업데이트 해야 합니다.</item>
+        <item>We recommend that you use the latest version of the Little Fox App. If not, there may be problems during its use.</item>
+    </string-array>
+    <string-array name="message_root_not_play">
+        <item>루팅된 디바이스에서는 사용할 수 없습니다.</item>
+        <item>The app cannot run on a rooting device.</item>
+    </string-array>
+    <string-array name="message_paid_user_available">
+        <item>유료 이용자만 사용가능 합니다.</item>
+        <item>This feature for paid users only.</item>
+    </string-array>
+    <string-array name="message_movie_loading_fail">
+        <item>동영상을 불러올 수 없습니다.</item>
+        <item>Unable to load the video.</item>
+    </string-array>
+    <string-array name="message_payment_tax">
+        <item>결제 금액은 국가에 따라 부가세가 가산될 수 있습니다</item>
+        <item>Purchase amount can vary based on each country\`s tax regulation.</item>
+    </string-array>
+    <string-array name="message_longtime_play_warning">
+        <item>오랜 시간 동안 영상을 보고 있는 중입니다. 잠깐 쉬는건 어떠실까요? 영상을 계속 보시겠습니까?</item>
+        <item>You are watching movie for a long time. Would you like to take a rest for a while? Do you want to continue watching movie?</item>
+    </string-array>
+    <string-array name="message_caption_information_not_have_warning">
+        <item>자막을 불러올 수 없습니다.</item>
+        <item>Unable to load the caption file.</item>
+    </string-array>
+    <!-- Quiz -->
+    <string-array name="quiz_result_text_exellent">
+        <item>Excellent!</item>
+        <item>Excellent!</item>
+    </string-array>
+    <string-array name="quiz_result_text_verygood">
+        <item>Very Good!</item>
+        <item>Very Good!</item>
+    </string-array>
+    <string-array name="quiz_result_text_good">
+        <item>Good!</item>
+        <item>Good!</item>
+    </string-array>
+    <string-array name="quiz_result_text_pool">
+        <item>Try Again</item>
+        <item>Try Again</item>
+    </string-array>
+    <string-array name="message_mandatory_input">
+        <item>* 항목은 필수 입력 사항입니다.</item>
+        <item>* Please fill out fields.</item>
+    </string-array>
+    <string-array name="message_require">
+        <item>(필수 입력)</item>
+        <item>(Required)</item>
+    </string-array>
+</resources>

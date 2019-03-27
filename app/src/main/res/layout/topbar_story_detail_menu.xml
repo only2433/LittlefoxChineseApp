@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="144"
+        app:scale_base_width="1080" >
+
+        <ImageView
+            android:id="@+id/top_menu_title_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ird_and_kip_tex"
+            app:scale_height="144"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_width="1080" />
+        
+        <ImageView 
+           	android:id="@+id/top_menu_back_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="144"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_width="138"/>
+
+        <ImageView
+            android:id="@+id/top_menu_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_pre"
+            app:scale_height="57"
+            app:scale_left="42"
+            app:scale_top="46"
+            app:scale_width="54" />
+
+        <ImageView
+            android:id="@+id/top_menu_info_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_info"
+            app:scale_height="57"
+            app:scale_left="1012"
+            app:scale_top="50"
+            app:scale_width="28" />
+
+        <ImageView
+            android:id="@+id/top_menu_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="73"
+            app:scale_left="987"
+            app:scale_top="40"
+            app:scale_width="73" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

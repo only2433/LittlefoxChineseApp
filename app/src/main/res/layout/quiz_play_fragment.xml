@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@color/color_ffffff">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_height="926"
+        app:scale_base_width="1920" >
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_fbfbfb"
+            app:scale_top="267"
+            app:scale_left="0"
+            app:scale_width="1920"
+            app:scale_height="486"/>
+      	
+        <ImageView
+            	android:id="@+id/question_next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/phone_btn_next"
+                app:scale_height="100"
+                app:scale_left="810"
+                app:scale_top="790"
+                app:scale_width="300" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+    
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/question_status_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_ffffff"
+        app:scale_base_height="267"
+        app:scale_base_width="1920" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@color/color_eaeaea"
+            app:scale_height="2"
+            app:scale_left="0"
+            app:scale_top="97"
+            app:scale_width="1920" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@color/color_f4f4f4"
+            app:scale_height="166"
+            app:scale_left="0"
+            app:scale_top="99"
+            app:scale_width="1920" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@color/color_eaeaea"
+            app:scale_height="2"
+            app:scale_left="0"
+            app:scale_top="265"
+            app:scale_width="1920" />
+
+        <TextView
+            android:id="@+id/question_index_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|end"
+            android:text="1"
+            android:textColor="@color/color_000000"
+            app:scale_height="166"
+            app:scale_left="97"
+            app:scale_textsize="78"
+            app:scale_top="99"
+            app:scale_width="100" />
+
+        <TextView
+            android:id="@+id/question_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/color_444444"
+            app:scale_height="166"
+            app:scale_left="220"
+            app:scale_textsize="42"
+            app:scale_top="99"
+            app:scale_width="1300" />
+
+        <ImageView
+            android:id="@+id/question_play_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_speaker"
+            app:scale_height="82"
+            app:scale_left="1696"
+            app:scale_top="141"
+            app:scale_width="78" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/question_image_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/question_status_layout"
+        android:visibility="visible"
+        app:scale_base_height="486"
+        app:scale_base_width="1920" >
+        
+        <ImageView
+            android:id="@+id/image_index_first_not_select_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_cdcdcd"
+            android:alpha="0.5"
+            android:visibility="visible"
+            app:scale_height="368"
+            app:scale_left="426"
+            app:scale_top="59"
+            app:scale_width="496" /> 
+
+        <ImageView
+            android:id="@+id/image_index_first_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            app:scale_height="364"
+            app:scale_left="428"
+            app:scale_top="61"
+            app:scale_width="492" />
+        
+
+        <ImageView
+            android:id="@+id/image_index_second_not_select_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_cdcdcd"
+            android:alpha="0.5"
+            android:visibility="visible"
+            app:scale_height="368"
+            app:scale_left="998"
+            app:scale_top="59"
+            app:scale_width="496" /> 
+            
+        
+        <ImageView
+            android:id="@+id/image_index_second_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            app:scale_height="364"
+            app:scale_left="1000"
+            app:scale_top="61"
+            app:scale_width="492" />
+        
+      
+           
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+    
+        <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/question_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_below="@id/question_status_layout"
+        app:scale_base_height="486"
+        app:scale_base_width="1920" >
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+</RelativeLayout>

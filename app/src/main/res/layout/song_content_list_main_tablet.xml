@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/title_base_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_d8232a"
+            app:scale_base_height="100"
+            app:scale_base_width="1920" >
+
+            <TextView
+                android:id="@+id/song_content_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_white"
+                app:scale_height="100"
+                app:scale_left="360"
+                app:scale_textsize="30"
+                app:scale_top="0"
+                app:scale_width="1200" />
+
+            <ImageView
+                android:id="@+id/song_content_list_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/player_btn_close"
+                app:scale_height="36"
+                app:scale_left="1840"
+                app:scale_top="30"
+                app:scale_width="36" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_ffffff"
+            app:scale_base_height="180"
+            app:scale_base_width="1920" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/song_round"
+                app:scale_height="120"
+                app:scale_left="26"
+                app:scale_top="30"
+                app:scale_width="1856" />
+
+            <TextView
+                android:id="@+id/song_content_list_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_ffffff"
+                app:scale_height="120"
+                app:scale_left="70"
+                app:scale_textsize="30"
+                app:scale_top="30"
+                app:scale_width="1816" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/song_detail_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_ffffff" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/progress_wheel_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            app:scale_base_height="150"
+            app:scale_base_width="1920" >
+
+            <com.littlefox.library.view.dialog.ProgressWheel
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:matProg_barColor="@color/color_ed433e"
+                app:matProg_progressIndeterminate="true"
+                app:scale_height="150"
+                app:scale_left="885"
+                app:scale_top="0"
+                app:scale_width="150" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </RelativeLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/song_detail_choice_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:scale_base_height="80"
+        app:scale_base_width="1920" >
+
+        <ImageView
+            android:id="@+id/song_detail_play_width_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_a7a7a7"
+            app:scale_height="2"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_width="1920" />
+
+        <TextView
+            android:id="@+id/song_detail_first_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_story_content_list_choice"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            app:scale_height="78"
+            app:scale_left="0"
+            app:scale_textsize="28"
+            app:scale_top="2"
+            app:scale_width="959" />
+
+        <ImageView
+            android:id="@+id/song_detail_play_height_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_a7a7a7"
+            app:scale_height="80"
+            app:scale_left="959"
+            app:scale_top="0"
+            app:scale_width="2" />
+
+        <TextView
+            android:id="@+id/song_detail_second_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_story_content_list_choice"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            app:scale_height="78"
+            app:scale_left="961"
+            app:scale_textsize="28"
+            app:scale_top="2"
+            app:scale_width="959" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</android.support.design.widget.CoordinatorLayout>

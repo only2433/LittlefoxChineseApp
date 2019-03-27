@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e24c4d"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="260"
+        app:scale_base_width="1080" >
+
+        <TextView
+            android:id="@+id/introduce_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_ffffff"
+            android:textStyle="bold"
+            app:scale_height="90"
+            app:scale_left="0"
+            app:scale_textsize="70"
+            app:scale_top="0"
+            app:scale_width="1080" />
+
+        <TextView
+            android:id="@+id/introduce_message_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/color_ffffff"
+            android:textStyle="bold"
+            app:scale_height="130"
+            app:scale_left="0"
+            app:scale_textsize="50"
+            app:scale_top="130"
+            app:scale_width="1080" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1116"
+        app:scale_base_width="1080" >
+
+        <ImageView
+            android:id="@+id/introduce_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/intro_img01"
+            app:scale_height="937"
+            app:scale_left="158"
+            app:scale_top="146"
+            app:scale_width="756" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/addchild_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="190"
+        app:scale_base_width="1920" >
+
+        <TextView
+            android:id="@+id/addchild_message_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_b1b1b1"
+            app:scale_height="70"
+            app:scale_left="632"
+            app:scale_textsize="26"
+            app:scale_top="100"
+            app:scale_width="656" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <ScrollView
+        android:id="@+id/addchild_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/addchild_base_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:id="@+id/addchild_add_button_base_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:scale_base_height="80"
+                app:scale_base_width="1920" >
+
+                <ImageView
+                    android:id="@+id/addchild_add_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_gray1"
+                    app:scale_height="80"
+                    app:scale_left="632"
+                    app:scale_top="0"
+                    app:scale_width="656" />
+                
+                <TextView
+                    android:id="@+id/addchild_add_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_000000"
+                    app:scale_height="80"
+                    app:scale_left="916"
+                    app:scale_textsize="28"
+                    app:scale_top="0"
+                    app:scale_width="70" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_add"
+                    app:scale_height="24"
+                    app:scale_left="980"
+                    app:scale_top="28"
+                    app:scale_width="24" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

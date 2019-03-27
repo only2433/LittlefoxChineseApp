@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewPagerLinkView">
+        <attr name="link_base_width" format ="reference|integer"/>
+         <attr name="link_base_height" format ="reference|integer"/>
+        <attr name="link_image_width" format ="reference|integer"/>
+        <attr name="link_image_height" format ="reference|integer"/>
+        <attr name="link_indicator_size" format ="reference|integer"/>
+    	<attr name="link_indicator_top" format ="reference|integer"/>
+     </declare-styleable>	
+     
+   	<declare-styleable name ="PaddingDrawableEditText">
+   	    <attr name="pd_padding_left" format ="reference|integer"/>
+   	    <attr name ="pd_add_image" format ="reference|integer"/>
+   	    <attr name ="pd_drawable_padding" format ="reference|integer"/>
+   	    <attr name = "pd_image_width"  format ="reference|integer"/>
+   	    <attr name = "pd_image_height"  format ="reference|integer"/>
+   	</declare-styleable>
+    	
+    	
+   
+    
+    <declare-styleable name="ScalablePaddingEditText">
+        <attr name="padding_left" format ="reference|integer"/>
+        <attr name="padding_top" format ="reference|integer"/>
+        <attr name="padding_right" format ="reference|integer"/>
+        <attr name="padding_bottom" format ="reference|integer"/>
+    </declare-styleable>
+    
+</resources>

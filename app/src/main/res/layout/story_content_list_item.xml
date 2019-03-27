@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="@color/color_ffffff">
+    
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/content_list_item_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="220"
+        app:scale_base_width="1080" >
+        
+        <ImageView
+            android:id="@+id/content_list_item_click_territory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="180"
+            app:scale_left="40"
+            app:scale_top="20"
+            app:scale_width="1040" />
+        
+        <ImageView
+            android:id="@+id/content_list_item_thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/thumbnail_bird_and_kip"
+            app:scale_height="180"
+            app:scale_left="40"
+            app:scale_top="20"
+            app:scale_width="252" />
+        
+        <ImageView
+            android:id="@+id/content_list_item_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/check_off"
+            android:visibility="gone"
+            app:scale_width="62"
+            app:scale_height="62"
+            app:scale_top ="35"
+            app:scale_left="55"/>
+        
+        <TextView
+            android:id="@+id/content_list_item_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/color_68badb"
+            android:text=""
+            app:scale_height="137"
+            app:scale_left="292"
+            app:scale_textsize="40"
+            app:scale_top="63"
+            app:scale_width="100"/>
+        
+         <com.littlefox.library.view.text.SeparateTextView
+            android:id="@+id/content_list_item_content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/color_403f4e"
+            app:scale_height="180"
+            app:scale_left="382"
+            app:scale_textsize="42"
+            app:scale_top="20"
+            app:scale_width="450" />
+
+        <ImageView 
+            android:id="@+id/content_list_item_quiz_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_quiz_button"
+            app:scale_top="42"
+            app:scale_left="822"
+            app:scale_width="134"
+            app:scale_height="134"/>
+        
+        <ImageView 
+            android:id="@+id/content_list_item_origin_text_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_origin_text_button"
+            app:scale_top="42"
+            app:scale_left="946"
+            app:scale_width="134"
+            app:scale_height="134"/>        
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+    
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/content_list_item_footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white"
+        app:scale_base_height="134"
+        app:scale_base_width="1080" >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/footer_logo132"
+            app:scale_width="187"
+            app:scale_height="97"
+            app:scale_top="18"
+            app:scale_left="446"/>
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

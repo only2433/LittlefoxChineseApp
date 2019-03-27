@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_height="727"
+        app:scale_base_width="1920" >
+
+        <ImageView
+            android:id="@+id/quiz_result_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_excellent"
+            app:scale_height="344"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_width="1920" />
+
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/correct_blue"
+            app:scale_base_height="382"
+            app:scale_base_width="1119"
+            app:scale_height="382"
+            app:scale_left="400"
+            app:scale_top="345"
+            app:scale_width="1119" >
+
+            <ImageView
+                android:id="@+id/quiz_title_correct_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_correct"
+                app:scale_height="105"
+                app:scale_left="118"
+                app:scale_top="35"
+                app:scale_width="104" />
+            
+             <TextView
+                android:id="@+id/quiz_title_correct_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/btn_correct"
+                android:textColor="@color/color_3b3b3b"
+                app:scale_height="105"
+                app:scale_left="244"
+                app:scale_textsize="50"
+                app:scale_top="35"
+                app:scale_width="200" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_incorrect"
+                app:scale_height="105"
+                app:scale_left="670"
+                app:scale_top="35"
+                app:scale_width="104" />
+            
+                        <TextView
+                android:id="@+id/quiz_title_incorrect_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/btn_incorrect"
+                android:textColor="@color/color_3b3b3b"
+                app:scale_height="105"
+                app:scale_left="794"
+                app:scale_textsize="50"
+                app:scale_top="35"
+                app:scale_width="220" />
+
+            <TextView
+                android:id="@+id/quiz_result_correct_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/correct_white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/color_51586d"
+                app:scale_height="190"
+                app:scale_left="18"
+                app:scale_textsize="102"
+                app:scale_top="175"
+                app:scale_width="520" />
+            
+                       
+
+            <TextView
+                android:id="@+id/quiz_result_incorrect_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/correct_white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/color_51586d"
+                app:scale_height="190"
+                app:scale_left="580"
+                app:scale_textsize="102"
+                app:scale_top="175"
+                app:scale_width="520" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/blue_line"
+                app:scale_height="348"
+                app:scale_left="555"
+                app:scale_top="17"
+                app:scale_width="6" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        app:scale_base_height="153"
+        app:scale_base_width="1920" >
+
+        <ImageView
+            android:id="@+id/quiz_save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/result_btnbg"
+            app:scale_height="100"
+            app:scale_left="715"
+            app:scale_top="53"
+            app:scale_width="217" />
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/result_btn_save"
+            app:scale_width="72"
+            app:scale_height="65"
+            app:scale_left="787"
+            app:scale_top="70"/>
+        
+        <ImageView
+            android:id="@+id/quiz_replay_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/result_btnbg"
+            app:scale_height="100"
+            app:scale_left="990"
+            app:scale_top="53"
+            app:scale_width="217" />
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/result_btn_again"
+            app:scale_width="72"
+            app:scale_height="65"
+            app:scale_left="1062"
+            app:scale_top="70"/>        
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

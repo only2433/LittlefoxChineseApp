@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/myinfo_pay_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="196"
+        app:scale_base_width="1920" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_edeef2"
+            app:scale_height="160"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_width="1920" />
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/myinfo_pay_complete_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:scale_base_height="160"
+            app:scale_base_width="1920"
+            app:scale_height="160"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_width="1920" >
+
+            <TextView
+                android:id="@+id/pay_complete_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_000000"
+                app:scale_height="50"
+                app:scale_left="632"
+                app:scale_textsize="40"
+                app:scale_top="42"
+                app:scale_width="800" />
+
+            <TextView
+                android:id="@+id/pay_complete_day_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_d8232a"
+                app:scale_height="60"
+                app:scale_left="632"
+                app:scale_textsize="28"
+                app:scale_top="102"
+                app:scale_width="800" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/myinfo_pay_not_yet_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:scale_base_height="160"
+            app:scale_base_width="1920"
+            app:scale_height="160"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_width="1920" >
+
+            <TextView
+                android:id="@+id/pay_not_yet_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_d8232a"
+                app:scale_height="160"
+                app:scale_left="632"
+                app:scale_textsize="28"
+                app:scale_top="0"
+                app:scale_width="800" />
+
+            <TextView
+                android:id="@+id/pay_enter_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_red_button"
+                android:gravity="center"
+                android:textColor="@color/color_white"
+                app:scale_height="85"
+                app:scale_left="1078"
+                app:scale_textsize="32"
+                app:scale_top="38"
+                app:scale_width="210" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/top_margin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:scale_base_height="80"
+        app:scale_base_width="1920" >
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="100"
+        app:scale_base_width="1920" >
+
+        <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+            android:id="@+id/myinfo_id_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_white"
+            android:gravity="center_vertical"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/color_000000"
+            app:pd_add_image="@drawable/icon_mail"
+            app:pd_drawable_padding="22"
+            app:pd_image_height="45"
+            app:pd_image_width="54"
+            app:pd_padding_left="22"
+            app:scale_height="80"
+            app:scale_left="632"
+            app:scale_textsize="32"
+            app:scale_top="0"
+            app:scale_width="656" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="420"
+        app:scale_base_width="1920" >
+
+        <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+            android:id="@+id/myinfo_nickname_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_white"
+            android:gravity="center_vertical"
+            android:inputType="text"
+            android:textColor="@color/color_000000"
+            app:pd_add_image="@drawable/icon_nickname"
+            app:pd_drawable_padding="22"
+            app:pd_image_height="45"
+            app:pd_image_width="54"
+            app:pd_padding_left="22"
+            app:scale_height="80"
+            app:scale_left="632"
+            app:scale_textsize="32"
+            app:scale_top="0"
+            app:scale_width="656" />
+
+        <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+            android:id="@+id/myinfo_name_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_white"
+            android:gravity="center_vertical"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textColor="@color/color_000000"
+            app:pd_add_image="@drawable/icon_id"
+            app:pd_drawable_padding="22"
+            app:pd_image_height="45"
+            app:pd_image_width="54"
+            app:pd_padding_left="22"
+            app:scale_height="80"
+            app:scale_left="632"
+            app:scale_textsize="32"
+            app:scale_top="100"
+            app:scale_width="656" />
+
+        <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+            android:id="@+id/myinfo_calendar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_white"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_000000"
+            app:pd_add_image="@drawable/icon_cake"
+            app:pd_drawable_padding="22"
+            app:pd_image_height="45"
+            app:pd_image_width="54"
+            app:pd_padding_left="22"
+            app:scale_height="80"
+            app:scale_left="632"
+            app:scale_textsize="32"
+            app:scale_top="200"
+            app:scale_width="656" />
+
+        <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+            android:id="@+id/myinfo_phone_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_white"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_000000"
+            app:pd_add_image="@drawable/icon_phon"
+            app:pd_drawable_padding="22"
+            app:pd_image_height="45"
+            app:pd_image_width="54"
+            app:pd_padding_left="22"
+            app:scale_height="80"
+            app:scale_left="632"
+            app:scale_textsize="32"
+            app:scale_top="300"
+            app:scale_width="656" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="80"
+        app:scale_base_width="1920" >
+
+        <TextView
+            android:id="@+id/myinfo_change_password_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_yellow_button"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            app:scale_height="80"
+            app:scale_left="632"
+            app:scale_textsize="32"
+            app:scale_top="0"
+            app:scale_width="320" />
+
+        <TextView
+            android:id="@+id/myinfo_info_modification_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_red_button"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            app:scale_height="80"
+            app:scale_left="968"
+            app:scale_textsize="32"
+            app:scale_top="0"
+            app:scale_width="320" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

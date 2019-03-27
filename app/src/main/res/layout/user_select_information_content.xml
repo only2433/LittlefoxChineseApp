@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ssomai.android.scalablelayout.ScalableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/user_select_add_base_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_d8232a"
+    android:orientation="vertical"
+    app:scale_base_height="196"
+    app:scale_base_width="826" >
+
+    <ImageView
+        android:id="@+id/user_select_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white"
+        app:scale_height="196"
+        app:scale_left="14"
+        app:scale_top="0"
+        app:scale_width="798" />
+
+    <ImageView
+        android:id="@+id/user_select_add_choice_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/check_off"
+        app:scale_height="62"
+        app:scale_left="50"
+        app:scale_top="68"
+        app:scale_width="62" />
+
+    <TextView
+        android:id="@+id/user_select_add_user_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_text_card_text_color"
+        app:scale_height="40"
+        app:scale_left="174"
+        app:scale_textsize="35"
+        app:scale_top="50"
+        app:scale_width="400" />
+
+    <TextView
+        android:id="@+id/user_select_add_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textColor="@color/color_black"
+        app:scale_height="65"
+        app:scale_left="174"
+        app:scale_textsize="48"
+        app:scale_top="100"
+        app:scale_width="400" />
+
+    <ImageView
+        android:id="@+id/user_select_add_user_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_main_navigation_line_color"
+        app:scale_height="2"
+        app:scale_left="14"
+        app:scale_top="194"
+        app:scale_width="798" />
+
+</com.ssomai.android.scalablelayout.ScalableLayout>

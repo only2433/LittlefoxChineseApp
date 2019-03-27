@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:oneshot="false">
+    
+    <item android:drawable="@drawable/loading_character01_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character02_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character03_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character04_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character05_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character06_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character07_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character08_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character09_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character10_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character11_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character12_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character13_tablet" android:duration ="70"/>
+    <item android:drawable="@drawable/loading_character14_tablet" android:duration ="70"/>
+
+</animation-list>

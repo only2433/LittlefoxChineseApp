@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/pay_main_base_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_d8232a"
+            app:scale_base_height="144"
+            app:scale_base_width="1080" >
+
+            <TextView
+                android:id="@+id/pay_main_menu_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_white"
+                app:scale_height="144"
+                app:scale_left="60"
+                app:scale_textsize="56"
+                app:scale_top="0"
+                app:scale_width="600" />
+
+            <ImageView
+                android:id="@+id/pay_main_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/player_btn_close"
+                app:scale_height="58"
+                app:scale_left="997"
+                app:scale_top="43"
+                app:scale_width="57" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/pay_feature_image_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="204"
+            app:scale_base_width="1080" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/payment_topimg"
+                app:scale_height="204"
+                app:scale_left="0"
+                app:scale_top="0"
+                app:scale_width="1080" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+        
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="508"
+            app:scale_base_width="1080" >
+            <ImageView
+                android:id="@+id/pay_information_message_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/payment_text"
+                app:scale_height="508"
+                app:scale_left="0"
+                app:scale_top="0"
+                app:scale_width="1080" />            
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+        
+		<com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="450"
+            app:scale_base_width="1080" >
+
+            <ImageView
+                android:id="@+id/pay_layout_subscription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/payment_recurring"
+                app:scale_height="424"
+                app:scale_left="0"
+                app:scale_top="26"
+                app:scale_width="1080" />
+
+            <TextView
+                android:id="@+id/pay_subscription_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_e24c4d"
+                app:scale_height="60"
+                app:scale_left="0"
+                app:scale_textsize="40"
+                app:scale_top="182"
+                app:scale_width="1080" />
+            
+            <com.littlefox.library.view.text.SeparateTextView
+                android:id="@+id/pay_price_subscription_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_white"
+                app:scale_height="190"
+                app:scale_left="0"
+                app:scale_textsize="40"
+                app:scale_top="262"
+                app:scale_width="1080"
+                />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="450"
+            app:scale_base_width="1080" >
+
+            <ImageView
+                android:id="@+id/pay_layout_30days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/payment_1month"
+                app:scale_height="424"
+                app:scale_left="0"
+                app:scale_top="26"
+                app:scale_width="1080" />
+
+            <TextView
+                android:id="@+id/pay_30days_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_18b5b2"
+                app:scale_height="60"
+                app:scale_left="0"
+                app:scale_textsize="40"
+                app:scale_top="182"
+                app:scale_width="1080" />
+            
+             <com.littlefox.library.view.text.SeparateTextView
+                android:id="@+id/pay_price_30days_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_white"
+                app:scale_height="190"
+                app:scale_left="0"
+                app:scale_textsize="40"
+                app:scale_top="262"
+                app:scale_width="1080"
+                />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

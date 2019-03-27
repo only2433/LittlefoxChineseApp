@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="96"
+        app:scale_base_width="1080"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="174"
+        app:scale_base_width="1080" >
+
+        <TextView
+            android:id="@+id/sign_warning_id_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/color_b1b1b1"
+            app:scale_height="52"
+            app:scale_left="72"
+            app:scale_textsize="34"
+            app:scale_top="0"
+            app:scale_width="936" />
+        
+	<com.littlefox.chinese.edu.view.PaddingDrawableEditText 
+	    	android:id="@+id/sign_id_edit"
+	    	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_input"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_000000"
+            android:inputType="textEmailAddress"
+            app:pd_padding_left="22"
+            app:pd_add_image="@drawable/icon_mail"
+            app:pd_drawable_padding="22"
+            app:pd_image_width="76"
+            app:pd_image_height="64"
+            app:scale_height="114"
+            app:scale_left="72"
+            app:scale_textsize="48"
+            app:scale_top="52"
+            app:scale_width="936" />        
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="410"
+        app:scale_base_width="1080" >
+
+        <TextView
+            android:id="@+id/sign_warning_pw_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|bottom"
+            android:textColor="@color/color_b1b1b1"
+            app:scale_height="87"
+            app:scale_left="72"
+            app:scale_textsize="34"
+            app:scale_top="0"
+            app:scale_width="936" />
+        
+          <com.littlefox.chinese.edu.view.PaddingDrawableEditText 
+	    	android:id="@+id/sign_pw_edit"
+	    	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_input"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_000000"
+            android:inputType="textPassword"
+            app:pd_padding_left="22"
+            app:pd_add_image="@drawable/icon_lock"
+            app:pd_drawable_padding="22"
+            app:pd_image_width="76"
+            app:pd_image_height="64"
+            app:scale_height="114"
+            app:scale_left="72"
+            app:scale_textsize="48"
+            app:scale_top="92"
+            app:scale_width="936" />       
+        
+          <com.littlefox.chinese.edu.view.PaddingDrawableEditText 
+	    	android:id="@+id/sign_pw_confirm_edit"
+	    	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_input"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_000000"
+            android:inputType="textPassword"
+            app:pd_padding_left="22"
+            app:pd_add_image="@drawable/icon_lock"
+            app:pd_drawable_padding="22"
+            app:pd_image_width="76"
+            app:pd_image_height="64"
+            app:scale_height="114"
+            app:scale_left="72"
+            app:scale_textsize="48"
+            app:scale_top="236"
+            app:scale_width="936" />           
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="216"
+        app:scale_base_width="1080" >
+
+        <TextView
+            android:id="@+id/sign_warning_nickname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/color_b1b1b1"
+            app:scale_height="52"
+            app:scale_left="72"
+            app:scale_textsize="34"
+            app:scale_top="0"
+            app:scale_width="936" />
+        
+         <com.littlefox.chinese.edu.view.PaddingDrawableEditText 
+	    	android:id="@+id/sign_nickname_edit"
+	    	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_input"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_000000"
+            android:inputType="text"
+            app:pd_padding_left="22"
+            app:pd_add_image="@drawable/icon_nickname"
+            app:pd_drawable_padding="22"
+            app:pd_image_width="76"
+            app:pd_image_height="64"
+            app:scale_height="114"
+            app:scale_left="72"
+            app:scale_textsize="48"
+            app:scale_top="52"
+            app:scale_width="936" />        
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+    
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ffffff"
+        app:scale_base_height="120"
+        app:scale_base_width="1080" >
+
+        <TextView
+            android:id="@+id/sign_confirm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_red_button"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            app:scale_height="120"
+            app:scale_left="72"
+            app:scale_textsize="48"
+            app:scale_top="0"
+            app:scale_width="936" />
+    </com.ssomai.android.scalablelayout.ScalableLayout> 
+</LinearLayout>

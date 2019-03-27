@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/top_margin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:scale_base_height="80"
+        app:scale_base_width="1920" >
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_height="628"
+        app:scale_base_width="1920" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_gray1"
+            app:scale_height="488"
+            app:scale_left="632"
+            app:scale_top="100"
+            app:scale_width="656" />
+
+        <TextView
+            android:id="@+id/addchild_convert_child_titile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/color_000000"
+            app:scale_height="40"
+            app:scale_left="652"
+            app:scale_textsize="28"
+            app:scale_top="134"
+            app:scale_width="420" />
+
+        <com.littlefox.library.view.text.SeparateTextView
+            android:id="@+id/addchild_convert_warning_nickname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/color_b1b1b1"
+            app:scale_height="40"
+            app:scale_left="652"
+            app:scale_textsize="22"
+            app:scale_top="198"
+            app:scale_width="600" />
+
+        <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+            android:id="@+id/addchild_convert_nickname_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_white"
+            android:gravity="center_vertical"
+            android:inputType="text"
+            android:textColor="@color/color_000000"
+            app:pd_add_image="@drawable/icon_nickname"
+            app:pd_drawable_padding="22"
+            app:pd_image_height="45"
+            app:pd_image_width="54"
+            app:pd_padding_left="22"
+            app:scale_height="80"
+            app:scale_left="652"
+            app:scale_textsize="32"
+            app:scale_top="238"
+            app:scale_width="616" />
+
+        <TextView
+            android:id="@+id/addchild_convert_warning_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/color_b1b1b1"
+            app:scale_height="40"
+            app:scale_left="652"
+            app:scale_textsize="22"
+            app:scale_top="348"
+            app:scale_width="600" />
+
+        <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+            android:id="@+id/addchild_convert_name_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_white"
+            android:gravity="center_vertical"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textColor="@color/color_000000"
+            app:pd_add_image="@drawable/icon_id"
+            app:pd_drawable_padding="22"
+            app:pd_image_height="45"
+            app:pd_image_width="54"
+            app:pd_padding_left="22"
+            app:scale_height="80"
+            app:scale_left="652"
+            app:scale_textsize="32"
+            app:scale_top="388"
+            app:scale_width="616" />
+
+        <com.littlefox.chinese.edu.view.PaddingDrawableEditText
+            android:id="@+id/addchild_convert_calendar_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_white"
+            android:focusable="false"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_000000"
+            app:pd_add_image="@drawable/icon_cake"
+            app:pd_drawable_padding="22"
+            app:pd_image_height="45"
+            app:pd_image_width="54"
+            app:pd_padding_left="22"
+            app:scale_height="80"
+            app:scale_left="652"
+            app:scale_textsize="32"
+            app:scale_top="488"
+            app:scale_width="616" />
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="80"
+        app:scale_base_width="1920" >
+
+        <TextView
+            android:id="@+id/addchild_convert_cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_cancel_button"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            app:scale_height="80"
+            app:scale_left="632"
+            app:scale_textsize="32"
+            app:scale_top="0"
+            app:scale_width="320" />
+
+        <TextView
+            android:id="@+id/addchild_convert_save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_red_button"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            app:scale_height="80"
+            app:scale_left="968"
+            app:scale_textsize="32"
+            app:scale_top="0"
+            app:scale_width="320" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

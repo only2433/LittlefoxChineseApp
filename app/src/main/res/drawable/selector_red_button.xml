@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- When selected, use grey -->
+    <item android:drawable="@color/color_main_navigation_drawer_login_pressed"
+          android:state_pressed="true" />
+    <!-- When not selected, use white-->
+    <item android:drawable="@color/color_main_navigation_drawer_login_normal" />
+</selector>
+

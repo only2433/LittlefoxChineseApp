@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ssomai.android.scalablelayout.ScalableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:scale_base_height="1920"
+    app:scale_base_width="886" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_main_navigation_drawer_bg"
+        app:scale_base_height="1760"
+        app:scale_base_width="886"
+        app:scale_height="1760"
+        app:scale_left="0"
+        app:scale_top="160"
+        app:scale_width="886" />
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white"
+        app:scale_base_height="1626"
+        app:scale_base_width="806"
+        app:scale_height="1626"
+        app:scale_left="40"
+        app:scale_top="182"
+        app:scale_width="806" />
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/navi_user_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_main_navigation_drawer_login_normal"
+        android:visibility="gone"
+        app:scale_base_height="165"
+        app:scale_base_width="886"
+        app:scale_height="165"
+        app:scale_left="0"
+        app:scale_top="0"
+        app:scale_width="886" >
+
+        <TextView
+            android:id="@+id/navi_user_type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_ffffff"
+            app:scale_height="40"
+            app:scale_left="80"
+            app:scale_textsize="30"
+            app:scale_top="35"
+            app:scale_width="200" />
+
+        <TextView
+            android:id="@+id/navi_user_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_ffffff"
+            app:scale_height="64"
+            app:scale_left="80"
+            app:scale_textsize="43"
+            app:scale_top="75"
+            app:scale_width="400" />
+
+        <ImageView
+            android:id="@+id/button_navi_user_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_profile_btn_tablet"
+            app:scale_height="74"
+            app:scale_left="740"
+            app:scale_top="43"
+            app:scale_width="74" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/navi_content_present_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="184"
+        app:scale_base_width="746"
+        app:scale_height="184"
+        app:scale_left="40"
+        app:scale_top="182"
+        app:scale_width="746" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_icon00"
+            app:scale_height="68"
+            app:scale_left="56"
+            app:scale_top="68"
+            app:scale_width="78" />
+
+        <TextView
+            android:id="@+id/navi_menu_content_present_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_333333"
+            app:scale_height="68"
+            app:scale_left="186"
+            app:scale_textsize="45"
+            app:scale_top="68"
+            app:scale_width="450" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_arrow"
+            app:scale_height="35"
+            app:scale_left="707"
+            app:scale_top="76"
+            app:scale_width="20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_main_navigation_line_color"
+            app:scale_height="3"
+            app:scale_left="40"
+            app:scale_top="181"
+            app:scale_width="726" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/navi_my_study_record_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="184"
+        app:scale_base_width="746"
+        app:scale_height="184"
+        app:scale_left="40"
+        app:scale_top="366"
+        app:scale_width="746" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_icon06"
+            app:scale_height="68"
+            app:scale_left="56"
+            app:scale_top="68"
+            app:scale_width="78" />
+
+        <TextView
+            android:id="@+id/navi_menu_study_record_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_333333"
+            app:scale_height="68"
+            app:scale_left="186"
+            app:scale_textsize="45"
+            app:scale_top="68"
+            app:scale_width="450" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_arrow"
+            app:scale_height="35"
+            app:scale_left="707"
+            app:scale_top="76"
+            app:scale_width="20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_main_navigation_line_color"
+            app:scale_height="3"
+            app:scale_left="40"
+            app:scale_top="181"
+            app:scale_width="726" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/navi_my_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="184"
+        app:scale_base_width="746"
+        app:scale_height="184"
+        app:scale_left="40"
+        app:scale_top="550"
+        app:scale_width="746" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_icon01"
+            app:scale_height="68"
+            app:scale_left="56"
+            app:scale_top="68"
+            app:scale_width="78" />
+
+        <TextView
+            android:id="@+id/navi_menu_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_333333"
+            app:scale_height="68"
+            app:scale_left="186"
+            app:scale_textsize="45"
+            app:scale_top="68"
+            app:scale_width="450" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_arrow"
+            app:scale_height="35"
+            app:scale_left="707"
+            app:scale_top="76"
+            app:scale_width="20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_main_navigation_line_color"
+            app:scale_height="3"
+            app:scale_left="40"
+            app:scale_top="181"
+            app:scale_width="726" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/navi_add_user_manage_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="184"
+        app:scale_base_width="746"
+        app:scale_height="184"
+        app:scale_left="40"
+        app:scale_top="734"
+        app:scale_width="746" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_icon02"
+            app:scale_height="68"
+            app:scale_left="56"
+            app:scale_top="68"
+            app:scale_width="78" />
+
+        <TextView
+            android:id="@+id/navi_menu_add_user_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_333333"
+            app:scale_height="68"
+            app:scale_left="186"
+            app:scale_textsize="45"
+            app:scale_top="68"
+            app:scale_width="450" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_arrow"
+            app:scale_height="35"
+            app:scale_left="707"
+            app:scale_top="76"
+            app:scale_width="20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_main_navigation_line_color"
+            app:scale_height="3"
+            app:scale_left="40"
+            app:scale_top="181"
+            app:scale_width="726" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/navi_question_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="184"
+        app:scale_base_width="746"
+        app:scale_height="184"
+        app:scale_left="40"
+        app:scale_top="918"
+        app:scale_width="746" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_icon03"
+            app:scale_height="68"
+            app:scale_left="56"
+            app:scale_top="68"
+            app:scale_width="78" />
+
+        <TextView
+            android:id="@+id/navi_menu_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_333333"
+            app:scale_height="68"
+            app:scale_left="186"
+            app:scale_textsize="45"
+            app:scale_top="68"
+            app:scale_width="450" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_arrow"
+            app:scale_height="35"
+            app:scale_left="707"
+            app:scale_top="76"
+            app:scale_width="20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_main_navigation_line_color"
+            app:scale_height="3"
+            app:scale_left="40"
+            app:scale_top="181"
+            app:scale_width="726" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/navi_pay_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="184"
+        app:scale_base_width="746"
+        app:scale_height="184"
+        app:scale_left="40"
+        app:scale_top="1102"
+        app:scale_width="746" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_icon04"
+            app:scale_height="68"
+            app:scale_left="56"
+            app:scale_top="68"
+            app:scale_width="78" />
+
+        <TextView
+            android:id="@+id/navi_menu_pay_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_333333"
+            app:scale_height="68"
+            app:scale_left="186"
+            app:scale_textsize="45"
+            app:scale_top="68"
+            app:scale_width="450" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_arrow"
+            app:scale_height="35"
+            app:scale_left="707"
+            app:scale_top="76"
+            app:scale_width="20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_main_navigation_line_color"
+            app:scale_height="3"
+            app:scale_left="40"
+            app:scale_top="181"
+            app:scale_width="726" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/navi_logout_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="184"
+        app:scale_base_width="806"
+        app:scale_height="184"
+        app:scale_left="40"
+        app:scale_top="1286"
+        app:scale_width="806" >
+
+        <TextView
+            android:id="@+id/button_navi_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_red_button"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            app:scale_height="100"
+            app:scale_left="183"
+            app:scale_textsize="48"
+            app:scale_top="60"
+            app:scale_width="440" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</com.ssomai.android.scalablelayout.ScalableLayout>

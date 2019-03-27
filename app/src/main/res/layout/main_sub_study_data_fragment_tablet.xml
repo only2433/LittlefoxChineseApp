@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical">
+
+
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/study_data_choice_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/color_edeef2"
+        app:scale_base_height="100"
+        app:scale_base_width="1920" >
+
+		<ImageView
+            android:id="@+id/study_data_first_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/material_tab_white01"
+            android:gravity="center"
+            app:scale_height="72"
+            app:scale_left="40"
+            app:scale_top="14"
+            app:scale_width="614" />
+
+
+
+        <ImageView
+            android:id="@+id/study_data_second_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/material_tab_gray02"
+            android:gravity="center"
+            app:scale_height="72"
+            app:scale_left="654"
+            app:scale_top="14"
+            app:scale_width="613" />
+        
+
+        <ImageView
+            android:id="@+id/study_data_third_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/material_tab_gray03"
+            android:gravity="center"
+            app:scale_height="72"
+            app:scale_left="1267"
+            app:scale_top="14"
+            app:scale_width="614" />
+
+        <TextView
+            android:id="@+id/study_data_first_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_d8232a"
+            app:scale_height="72"
+            app:scale_left="40"
+            app:scale_textsize="26"
+            app:scale_top="14"
+            app:scale_width="614" />
+
+
+
+        <TextView
+            android:id="@+id/study_data_second_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_444444"
+            app:scale_height="72"
+            app:scale_left="654"
+            app:scale_top="14"
+            app:scale_width="613"
+            app:scale_textsize="26" />
+        
+
+        <TextView
+            android:id="@+id/study_data_third_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_444444"
+            app:scale_height="72"
+            app:scale_left="1267"
+            app:scale_top="14"
+            app:scale_width="614" 
+            app:scale_textsize="26" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+    
+        <android.support.v7.widget.RecyclerView
+        android:id="@+id/study_data_card_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white" />
+
+</LinearLayout>

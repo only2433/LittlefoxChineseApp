@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/introduce_base_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e24c4d"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/top_margin_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:scale_base_height="80"
+            app:scale_base_width="1920" >
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="950"
+            app:scale_base_width="1920" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/introduce_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:scale_height="850"
+                app:scale_left="0"
+                app:scale_top="50"
+                app:scale_width="1920"
+                app:swipeable="false" >
+            </android.support.v4.view.ViewPager>
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="30"
+            app:scale_base_width="1920" >
+
+            <ImageView
+                android:id="@+id/introduce_indicator_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/intro_ball_on"
+                android:scaleType="fitXY"
+                app:scale_height="22"
+                app:scale_left="906"
+                app:scale_top="0"
+                app:scale_width="22" />
+
+            <ImageView
+                android:id="@+id/introduce_indicator_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/intro_ball"
+                android:scaleType="fitXY"
+                app:scale_height="22"
+                app:scale_left="950"
+                app:scale_top="0"
+                app:scale_width="22" />
+
+            <ImageView
+                android:id="@+id/introduce_indicator_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/intro_ball"
+                android:scaleType="fitXY"
+                app:scale_height="22"
+                app:scale_left="994"
+                app:scale_top="0"
+                app:scale_width="22" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="144"
+            app:scale_base_width="1920" >
+
+            <ImageView
+                android:id="@+id/introduce_login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/selector_intro_button"
+                app:scale_height="72"
+                app:scale_left="670"
+                app:scale_top="42"
+                app:scale_width="272" />
+
+            <TextView
+                android:id="@+id/introduce_login_button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_e24c4d"
+                app:scale_height="72"
+                app:scale_left="670"
+                app:scale_textsize="30"
+                app:scale_top="42"
+                app:scale_width="272" />
+
+            <ImageView
+                android:id="@+id/introduce_sign_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/selector_intro_button"
+                app:scale_height="72"
+                app:scale_left="976"
+                app:scale_top="42"
+                app:scale_width="272" />
+
+            <TextView
+                android:id="@+id/introduce_sign_button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_e24c4d"
+                app:scale_height="72"
+                app:scale_left="976"
+                app:scale_textsize="30"
+                app:scale_top="42"
+                app:scale_width="272" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

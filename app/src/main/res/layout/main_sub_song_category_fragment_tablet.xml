@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:orientation="vertical" >
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <LinearLayout
+            android:id="@+id/song_category_base_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:scale_base_height="750"
+                app:scale_base_width="1920" >
+
+                <TextView
+                    android:id="@+id/song_category_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_d8232a"
+                    app:scale_height="90"
+                    app:scale_left="42"
+                    app:scale_textsize="26"
+                    app:scale_top="0"
+                    app:scale_width="1800" />
+
+                <ImageView
+                    android:id="@+id/song_category_image_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    app:scale_height="496"
+                    app:scale_left="32"
+                    app:scale_top="90"
+                    app:scale_width="956" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/main_box"
+                    app:scale_height="136"
+                    app:scale_left="32"
+                    app:scale_top="586"
+                    app:scale_width="956" />
+
+                <com.littlefox.library.view.text.SeparateTextView
+                    android:id="@+id/song_category_text_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    android:lineSpacingExtra="4dp"
+                    app:scale_height="136"
+                    app:scale_left="72"
+                    app:scale_textsize="34"
+                    app:scale_top="586"
+                    app:scale_width="700" />
+
+                <ImageView
+                    android:id="@+id/button_song_category_main_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_origin_text_button"
+                    app:scale_height="134"
+                    app:scale_left="854"
+                    app:scale_top="586"
+                    app:scale_width="134" />
+
+                <ImageView
+                    android:id="@+id/song_category_image_sub1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    app:scale_height="302"
+                    app:scale_left="1025"
+                    app:scale_top="90"
+                    app:scale_width="430" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/main_box"
+                    app:scale_height="302"
+                    app:scale_left="1455"
+                    app:scale_top="90"
+                    app:scale_width="432" />
+
+                <com.littlefox.library.view.text.SeparateTextView
+                    android:id="@+id/song_category_text_sub1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_333333"
+                    android:lineSpacingExtra="4dp"
+                    app:scale_height="200"
+                    app:scale_left="1479"
+                    app:scale_textsize="34"
+                    app:scale_top="110"
+                    app:scale_width="432" />
+
+                <ImageView
+                    android:id="@+id/button_song_category_sub1_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_origin_text_button"
+                    app:scale_height="134"
+                    app:scale_left="1753"
+                    app:scale_top="258"
+                    app:scale_width="134" />
+
+                <ImageView
+                    android:id="@+id/song_category_image_sub2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    app:scale_height="302"
+                    app:scale_left="1025"
+                    app:scale_top="420"
+                    app:scale_width="430" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/main_box"
+                    app:scale_height="302"
+                    app:scale_left="1455"
+                    app:scale_top="420"
+                    app:scale_width="432" />
+
+                <com.littlefox.library.view.text.SeparateTextView
+                    android:id="@+id/song_category_text_sub2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_333333"
+                    android:lineSpacingExtra="4dp"
+                    app:scale_height="300"
+                    app:scale_left="1479"
+                    app:scale_textsize="34"
+                    app:scale_top="438"
+                    app:scale_width="384" />
+
+                <ImageView
+                    android:id="@+id/button_song_category_sub2_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_origin_text_button"
+                    app:scale_height="134"
+                    app:scale_left="1753"
+                    app:scale_top="588"
+                    app:scale_width="134" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

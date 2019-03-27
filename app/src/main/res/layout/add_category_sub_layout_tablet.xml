@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="100"
+        app:scale_base_width="1920" >
+
+        <ImageView
+            android:id="@+id/button_add_song_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/song_round"
+            app:scale_height="90"
+            app:scale_left="32"
+            app:scale_top="0"
+            app:scale_width="1856" />
+
+        <com.littlefox.library.view.text.SeparateTextView
+            android:id="@+id/add_song_category_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_ffffff"
+            app:scale_height="90"
+            app:scale_left="78"
+            app:scale_textsize="32"
+            app:scale_top="0"
+            app:scale_width="1600" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/song_arrow_new"
+            app:scale_height="35"
+            app:scale_left="1809"
+            app:scale_top="24"
+            app:scale_width="20" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

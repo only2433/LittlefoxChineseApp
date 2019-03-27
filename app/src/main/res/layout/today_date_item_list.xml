@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/base_today_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_base_height="643"
+        app:scale_base_width="1080" >
+        
+
+        <ImageView
+            android:id="@+id/today_main_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            app:scale_height="519"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_width="1080" />
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/today_playericon"
+            app:scale_top="162"
+            app:scale_left="442"
+            app:scale_width="196"
+            app:scale_height="195"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_today_line"
+            app:scale_height="2"
+            app:scale_left="0"
+            app:scale_top="519"
+            app:scale_width="1080" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_today_line"
+            app:scale_height="2"
+            app:scale_left="0"
+            app:scale_top="641"
+            app:scale_width="1080" />
+
+        <ImageView
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_today_line"
+            app:scale_height="124"
+            app:scale_left="0"
+            app:scale_top="519"
+            app:scale_width="2" />
+
+        <ImageView
+            android:id="@+id/date_line_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_today_line"
+            app:scale_height="124"
+            app:scale_left="215"
+            app:scale_top="519"
+            app:scale_width="2" />
+
+        <ImageView
+            android:id="@+id/today_monday_focus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/new_image"
+            android:visibility="visible"
+            app:scale_height="140"
+            app:scale_left="0"
+            app:scale_top="503"
+            app:scale_width="216" />
+
+        <TextView
+            android:id="@+id/today_monday_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_d8232a"
+            app:scale_height="120"
+            app:scale_left="2"
+            app:scale_textsize="45"
+            app:scale_top="521"
+            app:scale_width="213" />
+
+        <ImageView
+            android:id="@+id/date_line_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_today_line"
+            app:scale_height="124"
+            app:scale_left="431"
+            app:scale_top="519"
+            app:scale_width="2" />
+
+        <ImageView
+            android:id="@+id/today_tuesday_focus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/new_image"
+            android:visibility="gone"
+            app:scale_height="140"
+            app:scale_left="216"
+            app:scale_top="503"
+            app:scale_width="216" />
+
+        <TextView
+            android:id="@+id/today_tuesday_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_black"
+            app:scale_height="120"
+            app:scale_left="217"
+            app:scale_textsize="45"
+            app:scale_top="521"
+            app:scale_width="214" />
+
+        <ImageView
+            android:id="@+id/date_line_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_today_line"
+            app:scale_height="124"
+            app:scale_left="647"
+            app:scale_top="519"
+            app:scale_width="2" />
+
+        <ImageView
+            android:id="@+id/today_wendsday_focus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/new_image"
+            android:visibility="gone"
+            app:scale_height="140"
+            app:scale_left="432"
+            app:scale_top="503"
+            app:scale_width="216" />
+
+        <TextView
+            android:id="@+id/today_wendsday_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_black"
+            app:scale_height="120"
+            app:scale_left="433"
+            app:scale_textsize="45"
+            app:scale_top="521"
+            app:scale_width="214" />
+
+        <ImageView
+            android:id="@+id/date_line_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_today_line"
+            app:scale_height="124"
+            app:scale_left="863"
+            app:scale_top="519"
+            app:scale_width="2" />
+
+        <ImageView
+            android:id="@+id/today_thursday_focus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/new_image"
+            android:visibility="gone"
+            app:scale_height="140"
+            app:scale_left="648"
+            app:scale_top="503"
+            app:scale_width="216" />
+
+        <TextView
+            android:id="@+id/today_thursday_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_black"
+            app:scale_height="120"
+            app:scale_left="649"
+            app:scale_textsize="45"
+            app:scale_top="521"
+            app:scale_width="214" />
+
+        <ImageView
+            android:id="@+id/date_line_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_today_line"
+            app:scale_height="124"
+            app:scale_left="1078"
+            app:scale_top="519"
+            app:scale_width="2" />
+
+        <ImageView
+            android:id="@+id/today_friday_focus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/new_image"
+            android:visibility="gone"
+            app:scale_height="140"
+            app:scale_left="864"
+            app:scale_top="503"
+            app:scale_width="216" />
+
+        <TextView
+            android:id="@+id/today_friday_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_black"
+            app:scale_height="120"
+            app:scale_left="865"
+            app:scale_textsize="45"
+            app:scale_top="519"
+            app:scale_width="213" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

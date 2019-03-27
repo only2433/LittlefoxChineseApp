@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/network_error_main_base_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="501"
+            app:scale_base_width="1920" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_nerwork_img"
+                app:scale_height="295"
+                app:scale_left="848"
+                app:scale_top="206"
+                app:scale_width="223" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="230"
+            app:scale_base_width="1920" >
+
+            <TextView
+                android:id="@+id/network_error_main_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_333333"
+                android:textStyle="bold"
+                app:scale_height="110"
+                app:scale_left="0"
+                app:scale_textsize="54"
+                app:scale_top="0"
+                app:scale_width="1920" />
+
+            <TextView
+                android:id="@+id/network_error_main_sub_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/color_333333"
+                android:textStyle="bold"
+                app:scale_height="110"
+                app:scale_left="0"
+                app:scale_textsize="38"
+                app:scale_top="110"
+                app:scale_width="1920" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="170"
+            app:scale_base_width="1920" >
+
+            <ImageView
+                android:id="@+id/network_error_retry_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_network_button"
+                app:scale_height="110"
+                app:scale_left="747"
+                app:scale_top="60"
+                app:scale_width="422" />
+
+            <TextView
+                android:id="@+id/network_error_main_button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_e24c4d"
+                app:scale_height="110"
+                app:scale_left="747"
+                app:scale_textsize="40"
+                app:scale_top="60"
+                app:scale_width="422" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

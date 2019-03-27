@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/user_select_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_d8232a"
+        app:scale_base_height="352"
+        app:scale_base_width="826" >
+
+        <TextView
+            android:id="@+id/user_select_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_white"
+            app:scale_height="144"
+            app:scale_left="50"
+            app:scale_textsize="56"
+            app:scale_top="0"
+            app:scale_width="776" />
+        
+        <LinearLayout
+            android:id="@+id/add_list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:scale_height="352"
+            app:scale_left="0"
+            app:scale_top="144"
+            app:scale_width="826" >
+            </LinearLayout>
+        
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

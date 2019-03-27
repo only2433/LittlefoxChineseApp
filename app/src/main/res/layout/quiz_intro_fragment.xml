@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        app:scale_base_height="900"
+        app:scale_base_width="1920" >
+        
+        <com.littlefox.library.view.text.SeparateTextView
+            android:id="@+id/quiz_main_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            app:scale_height="160"
+            app:scale_left="0"
+            app:scale_textsize="72"
+            app:scale_top="50"
+            app:scale_width="1920" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/phone_img_main"
+            app:scale_height="490"
+            app:scale_left="0"
+            app:scale_top="240"
+            app:scale_width="1920" />
+
+        <com.littlefox.library.view.dialog.ProgressWheel
+            android:id="@+id/quiz_intro_loading_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:matProg_barColor="@color/color_4f6ab4"
+            app:matProg_progressIndeterminate="true"
+            app:scale_height="140"
+            app:scale_left="890"
+            app:scale_top="730"
+            app:scale_width="140" />
+
+         <ImageView
+               android:id="@+id/quiz_intro_play_button"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:visibility="gone"
+               android:foreground="?attr/selectableItemBackground"
+               android:src="@drawable/phone_btn_main"
+               app:scale_top="730"
+               app:scale_left="795"
+               app:scale_width="331"
+               app:scale_height="139"/>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</RelativeLayout>
