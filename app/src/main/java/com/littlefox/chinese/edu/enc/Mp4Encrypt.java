@@ -1,5 +1,11 @@
 package com.littlefox.chinese.edu.enc;
 
+import android.net.Uri;
+import android.util.Base64;
+
+import com.littlefox.chinese.edu.common.Common;
+import com.littlefox.logmonitor.Log;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,7 +20,6 @@ import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.security.spec.InvalidParameterSpecException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -25,12 +30,6 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
-import android.net.Uri;
-import android.util.Base64;
-
-import com.littlefox.chinese.edu.common.Common;
-import com.littlefox.logmonitor.Log;
 
 public class Mp4Encrypt {
 
@@ -138,14 +137,8 @@ public class Mp4Encrypt {
 		IllegalBlockSizeException, BadPaddingException {
 	
 		byte[] iv1byte = null;
-		try {
-			iv1byte = makeIV();//random
-		} catch (InvalidParameterSpecException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
-	
+		iv1byte = makeIV();//random
+
 		if(iv1byte == null)
 			return null;
 		

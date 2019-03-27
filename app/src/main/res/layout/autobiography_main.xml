@@ -71,7 +71,7 @@
                 app:matProg_barColor="@color/color_ed433e"
                 app:matProg_progressIndeterminate="true"
                 app:scale_height="150"
-                app:scale_left="465"
+                app:scale_left="0"
                 app:scale_top="0"
                 app:scale_width="150" />
         </com.ssomai.android.scalablelayout.ScalableLayout>

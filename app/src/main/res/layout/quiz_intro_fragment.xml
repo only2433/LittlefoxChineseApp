@@ -43,8 +43,8 @@
             app:matProg_barColor="@color/color_4f6ab4"
             app:matProg_progressIndeterminate="true"
             app:scale_height="140"
-            app:scale_left="890"
-            app:scale_top="730"
+            app:scale_left="0"
+            app:scale_top="0"
             app:scale_width="140" />
 
          <ImageView

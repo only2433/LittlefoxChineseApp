@@ -37,7 +37,7 @@
             app:matProg_barColor="@color/color_ed433e"
             app:matProg_progressIndeterminate="true"
             app:scale_height="150"
-            app:scale_left="885"
+            app:scale_left="0"
             app:scale_top="0"
             app:scale_width="150" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
@@ -148,7 +148,7 @@
             android:thumbOffset="0dip"
             app:scale_height="46"
             app:scale_left="148"
-            app:scale_top="57"
+            app:scale_top="0"
             app:scale_width="1478" />
 
         <TextView

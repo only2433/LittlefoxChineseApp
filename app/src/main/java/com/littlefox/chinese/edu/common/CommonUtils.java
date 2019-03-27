@@ -40,6 +40,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 import android.view.animation.TranslateAnimation;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -52,6 +53,7 @@ import com.littlefox.chinese.edu.object.result.base.BaseResult;
 import com.littlefox.logmonitor.Log;
 
 import java.io.File;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -472,9 +474,83 @@ public class CommonUtils
      */
     public boolean isTablet()
     {
-        int xlargeBit = 4; // Configuration.SCREENLAYOUT_SIZE_XLARGE;
-        Configuration config = sContext.getResources().getConfiguration();
-        return (config.screenLayout & xlargeBit) == xlargeBit;
+        if (Build.VERSION.SDK_INT >= 19)
+        {
+            return checkTabletDeviceWithScreenSize(sContext) &&
+                    checkTabletDeviceWithProperties() &&
+                    checkTabletDeviceWithUserAgent(sContext);
+        }
+        else
+        {
+            return checkTabletDeviceWithScreenSize(sContext) &&
+                    checkTabletDeviceWithProperties() ;
+
+        }
+    }
+
+    private  boolean checkTabletDeviceWithScreenSize(Context context) {
+        boolean device_large = ((context.getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK) >=
+                Configuration.SCREENLAYOUT_SIZE_LARGE);
+
+        Log.f("device_large : "+device_large);
+        if (device_large)
+        {
+            DisplayMetrics metrics = new DisplayMetrics();
+            Activity activity = (Activity) context;
+            activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+            Log.f("metrics.densityDpi : "+metrics.densityDpi);
+
+            if (metrics.densityDpi == DisplayMetrics.DENSITY_DEFAULT
+                    || metrics.densityDpi == DisplayMetrics.DENSITY_HIGH
+                    || metrics.densityDpi == DisplayMetrics.DENSITY_MEDIUM
+                    || metrics.densityDpi == DisplayMetrics.DENSITY_TV
+                    || metrics.densityDpi == DisplayMetrics.DENSITY_XHIGH
+                    || metrics.densityDpi == DisplayMetrics.DENSITY_360) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private  boolean checkTabletDeviceWithProperties()
+    {
+        try
+        {
+            InputStream ism = Runtime.getRuntime().exec("getprop ro.build.characteristics").getInputStream();
+            byte[] bts = new byte[1024];
+            ism.read(bts);
+            ism.close();
+
+            boolean isTablet = new String(bts).toLowerCase().contains("tablet");
+            return isTablet;
+        }
+        catch (Throwable t)
+        {
+            t.printStackTrace();
+            return false;
+        }
+    }
+
+    private  boolean checkTabletDeviceWithUserAgent(Context context)
+    {
+        try
+        {
+            WebView webView = new WebView(context);
+            String ua = webView.getSettings().getUserAgentString();
+            webView = null;
+            if (ua.contains("Mobile Safari"))
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        } catch (Exception e)
+        {
+            return false;
+        }
+
     }
 
 
@@ -937,7 +1013,7 @@ public class CommonUtils
 			
 			if(isGradeVeryGood == false)
 			{
-				return quizCount - 2 == correctCount ? Common.GRADE_GOODS : Common.GRADE_POOL;
+				return quizCount - 2 <= correctCount ? Common.GRADE_GOODS : Common.GRADE_POOL;
 			}
 			
 			return Common.GRADE_VERYGOOD;
@@ -948,7 +1024,7 @@ public class CommonUtils
 			
 			if(isGradeVeryGood == false)
 			{
-				return quizCount - 3 == correctCount ? Common.GRADE_GOODS : Common.GRADE_POOL;
+				return quizCount - 3 <= correctCount ? Common.GRADE_GOODS : Common.GRADE_POOL;
 			}
 			
 			return Common.GRADE_VERYGOOD;
