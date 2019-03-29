@@ -3,14 +3,6 @@ package com.littlefox.chinese.edu;
 import android.app.Application;
 import android.util.DisplayMetrics;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
-import com.littlefox.chinese.edu.common.Common;
-import com.littlefox.chinese.edu.common.CommonUtils;
-import com.littlefox.chinese.edu.common.Feature;
-import com.littlefox.chinese.edu.object.UserLoginObject;
-import com.littlefox.logmonitor.Log;
-
 /**
  * Created by 정재현 on 2015-07-07.
  */

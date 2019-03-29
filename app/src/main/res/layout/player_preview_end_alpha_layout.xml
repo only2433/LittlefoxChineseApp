@@ -2,16 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingPrefix"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/player_black_bg" >
+    android:background="@drawable/player_black_bg"
+    tools:ignore="MissingPrefix">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/_titleLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:scale_base_height="1080"
-        app:scale_base_width="1920" >
+        android:layout_height="wrap_content"
+        app:scale_base_height="100"
+        app:scale_base_width="1920">
 
         <ImageView
             android:id="@+id/preview_close_button"
@@ -30,6 +31,15 @@
             app:scale_left="1800"
             app:scale_top="40"
             app:scale_width="57" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/_messageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/_titleLayout"
+        app:scale_base_height="466"
+        app:scale_base_width="1920">
 
         <TextView
             android:id="@+id/preview_end_message_sign_up"
@@ -39,48 +49,51 @@
             android:lineSpacingExtra="10dp"
             android:textColor="@color/color_ffffff"
             app:scale_height="196"
-            app:scale_left="480"
+            app:scale_left="0"
             app:scale_textsize="46"
-            app:scale_top="370"
-            app:scale_width="960" />
-
-        
-        <com.ssomai.android.scalablelayout.ScalableLayout
-            android:id="@+id/preview_pay_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/selector_flash_button"
-            app:scale_base_height="196"
-            app:scale_base_width="548"
-            app:scale_height="196"
-            app:scale_left="686"
-            app:scale_top="622"
-            app:scale_width="548" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_payment"
-                app:scale_height="70"
-                app:scale_left="122"
-                app:scale_top="63"
-                app:scale_width="88" />
-
-            <TextView
-                android:id="@+id/preview_pay_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:lineSpacingExtra="10dp"
-                android:textColor="@color/color_d6d6d6"
-                app:scale_height="196"
-                app:scale_left="246"
-                app:scale_textsize="42"
-                app:scale_top="0"
-                app:scale_width="250" />
-        </com.ssomai.android.scalablelayout.ScalableLayout>
-        
-       
+            app:scale_top="270"
+            app:scale_width="1920" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/_messageLayout"
+        app:scale_base_height="259"
+        app:scale_base_width="1920">
+
+        <ImageView
+            android:id="@+id/_previewBackgroundRect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_flash_button"
+            app:scale_height="196"
+            app:scale_left="686"
+            app:scale_top="63"
+            app:scale_width="548" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_payment"
+            app:scale_height="70"
+            app:scale_left="776"
+            app:scale_top="120"
+            app:scale_width="88" />
+
+        <TextView
+            android:id="@+id/preview_pay_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="10dp"
+            android:textColor="@color/color_d6d6d6"
+            app:scale_height="196"
+            app:scale_left="964"
+            app:scale_textsize="42"
+            app:scale_top="63"
+            app:scale_width="250" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
 </RelativeLayout>

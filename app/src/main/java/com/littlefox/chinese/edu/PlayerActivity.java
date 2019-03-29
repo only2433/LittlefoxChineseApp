@@ -124,8 +124,8 @@ public class PlayerActivity extends BaseActivity
 	@BindView(R.id.preview_end_message_sign_up)
 	TextView _PreviewSignMessageText;
 	
-	@BindView(R.id.preview_pay_layout)
-	ScalableLayout _PreviewPayButton;
+	@BindView(R.id._previewBackgroundRect)
+	ImageView _PreviewPayButton;
 	
 	@BindView(R.id.preview_pay_text)
 	TextView _PreviewPayButtonText;
@@ -1623,7 +1623,7 @@ public class PlayerActivity extends BaseActivity
     	dialog.show();
     }
 	
-	@OnClick({R.id.play_end_replay_layout, R.id.play_end_quiz_layout, R.id.play_end_remain_play_layout, R.id.play_end_recommand_layout, R.id.preview_close_button, R.id.play_end_close_button, R.id.preview_pay_layout})
+	@OnClick({R.id.play_end_replay_layout, R.id.play_end_quiz_layout, R.id.play_end_remain_play_layout, R.id.play_end_recommand_layout, R.id.preview_close_button, R.id.play_end_close_button, R.id._previewBackgroundRect})
 	public void onDisplayButtonClick(View view)
 	{
 		
@@ -1642,7 +1642,7 @@ public class PlayerActivity extends BaseActivity
 			Log.f("Player Preview Page Close Button Click");
 			finish();
 			break;
-		case R.id.preview_pay_layout:
+		case R.id._previewBackgroundRect:
 			GoogleAnalyticsHelper.getInstance(this).sendCurrentEvent(Common.ANALYTICS_CATEGORY_PLAYER, Common.ANALYTICS_ACTION_PAYMENT);
 			finish();
 			MainSystemFactory.getInstance().startActivityNoAnimation(MainSystemFactory.MODE_PAY_PAGE);
