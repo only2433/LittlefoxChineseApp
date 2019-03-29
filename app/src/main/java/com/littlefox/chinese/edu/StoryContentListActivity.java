@@ -129,14 +129,16 @@ public class StoryContentListActivity extends BaseActivity
 				{
 					MainSystemFactory.getInstance().startActivityNoAnimation(MainSystemFactory.MODE_PLAYER ,getPlayContentToPlay(mCurrentExecutePosition));
 				}
-				
-
 				break;
 			case MESSAGE_START_QUIZ:
 				MainSystemFactory.getInstance().startActivityNoAnimation(MainSystemFactory.MODE_QUIZ, mContentItemList.get(mCurrentExecutePosition).fc_id);
 				break;
 			case MESSAGE_START_ORIGIN_DATA:
-				getWindow().setExitTransition(null);
+				if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+				{
+					getWindow().setExitTransition(null);
+				}
+
 				MainSystemFactory.getInstance().startActivityWithMaterialAnimation(MainSystemFactory.MODE_ORIGIN_DATA, mContentItemList.get(mCurrentExecutePosition).fc_id);
 				break;
 			case MESSAGE_INIT_SELECTED_ITEM:
