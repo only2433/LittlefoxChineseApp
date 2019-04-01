@@ -147,7 +147,7 @@
             app:scale_top="0"
             app:scale_width="94" />
 
-        <com.littlefox.library.view.extra.ThumbSeekbar
+        <SeekBar
             android:id="@+id/seekbar_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
             android:maxHeight="4dp"
             android:progress="0"
             android:progressDrawable="@drawable/player_seekbar_progress"
-            android:thumb="@drawable/player_ball"
+            android:thumb="@drawable/seekbar_thumb"
             android:thumbOffset="0dip"
             app:scale_height="46"
             app:scale_left="148"

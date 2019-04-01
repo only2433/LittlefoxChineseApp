@@ -1,6 +1,8 @@
 package com.littlefox.chinese.edu;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -42,7 +44,6 @@ import com.littlefox.chinese.edu.object.result.base.BaseResult;
 import com.littlefox.library.system.async.listener.AsyncListener;
 import com.littlefox.library.view.controller.FadeAnimationController;
 import com.littlefox.library.view.controller.FadeAnimationInformation;
-import com.littlefox.library.view.extra.ThumbSeekbar;
 import com.littlefox.library.view.media.ProgressiveMediaListener;
 import com.littlefox.library.view.media.ProgressiveMediaPlayer;
 import com.littlefox.logmonitor.Log;
@@ -92,7 +93,7 @@ public class PlayerActivity extends BaseActivity
 	TextView _CurrentPlayTimeText;
 	
 	@BindView(R.id.seekbar_play)
-	ThumbSeekbar _ThumbSeekbar;
+	SeekBar _ThumbSeekbar;
 	
 	@BindView(R.id.player_remain_play_time)
 	TextView _RemainPlayTimeText;
@@ -511,10 +512,15 @@ public class PlayerActivity extends BaseActivity
 		mVibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 		
 		_LockButton.setOnTouchListener(mLockControlListener);
-		
-		_ThumbSeekbar.setThumb(CommonUtils.getInstance(this).getPixel(45), CommonUtils.getInstance(this).getPixel(44), R.drawable.player_ball);
-		
 		_ThumbSeekbar.setOnSeekBarChangeListener(mSeekBarChangeListener);
+
+        LayerDrawable layerDrawable = (LayerDrawable)getResources().getDrawable(R.drawable.seekbar_thumb);
+        GradientDrawable rectDrawable = (GradientDrawable)layerDrawable.findDrawableByLayerId(R.id._thumbRect);
+        GradientDrawable circleDrawable = (GradientDrawable)layerDrawable.findDrawableByLayerId(R.id._thumbCircle);
+
+        rectDrawable.setSize(CommonUtils.getInstance(this).getPixel(45), CommonUtils.getInstance(this).getPixel(45));
+        circleDrawable.setSize(CommonUtils.getInstance(this).getPixel(40), CommonUtils.getInstance(this).getPixel(40));
+
 		
 		_TopViewLayout.setOnTouchListener(new OnTouchListener()
 		{

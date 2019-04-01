@@ -10,6 +10,7 @@
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         app:scale_base_height="926"
         app:scale_base_width="1920" >
         
