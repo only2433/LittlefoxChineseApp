@@ -11,14 +11,11 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.LocalBroadcastManager;
 
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.littlefox.chinese.edu.IntroLoadingActivity;
 import com.littlefox.chinese.edu.R;
-import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.logmonitor.Log;
 
 
@@ -97,26 +94,6 @@ public class LittlefoxFirebaseMessagingService extends FirebaseMessagingService
 	public void onNewToken(String token)
 	{
 		super.onNewToken(token);
-		// Get updated InstanceID token.
-		String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-		sendRegistrationToServer(refreshedToken);
+		Log.f("token : "+ token);
 	}
-
-	/**
-	 * Persist token to third-party servers.
-	 *
-	 * Modify this method to associate the user's FCM InstanceID token with any server-side account
-	 * maintained by your application.
-	 *
-	 * @param token The new token.
-	 */
-	private void sendRegistrationToServer(String token)
-	{
-		Log.f("Push Address Token : "+ token);
-		final Intent intent = new Intent(Common.BROADCAST_FIREBASE_TOKEN);
-		intent.putExtra(Common.INTENT_FIREBASE_PUSH, token);
-		final LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
-		localBroadcastManager.sendBroadcast(intent);
-	}
-
 }

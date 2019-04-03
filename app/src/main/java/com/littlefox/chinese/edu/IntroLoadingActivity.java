@@ -1,10 +1,7 @@
 package com.littlefox.chinese.edu;
 
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
@@ -14,7 +11,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
-import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -193,13 +189,13 @@ public class IntroLoadingActivity extends BaseActivity
 		initText();
 		initFrameView();
 
-		LocalBroadcastManager.getInstance(this).registerReceiver(mFirebaseBroadcastReceiver,
-				new IntentFilter(Common.BROADCAST_FIREBASE_TOKEN));
+
 		try {
 			FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(this, new OnSuccessListener<InstanceIdResult>() {
 				@Override
 				public void onSuccess(InstanceIdResult instanceIdResult)
 				{
+					Log.f("token : "+ instanceIdResult.getToken());
 					CommonUtils.getInstance(IntroLoadingActivity.this).setSharedPreference(Common.PARAMS_FIREBASE_PUSH_TOKEN, instanceIdResult.getToken());
 
 				}
@@ -517,7 +513,6 @@ public class IntroLoadingActivity extends BaseActivity
 	{
 		super.onDestroy();
 		mIntroHandler.removeCallbacksAndMessages(null);
-		LocalBroadcastManager.getInstance(this).unregisterReceiver(mFirebaseBroadcastReceiver);
 		Log.f("");
 		
 	}
@@ -882,15 +877,5 @@ public class IntroLoadingActivity extends BaseActivity
 		}
 	};
 
-	private BroadcastReceiver mFirebaseBroadcastReceiver = new BroadcastReceiver()
-	{
-		@Override
-		public void onReceive(Context context, Intent intent)
-		{
-			String token = intent.getStringExtra(Common.INTENT_FIREBASE_PUSH);
-			Log.f("Broadcast get push token : "+ token);
-			CommonUtils.getInstance(IntroLoadingActivity.this).setSharedPreference(Common.PARAMS_FIREBASE_PUSH_TOKEN, token);
 
-		}
-	};
 }

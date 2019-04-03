@@ -15,7 +15,6 @@ import com.littlefox.logmonitor.Log;
  */
 public class GoogleAnalyticsHelper
 {
-
 	public static final String PROPERTY_ID = "UA-37277849-4";
 	
 	public static GoogleAnalyticsHelper sGoogleAnalyticsHelper = null;
@@ -38,14 +37,10 @@ public class GoogleAnalyticsHelper
 	 */
 	private void init(Context context)
 	{
-
-
 		mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
 	}
 	
 
-
-	
 	/**
 	 * 현재 사용자의 이벤트를 전달한다.
 	 * @param category 액티비티
