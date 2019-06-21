@@ -44,6 +44,7 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Optional;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
@@ -417,8 +418,8 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 		
 		return (calendar.get(Calendar.MONTH)+1) + CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.date_month) + " " + calendar.get(Calendar.WEEK_OF_MONTH) + CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.date_week);
 	}
-	
-	@Nullable
+
+	@Optional
 	@OnClick({R.id.home_info_nihao_china_image, R.id.home_info_step_china_image, R.id.home_info_introduce_littlefox_image, R.id.home_info_guide_study_image,
 		R.id.home_info_today_list_image1, R.id.home_info_today_list_image2, R.id.home_info_today_list_image3, R.id.home_info_today_list_image4, R.id.home_info_today_list_image5,
 		R.id.home_info_today_list_text1, R.id.home_info_today_list_text2, R.id.home_info_today_list_text3, R.id.home_info_today_list_text4, R.id.home_info_today_list_text5})
