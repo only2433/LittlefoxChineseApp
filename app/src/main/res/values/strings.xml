@@ -29,7 +29,7 @@
         <item>Songs</item>
     </string-array>
     <string-array name="main_title_song_category">
-        <item>추천동요</item>
+        <item>추천 동요</item>
         <item>Featured Songs</item>
     </string-array>
     <string-array name="main_title_study_data">

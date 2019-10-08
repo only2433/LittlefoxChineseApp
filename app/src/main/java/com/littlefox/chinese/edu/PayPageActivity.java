@@ -78,6 +78,9 @@ public class PayPageActivity extends BaseActivity
 	
 	@BindView(R.id.pay_price_30days_text)
 	SeparateTextView _Pay30DaysPriceText;
+
+	@BindView(R.id.pay_device_warning_text)
+	ImageView _PayDeviceWarningTextImageView;
 	
 	Handler mMainHandler = new Handler()
 	{
@@ -172,12 +175,14 @@ public class PayPageActivity extends BaseActivity
         		_Pay30DaysButton.setImageResource(R.drawable.payment_1month_en__tablet);
         		_PaySubscriptionButton.setImageResource(R.drawable.payment_recurring_en__tablet);
         		_PayInformationMessageImage.setImageResource(R.drawable.payment_text_en_tablet);
+				_PayDeviceWarningTextImageView.setImageResource(R.drawable.payment_text_bottom_tablet_en);
         	}
         	else
         	{
         		_Pay30DaysButton.setImageResource(R.drawable.payment_1month_tablet);
         		_PaySubscriptionButton.setImageResource(R.drawable.payment_recurring__tablet);
         		_PayInformationMessageImage.setImageResource(R.drawable.payment_text_tablet);
+				_PayDeviceWarningTextImageView.setImageResource(R.drawable.payment_text_bottom_tablet);
         	}
     	}
     	else
@@ -187,12 +192,14 @@ public class PayPageActivity extends BaseActivity
         		_Pay30DaysButton.setImageResource(R.drawable.payment_1month_en);
         		_PaySubscriptionButton.setImageResource(R.drawable.payment_recurring_en);
         		_PayInformationMessageImage.setImageResource(R.drawable.payment_text_en);
+				_PayDeviceWarningTextImageView.setImageResource(R.drawable.payment_text_bottom_en);
         	}
         	else
         	{
         		_Pay30DaysButton.setImageResource(R.drawable.payment_1month);
         		_PaySubscriptionButton.setImageResource(R.drawable.payment_recurring);
         		_PayInformationMessageImage.setImageResource(R.drawable.payment_text);
+				_PayDeviceWarningTextImageView.setImageResource(R.drawable.payment_text_bottom);
         	}
     	}
     	

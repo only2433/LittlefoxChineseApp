@@ -163,6 +163,24 @@
                 />
         </com.ssomai.android.scalablelayout.ScalableLayout>
 
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="65"
+            app:scale_base_width="1080" >
+
+            <ImageView
+                android:id="@+id/pay_device_warning_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                app:scale_left="26"
+                app:scale_top="26"
+                app:scale_width="1028"
+                app:scale_height="39"/>
+
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
