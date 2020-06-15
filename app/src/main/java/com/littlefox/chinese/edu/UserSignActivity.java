@@ -1,5 +1,6 @@
 package com.littlefox.chinese.edu;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -121,6 +122,7 @@ public class UserSignActivity extends BaseActivity
 	private FixedSpeedScroller mFixedSpeedScroller;
 	private UserSignObject mUserSignObject = null;
 	
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState)
 	{

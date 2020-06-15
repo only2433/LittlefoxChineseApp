@@ -1,5 +1,6 @@
 package com.littlefox.chinese.edu;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -142,6 +143,7 @@ public class UserInformationModificationActivity extends BaseActivity
 	private UserBaseInformationObject mModificationUserInformation = null;
 	private String mModificationUserPassword	= null;
 	
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState)
 	{

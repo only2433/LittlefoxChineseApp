@@ -1,5 +1,6 @@
 package com.littlefox.chinese.edu;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -192,6 +193,7 @@ public class SongContentListActivity extends BaseActivity
 	private int mCurrentExecutePosition = -1;
 	private FadeAnimationController mFadeAnimationController;
 	
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{

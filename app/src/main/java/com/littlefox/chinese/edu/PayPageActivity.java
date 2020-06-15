@@ -1,5 +1,6 @@
 package com.littlefox.chinese.edu;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -118,6 +119,7 @@ public class PayPageActivity extends BaseActivity
 	private InAppPurchase mInAppPurchase;
 	private int mCurrentPayItem 	= -1;
 	
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState)
 	{

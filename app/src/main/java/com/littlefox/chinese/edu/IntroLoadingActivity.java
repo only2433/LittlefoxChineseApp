@@ -1,5 +1,6 @@
 package com.littlefox.chinese.edu;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -141,6 +142,7 @@ public class IntroLoadingActivity extends BaseActivity
 	private static final String[] PROGRESS_PERCENT_LIST = {"0%", "50%" , "75%" , "100%"};
 	
 	
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -335,7 +337,8 @@ public class IntroLoadingActivity extends BaseActivity
 	
 	private void initFeatureInformation()
 	{
-        Feature.IS_LANGUAGE_ENG = !Locale.getDefault().toString().equals(Locale.KOREA.toString());
+	    Log.f("Locale.KOREA.toString() : "+ Locale.KOREA.toString()+", default : "+ Locale.getDefault().toString());
+        Feature.IS_LANGUAGE_ENG = !Locale.getDefault().toString().contains(Locale.KOREA.toString());
 		
 		if(CommonUtils.getInstance(this).isHaveNavigationBar())
 		{

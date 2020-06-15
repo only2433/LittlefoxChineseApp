@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/color_333333"
-            app:scale_height="160"
+            app:scale_height="180"
             app:scale_left="0"
             app:scale_textsize="72"
             app:scale_top="50"

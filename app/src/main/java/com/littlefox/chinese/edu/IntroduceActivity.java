@@ -1,5 +1,6 @@
 package com.littlefox.chinese.edu;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -66,6 +67,7 @@ public class IntroduceActivity extends BaseActivity
 	private IntroduceItemPagerAdapter mIntroduceItemPagerAdapter;
 	
 	
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState)
 	{

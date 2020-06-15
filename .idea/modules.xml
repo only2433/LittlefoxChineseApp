@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LittlefoxChineseApp.iml" filepath="$PROJECT_DIR$/LittlefoxChineseApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LittlefoxChineseApp.iml" filepath="$PROJECT_DIR$/LittlefoxChineseApp.iml" group="LittlefoxChineseApp" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="LittlefoxChineseApp/app" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,6 @@
 package com.littlefox.chinese.edu;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -127,7 +128,9 @@ public class AddChildInformationModificationActivity extends BaseActivity
 	private int mCurrentRequestChildIndex = -1;
 	private UserBaseInformationObject mCurrentRequestChildInformationObject = null;
 	private FixedSpeedScroller mFixedSpeedScroller;
-	
+
+
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState)
 	{

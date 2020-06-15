@@ -1,5 +1,6 @@
 package com.littlefox.chinese.edu;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -211,6 +212,7 @@ public class StoryContentListActivity extends BaseActivity
 	private int mCurrentBottomLayoutType = Common.CHOICE_LAYOUT_TYPE_DEFAULT;
 	private int mCurrentExecutePosition = -1;
 	
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{

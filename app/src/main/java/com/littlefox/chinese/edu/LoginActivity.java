@@ -1,5 +1,6 @@
  package com.littlefox.chinese.edu;
 
+ import android.annotation.SuppressLint;
  import android.content.Context;
  import android.content.pm.ActivityInfo;
  import android.os.Build;
@@ -151,6 +152,7 @@
 	private LoginInfoSearchDialog mLoginDialog = null;
 	private MaterialLoadingDialog mLoadingDialog = null;
 	
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState)
 	{
