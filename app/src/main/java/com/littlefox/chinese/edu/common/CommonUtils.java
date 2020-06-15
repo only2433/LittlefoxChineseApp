@@ -505,6 +505,7 @@ public class CommonUtils
                     || metrics.densityDpi == DisplayMetrics.DENSITY_HIGH
                     || metrics.densityDpi == DisplayMetrics.DENSITY_MEDIUM
                     || metrics.densityDpi == DisplayMetrics.DENSITY_TV
+                    || metrics.densityDpi == DisplayMetrics.DENSITY_280
                     || metrics.densityDpi == DisplayMetrics.DENSITY_XHIGH
                     || metrics.densityDpi == DisplayMetrics.DENSITY_360) {
                 return true;
