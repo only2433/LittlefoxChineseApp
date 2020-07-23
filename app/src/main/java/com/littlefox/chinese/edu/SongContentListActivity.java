@@ -29,6 +29,7 @@ import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.SongCategoryContentListCoroutine;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.object.ContentPlayObject;
 import com.littlefox.chinese.edu.object.SongCategoryObject;
@@ -318,8 +319,10 @@ public class SongContentListActivity extends BaseActivity
 	
 	private void requestSongContentList(String smID)
 	{
-		SongCategoryContentListAsync async = new SongCategoryContentListAsync(this, smID, mAsyncListener);
-		async.execute();
+		//SongCategoryContentListAsync async = new SongCategoryContentListAsync(this, smID, mAsyncListener);
+		//async.execute();
+		SongCategoryContentListCoroutine coroutine = new SongCategoryContentListCoroutine(this, mAsyncListener);
+		coroutine.execute();
 	}
 	
 	/**
@@ -739,7 +742,7 @@ public class SongContentListActivity extends BaseActivity
 		}
 
 		@Override
-		public void onBindViewHolder(ViewHolder holder, final int position)
+		public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") final int position)
 		{
 			holder.setVisibleLayout(position);
 

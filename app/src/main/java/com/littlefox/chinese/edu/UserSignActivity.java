@@ -21,12 +21,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
-import com.littlefox.chinese.edu.async.UserSignAsync;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.UserSignCoroutine;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.fragment.SignInputInformationFragment;
 import com.littlefox.chinese.edu.fragment.SignProvisionFragment;
@@ -206,8 +206,11 @@ public class UserSignActivity extends BaseActivity
 	
 	private void requestUserSignInformation(UserSignObject usersignObject)
 	{
-		UserSignAsync userSignAsync = new UserSignAsync(this, usersignObject, mOnAsyncListener);
-		userSignAsync.execute();
+		//UserSignAsync userSignAsync = new UserSignAsync(this, usersignObject, mOnAsyncListener);
+		//userSignAsync.execute();
+		UserSignCoroutine coroutine = new UserSignCoroutine(this, mOnAsyncListener);
+		coroutine.setData(usersignObject);
+		coroutine.execute();
 	}
 	
 	private void showCheckMessage(BaseResult result)

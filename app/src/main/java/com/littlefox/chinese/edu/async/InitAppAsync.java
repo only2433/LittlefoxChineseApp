@@ -15,7 +15,6 @@ import com.littlefox.library.system.async.listener.AsyncListener;
 
 public class InitAppAsync extends BaseAsync
 {
-
 	public InitAppAsync(Context context, AsyncListener asyncListener)
 	{
 		super(context, Common.ASYNC_CODE_INIT_APP_INFO_REQUEST);

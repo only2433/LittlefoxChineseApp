@@ -22,9 +22,6 @@ import com.android.vending.billing.util.Purchase;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
-import com.littlefox.chinese.edu.async.InitAppAsync;
-import com.littlefox.chinese.edu.async.MainRequestAsync;
-import com.littlefox.chinese.edu.async.UserInformationRequestAsync;
 import com.littlefox.chinese.edu.billing.IBillingStatusListener;
 import com.littlefox.chinese.edu.billing.InAppPurchase;
 import com.littlefox.chinese.edu.common.Common;
@@ -32,6 +29,9 @@ import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.FileUtils;
 import com.littlefox.chinese.edu.common.Font;
+import com.littlefox.chinese.edu.coroutines.InitCoroutine;
+import com.littlefox.chinese.edu.coroutines.MainRequestCoroutine;
+import com.littlefox.chinese.edu.coroutines.UserInformationRequestCoroutine;
 import com.littlefox.chinese.edu.dialog.TempleteAlertDialog;
 import com.littlefox.chinese.edu.dialog.listener.DialogListener;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
@@ -693,20 +693,26 @@ public class IntroLoadingActivity extends BaseActivity
 
 	private void requestInitAppInformation()
 	{
-		InitAppAsync async = new InitAppAsync(this, mAsyncListener);
-		async.execute();
+		//InitAppAsync async = new InitAppAsync(this, mAsyncListener);
+		//async.execute();
+		Log.f("");
+		InitCoroutine initCoroutine = new InitCoroutine(this, mAsyncListener);
+		initCoroutine.execute();
 	}
 	
 	private void requestMainInformation()
 	{
-		MainRequestAsync mainRequestAsync = new MainRequestAsync(this, mAsyncListener);
-		mainRequestAsync.execute();
+		Log.f("");
+		MainRequestCoroutine mainRequestCoroutine = new MainRequestCoroutine(this, mAsyncListener);
+		mainRequestCoroutine.execute();
 	}
 	
 	private void requestUserInformation()
 	{
-		UserInformationRequestAsync userRequestAsync = new UserInformationRequestAsync(this, mAsyncListener);
-		userRequestAsync.execute();
+		//UserInformationRequestAsync userRequestAsync = new UserInformationRequestAsync(this, mAsyncListener);
+		//userRequestAsync.execute();
+		UserInformationRequestCoroutine coroutine = new UserInformationRequestCoroutine(this, mAsyncListener);
+		coroutine.execute();
 	}
 	
 	private MarketVersionCheckListener mMarketVersionCheckListener = new MarketVersionCheckListener()

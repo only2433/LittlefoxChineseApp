@@ -22,7 +22,6 @@ import android.widget.TextView;
 import com.android.vending.billing.util.IabResult;
 import com.android.vending.billing.util.Purchase;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
-import com.littlefox.chinese.edu.async.SavePaymentAsync;
 import com.littlefox.chinese.edu.billing.IBillingStatusListener;
 import com.littlefox.chinese.edu.billing.InAppPurchase;
 import com.littlefox.chinese.edu.common.Common;
@@ -30,6 +29,7 @@ import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.SavePaymentCoroutine;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.object.InAppInformation;
 import com.littlefox.chinese.edu.object.PaymentInformation;
@@ -344,7 +344,29 @@ public class PayPageActivity extends BaseActivity
 	
 	private void sendPaymentInformationForServer(PaymentInformation paymentInformation)
 	{
-		SavePaymentAsync savePaymentAsync = new SavePaymentAsync(this, paymentInformation , new AsyncListener()
+		SavePaymentCoroutine coroutine = new SavePaymentCoroutine(this, new AsyncListener() {
+			@Override
+			public void onRunningStart(String code) { }
+
+			@Override
+			public void onRunningEnd(String code, Object mObject) { }
+
+			@Override
+			public void onRunningCanceled(String code) { }
+
+			@Override
+			public void onRunningProgress(String code, Integer progress) { }
+
+			@Override
+			public void onRunningAdvanceInformation(String code, Object object) { }
+
+			@Override
+			public void onErrorListener(String code, String message) { }
+		});
+		coroutine.setData(paymentInformation);
+		coroutine.execute();
+
+		/*SavePaymentAsync savePaymentAsync = new SavePaymentAsync(this, paymentInformation , new AsyncListener()
 		{
 			@Override
 			public void onRunningStart(String code) { }
@@ -367,7 +389,7 @@ public class PayPageActivity extends BaseActivity
 			public void onErrorListener(String code, String message){}
 		});
 		
-		savePaymentAsync.execute();
+		savePaymentAsync.execute();*/
 	}
 	
 	@OnClick({R.id.pay_main_close, R.id.pay_layout_30days, R.id.pay_layout_subscription})

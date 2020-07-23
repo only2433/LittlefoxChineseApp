@@ -23,14 +23,14 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
-import com.littlefox.chinese.edu.async.AuthContentPlayAsync;
-import com.littlefox.chinese.edu.async.PlayerSaveRecordAsync;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.FileUtils;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.AuthContentPlayCoroutine;
+import com.littlefox.chinese.edu.coroutines.PlayerSaveRecordCoroutine;
 import com.littlefox.chinese.edu.database.PlayedContentDBHelper;
 import com.littlefox.chinese.edu.dialog.TempleteAlertDialog;
 import com.littlefox.chinese.edu.dialog.listener.DialogListener;
@@ -773,8 +773,19 @@ public class PlayerActivity extends BaseActivity
 			contentType = Common.REQUEST_CONTENT_TYPE_MOVIE;
 		}
 		
-		AuthContentPlayAsync async = new AuthContentPlayAsync(PlayerActivity.this, Common.USER_TYPE_PAID, mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id,  contentType, mAsyncListener);
-		async.execute();
+		/*AuthContentPlayAsync async = new AuthContentPlayAsync(PlayerActivity.this,
+				Common.USER_TYPE_PAID,
+				mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id,
+				contentType,
+				mAsyncListener);
+		async.execute();*/
+
+		AuthContentPlayCoroutine coroutine = new AuthContentPlayCoroutine(this, mAsyncListener);
+		coroutine.setData(
+				Common.USER_TYPE_PAID,
+				mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id,
+				contentType);
+		coroutine.execute();
 
 	}
 	
@@ -1008,8 +1019,12 @@ public class PlayerActivity extends BaseActivity
 	private void requestPlaySaveRecord()
 	{
 		PlayerStudyRecordObject object = new PlayerStudyRecordObject(mContentPlayObject.getPlayItemType(), mContentPlayObject.getSelectedPosition(), mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id, mStudyTime);
-		PlayerSaveRecordAsync async = new PlayerSaveRecordAsync(this, object, mAsyncListener);
-		async.execute();
+		/*PlayerSaveRecordAsync async = new PlayerSaveRecordAsync(this, object, mAsyncListener);
+		async.execute();*/
+
+		PlayerSaveRecordCoroutine coroutine = new PlayerSaveRecordCoroutine(this, mAsyncListener);
+		coroutine.setData(object);
+		coroutine.execute();
 		
 		mStudyTime = 0;
 	}
@@ -1037,7 +1052,7 @@ public class PlayerActivity extends BaseActivity
 			}
 			if(Feature.IS_FREE_USER)
 			{
-				int currentObjectTotalPlayTime= Integer.valueOf(mContentPlayObject.getPlayObject(mCurrentPlayPosition).play_time);
+				int currentObjectTotalPlayTime = Integer.valueOf(mContentPlayObject.getPlayObject(mCurrentPlayPosition).play_time);
 				mFreeUserPreviewTime = CommonUtils.getInstance(this).getPreviewTime(currentObjectTotalPlayTime);
 				Log.f("Free User Preview Time : " + mFreeUserPreviewTime);
 			}

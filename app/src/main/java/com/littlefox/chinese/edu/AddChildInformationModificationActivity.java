@@ -21,14 +21,14 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.littlefox.chinese.edu.async.AddChildRequestAddAsync;
-import com.littlefox.chinese.edu.async.AddChildRequestDeleteAsync;
-import com.littlefox.chinese.edu.async.AddChildRequestModificationAsync;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.ChildRequestAddCoroutine;
+import com.littlefox.chinese.edu.coroutines.ChildRequestDeleteCoroutine;
+import com.littlefox.chinese.edu.coroutines.ChildRequestModificationCoroutine;
 import com.littlefox.chinese.edu.dialog.TempleteAlertDialog;
 import com.littlefox.chinese.edu.dialog.listener.DialogListener;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
@@ -271,26 +271,37 @@ public class AddChildInformationModificationActivity extends BaseActivity
 		}
 	}
 	
-	private void requestChildAddAsync()
+	private void requestChildAdd()
 	{
-		AddChildRequestAddAsync async = new AddChildRequestAddAsync(this, mCurrentRequestChildInformationObject, mAsyncListener);
-		async.execute();
+		//AddChildRequestAddAsync async = new AddChildRequestAddAsync(this, mCurrentRequestChildInformationObject, mAsyncListener);
+		//async.execute();
+		ChildRequestAddCoroutine coroutine = new ChildRequestAddCoroutine(this, mAsyncListener);
+		coroutine.setData(mCurrentRequestChildInformationObject);
+		coroutine.execute();
 	}
 	
-	private void requestChildModificationAsync()
+	private void requestChildModification()
 	{
 		UserTotalInformationObject userTotalInformationObject = (UserTotalInformationObject) CommonUtils.getInstance(this).getPreferenceObject(Common.PARAMS_USER_TOTAL_INFO, UserTotalInformationObject.class);
-		AddChildRequestModificationAsync async = new AddChildRequestModificationAsync(this, 
+		/*AddChildRequestModificationAsync async = new AddChildRequestModificationAsync(this,
 				userTotalInformationObject.getChildInformationList().get(mCurrentRequestChildIndex), 
 				mCurrentRequestChildInformationObject, 
 				mAsyncListener);
-		async.execute();
+		async.execute();*/
+
+		ChildRequestModificationCoroutine coroutine = new ChildRequestModificationCoroutine(this, mAsyncListener);
+		coroutine.setData(mCurrentRequestChildInformationObject);
+		coroutine.execute();
 	}
 	
-	private void requestChildDeleteAsync(UserBaseInformationObject requestDeleteUserObject)
+	private void requestChildDelete(UserBaseInformationObject requestDeleteUserObject)
 	{
-		AddChildRequestDeleteAsync async  = new AddChildRequestDeleteAsync(this, requestDeleteUserObject, mAsyncListener);
-		async.execute();
+		//AddChildRequestDeleteAsync async  = new AddChildRequestDeleteAsync(this, requestDeleteUserObject, mAsyncListener);
+		//async.execute();
+
+		ChildRequestDeleteCoroutine coroutine = new ChildRequestDeleteCoroutine(this, mAsyncListener);
+		coroutine.setData(requestDeleteUserObject);
+		coroutine.execute();
 	}
 	
 	private void showFailModificationMessage(String message)
@@ -400,7 +411,7 @@ public class AddChildInformationModificationActivity extends BaseActivity
 					UserTotalInformationObject userTotalInformationObject = (UserTotalInformationObject) CommonUtils.getInstance(AddChildInformationModificationActivity.this).getPreferenceObject(Common.PARAMS_USER_TOTAL_INFO, UserTotalInformationObject.class);
 					if(NetworkUtil.isConnectNetwork(AddChildInformationModificationActivity.this))
 					{
-						requestChildDeleteAsync(userTotalInformationObject.getChildInformationList().get(mCurrentRequestChildIndex));
+						requestChildDelete(userTotalInformationObject.getChildInformationList().get(mCurrentRequestChildIndex));
 					}
 					else
 					{
@@ -432,7 +443,7 @@ public class AddChildInformationModificationActivity extends BaseActivity
 			case AddChildHolder.ACTION_ADD:
 				if(NetworkUtil.isConnectNetwork(AddChildInformationModificationActivity.this))
 				{
-					requestChildAddAsync();
+					requestChildAdd();
 				}
 				else
 				{
@@ -443,7 +454,7 @@ public class AddChildInformationModificationActivity extends BaseActivity
 			case AddChildHolder.ACTION_MODIFICATION:
 				if(NetworkUtil.isConnectNetwork(AddChildInformationModificationActivity.this))
 				{
-					requestChildModificationAsync();
+					requestChildModification();
 				}
 				else
 				{

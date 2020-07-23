@@ -16,10 +16,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.R;
-import com.littlefox.chinese.edu.async.SeriesIntroductionRequestAsync;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
+import com.littlefox.chinese.edu.coroutines.SeriesIntroductionRequestCoroutine;
 import com.littlefox.chinese.edu.object.result.SeriesInfoResult;
 import com.littlefox.library.system.async.listener.AsyncListener;
 import com.littlefox.library.view.text.SeparateTextView;
@@ -120,8 +120,11 @@ public class SeriesIntroductionInfoDialog extends Dialog
 	
 	private void requestSeriesInformation()
 	{
-		SeriesIntroductionRequestAsync async = new SeriesIntroductionRequestAsync(mContext, mFeatureSeriesId, mRequestListener);
-		async.execute();
+		//SeriesIntroductionRequestAsync async = new SeriesIntroductionRequestAsync(mContext, mFeatureSeriesId, mRequestListener);
+		//async.execute();
+		SeriesIntroductionRequestCoroutine coroutine = new SeriesIntroductionRequestCoroutine(mContext, mRequestListener);
+		coroutine.setData(mFeatureSeriesId);
+		coroutine.execute();
 	}
 	
 	private void showLoadedLayout(boolean isLoadComplete)

@@ -25,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.littlefox.chinese.edu.async.ChangeUserRequestAsync;
 import com.littlefox.chinese.edu.billing.InAppPurchase;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
@@ -33,6 +32,7 @@ import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.FileUtils;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.ChangeUserRequestCoroutine;
 import com.littlefox.chinese.edu.database.PlayedContentDBHelper;
 import com.littlefox.chinese.edu.dialog.TempleteAlertDialog;
 import com.littlefox.chinese.edu.dialog.UserSelectDialog;
@@ -728,8 +728,11 @@ public class MainTabsActivityTablet extends BaseActivity
 		if(NetworkUtil.isConnectNetwork(MainTabsActivityTablet.this))
 		{
 	    	mChangeIndex = index;
-	    	ChangeUserRequestAsync async = new ChangeUserRequestAsync(this, index, mAsyncListener);
-	    	async.execute();
+	    	//ChangeUserRequestAsync async = new ChangeUserRequestAsync(this, index, mAsyncListener);
+	    	//async.execute();
+			ChangeUserRequestCoroutine coroutine = new ChangeUserRequestCoroutine(this, mAsyncListener);
+			coroutine.setData(index);
+			coroutine.execute();
 		}
 		else
 		{

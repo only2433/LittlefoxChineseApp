@@ -21,13 +21,13 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.littlefox.chinese.edu.async.UserInformationSetAsync;
-import com.littlefox.chinese.edu.async.UserPasswordChangeAsync;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.UserInformationSetCoroutine;
+import com.littlefox.chinese.edu.coroutines.UserPasswordChangeCoroutine;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.fragment.UserInformationConvertFragment;
 import com.littlefox.chinese.edu.fragment.UserInformationShowFragment;
@@ -231,14 +231,20 @@ public class UserInformationModificationActivity extends BaseActivity
 	
 	private void requestUserInformationModification()
 	{
-		UserInformationSetAsync async = new UserInformationSetAsync(this, mModificationUserInformation, onRequestListener);
-		async.execute();
+		//UserInformationSetAsync async = new UserInformationSetAsync(this, mModificationUserInformation, onRequestListener);
+		//async.execute();
+		UserInformationSetCoroutine coroutine = new UserInformationSetCoroutine(this, onRequestListener);
+		coroutine.setData(mModificationUserInformation);
+		coroutine.execute();
 	}
 	
 	private void requestUserPasswordModification()
 	{
-		UserPasswordChangeAsync async = new UserPasswordChangeAsync(this, mModificationUserPassword, onRequestListener);
-		async.execute();
+		//UserPasswordChangeAsync async = new UserPasswordChangeAsync(this, mModificationUserPassword, onRequestListener);
+		//async.execute();
+		UserPasswordChangeCoroutine coroutine = new UserPasswordChangeCoroutine(this, onRequestListener);
+		coroutine.setData(mModificationUserPassword);
+		coroutine.execute();
 	}
 	
 	private void settingInformationModification(int type)

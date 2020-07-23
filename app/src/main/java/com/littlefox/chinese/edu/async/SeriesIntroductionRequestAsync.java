@@ -48,7 +48,6 @@ public class SeriesIntroductionRequestAsync extends BaseAsync
 				mAsyncListener.onErrorListener(Common.ASYNC_CODE_SERIES_INFO, e.getMessage());
 			}
 		}
-		
 		return result;
 	}
 

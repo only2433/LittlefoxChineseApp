@@ -26,13 +26,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
-import com.littlefox.chinese.edu.async.FileDownloadAsync;
-import com.littlefox.chinese.edu.async.QuizInformationRequestAsync;
-import com.littlefox.chinese.edu.async.QuizSaveRecordAsync;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
+import com.littlefox.chinese.edu.coroutines.FileDownloadCoroutine;
+import com.littlefox.chinese.edu.coroutines.QuizInformationRequestCoroutine;
+import com.littlefox.chinese.edu.coroutines.QuizSaveRecordCoroutine;
 import com.littlefox.chinese.edu.dialog.TempleteAlertDialog;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.fragment.QuizIntroFragment;
@@ -607,8 +607,12 @@ public class QuizActivity extends BaseActivity
 	
 	private void requestQuizInformation()
 	{
-		QuizInformationRequestAsync requestAsync = new QuizInformationRequestAsync(this, mCurrentContentId, mQuizRequestListener);
-		requestAsync.execute();
+		//QuizInformationRequestAsync requestAsync = new QuizInformationRequestAsync(this, mCurrentContentId, mQuizRequestListener);
+		//requestAsync.execute();
+		QuizInformationRequestCoroutine coroutine = new QuizInformationRequestCoroutine(this, mQuizRequestListener);
+		coroutine.setData(mCurrentContentId);
+		coroutine.execute();
+
 	}
 	
 	/**
@@ -628,8 +632,11 @@ public class QuizActivity extends BaseActivity
 			fileSavePathList.add(Common.PATH_QUIZ_INFO+mQuizPictureQuestionResult.getInCorrectImageFileName());
 		}
 
-		FileDownloadAsync downloadAsync = new FileDownloadAsync(this, downloadUrlList, fileSavePathList , mFileDownloadListener);
-		downloadAsync.execute();
+		//FileDownloadAsync downloadAsync = new FileDownloadAsync(this, downloadUrlList, fileSavePathList , mFileDownloadListener);
+		//downloadAsync.execute();
+		FileDownloadCoroutine coroutine = new FileDownloadCoroutine(this, mFileDownloadListener);
+		coroutine.setData(downloadUrlList, fileSavePathList);
+		coroutine.execute();
 	}
 	
     private void showTempleteAlertDialog(int type, int buttonType, String message)
@@ -817,8 +824,11 @@ public class QuizActivity extends BaseActivity
 	private void requestQuizSaveRecord()
 	{
 		showLoading();
-		QuizSaveRecordAsync async = new QuizSaveRecordAsync(this, mQuizRequestObject, mQuizRequestListener);
-		async.execute();
+		//QuizSaveRecordAsync async = new QuizSaveRecordAsync(this, mQuizRequestObject, mQuizRequestListener);
+		//async.execute();
+		QuizSaveRecordCoroutine coroutine = new QuizSaveRecordCoroutine(this, mQuizRequestListener);
+		coroutine.setData(mQuizRequestObject);
+		coroutine.execute();
 	}
 	
 	@OnClick(R.id.quiz_close_button)

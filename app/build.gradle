@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 
@@ -61,11 +62,13 @@ dependencies {
 
 
     implementation 'com.github.only2433:LittlefoxLogMoniter:1.0.4'
-    implementation 'com.github.only2433:LittlefoxSystemLibrary:1.0.9'
+    implementation 'com.github.only2433:LittlefoxSystemLibrary:2.0.4'
     implementation 'com.github.only2433:LittlefoxViewLibrary:1.0.14'
     implementation 'com.ssomai:android.scalablelayout:2.1.1'
     implementation 'com.github.bumptech.glide:glide:4.8.0'
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0"
 }
 repositories {
     mavenCentral()

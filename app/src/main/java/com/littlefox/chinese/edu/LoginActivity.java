@@ -1,50 +1,50 @@
  package com.littlefox.chinese.edu;
 
  import android.annotation.SuppressLint;
- import android.content.Context;
- import android.content.pm.ActivityInfo;
- import android.os.Build;
- import android.os.Bundle;
- import android.os.Handler;
- import android.os.Message;
- import android.support.annotation.Nullable;
- import android.support.design.widget.CoordinatorLayout;
- import android.support.v4.view.animation.LinearOutSlowInInterpolator;
- import android.transition.Slide;
- import android.view.Gravity;
- import android.view.View;
- import android.view.Window;
- import android.view.inputmethod.InputMethodManager;
- import android.widget.ImageView;
- import android.widget.TextView;
- import android.widget.Toast;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
+import android.transition.Slide;
+import android.view.Gravity;
+import android.view.View;
+import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
- import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
- import com.littlefox.chinese.edu.async.SearchUserInfoAsync;
- import com.littlefox.chinese.edu.async.SendEmailToSearchPasswordAsync;
- import com.littlefox.chinese.edu.async.UserLoginAsync;
- import com.littlefox.chinese.edu.common.CheckUserInput;
- import com.littlefox.chinese.edu.common.Common;
- import com.littlefox.chinese.edu.common.CommonUtils;
- import com.littlefox.chinese.edu.common.Feature;
- import com.littlefox.chinese.edu.common.Font;
- import com.littlefox.chinese.edu.common.NetworkUtil;
- import com.littlefox.chinese.edu.dialog.LoginInfoSearchDialog;
- import com.littlefox.chinese.edu.dialog.LoginInfoSearchDialog.OnLoginListener;
- import com.littlefox.chinese.edu.factory.MainSystemFactory;
- import com.littlefox.chinese.edu.object.UserLoginObject;
- import com.littlefox.chinese.edu.object.result.InfoSearchResult;
- import com.littlefox.chinese.edu.object.result.UserLoginResult;
- import com.littlefox.chinese.edu.object.result.base.BaseResult;
- import com.littlefox.chinese.edu.view.PaddingDrawableEditText;
- import com.littlefox.library.system.async.listener.AsyncListener;
- import com.littlefox.library.view.dialog.MaterialLoadingDialog;
- import com.littlefox.logmonitor.Log;
- import com.ssomai.android.scalablelayout.ScalableLayout;
+import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
+import com.littlefox.chinese.edu.common.CheckUserInput;
+import com.littlefox.chinese.edu.common.Common;
+import com.littlefox.chinese.edu.common.CommonUtils;
+import com.littlefox.chinese.edu.common.Feature;
+import com.littlefox.chinese.edu.common.Font;
+import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.SearchUserInfoCoroutine;
+import com.littlefox.chinese.edu.coroutines.SendEmailToSearchPasswordCoroutine;
+import com.littlefox.chinese.edu.coroutines.UserLoginCoroutine;
+import com.littlefox.chinese.edu.dialog.LoginInfoSearchDialog;
+import com.littlefox.chinese.edu.dialog.LoginInfoSearchDialog.OnLoginListener;
+import com.littlefox.chinese.edu.factory.MainSystemFactory;
+import com.littlefox.chinese.edu.object.UserLoginObject;
+import com.littlefox.chinese.edu.object.result.InfoSearchResult;
+import com.littlefox.chinese.edu.object.result.UserLoginResult;
+import com.littlefox.chinese.edu.object.result.base.BaseResult;
+import com.littlefox.chinese.edu.view.PaddingDrawableEditText;
+import com.littlefox.library.system.async.listener.AsyncListener;
+import com.littlefox.library.view.dialog.MaterialLoadingDialog;
+import com.littlefox.logmonitor.Log;
+import com.ssomai.android.scalablelayout.ScalableLayout;
 
- import butterknife.BindView;
- import butterknife.ButterKnife;
- import butterknife.OnClick;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
  public class LoginActivity extends BaseActivity
 {
@@ -409,20 +409,31 @@
 	
 	private void requestUserLoginAsync(String userId, String userPassword)
 	{
-		UserLoginAsync async = new UserLoginAsync(this, new UserLoginObject(userId, userPassword), mLoginAsyncListener);
-		async.execute();
+		//UserLoginAsync async = new UserLoginAsync(this, new UserLoginObject(userId, userPassword), mLoginAsyncListener);
+		//async.execute();
+		UserLoginObject data = new UserLoginObject(userId, userPassword);
+		UserLoginCoroutine coroutine = new UserLoginCoroutine(this, mLoginAsyncListener);
+		coroutine.setData(data);
+		coroutine.execute();
+
 	}
 	
 	private void requestSearchUserInfoAsync(String code, String searchInfo)
 	{
-		SearchUserInfoAsync async = new SearchUserInfoAsync(this, code, searchInfo, mLoginAsyncListener);
-		async.execute();
+		/*SearchUserInfoAsync async = new SearchUserInfoAsync(this, code, searchInfo, mLoginAsyncListener);
+		async.execute();*/
+		SearchUserInfoCoroutine coroutine = new SearchUserInfoCoroutine(this, code, mLoginAsyncListener);
+		coroutine.setData(searchInfo);
+		coroutine.execute();
 	}
 	
 	private void requestSendEmailToChangePasswordAsync(String email)
 	{
-		SendEmailToSearchPasswordAsync async = new SendEmailToSearchPasswordAsync(this, email, mLoginAsyncListener);
-		async.execute();
+		/*SendEmailToSearchPasswordAsync async = new SendEmailToSearchPasswordAsync(this, email, mLoginAsyncListener);
+		async.execute();*/
+		SendEmailToSearchPasswordCoroutine coroutine = new SendEmailToSearchPasswordCoroutine(this, mLoginAsyncListener);
+		coroutine.setData(email);
+		coroutine.execute();
 	}
 	/**
 	 * 로그인에 성공한 정보를 SharedPreference에 저장하여 사용

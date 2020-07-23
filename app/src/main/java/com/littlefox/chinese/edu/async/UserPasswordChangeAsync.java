@@ -45,7 +45,6 @@ public class UserPasswordChangeAsync extends BaseAsync
 				mAsyncListener.onErrorListener(Common.ASYNC_CODE_USER_PASSWORD_CHANGE, e.getMessage());
 			}
 		}
-		
 		return result;
 	}
 

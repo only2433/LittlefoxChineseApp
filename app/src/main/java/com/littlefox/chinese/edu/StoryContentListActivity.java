@@ -36,12 +36,12 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
-import com.littlefox.chinese.edu.async.ContentListAsync;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
+import com.littlefox.chinese.edu.coroutines.ContentListCoroutine;
 import com.littlefox.chinese.edu.dialog.SeriesIntroductionInfoDialog;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.object.ContentListTitleObject;
@@ -518,9 +518,13 @@ public class StoryContentListActivity extends BaseActivity
 	private void requestContentListInformation()
 	{
 		Log.f("Content List Request ID : " + mContentListTitleObject.getStoryKeyId());
-		ContentListAsync async;
-		async = new ContentListAsync(this, mContentListTitleObject.getStoryKeyId(), mRequestListener);
-		async.execute();
+		//ContentListAsync async;
+		//async = new ContentListAsync(this, mContentListTitleObject.getStoryKeyId(), mRequestListener);
+		//async.execute();
+
+		ContentListCoroutine coroutine = new ContentListCoroutine(this,mRequestListener);
+		coroutine.setData(mContentListTitleObject.getStoryKeyId());
+		coroutine.execute();
 	}
 	
 	/**
@@ -830,7 +834,7 @@ public class StoryContentListActivity extends BaseActivity
 		}
 
         @Override
-		public void onBindViewHolder(ViewHolder holder, final int position)
+		public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") final int position)
 		{
 			changeLayoutToLastPosition(holder, position);
 

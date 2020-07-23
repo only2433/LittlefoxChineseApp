@@ -21,13 +21,11 @@ public class SongCategoryContentListAsync extends BaseAsync
 		super(context, Common.ASYNC_CODE_SONG_CATEGORY_CONTENT_LIST);
 		mSmID = smID;
 		setAsyncListener(asyncListener);
-		
 	}
 
 	@Override
 	protected Object doInBackground(Void... params)
 	{
-		
 		if(isRunning == true)
 		{
 			return null;
@@ -55,9 +53,7 @@ public class SongCategoryContentListAsync extends BaseAsync
 				e.printStackTrace();
 				mAsyncListener.onErrorListener(Common.ASYNC_CODE_SONG_CATEGORY_CONTENT_LIST, e.getMessage());
 			}
-			
 			return result;
-			
 		}
 	}
 
