@@ -3,8 +3,8 @@ package com.littlefox.chinese.edu.view.itemdecoration;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.State;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.State;
 import android.view.View;
 
 /**

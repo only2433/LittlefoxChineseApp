@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.littlefox.chinese.edu.R;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
+import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.dialog.listener.DialogListener;
 
 public class TempleteAlertDialog 
@@ -215,10 +216,8 @@ public class TempleteAlertDialog
 		//mAlertDialogBuilder.show();
 		
 		AlertDialog dialog = mAlertDialogBuilder.show();
-		
-		
-
-		TextView messageText = dialog.findViewById(android.R.id.message);
+		TextView messageText = (TextView)dialog.findViewById(android.R.id.message);
+		messageText.setTypeface(Font.getInstance(mContext).getRobotoRegular());
 		messageText.setGravity(Gravity.CENTER);
 		
 		dialog.show();

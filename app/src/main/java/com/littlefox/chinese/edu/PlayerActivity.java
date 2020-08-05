@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
-import android.support.annotation.Nullable;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.text.Html;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,6 +18,9 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
@@ -510,18 +511,15 @@ public class PlayerActivity extends BaseActivity
 	{	
 		mPlayedContentDBHelper = PlayedContentDBHelper.getInstance(this);
 		mVibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-		
 		_LockButton.setOnTouchListener(mLockControlListener);
 		_ThumbSeekbar.setOnSeekBarChangeListener(mSeekBarChangeListener);
 
         LayerDrawable layerDrawable = (LayerDrawable)getResources().getDrawable(R.drawable.seekbar_thumb);
         GradientDrawable rectDrawable = (GradientDrawable)layerDrawable.findDrawableByLayerId(R.id._thumbRect);
         GradientDrawable circleDrawable = (GradientDrawable)layerDrawable.findDrawableByLayerId(R.id._thumbCircle);
-
         rectDrawable.setSize(CommonUtils.getInstance(this).getPixel(45), CommonUtils.getInstance(this).getPixel(45));
         circleDrawable.setSize(CommonUtils.getInstance(this).getPixel(40), CommonUtils.getInstance(this).getPixel(40));
 
-		
 		_TopViewLayout.setOnTouchListener(new OnTouchListener()
 		{
 			@Override
@@ -530,7 +528,6 @@ public class PlayerActivity extends BaseActivity
 				return true;
 			}
 		});
-		
 		_BottomViewLayout.setOnTouchListener(new OnTouchListener()
 		{
 			@Override
@@ -551,7 +548,6 @@ public class PlayerActivity extends BaseActivity
 	
 	private void initViewSetting()
 	{
-		
 		if(Feature.IS_FREE_USER)
 		{
 			settingLayout(LAYOUT_TYPE_PREVIEW_PLAY);
@@ -561,25 +557,20 @@ public class PlayerActivity extends BaseActivity
 			showMenuWithoutAnimation(false);
 			settingLayout(LAYOUT_TYPE_DEFAULT);
 		}
-		
 	}
 	
 	private void initFont()
 	{
 		_CurrentPlayTimeText.setTypeface(Font.getInstance(this).getRobotoMedium());
 		_PreviewSignMessageText.setTypeface(Font.getInstance(this).getRobotoMedium());
-		
 		_PreviewProgressText.setTypeface(Font.getInstance(this).getRobotoMedium());
 		_PreviewPayButtonText.setTypeface(Font.getInstance(this).getRobotoMedium());
-
 		_RemainPlayTimeText.setTypeface(Font.getInstance(this).getRobotoMedium());
 		_TopTitleText.setTypeface(Font.getInstance(this).getRobotoMedium());
-		
 		_PlayEndReplayText.setTypeface(Font.getInstance(this).getRobotoMedium());
 		_PlayEndQuizText.setTypeface(Font.getInstance(this).getRobotoMedium());
 		_PlayEndRemainText.setTypeface(Font.getInstance(this).getRobotoMedium());
 		_PlayEndRecommandTitleText.setTypeface(Font.getInstance(this).getRobotoMedium());
-		
 		_CaptionTitleText.setTypeface(Font.getInstance(this).getRobotoRegular());
 	}
 	
@@ -682,7 +673,6 @@ public class PlayerActivity extends BaseActivity
 				return Common.ANALYTICS_ACTION_STUDYDATA;
 			}
 		}
-		
 		return "";
 	}
 
@@ -693,10 +683,7 @@ public class PlayerActivity extends BaseActivity
 	private void settingLayout(int type)
 	{
 		Log.i("type : "+type);
-		
-		
 		mCurrentLayoutType = type;
-		
 		_BasePreviewEndLayout.clearAnimation();
 		_BasePlayEndLayout.clearAnimation();
 		switch(type)
@@ -1125,9 +1112,6 @@ public class PlayerActivity extends BaseActivity
 		{
 			requestCurrentPlayVideoUrlInformation();
 		}
-		
-		
-		
 	}
 	
 	/**
@@ -1274,7 +1258,6 @@ public class PlayerActivity extends BaseActivity
 				{
 					mMainHandler.removeMessages(MESSAGE_VIDEO_VISIBLE);
 				}
-				
 				setAnimationMenu(false);
 				setPlayStatus(PLAYER_PAUSE);
 			}
@@ -1332,7 +1315,6 @@ public class PlayerActivity extends BaseActivity
 	private int getNextPositionWhenSingle(int position)
 	{
 		position++;
-		
 		if(position >= mContentPlayObject.getPlayObjectList().size())
 		{
 			position = 0;
@@ -1343,12 +1325,10 @@ public class PlayerActivity extends BaseActivity
 	private int getPrevPosition(int position)
 	{
 		position--;
-		
 		if(position < 0 )
 		{
 			position = 0;
 		}
-		
 		return position;
 	}
 	
@@ -1586,8 +1566,6 @@ public class PlayerActivity extends BaseActivity
 		{
 			return false;
 		}
-
-		
 		return false;
 	}
 	
@@ -1877,6 +1855,7 @@ public class PlayerActivity extends BaseActivity
 		@Override
 		public void onPlayStart()
 		{
+			Log.f("");
 			isBackgroundVisibleError = true;
 			enableMovieLoadingCheckTimer(false);
 			Log.f("");

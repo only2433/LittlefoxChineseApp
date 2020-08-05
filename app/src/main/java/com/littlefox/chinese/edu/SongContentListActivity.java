@@ -8,9 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,9 +18,12 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
-import com.littlefox.chinese.edu.async.SongCategoryContentListAsync;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
@@ -322,6 +322,7 @@ public class SongContentListActivity extends BaseActivity
 		//SongCategoryContentListAsync async = new SongCategoryContentListAsync(this, smID, mAsyncListener);
 		//async.execute();
 		SongCategoryContentListCoroutine coroutine = new SongCategoryContentListCoroutine(this, mAsyncListener);
+		coroutine.setData(smID);
 		coroutine.execute();
 	}
 	
@@ -667,36 +668,43 @@ public class SongContentListActivity extends BaseActivity
 		
 		public class ViewHolder extends RecyclerView.ViewHolder
 		{
+			@BindView(R.id.song_item_section_layout)
 			ScalableLayout _SectionLayout;
+
+			@BindView(R.id.song_list_item_base_layout)
 			ScalableLayout _ItemBaseLayout;
+
+			@BindView(R.id.song_item_footer_layout)
 			ScalableLayout _FooterLayout;
-			
+
+			@BindView(R.id.item_section_title)
 			TextView _SectionTitleText;
+
+			@BindView(R.id.song_list_item_title)
 			TextView _ItemTitleText;
+
+			@BindView(R.id.song_list_item_content_text)
 			TextView _ItemSubTitleText;
-			
+
+			@BindView(R.id.song_list_item_check)
 			ImageView _ItemCheckButton;
+
+			@BindView(R.id.song_list_item_thumbnail)
 			ImageView _ItemThumnailImage;
+
+			@BindView(R.id.song_list_item_click_territory)
 			ImageView _ItemClickTerritory;
+
+			@BindView(R.id.song_list_item_cover)
 			ImageView _ItemThumnailComingSoonCover;
+
+			@BindView(R.id.song_list_item_origin_text_button)
 			ImageView _ItemOriginButton;
 
 			public ViewHolder(View view)
 			{
 				super(view);
-				_SectionLayout 	= ButterKnife.findById(view, R.id.song_item_section_layout);
-				_SectionTitleText 	= ButterKnife.findById(view, R.id.item_section_title);
-				_ItemBaseLayout 	= ButterKnife.findById(view, R.id.song_list_item_base_layout);
-				_FooterLayout		= ButterKnife.findById(view, R.id.song_item_footer_layout);				
-				
-				_ItemTitleText		= ButterKnife.findById(view, R.id.song_list_item_title);
-				_ItemSubTitleText	= ButterKnife.findById(view, R.id.song_list_item_content_text);
-				
-				_ItemCheckButton		= ButterKnife.findById(view, R.id.song_list_item_check);
-				_ItemClickTerritory		= ButterKnife.findById(view, R.id.song_list_item_click_territory);
-				_ItemThumnailImage 		= ButterKnife.findById(view, R.id.song_list_item_thumbnail);
-				_ItemThumnailComingSoonCover	= ButterKnife.findById(view, R.id.song_list_item_cover);
-				_ItemOriginButton		= ButterKnife.findById(view, R.id.song_list_item_origin_text_button);
+				ButterKnife.bind(this, view);
 				initFont();
 				initText();
 			}

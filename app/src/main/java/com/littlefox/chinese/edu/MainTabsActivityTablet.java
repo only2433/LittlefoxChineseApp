@@ -5,16 +5,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
-import android.support.v4.widget.DrawerLayout;
+import androidx.annotation.Nullable;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
+import androidx.drawerlayout.widget.DrawerLayout;
 import android.transition.Explode;
 import android.view.MotionEvent;
 import android.view.View;
@@ -75,10 +77,10 @@ import butterknife.OnClick;
 public class MainTabsActivityTablet extends BaseActivity
 {
 	@BindView(R.id.main_draw_layout)
-	android.support.v4.widget.DrawerLayout _MainBaseLayout;
+    DrawerLayout _MainBaseLayout;
 	
 	@BindView(R.id.main_content)
-	android.support.design.widget.CoordinatorLayout _BaseCoordinatorLayout;
+    CoordinatorLayout _BaseCoordinatorLayout;
 	
 	@BindView(R.id.main_tabs_base_layout)
 	ScalableLayout _MainBaseTopBarLayout;

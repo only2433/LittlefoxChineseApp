@@ -1,14 +1,13 @@
 package com.littlefox.chinese.edu.factory;
 
 
-
-
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
+
+import androidx.core.app.ActivityCompat;
 
 import com.littlefox.chinese.edu.AddChildInformationModificationActivity;
 import com.littlefox.chinese.edu.AutobiographyActivity;
@@ -19,15 +18,15 @@ import com.littlefox.chinese.edu.LoginActivity;
 import com.littlefox.chinese.edu.MainTabsActivity;
 import com.littlefox.chinese.edu.MainTabsActivityTablet;
 import com.littlefox.chinese.edu.NetworkErrorActivity;
+import com.littlefox.chinese.edu.OriginDataInformationActivity;
 import com.littlefox.chinese.edu.PayPageActivity;
-import com.littlefox.chinese.edu.PlayerActivity;
+import com.littlefox.chinese.edu.PlayerHlsActivity;
 import com.littlefox.chinese.edu.QuizActivity;
 import com.littlefox.chinese.edu.R;
 import com.littlefox.chinese.edu.SongContentListActivity;
 import com.littlefox.chinese.edu.StepLittlefoxChineseIntroduceActivity;
 import com.littlefox.chinese.edu.StepStudyGuideActivity;
 import com.littlefox.chinese.edu.StoryContentListActivity;
-import com.littlefox.chinese.edu.OriginDataInformationActivity;
 import com.littlefox.chinese.edu.StudyRecordActivity;
 import com.littlefox.chinese.edu.UserInformationModificationActivity;
 import com.littlefox.chinese.edu.UserSignActivity;
@@ -140,7 +139,7 @@ public class MainSystemFactory
 			}
 			break;
 		case MODE_PLAYER:
-			intent = new Intent(mContext, PlayerActivity.class);
+			intent = new Intent(mContext, PlayerHlsActivity.class);
 			if(object != null)
 			{
 				intent.putExtra(Common.INTENT_PLAYER_PARAMS, (ContentPlayObject)object);

@@ -10,14 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.CoordinatorLayout.LayoutParams;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,12 +21,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
@@ -435,19 +436,19 @@ public class StoryContentListActivity extends BaseActivity
 	    Toolbar parent =(Toolbar) customView.getParent();
 	    parent.setContentInsetsAbsolute(0,0);
 	    
-		ImageView menuBackIcon = ButterKnife.findById(customView, R.id.top_menu_back_click);
+		ImageView menuBackIcon = (ImageView)customView.findViewById(R.id.top_menu_back_click);
 		menuBackIcon.setOnClickListener(mMenuItemListener);
 		
 		/**
 		 * 서버 통신 후에 SeriesID 가 없을 경우 정보가 보여지지않는다.
 		 */
-		ImageView menuInfoIcon = ButterKnife.findById(customView, R.id.top_menu_info);
+		ImageView menuInfoIcon = (ImageView)customView.findViewById(R.id.top_menu_info);
 		menuInfoIcon.setOnClickListener(mMenuItemListener);
 		
-		_MenuInfoImage = ButterKnife.findById(customView, R.id.top_menu_info_image);
+		_MenuInfoImage = (ImageView)customView.findViewById(R.id.top_menu_info_image);
 		_MenuInfoImage.setVisibility(View.GONE);
 		
-		ImageView menuTitleImage = ButterKnife.findById(customView, R.id.top_menu_title_image);
+		ImageView menuTitleImage = (ImageView)customView.findViewById(R.id.top_menu_title_image);
 		
 		Glide.with(this)
 				.load(mContentListTitleObject.getTitleTextImageUrl())

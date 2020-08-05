@@ -2,8 +2,6 @@ package com.littlefox.chinese.edu.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.littlefox.chinese.edu.AddChildInformationModificationActivity.AddChildHolder;
 import com.littlefox.chinese.edu.AddChildInformationModificationActivity.OnAddChildListener;
@@ -156,11 +157,13 @@ public class AddChildInformationShowFragment extends Fragment implements AddChil
 		}
 		
 		
-		TextView _titleText = ButterKnife.findById(baseView, R.id.addchild_show_child_titile);
+		//TextView _titleText = ButterKnife.findById(baseView, R.id.addchild_show_child_titile);
+		TextView _titleText = (TextView)baseView.findViewById(R.id.addchild_show_child_titile);
+
 		_titleText.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 		_titleText.setText(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.title_add_user)+" "+String.valueOf(index+1));
 		
-		TextView _deleteButton = ButterKnife.findById(baseView, R.id.addchild_show_delete_button);
+		TextView _deleteButton = (TextView)baseView.findViewById(R.id.addchild_show_delete_button);
 		_deleteButton.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 		_deleteButton.setText(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.button_delete));
 		if(type == INFORMATION_GUEST)
@@ -168,23 +171,23 @@ public class AddChildInformationShowFragment extends Fragment implements AddChil
 			_deleteButton.setVisibility(View.GONE);
 		}
 		
-		TextView _modificationButton = ButterKnife.findById(baseView, R.id.addchild_show_info_modification_button);
+		TextView _modificationButton = (TextView)baseView.findViewById( R.id.addchild_show_info_modification_button);
 		_modificationButton.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 		_modificationButton.setText(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.button_edit));
 		
-		PaddingDrawableEditText _nicknameEdit = ButterKnife.findById(baseView, R.id.addchild_modification_nickname_edit);
+		PaddingDrawableEditText _nicknameEdit = (PaddingDrawableEditText)baseView.findViewById(R.id.addchild_modification_nickname_edit);
 		_nicknameEdit.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 		_nicknameEdit.setEnabled(false);
 		_nicknameEdit.setHint(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.login_nickname));
 		_nicknameEdit.setText(childInformation.getNickname());
 		
-		PaddingDrawableEditText _nameEdit = ButterKnife.findById(baseView, R.id.addchild_modification_name_edit);
+		PaddingDrawableEditText _nameEdit = (PaddingDrawableEditText)baseView.findViewById(R.id.addchild_modification_name_edit);
 		_nameEdit.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 		_nameEdit.setEnabled(false);
 		_nameEdit.setHint(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.login_name));
 		_nameEdit.setText(childInformation.getName());
 
-		PaddingDrawableEditText _calendarEdit = ButterKnife.findById(baseView, R.id.addchild_modification_calendar_text);
+		PaddingDrawableEditText _calendarEdit = (PaddingDrawableEditText)baseView.findViewById(R.id.addchild_modification_calendar_text);
 		_calendarEdit.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 		_calendarEdit.setEnabled(false);
 		_calendarEdit.setHint(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.login_birthday));

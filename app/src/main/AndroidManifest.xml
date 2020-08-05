@@ -45,7 +45,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:hardwareAccelerated="true" 
-        android:largeHeap="true">
+        android:largeHeap="true"
+        >
 
         <meta-data
             android:name="android.max_aspect" android:value="2.1"/>
@@ -122,6 +123,13 @@
         
         <activity
             android:name=".PlayerActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" >
+        </activity>
+
+        <activity
+            android:name=".PlayerHlsActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" >

@@ -3,10 +3,6 @@ package com.littlefox.chinese.edu.fragment;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.R;
@@ -521,47 +522,57 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 		
 		public class ViewHolder extends RecyclerView.ViewHolder
 		{
+			@BindView(R.id.base_item_layout)
 			ScalableLayout _BaseItemLayout;
+
+			@BindView(R.id.home_item_card_thumbnail)
 			ImageView _ThumbnailImage;
+
+			@BindView(R.id.home_item_card_recommand_title)
 			TextView _RecommandTitleText;
+
+			@BindView(R.id.home_item_section_week)
 			TextView _WeekTitleText;
-			
+
+			@BindView(R.id.base_item_section_layout)
 			LinearLayout _BaseSectionLayout;
+
+			@BindView(R.id.home_item_section_line_layout)
 			ScalableLayout _SectionDivideLineLayout;
+
+			@BindView(R.id.home_item_section_title)
 			TextView _SectionTitleText;
-			
-			
+
+			@BindView(R.id.base_autobiography_layout)
 			ScalableLayout _BaseAutobiographyLayout;
+
+			@BindView(R.id.home_item_autobiography_thumbnail)
 			ImageView _AutobiographyThumbnailImage;
+
+			@BindView(R.id.home_item_autobiography_title_text)
 			TextView _AutobiographyTitleText;
+
+			@BindView(R.id.home_item_autobiography_name_text)
 			TextView _AutobiographyNameText;
+
+			@BindView(R.id.home_button_autobiography)
 			ImageView _AutobiographyButton;
 			
 			public ViewHolder(View view)
 			{
 				super(view);
-				_BaseItemLayout 		= ButterKnife.findById(view, R.id.base_item_layout);
-				_ThumbnailImage 		= ButterKnife.findById(view, R.id.home_item_card_thumbnail);
-				_RecommandTitleText 	= ButterKnife.findById(view, R.id.home_item_card_recommand_title);
-				
-				_BaseSectionLayout			= ButterKnife.findById(view, R.id.base_item_section_layout);
-				_SectionDivideLineLayout 	= ButterKnife.findById(view, R.id.home_item_section_line_layout);
-				_SectionTitleText			= ButterKnife.findById(view, R.id.home_item_section_title);
-				_WeekTitleText				= ButterKnife.findById(view, R.id.home_item_section_week);
-				
-				_BaseAutobiographyLayout		= ButterKnife.findById(view, R.id.base_autobiography_layout);
-				_AutobiographyThumbnailImage 	= ButterKnife.findById(view, R.id.home_item_autobiography_thumbnail);
-				_AutobiographyTitleText			= ButterKnife.findById(view, R.id.home_item_autobiography_title_text);
-				_AutobiographyNameText			= ButterKnife.findById(view, R.id.home_item_autobiography_name_text);
-				_AutobiographyButton			= ButterKnife.findById(view, R.id.home_button_autobiography);
-						
+				ButterKnife.bind(this, view);
+				initFont();
+			}
+
+			private void initFont()
+			{
 				_RecommandTitleText.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 				_SectionTitleText.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 				_WeekTitleText.setTypeface(Font.getInstance(mContext).getRobotoMedium());
-				
 				_AutobiographyTitleText.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 				_AutobiographyNameText.setTypeface(Font.getInstance(mContext).getRobotoMedium());
-			}	
+			}
 		}
 
 		@Override

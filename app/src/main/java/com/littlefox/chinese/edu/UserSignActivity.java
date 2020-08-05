@@ -6,13 +6,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.View;
@@ -386,7 +386,6 @@ public class UserSignActivity extends BaseActivity
 	
 	private AsyncListener mOnAsyncListener = new AsyncListener()
 	{
-
 		@Override
 		public void onRunningStart(String code) { }
 

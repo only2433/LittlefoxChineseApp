@@ -5,7 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.View;

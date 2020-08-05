@@ -1,7 +1,7 @@
 package com.littlefox.chinese.edu.view;
 
 import android.content.Context;
-import android.support.design.widget.AppBarLayout;
+import com.google.android.material.appbar.AppBarLayout;
 import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
 

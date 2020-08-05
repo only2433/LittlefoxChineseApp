@@ -6,17 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -28,6 +17,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
 import com.littlefox.chinese.edu.billing.InAppPurchase;
@@ -97,7 +98,7 @@ public class MainTabsActivity extends BaseActivity
 	ScalableLayout _NavigationLayout;
 	
 	@BindView(R.id.main_draw_layout)
-	android.support.v4.widget.DrawerLayout _MainBaseLayout;
+    DrawerLayout _MainBaseLayout;
 	
 	@BindView(R.id.navi_my_study_record_layout)
 	ScalableLayout _NaviStudyRecordLayout;
@@ -766,10 +767,10 @@ public class MainTabsActivity extends BaseActivity
 		getSupportActionBar().setDisplayShowCustomEnabled(true);
 		getSupportActionBar().setDisplayShowTitleEnabled(false);
 	    View customView = inflater.inflate(R.layout.topbar_main_menu, null);
-	    _TitleTextView = ButterKnife.findById(customView, R.id.top_menu_title);
+	    _TitleTextView = (TextView)customView.findViewById(R.id.top_menu_title);
 	    _TitleTextView.setTypeface(Font.getInstance(this).getRobotoBold());
 	    _TitleTextView.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.main_title_home));
-	    _SettingButton = ButterKnife.findById(customView, R.id.top_menu_setting);
+	    _SettingButton = (ImageView) customView.findViewById(R.id.top_menu_setting);
 	    _SettingButton.setOnClickListener(new OnClickListener()
 		{
 			

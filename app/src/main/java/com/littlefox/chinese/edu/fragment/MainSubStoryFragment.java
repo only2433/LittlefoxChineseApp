@@ -6,10 +6,6 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +13,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.R;
@@ -363,30 +364,38 @@ public class MainSubStoryFragment extends Fragment implements MainHolder
 
 		public  class ViewHolder extends RecyclerView.ViewHolder
 		{
+			@BindView(R.id.base_item_section_layout)
 			LinearLayout _SectionLayout;
+
+			@BindView(R.id.base_item_section_line_layout)
 			ScalableLayout _SectionLineLayout;
+
+			@BindView(R.id.base_item_layout)
 			ScalableLayout _ItemLayout;
-			
+
+			@BindView(R.id.item_story_card_thumbnail)
 			ImageView _ThumbnailImage;
+
+			@BindView(R.id.item_story_card_favorite)
 			ImageView _FavoriteIcon;
+
+			@BindView(R.id.item_story_card_add_favorite)
 			ImageView _FavoriteClickView;
+
+			@BindView(R.id.item_section_title)
 			TextView _SectionTitle;
+
+			@BindView(R.id.item_story_card_level)
 			TextView _LevelText;
+
+			@BindView(R.id.item_story_card_title)
 			TextView _TitleText;
 			
 			
 			public ViewHolder(View view)
 			{
 				super(view);
-				_SectionLayout		= ButterKnife.findById(view, R.id.base_item_section_layout);
-				_SectionLineLayout 	= ButterKnife.findById(view, R.id.base_item_section_line_layout);
-				_ItemLayout			= ButterKnife.findById(view, R.id.base_item_layout);
-				_ThumbnailImage 	= ButterKnife.findById(view, R.id.item_story_card_thumbnail);
-				_FavoriteIcon			= ButterKnife.findById(view, R.id.item_story_card_favorite);
-				_FavoriteClickView	= ButterKnife.findById(view, R.id.item_story_card_add_favorite);
-				_TitleText				= ButterKnife.findById(view, R.id.item_story_card_title);
-				_LevelText				= ButterKnife.findById(view, R.id.item_story_card_level);
-				_SectionTitle			= ButterKnife.findById(view, R.id.item_section_title);
+				ButterKnife.bind(this, view);
 				initFont();
 				initText();
 			}

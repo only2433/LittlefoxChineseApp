@@ -2,8 +2,6 @@ package com.littlefox.chinese.edu.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.R;
@@ -172,7 +173,7 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 				categoryView = inflater.inflate(R.layout.add_category_sub_layout, null);
 			}
 			
-			SeparateTextView titleView = ButterKnife.findById(categoryView, R.id.add_song_category_title);
+			SeparateTextView titleView = (SeparateTextView)categoryView.findViewById(R.id.add_song_category_title);
 			titleView.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 			if(Feature.IS_TABLET)
 			{
@@ -186,7 +187,7 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 				titleView.setText(mSongCategoryResult.getSongCategoryList().get(i).getTitle());
 			}
 			
-			ImageView button = ButterKnife.findById(categoryView, R.id.button_add_song_category);
+			ImageView button = (ImageView)categoryView.findViewById(R.id.button_add_song_category);
 			button.setOnClickListener(new View.OnClickListener()
 			{
 				

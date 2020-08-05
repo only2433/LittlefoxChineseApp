@@ -5,12 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.EditText;
 
 import com.littlefox.chinese.edu.R;
 import com.littlefox.chinese.edu.common.CommonUtils;
 
-public class PaddingDrawableEditText extends android.support.v7.widget.AppCompatEditText
+public class PaddingDrawableEditText extends androidx.appcompat.widget.AppCompatEditText
 {
 	
 	private int mPaddingLeft = -1;

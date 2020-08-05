@@ -8,7 +8,7 @@
     android:background="@color/color_white"
     android:orientation="vertical" >
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" >
@@ -174,6 +174,6 @@
                     app:scale_width="130" />
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

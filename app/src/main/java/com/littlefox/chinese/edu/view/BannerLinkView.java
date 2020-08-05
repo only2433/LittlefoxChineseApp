@@ -3,9 +3,6 @@ package com.littlefox.chinese.edu.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Parcelable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -14,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
+
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.R;
@@ -27,8 +28,6 @@ import com.ssomai.android.scalablelayout.ScalableLayout;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-
-import butterknife.ButterKnife;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
@@ -113,8 +112,8 @@ public class BannerLinkView extends RelativeLayout
 
 		View view = mLayoutInflater.inflate(R.layout.banner_view, this, false);
 		addView(view);
-		_BaseScaleLayout 	= ButterKnife.findById(view, R.id.base_scalable_layout);
-		_ViewPager			= ButterKnife.findById(view, R.id.link_view_pager);
+		_BaseScaleLayout 	= (ScalableLayout)view.findViewById(R.id.base_scalable_layout);
+		_ViewPager			= (ViewPager) view.findViewById(R.id.link_view_pager);
 		_ViewPager.setOnTouchListener(onTouchPager);
 		
 	}

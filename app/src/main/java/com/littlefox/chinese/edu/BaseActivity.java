@@ -4,12 +4,11 @@ import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.receiver.NetworkConnectReceiver;
 import com.littlefox.logmonitor.ExceptionCheckHandler;
-import com.littlefox.logmonitor.Log;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity
 {

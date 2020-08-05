@@ -28,7 +28,6 @@ public class ChildRequestModificationCoroutine extends BaseCoroutine
     public ChildRequestModificationCoroutine(@NotNull Context context, AsyncListener asyncListener)
     {
         super(context, Common.ASYNC_CODE_CHILD_ACCOUNT_MODIFICATION);
-
         setAsyncListener(asyncListener);
     }
 

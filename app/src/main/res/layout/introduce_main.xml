@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingPrefix"
@@ -20,7 +20,7 @@
             app:scale_base_height="1566"
             app:scale_base_width="1080" >
 
-            <android.support.v4.view.ViewPager
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/introduce_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -29,7 +29,7 @@
                 app:scale_top="190"
                 app:scale_width="1080"
                 app:swipeable="false" >
-            </android.support.v4.view.ViewPager>
+            </androidx.viewpager.widget.ViewPager>
         </com.ssomai.android.scalablelayout.ScalableLayout>
 
         <com.ssomai.android.scalablelayout.ScalableLayout
@@ -124,4 +124,4 @@
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
