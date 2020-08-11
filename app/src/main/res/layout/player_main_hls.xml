@@ -43,6 +43,18 @@
             app:scale_width="150" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
+    <ImageView
+        android:id="@+id/_playerOptionBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:alpha = "0.5"
+        android:background="@color/color_black"
+        android:gravity="center" />
+
 
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:id="@+id/player_top_base_layout"
@@ -65,15 +77,27 @@
             app:scale_height="150"
             app:scale_textsize="50"/>
 
+
         <ImageView
             android:id="@+id/player_subtitle_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_subtitle_white"
             app:scale_top="46"
+            app:scale_width="60"
+            app:scale_height="62"
+            app:scale_left="1490" />
+
+        <ImageView
+            android:id="@+id/_playerListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/player__list"
+            app:scale_top="46"
             app:scale_left="1652"
             app:scale_width="62"
             app:scale_height="60"/>
+
 
         <ImageView
             android:id="@+id/player_close_button"
@@ -119,7 +143,7 @@
         android:layout_alignParentBottom="true"
         app:scale_base_width="1920"
         app:scale_base_height="150"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/player_current_play_time"
@@ -148,9 +172,9 @@
             android:thumb="@drawable/seekbar_thumb"
             android:thumbOffset="0dip"
             app:scale_height="46"
-            app:scale_left="148"
+            app:scale_left="128"
             app:scale_top="0"
-            app:scale_width="1478" />
+            app:scale_width="1298" />
 
         <TextView
             android:id="@+id/player_remain_play_time"
@@ -160,10 +184,33 @@
             android:text=""
             android:textColor="@color/color_ffffff"
             app:scale_height="150"
-            app:scale_left="1644"
+            app:scale_left="1424"
             app:scale_textsize="34"
             app:scale_top="0"
             app:scale_width="94" />
+
+        <ImageView
+            android:id="@+id/_playerSpeedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/player__speed"
+            app:scale_height="65"
+            app:scale_left="1604"
+            app:scale_top="43"
+            app:scale_width="65" />
+
+        <TextView
+            android:id="@+id/_playerSpeedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="1.15x"
+            android:textColor="@color/color_white"
+            app:scale_height="150"
+            app:scale_left="1684"
+            app:scale_textsize="34"
+            app:scale_top="0"
+            app:scale_width="100" />
 
         <ImageView
             android:id="@+id/player_lock_button"
@@ -222,9 +269,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:scale_base_width="1920"
-        app:scale_base_height="250"
-
-        >
+        app:scale_base_height="250">
         <TextView
             android:id="@+id/player_preview_title"
             android:layout_width="wrap_content"
@@ -237,19 +282,28 @@
             app:scale_width="422"
             app:scale_height="100"
             app:scale_textsize="40"/>
-
     </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <include
+        android:id="@+id/_playerListBaseLayout"
+        layout="@layout/include_player_list_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
 
     <include
         android:id="@+id/preview_end_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         layout="@layout/player_preview_end_alpha_layout"
+        android:visibility="gone"
         />
     <include
         android:id="@+id/play_end_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        layout="@layout/player_play_end_layout"/>
+        layout="@layout/player_play_end_layout"
+        android:visibility="gone"/>
 
 </RelativeLayout>

@@ -802,4 +802,8 @@
         <item>(필수 입력)</item>
         <item>(Required)</item>
     </string-array>
+    <string-array name="title_play_list">
+        <item>재생목록</item>
+        <item>PlayList</item>
+    </string-array>
 </resources>

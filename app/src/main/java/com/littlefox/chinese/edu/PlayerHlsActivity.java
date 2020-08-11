@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -37,11 +39,12 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.littlefox.chinese.edu.adapter.PlayerListAdapter;
+import com.littlefox.chinese.edu.adapter.listener.PlayerEventListener;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
-import com.littlefox.chinese.edu.common.FileUtils;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.common.NetworkUtil;
 import com.littlefox.chinese.edu.coroutines.AuthContentPlayCoroutine;
@@ -53,7 +56,6 @@ import com.littlefox.chinese.edu.enumItem.PlayerStatus;
 import com.littlefox.chinese.edu.enumItem.PlayerUserType;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.object.ContentPlayObject;
-import com.littlefox.chinese.edu.object.PlayedContentInformation;
 import com.littlefox.chinese.edu.object.PlayerStudyRecordObject;
 import com.littlefox.chinese.edu.object.result.AuthContentResult;
 import com.littlefox.chinese.edu.object.result.CaptionDetailInformation;
@@ -61,7 +63,7 @@ import com.littlefox.chinese.edu.object.result.base.BaseResult;
 import com.littlefox.library.system.async.listener.AsyncListener;
 import com.littlefox.library.view.controller.FadeAnimationController;
 import com.littlefox.library.view.controller.FadeAnimationInformation;
-import com.littlefox.library.view.media.ProgressiveMediaListener;
+import com.littlefox.library.view.layoutmanager.LinearLayoutScrollerManager;
 import com.littlefox.logmonitor.Log;
 import com.ssomai.android.scalablelayout.ScalableLayout;
 
@@ -189,6 +191,27 @@ public class PlayerHlsActivity extends BaseActivity
     @BindView(R.id.player_caption_title)
     TextView _CaptionTitleText;
 
+    @BindView(R.id._playerListBaseLayout)
+    LinearLayout _PlayerListBaseLayout;
+
+    @BindView(R.id._playerListView)
+    RecyclerView _PlayerListView;
+
+    @BindView(R.id._playerListButton)
+    ImageView _PlayerListButton;
+
+    @BindView(R.id._playerSpeedButton)
+    ImageView _PlayerSpeedButton;
+
+    @BindView(R.id._playerSpeedText)
+    TextView _PlayerSpeedText;
+
+    @BindView(R.id._playerOptionBackground)
+    ImageView _PlayerOptionBackground;
+
+    @BindView(R.id._playListTitleText)
+    TextView _PlayListTitleText;
+
     class WarningWatchMessageTask extends TimerTask
     {
         @Override
@@ -267,12 +290,14 @@ public class PlayerHlsActivity extends BaseActivity
                     break;
                 case MESSAGE_PREV_PLAY:
                     prepareVideo(VIDEO_PREV_PLAY);
+                    mPlayerListAdapter.setCurrentPlayPosition(mCurrentPlayPosition);
                     break;
                 case MESSAGE_NEXT_PLAY:
                     prepareVideo(VIDEO_NEXT_PLAY);
+                    mPlayerListAdapter.setCurrentPlayPosition(mCurrentPlayPosition);
                     break;
-                case MESSAGE_REPLAY:
-                    prepareVideo(VIDEO_REPLAY);
+                case MESSAGE_SELECT_PLAY:
+                    prepareVideo(VIDEO_SELECT_PLAY);
                     break;
                 case MESSAGE_LAYOUT_SETTING:
                     settingLayout(msg.arg1);
@@ -283,16 +308,7 @@ public class PlayerHlsActivity extends BaseActivity
                     break;
                 case MESSAGE_LOCK_MODE_READY:
                     mVibrator.vibrate(DURATION_PLAY);
-                    if(isLockDisplay)
-                    {
-                        Log.f("LOCK MODE ON");
-                        showMenuWithoutPlayButton(false);
-                    }
-                    else
-                    {
-                        Log.f("LOCK MODE OFF");
-                        setAnimationMenu(false);
-                    }
+                    setAnimationMenu(false);
                     isLockDisplay = (Boolean) msg.obj;
                     Message subMessage = Message.obtain();
                     subMessage.what = MESSAGE_LOCK_MODE_SET;
@@ -301,23 +317,13 @@ public class PlayerHlsActivity extends BaseActivity
                     break;
                 case MESSAGE_LOCK_MODE_SET:
                     setLockModeUI();
-                    if(isLockDisplay)
-                    {
-                        showMenuWithoutPlayButton(true);
-                    }
-                    else
-                    {
-                        setAnimationMenu(true);
-                    }
+                    setAnimationMenu(true);
                     break;
                 case MESSAGE_UPDATE_PAID_UI:
                     updateUI();
                     break;
                 case MESSAGE_UPDATE_FREE_UI:
                     updatePreviewUI();
-                    break;
-                case MESSAGE_RESUME_SHOW_MENU:
-                    setAnimationMenu(true);
                     break;
                 case MESSAGE_QUIZ_START:
                     MainSystemFactory.getInstance().startActivityNoAnimation(MainSystemFactory.MODE_QUIZ, mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id);
@@ -345,8 +351,6 @@ public class PlayerHlsActivity extends BaseActivity
         }
     };
 
-
-
     private static final int SECOND 						= 1000;
     private static final int DURATION_LOCK_MODE 			= 2000;
     private static final int DURATION_PLAY 					= 500;
@@ -359,28 +363,25 @@ public class PlayerHlsActivity extends BaseActivity
     private static final int VIDEO_INIT_PLAY 	= 0;
     private static final int VIDEO_PREV_PLAY	= 1;
     private static final int VIDEO_NEXT_PLAY 	= 2;
-    private static final int VIDEO_REPLAY		= 3;
+    private static final int VIDEO_SELECT_PLAY  = 3;
 
     private static final int MESSAGE_PROGRESS_UI 				= 0;
-    private static final int MESSAGE_PLAYER_PAUSE 				= 1;
-    private static final int MESSAGE_PLAY_START					= 2;
-    private static final int MESSAGE_PREV_PLAY					= 3;
-    private static final int MESSAGE_NEXT_PLAY					= 4;
-    private static final int MESSAGE_REPLAY						= 5;
+    private static final int MESSAGE_PREV_PLAY					= 1;
+    private static final int MESSAGE_NEXT_PLAY					= 2;
+    private static final int MESSAGE_SELECT_PLAY                = 3;
     private static final int MESSAGE_LAYOUT_SETTING 			= 6;
     private static final int MESSAGE_VIDEO_VISIBLE				= 7;
     private static final int MESSAGE_LOCK_MODE_READY			= 8;
     private static final int MESSAGE_LOCK_MODE_SET				= 9;
     private static final int MESSAGE_UPDATE_PAID_UI 			= 10;
     private static final int MESSAGE_UPDATE_FREE_UI				= 11;
-    private static final int MESSAGE_RESUME_SHOW_MENU			= 12;
-    private static final int MESSAGE_QUIZ_START					= 13;
-    private static final int MESSAGE_FINISH						= 14;
-    private static final int MESSAGE_NOT_MATCH_ACCESS_TOKEN		= 15;
-    private static final int MESSAGE_AUTH_CONTENT_PLAY			= 16;
-    private static final int MESSAGE_FAIL_MOVIE_LOADING			= 17;
-    private static final int MESSAGE_LONGTIME_WATCH_WARNING		= 18;
-    private static final int MESSAGE_CAPTION_LAYOUT_SETTING		= 19;
+    private static final int MESSAGE_QUIZ_START					= 12;
+    private static final int MESSAGE_FINISH						= 13;
+    private static final int MESSAGE_NOT_MATCH_ACCESS_TOKEN		= 14;
+    private static final int MESSAGE_AUTH_CONTENT_PLAY			= 15;
+    private static final int MESSAGE_FAIL_MOVIE_LOADING			= 16;
+    private static final int MESSAGE_LONGTIME_WATCH_WARNING		= 17;
+    private static final int MESSAGE_CAPTION_LAYOUT_SETTING		= 18;
 
     private static final int LAYOUT_TYPE_DEFAULT 				= 0;
     private static final int LAYOUT_TYPE_PREVIEW_PLAY 			= 1;
@@ -396,7 +397,6 @@ public class PlayerHlsActivity extends BaseActivity
      * 30초 이상이 되었는데도 재생을 못할시 종료시키긴 위한 타임. 1초마다 갱신
      */
     private static final int MAX_MOVIE_LOADING_TIME	= 30;
-    private static final int DURATION_WARNING_LONG_WATCH_TIME = 1800000;
     private static final int DIALOG_LONG_WATCH_TIME_WARNING = 0x00;
     private static final String CAPTION = "caption";
     private static final float[] PLAY_SPEED_LIST = { 0.7f, 0.85f, 1.0f, 1.15f, 1.3f };
@@ -412,7 +412,7 @@ public class PlayerHlsActivity extends BaseActivity
     private Timer mMovieLoadingCheckTimer = null;
     private Timer mWarningWatchTimer = null;
     private String mCurrentPlayUrl = "";
-    private int mCurrentPlayPosition = -1;
+    private int mCurrentPlayPosition = 0;
     private int mFreeUserPreviewTime = -1;
     private int mCurrentLayoutType = LAYOUT_TYPE_DEFAULT;
     private boolean isCaptionPlay = true;
@@ -443,6 +443,7 @@ public class PlayerHlsActivity extends BaseActivity
     private int mCurrentPlayDuration = 0;
     private AuthContentPlayCoroutine mAuthContentPlayCoroutine = null;
     private int mCurrentWatchingTime = 0;
+    private PlayerListAdapter mPlayerListAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -478,8 +479,6 @@ public class PlayerHlsActivity extends BaseActivity
         resumePlayer();
     }
 
-
-
     @Override
     protected void onPause()
     {
@@ -487,7 +486,6 @@ public class PlayerHlsActivity extends BaseActivity
         Log.f("");
         pausePlayer();
     }
-
 
     @Override
     protected void onStop()
@@ -539,15 +537,28 @@ public class PlayerHlsActivity extends BaseActivity
                 return true;
             }
         });
+        _PlayerListBaseLayout.setOnTouchListener(new View.OnTouchListener()
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
         _PlayerView.setOnTouchListener(mMenuVisibleListener);
         registerFadeControllerView();
         initViewSetting();
         setupPlayVideo();
         prepareVideo(VIDEO_INIT_PLAY);
+        initPlayListView();
     }
 
     private void initViewSetting()
     {
+        RelativeLayout.LayoutParams baseLayoutParams = new RelativeLayout.LayoutParams(CommonUtils.getInstance(this).getPixel(654), RelativeLayout.LayoutParams.MATCH_PARENT);
+        baseLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        baseLayoutParams.removeRule(RelativeLayout.BELOW);
+        _PlayerListBaseLayout.setLayoutParams(baseLayoutParams);
+
         if(Feature.IS_FREE_USER)
         {
             settingLayout(LAYOUT_TYPE_PREVIEW_PLAY);
@@ -572,6 +583,8 @@ public class PlayerHlsActivity extends BaseActivity
         _PlayEndRemainText.setTypeface(Font.getInstance(this).getRobotoMedium());
         _PlayEndRecommandTitleText.setTypeface(Font.getInstance(this).getRobotoMedium());
         _CaptionTitleText.setTypeface(Font.getInstance(this).getRobotoRegular());
+        _PlayerSpeedText.setTypeface(Font.getInstance(this).getRobotoMedium());
+        _PlayListTitleText.setTypeface(Font.getInstance(this).getRobotoMedium());
     }
 
     private void initText()
@@ -583,6 +596,28 @@ public class PlayerHlsActivity extends BaseActivity
         _PlayEndQuizText.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.button_quiz_play));
         _PlayEndRemainText.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.button_remain_all_play));
         _PlayEndRecommandTitleText.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.button_recommand_play));
+        _PlayListTitleText.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.title_play_list));
+    }
+
+    private void initPlayListView()
+    {
+        mPlayerListAdapter = new PlayerListAdapter(this, mCurrentPlayPosition, mContentPlayObject.getPlayObjectList());
+        mPlayerListAdapter.setOnPlayEventListener(mPlayerEventListener);
+        _PlayerListView.setLayoutManager(new LinearLayoutScrollerManager(this));
+        _PlayerListView.setAdapter(mPlayerListAdapter);
+        forceScrollView(mCurrentPlayPosition);
+    }
+
+    private void forceScrollView(final int position)
+    {
+        Log.f("position : "+ position);
+        _PlayerListView.post(new Runnable() {
+            @Override
+            public void run()
+            {
+                _PlayerListView.smoothScrollToPosition(position);
+            }
+        });
     }
 
     private void pausePlayer()
@@ -599,7 +634,7 @@ public class PlayerHlsActivity extends BaseActivity
         {
             mCurrentPlayDuration = (int) mPlayer.getCurrentPosition();
             mPlayer.setPlayWhenReady(false);
-            showMenuWithoutAnimation(false);
+            setPlayIconStatus(PLAYER_PAUSE);
             enableTimer(false);
         }
         mCurrentPlayerStatus = PlayerStatus.PAUSE;
@@ -613,6 +648,7 @@ public class PlayerHlsActivity extends BaseActivity
             mPlayer.seekTo(mCurrentPlayDuration);
             mPlayer.setPlayWhenReady(true);
             enableTimer(true);
+            setPlayIconStatus(PLAYER_RESUME);
             mCurrentPlayerStatus = PlayerStatus.PLAY;
         }
     }
@@ -656,12 +692,14 @@ public class PlayerHlsActivity extends BaseActivity
                         if(playWhenReady)
                         {
                             showLoading(true);
+                            setPlayIconStatus(PLAYER_PAUSE);
                         }
                         break;
                     case Player.STATE_READY:
                         if(playWhenReady)
                         {
                             showLoading(false);
+                            setPlayIconStatus(PLAYER_RESUME);
                         }
                         if(isVideoPrepared)
                         {
@@ -719,6 +757,7 @@ public class PlayerHlsActivity extends BaseActivity
         //플레이 타이머 보여줌
         mPlayer.setPlayWhenReady(true);
         enableTimer(true);
+        mPlayerListAdapter.setCurrentPlayPosition(mCurrentPlayPosition);
         mMainHandler.sendEmptyMessageDelayed(MESSAGE_VIDEO_VISIBLE, DURATION_GONE_BACKGROUND);
     }
 
@@ -726,7 +765,6 @@ public class PlayerHlsActivity extends BaseActivity
     {
         mCurrentPlayerStatus = PlayerStatus.COMPELTE;
         enableTimer(false);
-
         setAnimationMenu(false);
         requestPlaySaveRecord();
 
@@ -887,6 +925,7 @@ public class PlayerHlsActivity extends BaseActivity
                 initTime();
                 _BasePreviewEndLayout.setVisibility(View.GONE);
                 _BasePlayEndLayout.setVisibility(View.GONE);
+                _PlayerOptionBackground.setVisibility(View.GONE);
                 break;
             case LAYOUT_TYPE_PREVIEW_PLAY:
                 initTime();
@@ -954,12 +993,6 @@ public class PlayerHlsActivity extends BaseActivity
             contentType = Common.REQUEST_CONTENT_TYPE_MOVIE;
         }
 
-		/*AuthContentPlayAsync async = new AuthContentPlayAsync(PlayerActivity.this,
-				Common.USER_TYPE_PAID,
-				mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id,
-				contentType,
-				mAsyncListener);
-		async.execute();*/
 
 		mAuthContentPlayCoroutine = new AuthContentPlayCoroutine(this, mAsyncListener);
         mAuthContentPlayCoroutine.setData(
@@ -975,6 +1008,7 @@ public class PlayerHlsActivity extends BaseActivity
         return _LoadingLayout.getVisibility() == View.VISIBLE;
     }
 
+
     private void showLoading(boolean isLoading)
     {
         if(isLoading)
@@ -985,6 +1019,7 @@ public class PlayerHlsActivity extends BaseActivity
         {
             _LoadingLayout.setVisibility(View.GONE);
         }
+
     }
 
     private void setLockModeUI()
@@ -997,15 +1032,23 @@ public class PlayerHlsActivity extends BaseActivity
             _CurrentPlayTimeText.setVisibility(View.INVISIBLE);
             _ThumbSeekbar.setVisibility(View.INVISIBLE);
             _RemainPlayTimeText.setVisibility(View.INVISIBLE);
+            _PlayerListButton.setVisibility(View.INVISIBLE);
+            _PlayerSpeedButton.setVisibility(View.INVISIBLE);
+            _PlayerSpeedText.setVisibility(View.INVISIBLE);
+
         }
         else
         {
             _LockButton.setImageResource(R.drawable.player_icon_unlock);
-            _TopCaptionSettingButton.setVisibility(View.VISIBLE);
+            if(mCaptionInformationList.size() > 0)
+                _TopCaptionSettingButton.setVisibility(View.VISIBLE);
             _TopCloseButton.setVisibility(View.VISIBLE);
             _CurrentPlayTimeText.setVisibility(View.VISIBLE);
             _ThumbSeekbar.setVisibility(View.VISIBLE);
             _RemainPlayTimeText.setVisibility(View.VISIBLE);
+            _PlayerListButton.setVisibility(View.VISIBLE);
+            _PlayerSpeedButton.setVisibility(View.VISIBLE);
+            _PlayerSpeedText.setVisibility(View.VISIBLE);
 
         }
     }
@@ -1033,6 +1076,8 @@ public class PlayerHlsActivity extends BaseActivity
         return _CaptionLayout.getVisibility() == View.VISIBLE;
     }
 
+
+
     /**
      * Top 과 Bottom 메뉴바를 내리거나 올린다.  프리뷰일때는 하단 과 플레이 중지 버튼의 애니메이션을 실행하지않는다.
      * @param isVisible TRUE : 메뉴를 보이게한다. FALSE : 메뉴를 가린다.
@@ -1042,8 +1087,6 @@ public class PlayerHlsActivity extends BaseActivity
         Log.i("isVisible : "+isVisible+", isMenuVisible : "+isMenuVisible());
         if(isVisible)
         {
-            if(isMenuVisible() == false)
-            {
                 mFadeAnimationController.startAnimation(_TopViewLayout, FadeAnimationController.TYPE_FADE_IN);
                 if(mCurrentLayoutType == LAYOUT_TYPE_DEFAULT)
                 {
@@ -1051,19 +1094,17 @@ public class PlayerHlsActivity extends BaseActivity
                     mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_IN);
                 }
 
-            }
         }
         else
         {
-            if(isMenuVisible() == true)
-            {
+
                 mFadeAnimationController.startAnimation(_TopViewLayout, FadeAnimationController.TYPE_FADE_OUT);
                 if(mCurrentLayoutType == LAYOUT_TYPE_DEFAULT)
                 {
                     mFadeAnimationController.startAnimation(_PlayButtonLayout, FadeAnimationController.TYPE_FADE_OUT);
                     mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_OUT);
                 }
-            }
+
         }
     }
 
@@ -1099,7 +1140,6 @@ public class PlayerHlsActivity extends BaseActivity
                 _PlayButtonLayout.setVisibility(View.VISIBLE);
                 _BottomViewLayout.setVisibility(View.VISIBLE);
             }
-
         }
         else
         {
@@ -1126,7 +1166,6 @@ public class PlayerHlsActivity extends BaseActivity
             mFadeAnimationController.promptViewStatus(_PlayButtonLayout, false);
             mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_OUT);
         }
-
     }
 
     /**
@@ -1177,6 +1216,7 @@ public class PlayerHlsActivity extends BaseActivity
 
     private void registerFadeControllerView()
     {
+        final int CONTROLLER_VIEW_WIDTH = CommonUtils.getInstance(this).getPixel(654);
         final int CONTROLLER_VIEW_HEIGHT = CommonUtils.getInstance(this).getPixel(150);
         mFadeAnimationController = new FadeAnimationController(this);
         mFadeAnimationController.addControlView(new FadeAnimationInformation(_TopViewLayout,
@@ -1191,18 +1231,20 @@ public class PlayerHlsActivity extends BaseActivity
         mFadeAnimationController.addControlView(new FadeAnimationInformation(_CaptionLayout,
                 CommonUtils.getInstance(this).getTranslateYAnimation(DURATION_VIEW_ANIMATION, CONTROLLER_VIEW_HEIGHT, 0),
                 CommonUtils.getInstance(this).getTranslateYAnimation(DURATION_VIEW_ANIMATION, 0, CONTROLLER_VIEW_HEIGHT)));
+        mFadeAnimationController.addControlView(new FadeAnimationInformation(_PlayerListBaseLayout,
+                CommonUtils.getInstance(this).getTranslateXAnimation(DURATION_VIEW_ANIMATION, CONTROLLER_VIEW_WIDTH, 0),
+                CommonUtils.getInstance(this).getTranslateXAnimation(DURATION_VIEW_ANIMATION, 0, CONTROLLER_VIEW_WIDTH)));
+        mFadeAnimationController.addControlView(new FadeAnimationInformation(_PlayerOptionBackground,
+                CommonUtils.getInstance(this).getAlphaAnimation(DURATION_VIEW_ANIMATION, 0.0f, 1.0f),
+                CommonUtils.getInstance(this).getAlphaAnimation(DURATION_VIEW_ANIMATION, 1.0f, 0.0f)));
     }
 
     private void requestPlaySaveRecord()
     {
         PlayerStudyRecordObject object = new PlayerStudyRecordObject(mContentPlayObject.getPlayItemType(), mContentPlayObject.getSelectedPosition(), mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id, mStudyTime);
-		/*PlayerSaveRecordAsync async = new PlayerSaveRecordAsync(this, object, mAsyncListener);
-		async.execute();*/
-
         PlayerSaveRecordCoroutine coroutine = new PlayerSaveRecordCoroutine(this, mAsyncListener);
         coroutine.setData(object);
         coroutine.execute();
-
         mStudyTime = 0;
     }
 
@@ -1216,13 +1258,16 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
-
     private void prepareVideo(int playType)
     {
         enableTimer(false);
         isVideoPrepared = false;
         mStudyTime = 0;
-        setAnimationMenu(false);
+        if(isMenuVisible())
+        {
+            setAnimationMenu(false);
+        }
+
         showLoading(true);
         isVideoLoadingComplete = false;
         _BackgroundDiscoverImage.setVisibility(View.VISIBLE);
@@ -1249,18 +1294,14 @@ public class PlayerHlsActivity extends BaseActivity
             case VIDEO_NEXT_PLAY:
                 mCurrentPlayPosition = getNextPositionWhenSingle(mCurrentPlayPosition);
                 break;
-            case VIDEO_REPLAY:
+            case VIDEO_SELECT_PLAY:
                 break;
         }
-
         settingPlayMenu();
-
         _ThumbSeekbar.setThumbOffset(CommonUtils.getInstance(this).getPixel(0));
         _ThumbSeekbar.setProgress(0);
         _ThumbSeekbar.setSecondaryProgress(0);
 
-
-       // makeAvailableStorageSizeToPlay();
         requestCurrentPlayVideoUrlInformation();
         Log.f("Current Play Title : "+ mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).getTitle());
     }
@@ -1271,77 +1312,10 @@ public class PlayerHlsActivity extends BaseActivity
         enableMovieLoadingCheckTimer(true);
         GoogleAnalyticsHelper.getInstance(this).sendCurrentEvent(Common.ANALYTICS_CATEGORY_PLAYER,
                 getAnalyticsAction(mContentPlayObject), mCurrentPlayContentId + Common.ANALYTICS_LABEL_PLAY);
-       // _ProgressMediaPlayer.startPlay(mCurrentPlayContentId, mCurrentPlayUrl, isCurrentVideoDownloadComplete());
 
         MediaSource source = buildMediaSource(Uri.parse(mCurrentPlayUrl));
         mPlayer.prepare(source, true, false);
         _PlayerView.requestFocus();
-    }
-
-    /**
-     * 플레이 하기 위한 최소 저장 공간을 만들고, 그 공간을 만들기위해 이전에 플레이 했던 파일 및 정보를 삭제한다. ( 플레이 하지 않는 순으로 삭제 )
-     */
-    private void makeAvailableStorageSizeToPlay()
-    {
-        long availableStorageSize = 0L;
-        ArrayList<PlayedContentInformation> playedList = mPlayedContentDBHelper.getPlayedContentList(PlayedContentDBHelper.KEY_RECENT_PLAY_TIME, PlayedContentDBHelper.ORDER_DESC);
-
-        availableStorageSize = CommonUtils.getInstance(this).getAvailableStorageSize();
-        if(availableStorageSize <= Common.MIN_PLAYED_STORAGE_SIZE)
-        {
-            if(playedList != null)
-            {
-                for(int i = 0 ; i < playedList.size(); i++)
-                {
-                    mPlayedContentDBHelper.deletePlayedContent(playedList.get(i).getContentID());
-                }
-            }
-            FileUtils.deleteAllFileInPath(Common.PATH_MP4_SAVE);
-
-            availableStorageSize = CommonUtils.getInstance(this).getAvailableStorageSize();
-            if(availableStorageSize <= Common.MIN_PLAYED_STORAGE_SIZE)
-            {
-                Toast.makeText(this, CommonUtils.getInstance(this).getLanguageTypeString(R.array.message_storage_size_warning), Toast.LENGTH_LONG).show();
-                mMainHandler.sendEmptyMessageDelayed(MESSAGE_FINISH, DURATION_VIEW_INIT);
-            }
-            else
-            {
-                requestCurrentPlayVideoUrlInformation();
-            }
-        }
-        else
-        {
-            requestCurrentPlayVideoUrlInformation();
-        }
-    }
-
-    /**
-     * 현재 파일이 다운로드 되었는지 확인 하는 메소드
-     * @return
-     */
-    private boolean isCurrentVideoDownloadComplete()
-    {
-        PlayedContentInformation playedContentInformation = mPlayedContentDBHelper.getContentInformation(mCurrentPlayContentId);
-        Log.f("ID : " + mCurrentPlayContentId +", isDownloadComplete : " +playedContentInformation.isDownloadComplete());
-        return playedContentInformation.isDownloadComplete();
-    }
-
-    private void savePlayFileDataBase()
-    {
-        PlayedContentInformation playedContentInformation = null;
-        String FileSavePath = Common.PATH_MP4_SAVE + mCurrentPlayContentId;
-        String totalPlayTime = mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).play_time;
-        Log.i("FileSavePath : "+FileSavePath);
-        if(mPlayedContentDBHelper.getContentInformation(mCurrentPlayContentId) == null)
-        {
-
-            playedContentInformation = new PlayedContentInformation(mCurrentPlayContentId, String.valueOf(System.currentTimeMillis()), FileSavePath, totalPlayTime, false);
-            mPlayedContentDBHelper.addPlayedContent(playedContentInformation);
-        }
-        else
-        {
-            mPlayedContentDBHelper.updatePlayedContent(mCurrentPlayContentId, PlayedContentDBHelper.KEY_RECENT_PLAY_TIME, String.valueOf(System.currentTimeMillis()));
-        }
     }
 
     /**
@@ -1368,8 +1342,6 @@ public class PlayerHlsActivity extends BaseActivity
             mMovieLoadingTime = 0;
         }
     }
-
-
 
     /**
      * UI 화면을 갱신하는 타이머를 동작시키거나 중지시킨다.
@@ -1418,42 +1390,44 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
-    /**
-     *  다운로드 도중 플레이가 될 수 있는 상황 인지 확인
-     */
-   /* private void checkDownloadVideoStatus()
+    private boolean isPlayListVisible()
     {
-        if(_ProgressMediaPlayer.isPlayAvailable())
+        if(_PlayerListBaseLayout.getVisibility() == View.VISIBLE)
         {
-            if(_ProgressMediaPlayer.isVideoPlaying() == false)
-            {
-                Log.f("Wifi Status Bad : Play");
-
-                showLoading(false);
-                if(isBackgroundVisibleError)
-                {
-                    mMainHandler.sendEmptyMessageDelayed(MESSAGE_VIDEO_VISIBLE, DURATION_PLAY);
-                }
-                setPlayStatus(PLAYER_RESUME);
-            }
+            return true;
         }
         else
         {
-            if(isLoadingMedia() == false)
-            {
-                Log.f("Wifi Status Bad : Loading");
-                showLoading(true);
-                if(isBackgroundVisibleError)
-                {
-                    mMainHandler.removeMessages(MESSAGE_VIDEO_VISIBLE);
-                }
-
-                setAnimationMenu(false);
-                setPlayStatus(PLAYER_PAUSE);
-            }
-
+            return false;
         }
-    }*/
+    }
+
+    private boolean isPlayOptionBackgroundVisible()
+    {
+        if(_PlayerOptionBackground.getVisibility() == View.VISIBLE)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void enablePlayListAnimation(boolean isVisible)
+    {
+        if(mCurrentLayoutType == LAYOUT_TYPE_DEFAULT)
+        {
+            if(isVisible)
+            {
+                mFadeAnimationController.startAnimation(_PlayerListBaseLayout, FadeAnimationController.TYPE_FADE_IN);
+            }
+            else
+            {
+                mFadeAnimationController.startAnimation(_PlayerListBaseLayout, FadeAnimationController.TYPE_FADE_OUT);
+            }
+        }
+    }
 
     private long getMillisecond(int second)
     {
@@ -1472,43 +1446,9 @@ public class PlayerHlsActivity extends BaseActivity
         return false;
     }
 
-    /*private void setPlayStatus(int type)
-    {
-        try
-        {
-            switch(type)
-            {
-                case PLAYER_PAUSE:
-                    Log.i("");
-                    _ProgressMediaPlayer.pause();
-                    break;
-                case PLAYER_RESUME:
-                    Log.i("mProgressPlayer.getMediaPlayerStatus() : " + _ProgressMediaPlayer.getMediaPlayerStatus());
-                    if (_ProgressMediaPlayer.getMediaPlayerStatus() == ProgressiveMediaPlayer.STATUS_STOP)
-                    {
-                        _ProgressMediaPlayer.start();
-                    }
-                    else
-                    {
-                        _ProgressMediaPlayer.resume();
-                    }
-                    break;
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }*/
-
-    /**
-     * 단편 한편을 플레이 or 송 한편을 플레이 or 학습 자료 한편을 플레이시에 해당 포지션을 가져온다. 마지막편이 보여지면 1편을 다음으로 보여줘야함.
-     * @return
-     */
     private int getNextPositionWhenSingle(int position)
     {
         position++;
-
         if(position >= mContentPlayObject.getPlayObjectList().size())
         {
             position = 0;
@@ -1631,7 +1571,6 @@ public class PlayerHlsActivity extends BaseActivity
                     _PlayEndRecommandViewLayout.setVisibility(View.GONE);
                 }
                 break;
-
         }
     }
 
@@ -1667,7 +1606,11 @@ public class PlayerHlsActivity extends BaseActivity
                 Log.f("Preview Play Time End.");
 
                 enableTimer(false);
-                setAnimationMenu(false);
+                if(isMenuVisible())
+                {
+                    setAnimationMenu(false);
+                }
+
                 mPlayer.setPlayWhenReady(false);
                 mPlayer.stop(true);
                 if (isMenuVisible())
@@ -1799,10 +1742,27 @@ public class PlayerHlsActivity extends BaseActivity
         dialog.show();
     }
 
-    @OnClick({R.id.play_end_replay_layout, R.id.play_end_quiz_layout, R.id.play_end_remain_play_layout, R.id.play_end_recommand_layout, R.id.preview_close_button, R.id.play_end_close_button, R.id._previewBackgroundRect})
+    private void enableBackgroudAnimation(boolean isVisible)
+    {
+        if(isVisible)
+        {
+            if(isPlayOptionBackgroundVisible() == false)
+                mFadeAnimationController.startAnimation(_PlayerOptionBackground, FadeAnimationController.TYPE_FADE_IN);
+        }
+        else
+        {
+            if(isPlayOptionBackgroundVisible())
+                mFadeAnimationController.startAnimation(_PlayerOptionBackground, FadeAnimationController.TYPE_FADE_OUT);
+        }
+    }
+
+
+    @OnClick({R.id.play_end_replay_layout, R.id.play_end_quiz_layout, R.id.play_end_remain_play_layout,
+            R.id.play_end_recommand_layout, R.id.preview_close_button, R.id.play_end_close_button,
+            R.id._previewBackgroundRect})
     public void onDisplayButtonClick(View view)
     {
-        if(mMainHandler.hasMessages(MESSAGE_REPLAY) || mMainHandler.hasMessages(MESSAGE_NEXT_PLAY))
+        if(mMainHandler.hasMessages(MESSAGE_SELECT_PLAY) || mMainHandler.hasMessages(MESSAGE_NEXT_PLAY))
         {
             return;
         }
@@ -1831,7 +1791,7 @@ public class PlayerHlsActivity extends BaseActivity
             case R.id.play_end_replay_layout:
                 Log.f("Player End Page Replay Button Click");
                 settingLayout(LAYOUT_TYPE_DEFAULT);
-                mMainHandler.sendEmptyMessageDelayed(MESSAGE_REPLAY, DURATION_PLAY);
+                mMainHandler.sendEmptyMessageDelayed(MESSAGE_SELECT_PLAY, DURATION_PLAY);
                 break;
             case R.id.play_end_quiz_layout:
                 Log.f("Player End Page Quiz Button Click");
@@ -1854,15 +1814,20 @@ public class PlayerHlsActivity extends BaseActivity
                 break;
             case R.id.play_end_recommand_layout:
                 Log.f("Player End Page Recommand Item Play Click");
-                setAnimationMenu(false);
+
+                if(isMenuVisible())
+                {
+                    setAnimationMenu(false);
+                }
+
                 settingLayout(LAYOUT_TYPE_DEFAULT);
                 mMainHandler.sendEmptyMessageDelayed(MESSAGE_NEXT_PLAY, DURATION_PLAY);
                 break;
-
         }
     }
 
-    @OnClick({R.id.player_close_button, R.id.player_next_button, R.id.player_play_button, R.id.player_prev_button, R.id.player_subtitle_button})
+    @OnClick({R.id.player_close_button, R.id.player_next_button, R.id.player_play_button, R.id.player_prev_button,
+            R.id.player_subtitle_button, R.id._playerListButton, R.id._playListCloseButtonRect})
     public void onPlayerButtonClick(View view)
     {
         if(mMainHandler.hasMessages(MESSAGE_PREV_PLAY) || mMainHandler.hasMessages(MESSAGE_NEXT_PLAY))
@@ -1879,14 +1844,22 @@ public class PlayerHlsActivity extends BaseActivity
             case R.id.player_next_button:
                 Log.f("Player Next Button Click");
                 requestPlaySaveRecord();
-                setAnimationMenu(false);
+                if(isMenuVisible())
+                {
+                    setAnimationMenu(false);
+                }
+
                 settingLayout(LAYOUT_TYPE_DEFAULT);
                 mMainHandler.sendEmptyMessageDelayed(MESSAGE_NEXT_PLAY, DURATION_PLAY);
                 break;
             case R.id.player_prev_button:
                 Log.f("Player Prev Button Click");
                 requestPlaySaveRecord();
-                setAnimationMenu(false);
+                if(isMenuVisible())
+                {
+                    setAnimationMenu(false);
+                }
+
                 settingLayout(LAYOUT_TYPE_DEFAULT);
                 mMainHandler.sendEmptyMessageDelayed(MESSAGE_PREV_PLAY, DURATION_PLAY);
                 break;
@@ -1920,12 +1893,20 @@ public class PlayerHlsActivity extends BaseActivity
                     setAnimationCaption(false);
                 }
                 break;
+            case R.id._playerListButton:
+                forceScrollView(mCurrentPlayPosition);
+                setAnimationMenu(false);
+                enablePlayListAnimation(true);
+                break;
+            case R.id._playListCloseButtonRect:
+                setAnimationMenu(true);
+                enablePlayListAnimation(false);
+                break;
         }
     }
 
     private OnTouchListener mLockControlListener = new OnTouchListener()
     {
-
         @Override
         public boolean onTouch(View v, MotionEvent event)
         {
@@ -1942,11 +1923,9 @@ public class PlayerHlsActivity extends BaseActivity
                 {
                     mMainHandler.removeMessages(MESSAGE_LOCK_MODE_READY);
                 }
-
             }
             return true;
         }
-
     };
 
     private OnTouchListener mMenuVisibleListener = new OnTouchListener()
@@ -1971,33 +1950,33 @@ public class PlayerHlsActivity extends BaseActivity
                     return false;
                 }
 
-                if(isMenuVisible() == false)
+                if(isMenuVisible())
                 {
-                    setAnimationMenu(true);
+                    setAnimationMenu(false);
+                    enableBackgroudAnimation(false);
                 }
                 else
                 {
-                    setAnimationMenu(false);
+                    setAnimationMenu(true);
+                    if(isPlayListVisible())
+                    {
+                        enablePlayListAnimation(false);
+                    }
+                    enableBackgroudAnimation(true);
                 }
             }
-
             return true;
-
         }
-
     };
 
     private OnSeekBarChangeListener mSeekBarChangeListener = new OnSeekBarChangeListener()
     {
-
         @Override
         public void onStopTrackingTouch(SeekBar seekBar)
         {
             mPlayer.seekTo(seekBar.getProgress() * SECOND);
-
             mCurrentCaptionIndex = getCaptionCurrentIndex();
             enableTimer(true);
-
         }
 
         @Override
@@ -2011,125 +1990,22 @@ public class PlayerHlsActivity extends BaseActivity
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){}
     };
 
-    private ProgressiveMediaListener mProgressPlayerListener = new ProgressiveMediaListener()
-    {
+    private PlayerEventListener mPlayerEventListener = new PlayerEventListener() {
         @Override
-        public void onError(int messageType)
+        public void onClickPlayItem(int index)
         {
-            Log.f("messageType : "+messageType);
-        }
-
-        @Override
-        public void onSetSeekBarMaxProgress(int progress)
-        {
-            Log.f("progress : "+progress);
-            _ThumbSeekbar.setMax(progress);
-        }
-
-        @Override
-        public void onPlayStart()
-        {
-            isBackgroundVisibleError = true;
-            enableMovieLoadingCheckTimer(false);
-            Log.f("");
-            isVideoLoadingComplete = true;
-
-            setVideoInformation();
-            setPlayIconStatus(PLAYER_RESUME);
-            showLoading(false);
-            //플레이 타이머 보여줌
-            enableTimer(true);
-            mMainHandler.sendEmptyMessageDelayed(MESSAGE_VIDEO_VISIBLE, DURATION_GONE_BACKGROUND);
-        }
-
-        @Override
-        public void onPlayResume()
-        {
-            Log.f("");
-
-            showLoading(false);
-
-            if(Feature.IS_FREE_USER)
-            {
-                enableTimer(true);
-            }
-            else
-            {
-                mMainHandler.sendEmptyMessage(MESSAGE_PLAYER_PAUSE);
-                mMainHandler.sendEmptyMessageDelayed(MESSAGE_RESUME_SHOW_MENU, DUARAION_RESUME_MENU);
-            }
-
-        }
-
-        @Override
-        public void onPlayComplete()
-        {
-            Log.f("");
-            setAnimationMenu(false);
-            enableTimer(false);
+            Log.f("index : "+index);
+            mCurrentPlayPosition = index;
             requestPlaySaveRecord();
-
-            //선택한리스트를 전부 보여주거나 한편을 보여줬을때만 띠운다. 그렇지 않고는 다음편을 플레이한다.
-            //화면끝낫을때 레이아웃 보여줌
-            //동화한편, 동요한편, 시리즈일때
-            if(mContentPlayObject.getSelectedPosition() == -1 && mCurrentPlayPosition < mContentPlayObject.getPlayObjectList().size() -1)
-            {
-                mMainHandler.sendEmptyMessageDelayed(MESSAGE_NEXT_PLAY, DURATION_PLAY);
-            }
-            else
-            {
-                if(isMenuVisible())
-                {
-                    Message msg = Message.obtain();
-                    msg.what = MESSAGE_LAYOUT_SETTING;
-                    msg.arg1 = LAYOUT_TYPE_PLAY_END;
-                    mMainHandler.sendMessageDelayed(msg, DURATION_VIEW_ANIMATION);
-                }
-                else
-                {
-                    settingLayout(LAYOUT_TYPE_PLAY_END);
-                }
-                setPlayEndLayoutToStatus();
-            }
+            enablePlayListAnimation(false);
+            settingLayout(LAYOUT_TYPE_DEFAULT);
+            mMainHandler.sendEmptyMessageDelayed(MESSAGE_SELECT_PLAY, DURATION_PLAY);
         }
 
         @Override
-        public void onSeekComplete(int progress)
-        {
-            Log.f("progress : "+progress);
-            _ThumbSeekbar.setProgress(progress);
-            _CurrentPlayTimeText.setText(CommonUtils.getInstance(PlayerHlsActivity.this).getMillisecondTime((int) mPlayer.getCurrentPosition()));
-        }
+        public void onClickSpeedIndex(int index) {
 
-        @Override
-        public void onDownloadStart()
-        {
-            Log.f("");
-            _ThumbSeekbar.setSecondaryProgress(0);
         }
-
-        @Override
-        public void onDownloadProgress(int progress)
-        {
-            _ThumbSeekbar.setSecondaryProgress(progress);
-        }
-
-        @Override
-        public void onDownloadComplete(int progress)
-        {
-            _ThumbSeekbar.setSecondaryProgress(progress);
-        }
-
-        @Override
-        public void onFullDownloadComplete()
-        {
-            Log.f("Content ID : " + mCurrentPlayContentId);
-            mPlayedContentDBHelper.updatePlayedContent(
-                    mCurrentPlayContentId,
-                    PlayedContentDBHelper.KEY_DOWNLOAD_COMPLETE,
-                    PlayedContentDBHelper.DOWNLOAD_COMPLETE);
-        }
-
     };
 
     private AsyncListener mAsyncListener = new AsyncListener()
@@ -2173,7 +2049,8 @@ public class PlayerHlsActivity extends BaseActivity
                     {
                         if(((AuthContentResult)mObject).getCaptionDetailInformationList().size() > 0)
                         {
-                            mMainHandler.sendEmptyMessage(MESSAGE_CAPTION_LAYOUT_SETTING);
+                            if(isLockDisplay == false)
+                                mMainHandler.sendEmptyMessage(MESSAGE_CAPTION_LAYOUT_SETTING);
                             initCaptionInformationList();
                             mCaptionInformationList = ((AuthContentResult)mObject).getCaptionDetailInformationList();
                         }
@@ -2202,11 +2079,9 @@ public class PlayerHlsActivity extends BaseActivity
                             mMainHandler.sendEmptyMessageDelayed(MESSAGE_FINISH, DURATION_VIEW_INIT);
                         }
                     }
-
                     break;
             }
         }
-
     };
 
     private DialogListener mDialogListener = new DialogListener()
@@ -2235,7 +2110,6 @@ public class PlayerHlsActivity extends BaseActivity
                 }
             }
         }
-
     };
 
 

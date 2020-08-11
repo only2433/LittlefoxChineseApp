@@ -928,6 +928,24 @@ public class CommonUtils
 		}
 		return anim;
 	}
+
+    public Animation getTranslateXAnimation(int duration, float fromXValue, float toXValue)
+    {
+        return getTranslateXAnimation(duration , fromXValue, toXValue, null);
+    }
+
+    public Animation getTranslateXAnimation(int duration, float fromXValue, float toXValue, Interpolator interpolator)
+    {
+        Animation anim = null;
+        anim = new TranslateAnimation(Animation.ABSOLUTE, fromXValue, Animation.ABSOLUTE, toXValue, Animation.RELATIVE_TO_SELF,0, Animation.RELATIVE_TO_SELF, 0);
+        anim.setDuration(duration);
+        anim.setFillAfter(true);
+        if(interpolator != null)
+        {
+            anim.setInterpolator(interpolator);
+        }
+        return anim;
+    }
 	
 	public Animation getAlphaAnimation(int duration, float fromValue, float toValue)
 	{
