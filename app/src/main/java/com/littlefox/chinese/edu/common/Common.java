@@ -140,6 +140,7 @@ public class Common
     public static final String PARAMS_CLIENT_KEY						= "client_key";
     public static final String PARAMS_SERVER_KEY						= "server_key";
     public static final String PARAMS_FIREBASE_PUSH_TOKEN               = "firebase_push_token";
+    public static final String PARAMS_PLAYER_SPEED_INDEX                = "player_speed_index";
     
 	/** 앱 별점 주기 링크 */
 	public static final String APP_LINK = "https://play.google.com/store/apps/details?id=com.littlefox.chinese.edu";

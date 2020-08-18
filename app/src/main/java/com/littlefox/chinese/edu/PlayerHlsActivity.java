@@ -40,6 +40,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.littlefox.chinese.edu.adapter.PlayerListAdapter;
+import com.littlefox.chinese.edu.adapter.PlayerSpeedListAdapter;
 import com.littlefox.chinese.edu.adapter.listener.PlayerEventListener;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
 import com.littlefox.chinese.edu.common.Common;
@@ -200,6 +201,12 @@ public class PlayerHlsActivity extends BaseActivity
     @BindView(R.id._playerListButton)
     ImageView _PlayerListButton;
 
+    @BindView(R.id._playerSpeedListBaseLayout)
+    LinearLayout _PlayerSpeedListBaseLayout;
+
+    @BindView(R.id._playerSpeedListView)
+    RecyclerView _PlayerSpeedListView;
+
     @BindView(R.id._playerSpeedButton)
     ImageView _PlayerSpeedButton;
 
@@ -211,6 +218,9 @@ public class PlayerHlsActivity extends BaseActivity
 
     @BindView(R.id._playListTitleText)
     TextView _PlayListTitleText;
+
+    @BindView(R.id._playSpeedListTitleText)
+    TextView _PlaySpeedListTitleText;
 
     class WarningWatchMessageTask extends TimerTask
     {
@@ -444,6 +454,8 @@ public class PlayerHlsActivity extends BaseActivity
     private AuthContentPlayCoroutine mAuthContentPlayCoroutine = null;
     private int mCurrentWatchingTime = 0;
     private PlayerListAdapter mPlayerListAdapter;
+    private PlayerSpeedListAdapter mPlayerSpeedListAdapter;
+    private int mCurrentPlaySpeedIndex = -1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -544,12 +556,21 @@ public class PlayerHlsActivity extends BaseActivity
                 return true;
             }
         });
+
+        _PlayerSpeedListBaseLayout.setOnTouchListener(new View.OnTouchListener()
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
         _PlayerView.setOnTouchListener(mMenuVisibleListener);
         registerFadeControllerView();
         initViewSetting();
         setupPlayVideo();
         prepareVideo(VIDEO_INIT_PLAY);
         initPlayListView();
+        initPlaySpeedListView();
     }
 
     private void initViewSetting()
@@ -558,6 +579,7 @@ public class PlayerHlsActivity extends BaseActivity
         baseLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         baseLayoutParams.removeRule(RelativeLayout.BELOW);
         _PlayerListBaseLayout.setLayoutParams(baseLayoutParams);
+        _PlayerSpeedListBaseLayout.setLayoutParams(baseLayoutParams);
 
         if(Feature.IS_FREE_USER)
         {
@@ -585,6 +607,7 @@ public class PlayerHlsActivity extends BaseActivity
         _CaptionTitleText.setTypeface(Font.getInstance(this).getRobotoRegular());
         _PlayerSpeedText.setTypeface(Font.getInstance(this).getRobotoMedium());
         _PlayListTitleText.setTypeface(Font.getInstance(this).getRobotoMedium());
+        _PlaySpeedListTitleText.setTypeface(Font.getInstance(this).getRobotoMedium());
     }
 
     private void initText()
@@ -597,6 +620,7 @@ public class PlayerHlsActivity extends BaseActivity
         _PlayEndRemainText.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.button_remain_all_play));
         _PlayEndRecommandTitleText.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.button_recommand_play));
         _PlayListTitleText.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.title_play_list));
+        _PlaySpeedListTitleText.setText(CommonUtils.getInstance(this).getLanguageTypeString(R.array.title_playing_speed));
     }
 
     private void initPlayListView()
@@ -606,6 +630,20 @@ public class PlayerHlsActivity extends BaseActivity
         _PlayerListView.setLayoutManager(new LinearLayoutScrollerManager(this));
         _PlayerListView.setAdapter(mPlayerListAdapter);
         forceScrollView(mCurrentPlayPosition);
+    }
+
+    private void initPlaySpeedListView()
+    {
+        Log.f("");
+        mCurrentPlaySpeedIndex = (int) CommonUtils.getInstance(this).getSharedPreference(Common.PARAMS_PLAYER_SPEED_INDEX, Common.TYPE_PARAMS_INTEGER);
+        if(mCurrentPlaySpeedIndex == -1)
+        {
+            mCurrentPlaySpeedIndex = DEFAULT_SPEED_INDEX;
+        }
+        mPlayerSpeedListAdapter = new PlayerSpeedListAdapter(this, mCurrentPlaySpeedIndex);
+        mPlayerSpeedListAdapter.setPlayerEventListener(mPlayerEventListener);
+        _PlayerSpeedListView.setLayoutManager(new LinearLayoutScrollerManager(this));
+        _PlayerSpeedListView.setAdapter(mPlayerSpeedListAdapter);
     }
 
     private void forceScrollView(final int position)
@@ -654,7 +692,7 @@ public class PlayerHlsActivity extends BaseActivity
     }
 
 
-    private void setVideoSpeed(int speendIndex)
+    private void adjustVideoSpeed(int speendIndex)
     {
         PlaybackParameters params = null;
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -993,19 +1031,12 @@ public class PlayerHlsActivity extends BaseActivity
             contentType = Common.REQUEST_CONTENT_TYPE_MOVIE;
         }
 
-
 		mAuthContentPlayCoroutine = new AuthContentPlayCoroutine(this, mAsyncListener);
         mAuthContentPlayCoroutine.setData(
                 Common.USER_TYPE_PAID,
                 mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id,
                 contentType);
         mAuthContentPlayCoroutine.execute();
-    }
-
-
-    private boolean isLoadingMedia()
-    {
-        return _LoadingLayout.getVisibility() == View.VISIBLE;
     }
 
 
@@ -1019,7 +1050,6 @@ public class PlayerHlsActivity extends BaseActivity
         {
             _LoadingLayout.setVisibility(View.GONE);
         }
-
     }
 
     private void setLockModeUI()
@@ -1076,35 +1106,30 @@ public class PlayerHlsActivity extends BaseActivity
         return _CaptionLayout.getVisibility() == View.VISIBLE;
     }
 
-
-
     /**
      * Top 과 Bottom 메뉴바를 내리거나 올린다.  프리뷰일때는 하단 과 플레이 중지 버튼의 애니메이션을 실행하지않는다.
      * @param isVisible TRUE : 메뉴를 보이게한다. FALSE : 메뉴를 가린다.
      */
-    private void setAnimationMenu(boolean isVisible)
-    {
-        Log.i("isVisible : "+isVisible+", isMenuVisible : "+isMenuVisible());
-        if(isVisible)
+    private void setAnimationMenu(boolean isVisible) {
+        Log.i("isVisible : " + isVisible + ", isMenuVisible : " + isMenuVisible());
+        if (isVisible)
         {
-                mFadeAnimationController.startAnimation(_TopViewLayout, FadeAnimationController.TYPE_FADE_IN);
-                if(mCurrentLayoutType == LAYOUT_TYPE_DEFAULT)
-                {
-                    mFadeAnimationController.startAnimation(_PlayButtonLayout, FadeAnimationController.TYPE_FADE_IN);
-                    mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_IN);
-                }
+            mFadeAnimationController.startAnimation(_TopViewLayout, FadeAnimationController.TYPE_FADE_IN);
+            if (mCurrentLayoutType == LAYOUT_TYPE_DEFAULT)
+            {
+                mFadeAnimationController.startAnimation(_PlayButtonLayout, FadeAnimationController.TYPE_FADE_IN);
+                mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_IN);
+            }
 
         }
         else
-        {
-
-                mFadeAnimationController.startAnimation(_TopViewLayout, FadeAnimationController.TYPE_FADE_OUT);
-                if(mCurrentLayoutType == LAYOUT_TYPE_DEFAULT)
-                {
-                    mFadeAnimationController.startAnimation(_PlayButtonLayout, FadeAnimationController.TYPE_FADE_OUT);
-                    mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_OUT);
-                }
-
+         {
+            mFadeAnimationController.startAnimation(_TopViewLayout, FadeAnimationController.TYPE_FADE_OUT);
+            if (mCurrentLayoutType == LAYOUT_TYPE_DEFAULT)
+            {
+                mFadeAnimationController.startAnimation(_PlayButtonLayout, FadeAnimationController.TYPE_FADE_OUT);
+                mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_OUT);
+            }
         }
     }
 
@@ -1152,21 +1177,6 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
-    private void showMenuWithoutPlayButton(boolean isVisible)
-    {
-        if(isVisible)
-        {
-            mFadeAnimationController.startAnimation(_TopViewLayout, FadeAnimationController.TYPE_FADE_IN);
-            mFadeAnimationController.promptViewStatus(_PlayButtonLayout, false);
-            mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_IN);
-        }
-        else
-        {
-            mFadeAnimationController.startAnimation(_TopViewLayout, FadeAnimationController.TYPE_FADE_OUT);
-            mFadeAnimationController.promptViewStatus(_PlayButtonLayout, false);
-            mFadeAnimationController.startAnimation(_BottomViewLayout, FadeAnimationController.TYPE_FADE_OUT);
-        }
-    }
 
     /**
      * 현재 상태에 따라 PREV 버튼 , NEXT 버튼을 보이고 안보이는 처리를 한다.
@@ -1202,6 +1212,54 @@ public class PlayerHlsActivity extends BaseActivity
         settingCaptionButton(false);
     }
 
+    private void settingVideoSpeed()
+    {
+        Log.f("mContentPlayObject.getPlayItemType() : "+mContentPlayObject.getPlayItemType());
+        mCurrentPlaySpeedIndex = (int) CommonUtils.getInstance(this).getSharedPreference(Common.PARAMS_PLAYER_SPEED_INDEX, Common.TYPE_PARAMS_INTEGER);
+        if(mCurrentPlaySpeedIndex == -1)
+        {
+            mCurrentPlaySpeedIndex = DEFAULT_SPEED_INDEX;
+        }
+
+        if((mContentPlayObject.getPlayItemType() == Common.PLAY_TYPE_SONG)
+            || (mContentPlayObject.getPlayItemType() == Common.PLAY_TYPE_STUDY_DATA))
+        {
+            adjustVideoSpeed(DEFAULT_SPEED_INDEX);
+            setVideoSpeedText(DEFAULT_SPEED_INDEX);
+            enableVideoSpeedButton(false);
+        }
+        else
+        {
+            adjustVideoSpeed(mCurrentPlaySpeedIndex);
+            setVideoSpeedText(mCurrentPlaySpeedIndex);
+            enableVideoSpeedButton(true);
+        }
+    }
+
+    private void setVideoSpeedText(int speedIndex)
+    {
+        String[] data = getResources().getStringArray(R.array.text_list_speed);
+        if(data[speedIndex].contains(("(Normal)")))
+        {
+            data[speedIndex] = data[speedIndex].replace("(Normal)", "");
+        }
+        _PlayerSpeedText.setText(data[speedIndex]);
+    }
+
+    private void enableVideoSpeedButton(Boolean isVisible)
+    {
+        if(isVisible)
+        {
+            _PlayerSpeedButton.setVisibility(View.VISIBLE);
+            _PlayerSpeedText.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            _PlayerSpeedButton.setVisibility(View.GONE);
+            _PlayerSpeedText.setVisibility(View.GONE);
+        }
+    }
+
     private void settingCaptionButton(boolean isCaptionDataHave)
     {
         if(isCaptionDataHave)
@@ -1232,6 +1290,9 @@ public class PlayerHlsActivity extends BaseActivity
                 CommonUtils.getInstance(this).getTranslateYAnimation(DURATION_VIEW_ANIMATION, CONTROLLER_VIEW_HEIGHT, 0),
                 CommonUtils.getInstance(this).getTranslateYAnimation(DURATION_VIEW_ANIMATION, 0, CONTROLLER_VIEW_HEIGHT)));
         mFadeAnimationController.addControlView(new FadeAnimationInformation(_PlayerListBaseLayout,
+                CommonUtils.getInstance(this).getTranslateXAnimation(DURATION_VIEW_ANIMATION, CONTROLLER_VIEW_WIDTH, 0),
+                CommonUtils.getInstance(this).getTranslateXAnimation(DURATION_VIEW_ANIMATION, 0, CONTROLLER_VIEW_WIDTH)));
+        mFadeAnimationController.addControlView(new FadeAnimationInformation(_PlayerSpeedListBaseLayout,
                 CommonUtils.getInstance(this).getTranslateXAnimation(DURATION_VIEW_ANIMATION, CONTROLLER_VIEW_WIDTH, 0),
                 CommonUtils.getInstance(this).getTranslateXAnimation(DURATION_VIEW_ANIMATION, 0, CONTROLLER_VIEW_WIDTH)));
         mFadeAnimationController.addControlView(new FadeAnimationInformation(_PlayerOptionBackground,
@@ -1302,6 +1363,7 @@ public class PlayerHlsActivity extends BaseActivity
         _ThumbSeekbar.setProgress(0);
         _ThumbSeekbar.setSecondaryProgress(0);
 
+        settingVideoSpeed();
         requestCurrentPlayVideoUrlInformation();
         Log.f("Current Play Title : "+ mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).getTitle());
     }
@@ -1402,6 +1464,18 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
+    private boolean isPlaySpeedListVisible()
+    {
+        if(_PlayerSpeedListBaseLayout.getVisibility() == View.VISIBLE)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     private boolean isPlayOptionBackgroundVisible()
     {
         if(_PlayerOptionBackground.getVisibility() == View.VISIBLE)
@@ -1425,6 +1499,21 @@ public class PlayerHlsActivity extends BaseActivity
             else
             {
                 mFadeAnimationController.startAnimation(_PlayerListBaseLayout, FadeAnimationController.TYPE_FADE_OUT);
+            }
+        }
+    }
+
+    private void enablePlaySpeedListAnimation(boolean isVisible)
+    {
+        if(mCurrentLayoutType == LAYOUT_TYPE_DEFAULT)
+        {
+            if(isVisible)
+            {
+                mFadeAnimationController.startAnimation(_PlayerSpeedListBaseLayout, FadeAnimationController.TYPE_FADE_IN);
+            }
+            else
+            {
+                mFadeAnimationController.startAnimation(_PlayerSpeedListBaseLayout, FadeAnimationController.TYPE_FADE_OUT);
             }
         }
     }
@@ -1643,15 +1732,13 @@ public class PlayerHlsActivity extends BaseActivity
 
     private void updateUI()
     {
-        _ThumbSeekbar.post(new Runnable(){
-
+        _ThumbSeekbar.post(new Runnable()
+        {
             @Override
             public void run() {
                 try {
                     _ThumbSeekbar.setProgress((int) (mPlayer.getCurrentPosition() / SECOND));
-                } catch (Exception e) {
-
-                }
+                } catch (Exception e) { }
 
                 _CurrentPlayTimeText.setText(CommonUtils.getInstance(PlayerHlsActivity.this).getMillisecondTime((int) mPlayer.getCurrentPosition()));
 
@@ -1814,12 +1901,10 @@ public class PlayerHlsActivity extends BaseActivity
                 break;
             case R.id.play_end_recommand_layout:
                 Log.f("Player End Page Recommand Item Play Click");
-
                 if(isMenuVisible())
                 {
                     setAnimationMenu(false);
                 }
-
                 settingLayout(LAYOUT_TYPE_DEFAULT);
                 mMainHandler.sendEmptyMessageDelayed(MESSAGE_NEXT_PLAY, DURATION_PLAY);
                 break;
@@ -1827,7 +1912,8 @@ public class PlayerHlsActivity extends BaseActivity
     }
 
     @OnClick({R.id.player_close_button, R.id.player_next_button, R.id.player_play_button, R.id.player_prev_button,
-            R.id.player_subtitle_button, R.id._playerListButton, R.id._playListCloseButtonRect})
+            R.id.player_subtitle_button, R.id._playerListButton, R.id._playListCloseButtonRect, R.id._playSpeedListCloseButtonRect,
+            R.id._playerSpeedButton, R.id._playerSpeedText})
     public void onPlayerButtonClick(View view)
     {
         if(mMainHandler.hasMessages(MESSAGE_PREV_PLAY) || mMainHandler.hasMessages(MESSAGE_NEXT_PLAY))
@@ -1859,7 +1945,6 @@ public class PlayerHlsActivity extends BaseActivity
                 {
                     setAnimationMenu(false);
                 }
-
                 settingLayout(LAYOUT_TYPE_DEFAULT);
                 mMainHandler.sendEmptyMessageDelayed(MESSAGE_PREV_PLAY, DURATION_PLAY);
                 break;
@@ -1898,10 +1983,20 @@ public class PlayerHlsActivity extends BaseActivity
                 setAnimationMenu(false);
                 enablePlayListAnimation(true);
                 break;
+            case R.id._playerSpeedButton:
+            case R.id._playerSpeedText:
+                setAnimationMenu(false);
+                enablePlaySpeedListAnimation(true);
+                break;
             case R.id._playListCloseButtonRect:
                 setAnimationMenu(true);
                 enablePlayListAnimation(false);
                 break;
+            case R.id._playSpeedListCloseButtonRect:
+                setAnimationMenu(true);
+                enablePlaySpeedListAnimation(false);
+                break;
+
         }
     }
 
@@ -1962,6 +2057,10 @@ public class PlayerHlsActivity extends BaseActivity
                     {
                         enablePlayListAnimation(false);
                     }
+                    if(isPlaySpeedListVisible())
+                    {
+                        enablePlaySpeedListAnimation(false);
+                    }
                     enableBackgroudAnimation(true);
                 }
             }
@@ -2003,8 +2102,14 @@ public class PlayerHlsActivity extends BaseActivity
         }
 
         @Override
-        public void onClickSpeedIndex(int index) {
-
+        public void onClickSpeedIndex(int index)
+        {
+            Log.f("index : "+index);
+            CommonUtils.getInstance(PlayerHlsActivity.this).setSharedPreference(Common.PARAMS_PLAYER_SPEED_INDEX, index);
+            mCurrentPlaySpeedIndex = index;
+            settingVideoSpeed();
+            enablePlaySpeedListAnimation(false);
+            enableBackgroudAnimation(false);
         }
     };
 
@@ -2059,11 +2164,9 @@ public class PlayerHlsActivity extends BaseActivity
                             if(mContentPlayObject.getPlayItemType() != Common.PLAY_TYPE_STUDY_DATA && mContentPlayObject.isCaptionEmpty() == false)
                             {
                                 Log.f("Unable to load the caption file.");
-                                //Toast.makeText(PlayerActivity.this, CommonUtils.getInstance(PlayerActivity.this).getLanguageTypeString(R.array.message_caption_information_not_have_warning), Toast.LENGTH_SHORT).show();
                             }
                             initCaptionInformationList();
                         }
-
                         mCurrentPlayUrl = ((AuthContentResult)mObject).getVideoUrl();
                         startMovie();
                     }
@@ -2111,6 +2214,4 @@ public class PlayerHlsActivity extends BaseActivity
             }
         }
     };
-
-
 }

@@ -18,7 +18,7 @@ import java.lang.Override;
 public class QuizActivity_ViewBinding implements Unbinder {
   private QuizActivity target;
 
-  private View view7f0901fd;
+  private View view7f090205;
 
   @UiThread
   public QuizActivity_ViewBinding(QuizActivity target) {
@@ -33,7 +33,7 @@ public class QuizActivity_ViewBinding implements Unbinder {
     target._BaseLayout = Utils.findRequiredViewAsType(source, R.id.main_layout, "field '_BaseLayout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.quiz_close_button, "field '_QuizCloseButton' and method 'onSelectClick'");
     target._QuizCloseButton = Utils.castView(view, R.id.quiz_close_button, "field '_QuizCloseButton'", ImageView.class);
-    view7f0901fd = view;
+    view7f090205 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -68,7 +68,7 @@ public class QuizActivity_ViewBinding implements Unbinder {
     target._QuizTitleText = null;
     target._AniAnswerLayout = null;
 
-    view7f0901fd.setOnClickListener(null);
-    view7f0901fd = null;
+    view7f090205.setOnClickListener(null);
+    view7f090205 = null;
   }
 }

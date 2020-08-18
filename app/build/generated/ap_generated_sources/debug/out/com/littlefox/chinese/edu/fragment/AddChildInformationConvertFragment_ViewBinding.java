@@ -18,11 +18,11 @@ import java.lang.Override;
 public class AddChildInformationConvertFragment_ViewBinding implements Unbinder {
   private AddChildInformationConvertFragment target;
 
-  private View view7f090039;
+  private View view7f090041;
 
-  private View view7f09003a;
+  private View view7f090042;
 
-  private View view7f09003e;
+  private View view7f090046;
 
   @UiThread
   public AddChildInformationConvertFragment_ViewBinding(
@@ -38,7 +38,7 @@ public class AddChildInformationConvertFragment_ViewBinding implements Unbinder 
     target._NameEdit = Utils.findRequiredViewAsType(source, R.id.addchild_convert_name_edit, "field '_NameEdit'", PaddingDrawableEditText.class);
     view = Utils.findRequiredView(source, R.id.addchild_convert_calendar_edit, "field '_CalendarEdit' and method 'OnSelectClick'");
     target._CalendarEdit = Utils.castView(view, R.id.addchild_convert_calendar_edit, "field '_CalendarEdit'", PaddingDrawableEditText.class);
-    view7f090039 = view;
+    view7f090041 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -47,7 +47,7 @@ public class AddChildInformationConvertFragment_ViewBinding implements Unbinder 
     });
     view = Utils.findRequiredView(source, R.id.addchild_convert_cancel_button, "field '_CancelButton' and method 'OnSelectClick'");
     target._CancelButton = Utils.castView(view, R.id.addchild_convert_cancel_button, "field '_CancelButton'", TextView.class);
-    view7f09003a = view;
+    view7f090042 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class AddChildInformationConvertFragment_ViewBinding implements Unbinder 
     });
     view = Utils.findRequiredView(source, R.id.addchild_convert_save_button, "field '_SaveButton' and method 'OnSelectClick'");
     target._SaveButton = Utils.castView(view, R.id.addchild_convert_save_button, "field '_SaveButton'", TextView.class);
-    view7f09003e = view;
+    view7f090046 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -82,11 +82,11 @@ public class AddChildInformationConvertFragment_ViewBinding implements Unbinder 
     target._CancelButton = null;
     target._SaveButton = null;
 
-    view7f090039.setOnClickListener(null);
-    view7f090039 = null;
-    view7f09003a.setOnClickListener(null);
-    view7f09003a = null;
-    view7f09003e.setOnClickListener(null);
-    view7f09003e = null;
+    view7f090041.setOnClickListener(null);
+    view7f090041 = null;
+    view7f090042.setOnClickListener(null);
+    view7f090042 = null;
+    view7f090046.setOnClickListener(null);
+    view7f090046 = null;
   }
 }

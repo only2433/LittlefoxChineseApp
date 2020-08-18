@@ -19,35 +19,35 @@ import java.lang.Override;
 public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
   private MainSubHomeFragmentTablet target;
 
-  private View view7f0900ea;
-
-  private View view7f0900e8;
-
-  private View view7f0900e5;
-
-  private View view7f0900e3;
+  private View view7f0900f2;
 
   private View view7f0900f0;
 
-  private View view7f0900f1;
+  private View view7f0900ed;
 
-  private View view7f0900f2;
-
-  private View view7f0900f3;
-
-  private View view7f0900f4;
-
-  private View view7f0900f5;
-
-  private View view7f0900f6;
-
-  private View view7f0900f7;
+  private View view7f0900eb;
 
   private View view7f0900f8;
 
   private View view7f0900f9;
 
-  private View view7f0900c3;
+  private View view7f0900fa;
+
+  private View view7f0900fb;
+
+  private View view7f0900fc;
+
+  private View view7f0900fd;
+
+  private View view7f0900fe;
+
+  private View view7f0900ff;
+
+  private View view7f090100;
+
+  private View view7f090101;
+
+  private View view7f0900cb;
 
   @UiThread
   public MainSubHomeFragmentTablet_ViewBinding(final MainSubHomeFragmentTablet target,
@@ -62,7 +62,7 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
     target._BannerLinkView = Utils.findRequiredViewAsType(source, R.id.home_banner_view, "field '_BannerLinkView'", BannerLinkView.class);
     view = Utils.findRequiredView(source, R.id.home_info_step_china_image, "field '_BasicStepButton'");
     target._BasicStepButton = Utils.castView(view, R.id.home_info_step_china_image, "field '_BasicStepButton'", ImageView.class);
-    view7f0900ea = view;
+    view7f0900f2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,36 +70,6 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
       }
     });
     view = source.findViewById(R.id.home_info_nihao_china_image);
-    if (view != null) {
-      view7f0900e8 = view;
-      view.setOnClickListener(new DebouncingOnClickListener() {
-        @Override
-        public void doClick(View p0) {
-          target.onSelectedOnDay(p0);
-        }
-      });
-    }
-    view = source.findViewById(R.id.home_info_introduce_littlefox_image);
-    if (view != null) {
-      view7f0900e5 = view;
-      view.setOnClickListener(new DebouncingOnClickListener() {
-        @Override
-        public void doClick(View p0) {
-          target.onSelectedOnDay(p0);
-        }
-      });
-    }
-    view = source.findViewById(R.id.home_info_guide_study_image);
-    if (view != null) {
-      view7f0900e3 = view;
-      view.setOnClickListener(new DebouncingOnClickListener() {
-        @Override
-        public void doClick(View p0) {
-          target.onSelectedOnDay(p0);
-        }
-      });
-    }
-    view = source.findViewById(R.id.home_info_today_list_image1);
     if (view != null) {
       view7f0900f0 = view;
       view.setOnClickListener(new DebouncingOnClickListener() {
@@ -109,9 +79,9 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
         }
       });
     }
-    view = source.findViewById(R.id.home_info_today_list_image2);
+    view = source.findViewById(R.id.home_info_introduce_littlefox_image);
     if (view != null) {
-      view7f0900f1 = view;
+      view7f0900ed = view;
       view.setOnClickListener(new DebouncingOnClickListener() {
         @Override
         public void doClick(View p0) {
@@ -119,9 +89,9 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
         }
       });
     }
-    view = source.findViewById(R.id.home_info_today_list_image3);
+    view = source.findViewById(R.id.home_info_guide_study_image);
     if (view != null) {
-      view7f0900f2 = view;
+      view7f0900eb = view;
       view.setOnClickListener(new DebouncingOnClickListener() {
         @Override
         public void doClick(View p0) {
@@ -129,57 +99,7 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
         }
       });
     }
-    view = source.findViewById(R.id.home_info_today_list_image4);
-    if (view != null) {
-      view7f0900f3 = view;
-      view.setOnClickListener(new DebouncingOnClickListener() {
-        @Override
-        public void doClick(View p0) {
-          target.onSelectedOnDay(p0);
-        }
-      });
-    }
-    view = source.findViewById(R.id.home_info_today_list_image5);
-    if (view != null) {
-      view7f0900f4 = view;
-      view.setOnClickListener(new DebouncingOnClickListener() {
-        @Override
-        public void doClick(View p0) {
-          target.onSelectedOnDay(p0);
-        }
-      });
-    }
-    view = source.findViewById(R.id.home_info_today_list_text1);
-    if (view != null) {
-      view7f0900f5 = view;
-      view.setOnClickListener(new DebouncingOnClickListener() {
-        @Override
-        public void doClick(View p0) {
-          target.onSelectedOnDay(p0);
-        }
-      });
-    }
-    view = source.findViewById(R.id.home_info_today_list_text2);
-    if (view != null) {
-      view7f0900f6 = view;
-      view.setOnClickListener(new DebouncingOnClickListener() {
-        @Override
-        public void doClick(View p0) {
-          target.onSelectedOnDay(p0);
-        }
-      });
-    }
-    view = source.findViewById(R.id.home_info_today_list_text3);
-    if (view != null) {
-      view7f0900f7 = view;
-      view.setOnClickListener(new DebouncingOnClickListener() {
-        @Override
-        public void doClick(View p0) {
-          target.onSelectedOnDay(p0);
-        }
-      });
-    }
-    view = source.findViewById(R.id.home_info_today_list_text4);
+    view = source.findViewById(R.id.home_info_today_list_image1);
     if (view != null) {
       view7f0900f8 = view;
       view.setOnClickListener(new DebouncingOnClickListener() {
@@ -189,7 +109,7 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
         }
       });
     }
-    view = source.findViewById(R.id.home_info_today_list_text5);
+    view = source.findViewById(R.id.home_info_today_list_image2);
     if (view != null) {
       view7f0900f9 = view;
       view.setOnClickListener(new DebouncingOnClickListener() {
@@ -199,8 +119,88 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
         }
       });
     }
+    view = source.findViewById(R.id.home_info_today_list_image3);
+    if (view != null) {
+      view7f0900fa = view;
+      view.setOnClickListener(new DebouncingOnClickListener() {
+        @Override
+        public void doClick(View p0) {
+          target.onSelectedOnDay(p0);
+        }
+      });
+    }
+    view = source.findViewById(R.id.home_info_today_list_image4);
+    if (view != null) {
+      view7f0900fb = view;
+      view.setOnClickListener(new DebouncingOnClickListener() {
+        @Override
+        public void doClick(View p0) {
+          target.onSelectedOnDay(p0);
+        }
+      });
+    }
+    view = source.findViewById(R.id.home_info_today_list_image5);
+    if (view != null) {
+      view7f0900fc = view;
+      view.setOnClickListener(new DebouncingOnClickListener() {
+        @Override
+        public void doClick(View p0) {
+          target.onSelectedOnDay(p0);
+        }
+      });
+    }
+    view = source.findViewById(R.id.home_info_today_list_text1);
+    if (view != null) {
+      view7f0900fd = view;
+      view.setOnClickListener(new DebouncingOnClickListener() {
+        @Override
+        public void doClick(View p0) {
+          target.onSelectedOnDay(p0);
+        }
+      });
+    }
+    view = source.findViewById(R.id.home_info_today_list_text2);
+    if (view != null) {
+      view7f0900fe = view;
+      view.setOnClickListener(new DebouncingOnClickListener() {
+        @Override
+        public void doClick(View p0) {
+          target.onSelectedOnDay(p0);
+        }
+      });
+    }
+    view = source.findViewById(R.id.home_info_today_list_text3);
+    if (view != null) {
+      view7f0900ff = view;
+      view.setOnClickListener(new DebouncingOnClickListener() {
+        @Override
+        public void doClick(View p0) {
+          target.onSelectedOnDay(p0);
+        }
+      });
+    }
+    view = source.findViewById(R.id.home_info_today_list_text4);
+    if (view != null) {
+      view7f090100 = view;
+      view.setOnClickListener(new DebouncingOnClickListener() {
+        @Override
+        public void doClick(View p0) {
+          target.onSelectedOnDay(p0);
+        }
+      });
+    }
+    view = source.findViewById(R.id.home_info_today_list_text5);
+    if (view != null) {
+      view7f090101 = view;
+      view.setOnClickListener(new DebouncingOnClickListener() {
+        @Override
+        public void doClick(View p0) {
+          target.onSelectedOnDay(p0);
+        }
+      });
+    }
     view = Utils.findRequiredView(source, R.id.footer_link_logo_view, "method 'onSelectClick'");
-    view7f0900c3 = view;
+    view7f0900cb = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -250,51 +250,19 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
     target._TodayThumbnailItemTextList = null;
     target._TodayItemTitleTextList = null;
 
-    view7f0900ea.setOnClickListener(null);
-    view7f0900ea = null;
-    if (view7f0900e8 != null) {
-      view7f0900e8.setOnClickListener(null);
-      view7f0900e8 = null;
-    }
-    if (view7f0900e5 != null) {
-      view7f0900e5.setOnClickListener(null);
-      view7f0900e5 = null;
-    }
-    if (view7f0900e3 != null) {
-      view7f0900e3.setOnClickListener(null);
-      view7f0900e3 = null;
-    }
+    view7f0900f2.setOnClickListener(null);
+    view7f0900f2 = null;
     if (view7f0900f0 != null) {
       view7f0900f0.setOnClickListener(null);
       view7f0900f0 = null;
     }
-    if (view7f0900f1 != null) {
-      view7f0900f1.setOnClickListener(null);
-      view7f0900f1 = null;
+    if (view7f0900ed != null) {
+      view7f0900ed.setOnClickListener(null);
+      view7f0900ed = null;
     }
-    if (view7f0900f2 != null) {
-      view7f0900f2.setOnClickListener(null);
-      view7f0900f2 = null;
-    }
-    if (view7f0900f3 != null) {
-      view7f0900f3.setOnClickListener(null);
-      view7f0900f3 = null;
-    }
-    if (view7f0900f4 != null) {
-      view7f0900f4.setOnClickListener(null);
-      view7f0900f4 = null;
-    }
-    if (view7f0900f5 != null) {
-      view7f0900f5.setOnClickListener(null);
-      view7f0900f5 = null;
-    }
-    if (view7f0900f6 != null) {
-      view7f0900f6.setOnClickListener(null);
-      view7f0900f6 = null;
-    }
-    if (view7f0900f7 != null) {
-      view7f0900f7.setOnClickListener(null);
-      view7f0900f7 = null;
+    if (view7f0900eb != null) {
+      view7f0900eb.setOnClickListener(null);
+      view7f0900eb = null;
     }
     if (view7f0900f8 != null) {
       view7f0900f8.setOnClickListener(null);
@@ -304,7 +272,39 @@ public class MainSubHomeFragmentTablet_ViewBinding implements Unbinder {
       view7f0900f9.setOnClickListener(null);
       view7f0900f9 = null;
     }
-    view7f0900c3.setOnClickListener(null);
-    view7f0900c3 = null;
+    if (view7f0900fa != null) {
+      view7f0900fa.setOnClickListener(null);
+      view7f0900fa = null;
+    }
+    if (view7f0900fb != null) {
+      view7f0900fb.setOnClickListener(null);
+      view7f0900fb = null;
+    }
+    if (view7f0900fc != null) {
+      view7f0900fc.setOnClickListener(null);
+      view7f0900fc = null;
+    }
+    if (view7f0900fd != null) {
+      view7f0900fd.setOnClickListener(null);
+      view7f0900fd = null;
+    }
+    if (view7f0900fe != null) {
+      view7f0900fe.setOnClickListener(null);
+      view7f0900fe = null;
+    }
+    if (view7f0900ff != null) {
+      view7f0900ff.setOnClickListener(null);
+      view7f0900ff = null;
+    }
+    if (view7f090100 != null) {
+      view7f090100.setOnClickListener(null);
+      view7f090100 = null;
+    }
+    if (view7f090101 != null) {
+      view7f090101.setOnClickListener(null);
+      view7f090101 = null;
+    }
+    view7f0900cb.setOnClickListener(null);
+    view7f0900cb = null;
   }
 }

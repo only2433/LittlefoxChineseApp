@@ -21,6 +21,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:visibility="visible"
+            app:use_controller="false"
+            app:resize_mode="fill"
             app:scale_top="0"
             app:scale_left="0"
             app:scale_width="1920"
@@ -86,9 +88,20 @@
             android:layout_height="wrap_content"
             android:src="@drawable/icon_subtitle_white"
             app:scale_top="46"
+            app:scale_width="60"
+            app:scale_height="62"
+            app:scale_left="1490" />
+
+        <ImageView
+            android:id="@+id/_playerListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/player__list"
+            app:scale_top="46"
             app:scale_left="1652"
             app:scale_width="62"
             app:scale_height="60"/>
+
 
         <ImageView
             android:id="@+id/player_close_button"
@@ -165,7 +178,7 @@
             app:scale_height="46"
             app:scale_left="148"
             app:scale_top="0"
-            app:scale_width="1478" />
+            app:scale_width="1298" />
 
         <TextView
             android:id="@+id/player_remain_play_time"
@@ -175,10 +188,33 @@
             android:text=""
             android:textColor="@color/color_ffffff"
             app:scale_height="150"
-            app:scale_left="1644"
+            app:scale_left="1424"
             app:scale_textsize="34"
             app:scale_top="0"
             app:scale_width="94" />
+
+        <ImageView
+            android:id="@+id/_playerSpeedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/player__speed"
+            app:scale_height="65"
+            app:scale_left="1604"
+            app:scale_top="43"
+            app:scale_width="65" />
+
+        <TextView
+            android:id="@+id/_playerSpeedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="1.15x"
+            android:textColor="@color/color_white"
+            app:scale_height="150"
+            app:scale_left="1684"
+            app:scale_textsize="34"
+            app:scale_top="0"
+            app:scale_width="100" />
 
         <ImageView
             android:id="@+id/player_lock_button"
@@ -253,6 +289,22 @@
             app:scale_height="100"
             app:scale_textsize="40"/>
     </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <include
+        android:id="@+id/_playerListBaseLayout"
+        layout="@layout/include_player_list_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/_playerSpeedListBaseLayout"
+        layout="@layout/include_player_speed_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
 
     <include
         android:id="@+id/preview_end_layout"

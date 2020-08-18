@@ -17,13 +17,13 @@ import java.lang.Override;
 public class QuizPlayFragment_ViewBinding implements Unbinder {
   private QuizPlayFragment target;
 
-  private View view7f0901f6;
+  private View view7f0901fe;
 
-  private View view7f090115;
+  private View view7f09011d;
 
-  private View view7f090117;
+  private View view7f09011f;
 
-  private View view7f0901f5;
+  private View view7f0901fd;
 
   @UiThread
   public QuizPlayFragment_ViewBinding(final QuizPlayFragment target, View source) {
@@ -36,7 +36,7 @@ public class QuizPlayFragment_ViewBinding implements Unbinder {
     target._TextQuestionTypeLayout = Utils.findRequiredViewAsType(source, R.id.question_text_layout, "field '_TextQuestionTypeLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.question_play_button, "field '_PlaySoundButton' and method 'onSelectImage'");
     target._PlaySoundButton = Utils.castView(view, R.id.question_play_button, "field '_PlaySoundButton'", ImageView.class);
-    view7f0901f6 = view;
+    view7f0901fe = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -45,7 +45,7 @@ public class QuizPlayFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.image_index_first_image, "field '_FirstPictureImage' and method 'onSelectImage'");
     target._FirstPictureImage = Utils.castView(view, R.id.image_index_first_image, "field '_FirstPictureImage'", ImageView.class);
-    view7f090115 = view;
+    view7f09011d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class QuizPlayFragment_ViewBinding implements Unbinder {
     target._FirstNotSelectImage = Utils.findRequiredViewAsType(source, R.id.image_index_first_not_select_image, "field '_FirstNotSelectImage'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.image_index_second_image, "field '_SecondPictureImage' and method 'onSelectImage'");
     target._SecondPictureImage = Utils.castView(view, R.id.image_index_second_image, "field '_SecondPictureImage'", ImageView.class);
-    view7f090117 = view;
+    view7f09011f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class QuizPlayFragment_ViewBinding implements Unbinder {
     target._SecondNotSelectImage = Utils.findRequiredViewAsType(source, R.id.image_index_second_not_select_image, "field '_SecondNotSelectImage'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.question_next_button, "field '_NextPlayButton' and method 'onSelectImage'");
     target._NextPlayButton = Utils.castView(view, R.id.question_next_button, "field '_NextPlayButton'", ImageView.class);
-    view7f0901f5 = view;
+    view7f0901fd = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,13 +92,13 @@ public class QuizPlayFragment_ViewBinding implements Unbinder {
     target._SecondNotSelectImage = null;
     target._NextPlayButton = null;
 
-    view7f0901f6.setOnClickListener(null);
-    view7f0901f6 = null;
-    view7f090115.setOnClickListener(null);
-    view7f090115 = null;
-    view7f090117.setOnClickListener(null);
-    view7f090117 = null;
-    view7f0901f5.setOnClickListener(null);
-    view7f0901f5 = null;
+    view7f0901fe.setOnClickListener(null);
+    view7f0901fe = null;
+    view7f09011d.setOnClickListener(null);
+    view7f09011d = null;
+    view7f09011f.setOnClickListener(null);
+    view7f09011f = null;
+    view7f0901fd.setOnClickListener(null);
+    view7f0901fd = null;
   }
 }

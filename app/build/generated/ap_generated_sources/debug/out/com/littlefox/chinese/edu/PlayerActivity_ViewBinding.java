@@ -19,29 +19,29 @@ import java.lang.Override;
 public class PlayerActivity_ViewBinding implements Unbinder {
   private PlayerActivity target;
 
-  private View view7f0901e7;
+  private View view7f0901ef;
+
+  private View view7f0901e5;
+
+  private View view7f0901eb;
+
+  private View view7f0901e9;
+
+  private View view7f0901e8;
+
+  private View view7f09001c;
+
+  private View view7f0901d6;
 
   private View view7f0901dd;
 
-  private View view7f0901e3;
+  private View view7f0901d8;
 
-  private View view7f0901e1;
+  private View view7f0901db;
 
-  private View view7f0901e0;
+  private View view7f0901da;
 
-  private View view7f090016;
-
-  private View view7f0901ce;
-
-  private View view7f0901d5;
-
-  private View view7f0901d0;
-
-  private View view7f0901d3;
-
-  private View view7f0901d2;
-
-  private View view7f0901ea;
+  private View view7f0901f2;
 
   @UiThread
   public PlayerActivity_ViewBinding(PlayerActivity target) {
@@ -60,7 +60,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._TopTitleText = Utils.findRequiredViewAsType(source, R.id.player_top_title, "field '_TopTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.player_subtitle_button, "field '_TopCaptionSettingButton' and method 'onPlayerButtonClick'");
     target._TopCaptionSettingButton = Utils.castView(view, R.id.player_subtitle_button, "field '_TopCaptionSettingButton'", ImageView.class);
-    view7f0901e7 = view;
+    view7f0901ef = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -69,7 +69,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.player_close_button, "field '_TopCloseButton' and method 'onPlayerButtonClick'");
     target._TopCloseButton = Utils.castView(view, R.id.player_close_button, "field '_TopCloseButton'", ImageView.class);
-    view7f0901dd = view;
+    view7f0901e5 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -84,7 +84,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._PlayButtonLayout = Utils.findRequiredViewAsType(source, R.id.player_play_button_layout, "field '_PlayButtonLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.player_prev_button, "field '_PrevButton' and method 'onPlayerButtonClick'");
     target._PrevButton = Utils.castView(view, R.id.player_prev_button, "field '_PrevButton'", ImageView.class);
-    view7f0901e3 = view;
+    view7f0901eb = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -93,7 +93,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.player_play_button, "field '_PlayButton' and method 'onPlayerButtonClick'");
     target._PlayButton = Utils.castView(view, R.id.player_play_button, "field '_PlayButton'", ImageView.class);
-    view7f0901e1 = view;
+    view7f0901e9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -102,7 +102,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.player_next_button, "field '_NextButton' and method 'onPlayerButtonClick'");
     target._NextButton = Utils.castView(view, R.id.player_next_button, "field '_NextButton'", ImageView.class);
-    view7f0901e0 = view;
+    view7f0901e8 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -115,7 +115,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._PreviewSignMessageText = Utils.findRequiredViewAsType(source, R.id.preview_end_message_sign_up, "field '_PreviewSignMessageText'", TextView.class);
     view = Utils.findRequiredView(source, R.id._previewBackgroundRect, "field '_PreviewPayButton' and method 'onDisplayButtonClick'");
     target._PreviewPayButton = Utils.castView(view, R.id._previewBackgroundRect, "field '_PreviewPayButton'", ImageView.class);
-    view7f090016 = view;
+    view7f09001c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -126,7 +126,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._BasePlayEndLayout = Utils.findRequiredViewAsType(source, R.id.play_end_layout, "field '_BasePlayEndLayout'", RelativeLayout.class);
     view = Utils.findRequiredView(source, R.id.play_end_close_button, "field '_PlayEndCloseButton' and method 'onDisplayButtonClick'");
     target._PlayEndCloseButton = Utils.castView(view, R.id.play_end_close_button, "field '_PlayEndCloseButton'", ImageView.class);
-    view7f0901ce = view;
+    view7f0901d6 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -136,7 +136,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._PlayEndButtonLayout = Utils.findRequiredViewAsType(source, R.id.play_end_base_layout, "field '_PlayEndButtonLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.play_end_replay_layout, "field '_PlayEndReplayButton' and method 'onDisplayButtonClick'");
     target._PlayEndReplayButton = Utils.castView(view, R.id.play_end_replay_layout, "field '_PlayEndReplayButton'", ScalableLayout.class);
-    view7f0901d5 = view;
+    view7f0901dd = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -146,7 +146,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._PlayEndReplayText = Utils.findRequiredViewAsType(source, R.id.play_end_replay_text, "field '_PlayEndReplayText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.play_end_quiz_layout, "field '_PlayEndQuizButton' and method 'onDisplayButtonClick'");
     target._PlayEndQuizButton = Utils.castView(view, R.id.play_end_quiz_layout, "field '_PlayEndQuizButton'", ScalableLayout.class);
-    view7f0901d0 = view;
+    view7f0901d8 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -156,7 +156,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._PlayEndQuizText = Utils.findRequiredViewAsType(source, R.id.play_end_quiz_text, "field '_PlayEndQuizText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.play_end_remain_play_layout, "field '_PlayEndRemainButton' and method 'onDisplayButtonClick'");
     target._PlayEndRemainButton = Utils.castView(view, R.id.play_end_remain_play_layout, "field '_PlayEndRemainButton'", ScalableLayout.class);
-    view7f0901d3 = view;
+    view7f0901db = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -166,7 +166,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._PlayEndRemainText = Utils.findRequiredViewAsType(source, R.id.play_end_remain_play_text, "field '_PlayEndRemainText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.play_end_recommand_layout, "field '_PlayEndRecommandViewLayout' and method 'onDisplayButtonClick'");
     target._PlayEndRecommandViewLayout = Utils.castView(view, R.id.play_end_recommand_layout, "field '_PlayEndRecommandViewLayout'", ScalableLayout.class);
-    view7f0901d2 = view;
+    view7f0901da = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -178,7 +178,7 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._CaptionLayout = Utils.findRequiredViewAsType(source, R.id.player_caption_layout, "field '_CaptionLayout'", ScalableLayout.class);
     target._CaptionTitleText = Utils.findRequiredViewAsType(source, R.id.player_caption_title, "field '_CaptionTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.preview_close_button, "method 'onDisplayButtonClick'");
-    view7f0901ea = view;
+    view7f0901f2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -231,29 +231,29 @@ public class PlayerActivity_ViewBinding implements Unbinder {
     target._CaptionLayout = null;
     target._CaptionTitleText = null;
 
-    view7f0901e7.setOnClickListener(null);
-    view7f0901e7 = null;
+    view7f0901ef.setOnClickListener(null);
+    view7f0901ef = null;
+    view7f0901e5.setOnClickListener(null);
+    view7f0901e5 = null;
+    view7f0901eb.setOnClickListener(null);
+    view7f0901eb = null;
+    view7f0901e9.setOnClickListener(null);
+    view7f0901e9 = null;
+    view7f0901e8.setOnClickListener(null);
+    view7f0901e8 = null;
+    view7f09001c.setOnClickListener(null);
+    view7f09001c = null;
+    view7f0901d6.setOnClickListener(null);
+    view7f0901d6 = null;
     view7f0901dd.setOnClickListener(null);
     view7f0901dd = null;
-    view7f0901e3.setOnClickListener(null);
-    view7f0901e3 = null;
-    view7f0901e1.setOnClickListener(null);
-    view7f0901e1 = null;
-    view7f0901e0.setOnClickListener(null);
-    view7f0901e0 = null;
-    view7f090016.setOnClickListener(null);
-    view7f090016 = null;
-    view7f0901ce.setOnClickListener(null);
-    view7f0901ce = null;
-    view7f0901d5.setOnClickListener(null);
-    view7f0901d5 = null;
-    view7f0901d0.setOnClickListener(null);
-    view7f0901d0 = null;
-    view7f0901d3.setOnClickListener(null);
-    view7f0901d3 = null;
-    view7f0901d2.setOnClickListener(null);
-    view7f0901d2 = null;
-    view7f0901ea.setOnClickListener(null);
-    view7f0901ea = null;
+    view7f0901d8.setOnClickListener(null);
+    view7f0901d8 = null;
+    view7f0901db.setOnClickListener(null);
+    view7f0901db = null;
+    view7f0901da.setOnClickListener(null);
+    view7f0901da = null;
+    view7f0901f2.setOnClickListener(null);
+    view7f0901f2 = null;
   }
 }

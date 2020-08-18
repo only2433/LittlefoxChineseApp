@@ -806,4 +806,17 @@
         <item>재생목록</item>
         <item>PlayList</item>
     </string-array>
+    <string-array name="title_playing_speed">
+        <item>재생속도</item>
+        <item>Playing Speed</item>
+    </string-array>
+
+    <string-array name="text_list_speed">
+        <item>0.7x</item>
+        <item>0.85x</item>
+        <item>1x (Normal)</item>
+        <item>1.15x</item>
+        <item>1.3x</item>
+    </string-array>
+
 </resources>

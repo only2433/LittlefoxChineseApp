@@ -18,9 +18,9 @@ import java.lang.Override;
 public class AutobiographyActivity_ViewBinding implements Unbinder {
   private AutobiographyActivity target;
 
-  private View view7f090056;
+  private View view7f09005e;
 
-  private View view7f090055;
+  private View view7f09005d;
 
   @UiThread
   public AutobiographyActivity_ViewBinding(AutobiographyActivity target) {
@@ -37,7 +37,7 @@ public class AutobiographyActivity_ViewBinding implements Unbinder {
     target._WebView = Utils.findRequiredViewAsType(source, R.id.autobiography_webview, "field '_WebView'", WebView.class);
     view = Utils.findRequiredView(source, R.id.autobiography_prev, "field '_PrevButton' and method 'selectClick'");
     target._PrevButton = Utils.castView(view, R.id.autobiography_prev, "field '_PrevButton'", ImageView.class);
-    view7f090056 = view;
+    view7f09005e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -46,7 +46,7 @@ public class AutobiographyActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.autobiography_close, "field '_CloseButton' and method 'selectClick'");
     target._CloseButton = Utils.castView(view, R.id.autobiography_close, "field '_CloseButton'", ImageView.class);
-    view7f090055 = view;
+    view7f09005d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,9 +70,9 @@ public class AutobiographyActivity_ViewBinding implements Unbinder {
     target._CloseButton = null;
     target._ProgressWheelView = null;
 
-    view7f090056.setOnClickListener(null);
-    view7f090056 = null;
-    view7f090055.setOnClickListener(null);
-    view7f090055 = null;
+    view7f09005e.setOnClickListener(null);
+    view7f09005e = null;
+    view7f09005d.setOnClickListener(null);
+    view7f09005d = null;
   }
 }

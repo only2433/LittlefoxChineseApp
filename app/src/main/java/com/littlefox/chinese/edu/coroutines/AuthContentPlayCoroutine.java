@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.littlefox.chinese.edu.MainApplication;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.NetworkUtil;
@@ -43,6 +44,9 @@ public class AuthContentPlayCoroutine extends BaseCoroutine
             list.put("user_type",  mUserType);
             list.put("contents_type", String.valueOf(mContentType));
             list.put("contents_id", mContentID);
+            list.put("display_resolution", MainApplication.sDisPlayMetrics.widthPixels +"*" +MainApplication.sDisPlayMetrics.heightPixels);
+            list.put("network_type", NetworkUtil.getConnectivityStatus(mContext) == NetworkUtil.TYPE_WIFI ? "W" : "X");
+
             try
             {
                 String response = NetworkUtil.requestServerPair(mContext, Common.URI_AUTH_CONTENT_PLAY, list, NetworkUtil.POST_METHOD, Common.API_VERSION_1_0_3);

@@ -9,9 +9,10 @@
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/_playerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center_horizontal"
         app:use_controller="false"
+        app:resize_mode="fill"
         android:visibility="visible"></com.google.android.exoplayer2.ui.PlayerView>
 
     <ImageView
@@ -287,6 +288,14 @@
     <include
         android:id="@+id/_playerListBaseLayout"
         layout="@layout/include_player_list_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/_playerSpeedListBaseLayout"
+        layout="@layout/include_player_speed_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"

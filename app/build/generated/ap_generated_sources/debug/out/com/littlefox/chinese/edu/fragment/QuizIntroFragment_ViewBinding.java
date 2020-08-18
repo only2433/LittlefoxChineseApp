@@ -17,7 +17,7 @@ import java.lang.Override;
 public class QuizIntroFragment_ViewBinding implements Unbinder {
   private QuizIntroFragment target;
 
-  private View view7f090200;
+  private View view7f090208;
 
   @UiThread
   public QuizIntroFragment_ViewBinding(final QuizIntroFragment target, View source) {
@@ -28,7 +28,7 @@ public class QuizIntroFragment_ViewBinding implements Unbinder {
     target._LoadingLayout = Utils.findRequiredViewAsType(source, R.id.quiz_intro_loading_layout, "field '_LoadingLayout'", ProgressWheel.class);
     view = Utils.findRequiredView(source, R.id.quiz_intro_play_button, "field '_QuizPlayButton' and method 'onSelectClick'");
     target._QuizPlayButton = Utils.castView(view, R.id.quiz_intro_play_button, "field '_QuizPlayButton'", ImageView.class);
-    view7f090200 = view;
+    view7f090208 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -48,7 +48,7 @@ public class QuizIntroFragment_ViewBinding implements Unbinder {
     target._LoadingLayout = null;
     target._QuizPlayButton = null;
 
-    view7f090200.setOnClickListener(null);
-    view7f090200 = null;
+    view7f090208.setOnClickListener(null);
+    view7f090208 = null;
   }
 }

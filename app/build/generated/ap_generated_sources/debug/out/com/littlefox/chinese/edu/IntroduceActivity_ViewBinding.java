@@ -17,9 +17,9 @@ import java.lang.Override;
 public class IntroduceActivity_ViewBinding implements Unbinder {
   private IntroduceActivity target;
 
-  private View view7f09012c;
+  private View view7f090134;
 
-  private View view7f09012f;
+  private View view7f090137;
 
   @UiThread
   public IntroduceActivity_ViewBinding(IntroduceActivity target) {
@@ -35,7 +35,7 @@ public class IntroduceActivity_ViewBinding implements Unbinder {
     target._ViewPager = Utils.findRequiredViewAsType(source, R.id.introduce_viewpager, "field '_ViewPager'", ViewPager.class);
     view = Utils.findRequiredView(source, R.id.introduce_login_button, "field '_LoginButton' and method 'onSelectClick'");
     target._LoginButton = Utils.castView(view, R.id.introduce_login_button, "field '_LoginButton'", ImageView.class);
-    view7f09012c = view;
+    view7f090134 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -45,7 +45,7 @@ public class IntroduceActivity_ViewBinding implements Unbinder {
     target._LoginText = Utils.findRequiredViewAsType(source, R.id.introduce_login_button_text, "field '_LoginText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.introduce_sign_button, "field '_SignButton' and method 'onSelectClick'");
     target._SignButton = Utils.castView(view, R.id.introduce_sign_button, "field '_SignButton'", ImageView.class);
-    view7f09012f = view;
+    view7f090137 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,9 +74,9 @@ public class IntroduceActivity_ViewBinding implements Unbinder {
     target._SignText = null;
     target._IndicatorList = null;
 
-    view7f09012c.setOnClickListener(null);
-    view7f09012c = null;
-    view7f09012f.setOnClickListener(null);
-    view7f09012f = null;
+    view7f090134.setOnClickListener(null);
+    view7f090134 = null;
+    view7f090137.setOnClickListener(null);
+    view7f090137 = null;
   }
 }

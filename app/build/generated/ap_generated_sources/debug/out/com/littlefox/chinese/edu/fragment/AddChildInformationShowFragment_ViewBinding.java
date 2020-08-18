@@ -19,7 +19,7 @@ import java.lang.Override;
 public class AddChildInformationShowFragment_ViewBinding implements Unbinder {
   private AddChildInformationShowFragment target;
 
-  private View view7f090033;
+  private View view7f09003b;
 
   @UiThread
   public AddChildInformationShowFragment_ViewBinding(final AddChildInformationShowFragment target,
@@ -34,7 +34,7 @@ public class AddChildInformationShowFragment_ViewBinding implements Unbinder {
     target._AddChildAddBaseLayout = Utils.findRequiredViewAsType(source, R.id.addchild_add_button_base_layout, "field '_AddChildAddBaseLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.addchild_add_button, "field '_AddChildAddButton' and method 'OnSelectClick'");
     target._AddChildAddButton = Utils.castView(view, R.id.addchild_add_button, "field '_AddChildAddButton'", ImageView.class);
-    view7f090033 = view;
+    view7f09003b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -59,7 +59,7 @@ public class AddChildInformationShowFragment_ViewBinding implements Unbinder {
     target._AddChildAddButton = null;
     target._AddTitleText = null;
 
-    view7f090033.setOnClickListener(null);
-    view7f090033 = null;
+    view7f09003b.setOnClickListener(null);
+    view7f09003b = null;
   }
 }

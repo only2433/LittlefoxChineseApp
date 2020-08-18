@@ -19,15 +19,15 @@ import java.lang.Override;
 public class UserInformationConvertFragment_ViewBinding implements Unbinder {
   private UserInformationConvertFragment target;
 
-  private View view7f09017c;
+  private View view7f090184;
 
-  private View view7f090181;
+  private View view7f090189;
 
-  private View view7f090182;
+  private View view7f09018a;
 
-  private View view7f090187;
+  private View view7f09018f;
 
-  private View view7f090188;
+  private View view7f090190;
 
   @UiThread
   public UserInformationConvertFragment_ViewBinding(final UserInformationConvertFragment target,
@@ -44,7 +44,7 @@ public class UserInformationConvertFragment_ViewBinding implements Unbinder {
     target._InformationNameEdit = Utils.findRequiredViewAsType(source, R.id.myinfo_modification_name_edit, "field '_InformationNameEdit'", PaddingDrawableEditText.class);
     view = Utils.findRequiredView(source, R.id.myinfo_modification_calendar_text, "field '_InformationCalenderEdit' and method 'OnSelectClick'");
     target._InformationCalenderEdit = Utils.castView(view, R.id.myinfo_modification_calendar_text, "field '_InformationCalenderEdit'", PaddingDrawableEditText.class);
-    view7f09017c = view;
+    view7f090184 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,7 +54,7 @@ public class UserInformationConvertFragment_ViewBinding implements Unbinder {
     target._InformationPhoneEdit = Utils.findRequiredViewAsType(source, R.id.myinfo_modification_phone_text, "field '_InformationPhoneEdit'", PaddingDrawableEditText.class);
     view = Utils.findRequiredView(source, R.id.myinfo_modification_info_cancel_button, "field '_InformationCancelButton' and method 'OnSelectClick'");
     target._InformationCancelButton = Utils.castView(view, R.id.myinfo_modification_info_cancel_button, "field '_InformationCancelButton'", TextView.class);
-    view7f090181 = view;
+    view7f090189 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -63,7 +63,7 @@ public class UserInformationConvertFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.myinfo_modification_info_confirm_button, "field '_InformationConfirmButton' and method 'OnSelectClick'");
     target._InformationConfirmButton = Utils.castView(view, R.id.myinfo_modification_info_confirm_button, "field '_InformationConfirmButton'", TextView.class);
-    view7f090182 = view;
+    view7f09018a = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class UserInformationConvertFragment_ViewBinding implements Unbinder {
     target._PasswordConvertConfirmEdit = Utils.findRequiredViewAsType(source, R.id.myinfo_modification_confirm_password_edit, "field '_PasswordConvertConfirmEdit'", PaddingDrawableEditText.class);
     view = Utils.findRequiredView(source, R.id.myinfo_modification_password_cancel_button, "field '_PasswordCancelButton' and method 'OnSelectClick'");
     target._PasswordCancelButton = Utils.castView(view, R.id.myinfo_modification_password_cancel_button, "field '_PasswordCancelButton'", TextView.class);
-    view7f090187 = view;
+    view7f09018f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -86,7 +86,7 @@ public class UserInformationConvertFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.myinfo_modification_password_confirm_button, "field '_PasswordConfirmButton' and method 'OnSelectClick'");
     target._PasswordConfirmButton = Utils.castView(view, R.id.myinfo_modification_password_confirm_button, "field '_PasswordConfirmButton'", TextView.class);
-    view7f090188 = view;
+    view7f090190 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -121,15 +121,15 @@ public class UserInformationConvertFragment_ViewBinding implements Unbinder {
     target._PasswordCancelButton = null;
     target._PasswordConfirmButton = null;
 
-    view7f09017c.setOnClickListener(null);
-    view7f09017c = null;
-    view7f090181.setOnClickListener(null);
-    view7f090181 = null;
-    view7f090182.setOnClickListener(null);
-    view7f090182 = null;
-    view7f090187.setOnClickListener(null);
-    view7f090187 = null;
-    view7f090188.setOnClickListener(null);
-    view7f090188 = null;
+    view7f090184.setOnClickListener(null);
+    view7f090184 = null;
+    view7f090189.setOnClickListener(null);
+    view7f090189 = null;
+    view7f09018a.setOnClickListener(null);
+    view7f09018a = null;
+    view7f09018f.setOnClickListener(null);
+    view7f09018f = null;
+    view7f090190.setOnClickListener(null);
+    view7f090190 = null;
   }
 }

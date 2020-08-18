@@ -18,7 +18,7 @@ import java.lang.Override;
 public class StepStudyGuideActivity_ViewBinding implements Unbinder {
   private StepStudyGuideActivity target;
 
-  private View view7f090266;
+  private View view7f09026e;
 
   @UiThread
   public StepStudyGuideActivity_ViewBinding(StepStudyGuideActivity target) {
@@ -33,7 +33,7 @@ public class StepStudyGuideActivity_ViewBinding implements Unbinder {
     target._TitleText = Utils.findRequiredViewAsType(source, R.id.step_guide_title, "field '_TitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.step_guide_close, "field '_CloseButton' and method 'selectClick'");
     target._CloseButton = Utils.castView(view, R.id.step_guide_close, "field '_CloseButton'", ImageView.class);
-    view7f090266 = view;
+    view7f09026e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -58,7 +58,7 @@ public class StepStudyGuideActivity_ViewBinding implements Unbinder {
     target._BaseLayout = null;
     target._ProgressWheelView = null;
 
-    view7f090266.setOnClickListener(null);
-    view7f090266 = null;
+    view7f09026e.setOnClickListener(null);
+    view7f09026e = null;
   }
 }
