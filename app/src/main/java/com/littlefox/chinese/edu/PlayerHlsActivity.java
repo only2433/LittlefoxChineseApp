@@ -488,7 +488,22 @@ public class PlayerHlsActivity extends BaseActivity
         super.onResume();
         Log.f("");
         MainSystemFactory.getInstance().setCurrentMode(MainSystemFactory.MODE_PLAYER);
-        resumePlayer();
+
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+        {
+            if(mCurrentPlayerStatus == PlayerStatus.PAUSE)
+            {
+                Log.f("Build.VERSION.SDK_INT ERROR");
+                isVideoPrepared = false;
+                mCurrentCaptionIndex = 0;
+                _CaptionTitleText.setText("");
+                startMovie();
+            }
+        }
+        else
+        {
+            resumePlayer();
+        }
     }
 
     @Override
@@ -785,6 +800,9 @@ public class PlayerHlsActivity extends BaseActivity
             public void onSeekProcessed()
             {
                 Log.f("Max Duration : "+mPlayer.getDuration());
+                Log.f("isLoading : "+mPlayer.isLoading()
+                        +" , getPlayWhenReady : "+mPlayer.getPlayWhenReady()
+                        +", getPlaybackState : "+mPlayer.getPlaybackState());
             }
         });
     }
@@ -792,9 +810,9 @@ public class PlayerHlsActivity extends BaseActivity
 
     private void setVideoPrepared()
     {
+        Log.f("mCurrentPlayerStatus : "+mCurrentPlayerStatus);
         isBackgroundVisibleError = true;
         enableMovieLoadingCheckTimer(false);
-        Log.f("mCurrentPlayerStatus : "+mCurrentPlayerStatus);
         isVideoLoadingComplete = true;
 
         if (mCurrentPlayerStatus == PlayerStatus.COMPELTE)
