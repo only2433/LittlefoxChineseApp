@@ -590,6 +590,21 @@ public class PlayerHlsActivity extends BaseActivity
             showMenuWithoutAnimation(false);
             settingLayout(LAYOUT_TYPE_DEFAULT);
         }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        {
+            _PlayerSpeedText.setVisibility(View.VISIBLE);
+            _PlayerSpeedButton.setVisibility(View.VISIBLE);
+            _BottomViewLayout.moveChildView(_ThumbSeekbar, 128, 0, 1298,46);
+            _BottomViewLayout.moveChildView(_RemainPlayTimeText, 1424, 0, 94,150);
+        }
+        else
+        {
+            _PlayerSpeedText.setVisibility(View.GONE);
+            _PlayerSpeedButton.setVisibility(View.GONE);
+            _BottomViewLayout.moveChildView(_ThumbSeekbar, 148, 0, 1478,46);
+            _BottomViewLayout.moveChildView(_RemainPlayTimeText, 1644, 0, 94,150);
+        }
     }
 
     private void initFont()
@@ -1063,9 +1078,12 @@ public class PlayerHlsActivity extends BaseActivity
             _ThumbSeekbar.setVisibility(View.INVISIBLE);
             _RemainPlayTimeText.setVisibility(View.INVISIBLE);
             _PlayerListButton.setVisibility(View.INVISIBLE);
-            _PlayerSpeedButton.setVisibility(View.INVISIBLE);
-            _PlayerSpeedText.setVisibility(View.INVISIBLE);
 
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            {
+                _PlayerSpeedButton.setVisibility(View.INVISIBLE);
+                _PlayerSpeedText.setVisibility(View.INVISIBLE);
+            }
         }
         else
         {
@@ -1077,9 +1095,12 @@ public class PlayerHlsActivity extends BaseActivity
             _ThumbSeekbar.setVisibility(View.VISIBLE);
             _RemainPlayTimeText.setVisibility(View.VISIBLE);
             _PlayerListButton.setVisibility(View.VISIBLE);
-            _PlayerSpeedButton.setVisibility(View.VISIBLE);
-            _PlayerSpeedText.setVisibility(View.VISIBLE);
 
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            {
+                _PlayerSpeedButton.setVisibility(View.VISIBLE);
+                _PlayerSpeedText.setVisibility(View.VISIBLE);
+            }
         }
     }
 
@@ -1214,6 +1235,11 @@ public class PlayerHlsActivity extends BaseActivity
 
     private void settingVideoSpeed()
     {
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+        {
+            Log.f("Not Use Setting Speed OS : "+ Build.VERSION.SDK_INT);
+            return;
+        }
         Log.f("mContentPlayObject.getPlayItemType() : "+mContentPlayObject.getPlayItemType());
         mCurrentPlaySpeedIndex = (int) CommonUtils.getInstance(this).getSharedPreference(Common.PARAMS_PLAYER_SPEED_INDEX, Common.TYPE_PARAMS_INTEGER);
         if(mCurrentPlaySpeedIndex == -1)

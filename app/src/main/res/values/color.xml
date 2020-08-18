@@ -103,5 +103,7 @@
      <!-- SnackBar Color -->
      <color name="color_ffeda0">#ffeda0</color>
 
+    <color name="color_alpha_07_black">#99000000</color>
+
 
 </resources>
