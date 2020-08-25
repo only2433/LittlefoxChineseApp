@@ -24,7 +24,7 @@ public interface DialogListener
 	/**
 	 * Flexible Dialog에서 사용하는 메소드 
 	 * @param messageButtonType 선택한 버튼 
-	 * @param subMessageType 보낼 Dialog Status Type
+	 * @param messageType 보낼 Dialog Status Type
 	 * @param sendObject 보낼 객체
 	 */
     void onItemClick(int messageButtonType, int messageType, Object sendObject);

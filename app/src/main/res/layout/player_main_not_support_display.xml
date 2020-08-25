@@ -13,6 +13,7 @@
         android:layout_centerVertical="true"
         app:scale_base_width="1920"
         app:scale_base_height="1080">
+
             <com.littlefox.library.view.media.ProgressiveMediaPlayer
         android:id="@+id/progressive_player"
         android:layout_width="match_parent"

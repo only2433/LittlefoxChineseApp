@@ -54,7 +54,6 @@ import com.littlefox.chinese.edu.database.PlayedContentDBHelper;
 import com.littlefox.chinese.edu.dialog.TempleteAlertDialog;
 import com.littlefox.chinese.edu.dialog.listener.DialogListener;
 import com.littlefox.chinese.edu.enumItem.PlayerStatus;
-import com.littlefox.chinese.edu.enumItem.PlayerUserType;
 import com.littlefox.chinese.edu.factory.MainSystemFactory;
 import com.littlefox.chinese.edu.object.ContentPlayObject;
 import com.littlefox.chinese.edu.object.PlayerStudyRecordObject;
@@ -69,9 +68,6 @@ import com.littlefox.logmonitor.Log;
 import com.ssomai.android.scalablelayout.ScalableLayout;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -288,16 +284,6 @@ public class PlayerHlsActivity extends BaseActivity
                 case MESSAGE_PROGRESS_UI:
                     updateUI();
                     break;
-                case MESSAGE_LONGTIME_WATCH_WARNING:
-                    enableTimer(false);
-                    mPlayer.setPlayWhenReady(false);
-                    setPlayIconStatus(PLAYER_PAUSE);
-
-                    showTempleteAlertDialog(DIALOG_LONG_WATCH_TIME_WARNING,
-                            TempleteAlertDialog.DEFAULT_BUTTON_TYPE_2,
-                            CommonUtils.getInstance(PlayerHlsActivity.this).getLanguageTypeString(R.array.message_longtime_play_warning));
-
-                    break;
                 case MESSAGE_PREV_PLAY:
                     prepareVideo(VIDEO_PREV_PLAY);
                     mPlayerListAdapter.setCurrentPlayPosition(mCurrentPlayPosition);
@@ -313,7 +299,6 @@ public class PlayerHlsActivity extends BaseActivity
                     settingLayout(msg.arg1);
                     break;
                 case MESSAGE_VIDEO_VISIBLE:
-                    isBackgroundVisibleError = false;
                     _BackgroundDiscoverImage.setVisibility(View.GONE);
                     break;
                 case MESSAGE_LOCK_MODE_READY:
@@ -345,9 +330,6 @@ public class PlayerHlsActivity extends BaseActivity
                     finish();
                     MainSystemFactory.getInstance().resetScene(MainSystemFactory.MODE_INTRODUCE, false);
                     break;
-                case MESSAGE_AUTH_CONTENT_PLAY:
-                    requestCurrentPlayVideoUrlInformation();
-                    break;
                 case MESSAGE_FAIL_MOVIE_LOADING:
                     finish();
                     Toast.makeText(PlayerHlsActivity.this, CommonUtils.getInstance(PlayerHlsActivity.this).getLanguageTypeString(R.array.message_movie_loading_fail), Toast.LENGTH_LONG).show();
@@ -356,6 +338,14 @@ public class PlayerHlsActivity extends BaseActivity
                     settingCaptionButton(true);
                     setCaptionIconStatus();
                     initCaptionLayoutView();
+                    break;
+                case MESSAGE_LONGTIME_WATCH_WARNING:
+                    enableTimer(false);
+                    mPlayer.setPlayWhenReady(false);
+                    setPlayIconStatus(PLAYER_PAUSE);
+                    showTempleteAlertDialog(DIALOG_LONG_WATCH_TIME_WARNING,
+                            TempleteAlertDialog.DEFAULT_BUTTON_TYPE_2,
+                            CommonUtils.getInstance(PlayerHlsActivity.this).getLanguageTypeString(R.array.message_longtime_play_warning));
                     break;
             }
         }
@@ -379,19 +369,18 @@ public class PlayerHlsActivity extends BaseActivity
     private static final int MESSAGE_PREV_PLAY					= 1;
     private static final int MESSAGE_NEXT_PLAY					= 2;
     private static final int MESSAGE_SELECT_PLAY                = 3;
-    private static final int MESSAGE_LAYOUT_SETTING 			= 6;
-    private static final int MESSAGE_VIDEO_VISIBLE				= 7;
-    private static final int MESSAGE_LOCK_MODE_READY			= 8;
-    private static final int MESSAGE_LOCK_MODE_SET				= 9;
-    private static final int MESSAGE_UPDATE_PAID_UI 			= 10;
-    private static final int MESSAGE_UPDATE_FREE_UI				= 11;
-    private static final int MESSAGE_QUIZ_START					= 12;
-    private static final int MESSAGE_FINISH						= 13;
-    private static final int MESSAGE_NOT_MATCH_ACCESS_TOKEN		= 14;
-    private static final int MESSAGE_AUTH_CONTENT_PLAY			= 15;
-    private static final int MESSAGE_FAIL_MOVIE_LOADING			= 16;
-    private static final int MESSAGE_LONGTIME_WATCH_WARNING		= 17;
-    private static final int MESSAGE_CAPTION_LAYOUT_SETTING		= 18;
+    private static final int MESSAGE_LAYOUT_SETTING 			= 4;
+    private static final int MESSAGE_VIDEO_VISIBLE				= 5;
+    private static final int MESSAGE_LOCK_MODE_READY			= 6;
+    private static final int MESSAGE_LOCK_MODE_SET				= 7;
+    private static final int MESSAGE_UPDATE_PAID_UI 			= 8;
+    private static final int MESSAGE_UPDATE_FREE_UI				= 9;
+    private static final int MESSAGE_QUIZ_START					= 10;
+    private static final int MESSAGE_FINISH						= 11;
+    private static final int MESSAGE_NOT_MATCH_ACCESS_TOKEN		= 12;
+    private static final int MESSAGE_FAIL_MOVIE_LOADING			= 13;
+    private static final int MESSAGE_LONGTIME_WATCH_WARNING		= 14;
+    private static final int MESSAGE_CAPTION_LAYOUT_SETTING		= 15;
 
     private static final int LAYOUT_TYPE_DEFAULT 				= 0;
     private static final int LAYOUT_TYPE_PREVIEW_PLAY 			= 1;
@@ -413,7 +402,7 @@ public class PlayerHlsActivity extends BaseActivity
     private static final int DEFAULT_SPEED_INDEX = 2;
 
     private PlayerStatus mCurrentPlayerStatus = PlayerStatus.STOP;
-    private PlayerUserType mCurrentPlayerUserType = PlayerUserType.PREVIEW;
+
     private ContentPlayObject mContentPlayObject;
     private FadeAnimationController mFadeAnimationController;
     private boolean isVideoLoadingComplete = false;
@@ -430,10 +419,9 @@ public class PlayerHlsActivity extends BaseActivity
     private PlayedContentDBHelper mPlayedContentDBHelper;
     private String mCurrentPlayContentId = "";
 
-    static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
     private ArrayList<CaptionDetailInformation> mCaptionInformationList = new ArrayList<CaptionDetailInformation>();
     private int mCurrentCaptionIndex = 0;
-    private boolean isBackgroundVisibleError = false;
+
     /**
      * 30초 이상이 되었는데도 재생을 못할시 종료시키긴 위한 타임. 1초마다 갱신
      */
@@ -493,7 +481,7 @@ public class PlayerHlsActivity extends BaseActivity
         {
             if(mCurrentPlayerStatus == PlayerStatus.PAUSE)
             {
-                Log.f("Build.VERSION.SDK_INT ERROR");
+                Log.f("Build.VERSION.SDK_INT ERROR : "+Build.VERSION.SDK_INT);
                 isVideoPrepared = false;
                 mCurrentCaptionIndex = 0;
                 _CaptionTitleText.setText("");
@@ -721,7 +709,6 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
-
     private void adjustVideoSpeed(int speendIndex)
     {
         PlaybackParameters params = null;
@@ -811,7 +798,6 @@ public class PlayerHlsActivity extends BaseActivity
     private void setVideoPrepared()
     {
         Log.f("mCurrentPlayerStatus : "+mCurrentPlayerStatus);
-        isBackgroundVisibleError = true;
         enableMovieLoadingCheckTimer(false);
         isVideoLoadingComplete = true;
 
