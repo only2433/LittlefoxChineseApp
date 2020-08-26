@@ -60,6 +60,7 @@ import com.littlefox.chinese.edu.object.PlayerStudyRecordObject;
 import com.littlefox.chinese.edu.object.result.AuthContentResult;
 import com.littlefox.chinese.edu.object.result.CaptionDetailInformation;
 import com.littlefox.chinese.edu.object.result.base.BaseResult;
+import com.littlefox.chinese.edu.object.result.base.PlayObject;
 import com.littlefox.library.system.async.listener.AsyncListener;
 import com.littlefox.library.view.controller.FadeAnimationController;
 import com.littlefox.library.view.controller.FadeAnimationInformation;
@@ -113,8 +114,8 @@ public class PlayerHlsActivity extends BaseActivity
     @BindView(R.id.player_remain_play_time)
     TextView _RemainPlayTimeText;
 
-    @BindView(R.id.player_lock_button)
-    ImageView _LockButton;
+   // @BindView(R.id.player_lock_button)
+   // ImageView _LockButton;
 
     @BindView(R.id.player_play_button_layout)
     ScalableLayout _PlayButtonLayout;
@@ -248,14 +249,7 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
-    class StudyTimerTask extends TimerTask
-    {
-        @Override
-        public void run()
-        {
-            mStudyTime++;
-        }
-    }
+
 
     class UiTimerTask extends TimerTask
     {
@@ -270,6 +264,8 @@ public class PlayerHlsActivity extends BaseActivity
             {
                 mMainHandler.sendEmptyMessage(MESSAGE_UPDATE_PAID_UI);
             }
+
+            mCurrentStudyLogMilliSeconds = mCurrentStudyLogMilliSeconds + ((int)(MILLISECOND * PLAY_SPEED_LIST[mCurrentPlaySpeedIndex]));
         }
     }
 
@@ -301,7 +297,7 @@ public class PlayerHlsActivity extends BaseActivity
                 case MESSAGE_VIDEO_VISIBLE:
                     _BackgroundDiscoverImage.setVisibility(View.GONE);
                     break;
-                case MESSAGE_LOCK_MODE_READY:
+               /* case MESSAGE_LOCK_MODE_READY:
                     mVibrator.vibrate(DURATION_PLAY);
                     setAnimationMenu(false);
                     isLockDisplay = (Boolean) msg.obj;
@@ -313,7 +309,7 @@ public class PlayerHlsActivity extends BaseActivity
                 case MESSAGE_LOCK_MODE_SET:
                     setLockModeUI();
                     setAnimationMenu(true);
-                    break;
+                    break;*/
                 case MESSAGE_UPDATE_PAID_UI:
                     updateUI();
                     break;
@@ -351,6 +347,7 @@ public class PlayerHlsActivity extends BaseActivity
         }
     };
 
+    private static final int MILLISECOND                    = 100;
     private static final int SECOND 						= 1000;
     private static final int DURATION_LOCK_MODE 			= 2000;
     private static final int DURATION_PLAY 					= 500;
@@ -406,7 +403,6 @@ public class PlayerHlsActivity extends BaseActivity
     private ContentPlayObject mContentPlayObject;
     private FadeAnimationController mFadeAnimationController;
     private boolean isVideoLoadingComplete = false;
-    private Timer mStudyRecordTimer = null;
     private Timer mUiCurrentTimer = null;
     private Timer mMovieLoadingCheckTimer = null;
     private Timer mWarningWatchTimer = null;
@@ -427,10 +423,7 @@ public class PlayerHlsActivity extends BaseActivity
      */
     private int mMovieLoadingTime = 0;
 
-    /**
-     * 학습시간, 1초마다 갱신되며, 종료되거나 새 영상을 볼때 갱신된다.
-     */
-    private int mStudyTime = 0;
+    private float mCurrentStudyLogMilliSeconds = 0;
 
     /**
      * 락버튼이 ON 이 되었는 지 , OFF 인지
@@ -527,7 +520,7 @@ public class PlayerHlsActivity extends BaseActivity
     {
         mPlayedContentDBHelper = PlayedContentDBHelper.getInstance(this);
         mVibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        _LockButton.setOnTouchListener(mLockControlListener);
+       // _LockButton.setOnTouchListener(mLockControlListener);
         _ThumbSeekbar.setOnSeekBarChangeListener(mSeekBarChangeListener);
 
         LayerDrawable layerDrawable = (LayerDrawable)getResources().getDrawable(R.drawable.seekbar_thumb);
@@ -598,15 +591,15 @@ public class PlayerHlsActivity extends BaseActivity
         {
             _PlayerSpeedText.setVisibility(View.VISIBLE);
             _PlayerSpeedButton.setVisibility(View.VISIBLE);
-            _BottomViewLayout.moveChildView(_ThumbSeekbar, 128, 0, 1298,46);
-            _BottomViewLayout.moveChildView(_RemainPlayTimeText, 1424, 0, 94,150);
+            _BottomViewLayout.moveChildView(_ThumbSeekbar, 128, 0, 1398,46);
+            _BottomViewLayout.moveChildView(_RemainPlayTimeText, 1524, 0, 94,150);
         }
         else
         {
             _PlayerSpeedText.setVisibility(View.GONE);
             _PlayerSpeedButton.setVisibility(View.GONE);
-            _BottomViewLayout.moveChildView(_ThumbSeekbar, 148, 0, 1478,46);
-            _BottomViewLayout.moveChildView(_RemainPlayTimeText, 1644, 0, 94,150);
+            _BottomViewLayout.moveChildView(_ThumbSeekbar, 148, 0, 1578,46);
+            _BottomViewLayout.moveChildView(_RemainPlayTimeText, 1744, 0, 94,150);
         }
     }
 
@@ -643,7 +636,18 @@ public class PlayerHlsActivity extends BaseActivity
 
     private void initPlayListView()
     {
-        mPlayerListAdapter = new PlayerListAdapter(this, mCurrentPlayPosition, mContentPlayObject.getPlayObjectList());
+        ArrayList<PlayObject> list = new ArrayList<PlayObject>();
+
+        if(mContentPlayObject.getSelectedPosition() == -1)
+        {
+            list = mContentPlayObject.getPlayObjectList();
+        }
+        else
+        {
+            list.add(mContentPlayObject.getPlayObjectList().get(mContentPlayObject.getSelectedPosition()));
+        }
+
+        mPlayerListAdapter = new PlayerListAdapter(this, mCurrentPlayPosition, list);
         mPlayerListAdapter.setOnPlayEventListener(mPlayerEventListener);
         _PlayerListView.setLayoutManager(new LinearLayoutScrollerManager(this));
         _PlayerListView.setAdapter(mPlayerListAdapter);
@@ -685,7 +689,7 @@ public class PlayerHlsActivity extends BaseActivity
             return;
         }
         isLockDisplay = false;
-        setLockModeUI();
+        //setLockModeUI();
         if(mPlayer != null && isPlaying())
         {
             mCurrentPlayDuration = (int) mPlayer.getCurrentPosition();
@@ -1071,7 +1075,7 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
-    private void setLockModeUI()
+    /*private void setLockModeUI()
     {
         if(isLockDisplay)
         {
@@ -1106,7 +1110,7 @@ public class PlayerHlsActivity extends BaseActivity
                 _PlayerSpeedText.setVisibility(View.VISIBLE);
             }
         }
-    }
+    }*/
 
     /**
      * 메뉴가 현재 보이는 상태인지 체크
@@ -1332,11 +1336,11 @@ public class PlayerHlsActivity extends BaseActivity
 
     private void requestPlaySaveRecord()
     {
-        PlayerStudyRecordObject object = new PlayerStudyRecordObject(mContentPlayObject.getPlayItemType(), mContentPlayObject.getSelectedPosition(), mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id, mStudyTime);
+        int studyLogSeconds = Math.round(mCurrentStudyLogMilliSeconds/(float)SECOND);
+        PlayerStudyRecordObject object = new PlayerStudyRecordObject(mContentPlayObject.getPlayItemType(), mContentPlayObject.getSelectedPosition(), mContentPlayObject.getPlayObjectList().get(mCurrentPlayPosition).fc_id, studyLogSeconds);
         PlayerSaveRecordCoroutine coroutine = new PlayerSaveRecordCoroutine(this, mAsyncListener);
         coroutine.setData(object);
         coroutine.execute();
-        mStudyTime = 0;
     }
 
     private void releaseAuthContentPlay()
@@ -1353,7 +1357,7 @@ public class PlayerHlsActivity extends BaseActivity
     {
         enableTimer(false);
         isVideoPrepared = false;
-        mStudyTime = 0;
+        mCurrentStudyLogMilliSeconds = 0;
         if(isMenuVisible())
         {
             setAnimationMenu(false);
@@ -1449,11 +1453,6 @@ public class PlayerHlsActivity extends BaseActivity
                 mUiCurrentTimer.schedule(new UiTimerTask(), 0, 100);
             }
 
-            if(mStudyRecordTimer == null)
-            {
-                mStudyRecordTimer = new Timer();
-                mStudyRecordTimer.schedule(new StudyTimerTask(), 0, SECOND);
-            }
 
             if (mWarningWatchTimer == null) {
                 mWarningWatchTimer = new Timer();
@@ -1466,12 +1465,6 @@ public class PlayerHlsActivity extends BaseActivity
             {
                 mUiCurrentTimer.cancel();
                 mUiCurrentTimer = null;
-            }
-
-            if(mStudyRecordTimer != null)
-            {
-                mStudyRecordTimer.cancel();
-                mStudyRecordTimer = null;
             }
 
             if(mWarningWatchTimer != null)
@@ -1873,6 +1866,18 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
+    private int getSelectedPositionFromFcID(String fcid)
+    {
+        for(int i = 0; i < mContentPlayObject.getPlayObjectList().size() ; i++)
+        {
+            if(mContentPlayObject.getPlayObjectList().get(i).getContentId().equals(fcid))
+            {
+                return i;
+            }
+        }
+        return  0;
+    }
+
 
     @OnClick({R.id.play_end_replay_layout, R.id.play_end_quiz_layout, R.id.play_end_remain_play_layout,
             R.id.play_end_recommand_layout, R.id.preview_close_button, R.id.play_end_close_button,
@@ -2030,7 +2035,7 @@ public class PlayerHlsActivity extends BaseActivity
         }
     }
 
-    private OnTouchListener mLockControlListener = new OnTouchListener()
+    /**private OnTouchListener mLockControlListener = new OnTouchListener()
     {
         @Override
         public boolean onTouch(View v, MotionEvent event)
@@ -2051,7 +2056,7 @@ public class PlayerHlsActivity extends BaseActivity
             }
             return true;
         }
-    };
+    };*/
 
     private OnTouchListener mMenuVisibleListener = new OnTouchListener()
     {
@@ -2121,10 +2126,10 @@ public class PlayerHlsActivity extends BaseActivity
 
     private PlayerEventListener mPlayerEventListener = new PlayerEventListener() {
         @Override
-        public void onClickPlayItem(int index)
+        public void onClickPlayItem(String fcid)
         {
-            Log.f("index : "+index);
-            mCurrentPlayPosition = index;
+            Log.f("fcid : "+fcid);
+            mCurrentPlayPosition = getSelectedPositionFromFcID(fcid);
             requestPlaySaveRecord();
             enablePlayListAnimation(false);
             settingLayout(LAYOUT_TYPE_DEFAULT);

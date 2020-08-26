@@ -92,7 +92,6 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     target._CurrentPlayTimeText = Utils.findRequiredViewAsType(source, R.id.player_current_play_time, "field '_CurrentPlayTimeText'", TextView.class);
     target._ThumbSeekbar = Utils.findRequiredViewAsType(source, R.id.seekbar_play, "field '_ThumbSeekbar'", SeekBar.class);
     target._RemainPlayTimeText = Utils.findRequiredViewAsType(source, R.id.player_remain_play_time, "field '_RemainPlayTimeText'", TextView.class);
-    target._LockButton = Utils.findRequiredViewAsType(source, R.id.player_lock_button, "field '_LockButton'", ImageView.class);
     target._PlayButtonLayout = Utils.findRequiredViewAsType(source, R.id.player_play_button_layout, "field '_PlayButtonLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.player_prev_button, "field '_PrevButton' and method 'onPlayerButtonClick'");
     target._PrevButton = Utils.castView(view, R.id.player_prev_button, "field '_PrevButton'", ImageView.class);
@@ -267,7 +266,6 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     target._CurrentPlayTimeText = null;
     target._ThumbSeekbar = null;
     target._RemainPlayTimeText = null;
-    target._LockButton = null;
     target._PlayButtonLayout = null;
     target._PrevButton = null;
     target._PlayButton = null;

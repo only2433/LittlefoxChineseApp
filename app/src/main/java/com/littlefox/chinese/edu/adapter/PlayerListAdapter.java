@@ -80,7 +80,7 @@ public class PlayerListAdapter extends RecyclerView.Adapter<PlayerListAdapter.Vi
             {
                 mCurrentPosition = position;
                 Log.f("mCurrentPlayIndex : "+ mCurrentPosition);
-                mPlayerEventListener.onClickPlayItem(position);
+                mPlayerEventListener.onClickPlayItem(mDataList.get(position).getContentId());
                 notifyDataSetChanged();
             }
         });
