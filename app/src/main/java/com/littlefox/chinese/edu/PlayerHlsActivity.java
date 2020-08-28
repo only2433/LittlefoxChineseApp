@@ -591,8 +591,8 @@ public class PlayerHlsActivity extends BaseActivity
         {
             _PlayerSpeedText.setVisibility(View.VISIBLE);
             _PlayerSpeedButton.setVisibility(View.VISIBLE);
-            _BottomViewLayout.moveChildView(_ThumbSeekbar, 128, 0, 1398,46);
-            _BottomViewLayout.moveChildView(_RemainPlayTimeText, 1524, 0, 94,150);
+            _BottomViewLayout.moveChildView(_ThumbSeekbar, 128, 0, 1448,46);
+            _BottomViewLayout.moveChildView(_RemainPlayTimeText, 1574, 0, 94,150);
         }
         else
         {
@@ -1255,8 +1255,7 @@ public class PlayerHlsActivity extends BaseActivity
             mCurrentPlaySpeedIndex = DEFAULT_SPEED_INDEX;
         }
 
-        if((mContentPlayObject.getPlayItemType() == Common.PLAY_TYPE_SONG)
-            || (mContentPlayObject.getPlayItemType() == Common.PLAY_TYPE_STUDY_DATA))
+        if(mContentPlayObject.getPlayItemType() == Common.PLAY_TYPE_SONG)
         {
             adjustVideoSpeed(DEFAULT_SPEED_INDEX);
             setVideoSpeedText(DEFAULT_SPEED_INDEX);

@@ -59,7 +59,7 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 
 	static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
 	private OnMainSubTabsEventListener mOnSubTabsEventListener;	
-	private SongCategoryResult mSongCategoryResult = null;
+	private static SongCategoryResult sSongCategoryResult = null;
 	
 	
 	public static MainSubSongCategoryFragment getInstance()
@@ -108,12 +108,12 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 		_TitleText.setText(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.main_title_song_category));
 		LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
-		for(int i = 0 ; i < mSongCategoryResult.getSongMainList().size(); i++)
+		for(int i = 0; i < sSongCategoryResult.getSongMainList().size(); i++)
 		{
 			final int position = i;
 
 			Glide.with(mContext)
-					.load(mSongCategoryResult.getSongMainList().get(i).image_url)
+					.load(sSongCategoryResult.getSongMainList().get(i).image_url)
 					.transition(withCrossFade())
 					.into(_SongImageList.get(i));
 
@@ -123,7 +123,7 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 				@Override
 				public void onClick(View v)
 				{
-					mOnSubTabsEventListener.onPlayContent(getSongMainPlayObject(mSongCategoryResult.getSongMainList().get(position)));
+					mOnSubTabsEventListener.onPlayContent(getSongMainPlayObject(sSongCategoryResult.getSongMainList().get(position)));
 				}
 			});
 			
@@ -133,7 +133,7 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 				@Override
 				public void onClick(View v)
 				{
-					mOnSubTabsEventListener.onStartStudyData(mSongCategoryResult.getSongMainList().get(position).fc_id);
+					mOnSubTabsEventListener.onStartStudyData(sSongCategoryResult.getSongMainList().get(position).fc_id);
 				}
 			});
 			
@@ -143,7 +143,7 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 			{
 				try
 				{
-					_MainSongTextList.get(i).setSeparateText(mSongCategoryResult.getSongMainList().get(i).getDescription(), "\n"+ mSongCategoryResult.getSongMainList().get(i).getTitle())
+					_MainSongTextList.get(i).setSeparateText(sSongCategoryResult.getSongMainList().get(i).getDescription(), "\n"+ sSongCategoryResult.getSongMainList().get(i).getTitle())
 					.setSeparateColor(mContext.getResources().getColor(R.color.color_635009), mContext.getResources().getColor(R.color.color_333333))
 					.setSeparateTextSize(CommonUtils.getInstance(mContext).getPixel(28), CommonUtils.getInstance(mContext).getPixel(32))
 					.showView();
@@ -155,12 +155,12 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 			}
 			else
 			{
-				_MainSongTextList.get(i).setText(mSongCategoryResult.getSongMainList().get(i).getDescription());
+				_MainSongTextList.get(i).setText(sSongCategoryResult.getSongMainList().get(i).getDescription());
 			}
 			
 		}
 		
-		for(int i = 0 ; i < mSongCategoryResult.getSongCategoryList().size(); i++)
+		for(int i = 0; i < sSongCategoryResult.getSongCategoryList().size(); i++)
 		{
 			final int position = i;
 			View categoryView;
@@ -177,14 +177,14 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 			titleView.setTypeface(Font.getInstance(mContext).getRobotoMedium());
 			if(Feature.IS_TABLET)
 			{
-				titleView.setSeparateText(mSongCategoryResult.getSongCategoryList().get(i).getTitle(), "      "+ mSongCategoryResult.getSongCategoryList().get(i).getDescription())
+				titleView.setSeparateText(sSongCategoryResult.getSongCategoryList().get(i).getTitle(), "      "+ sSongCategoryResult.getSongCategoryList().get(i).getDescription())
 						.setSeparateColor(mContext.getResources().getColor(R.color.color_ffffff), mContext.getResources().getColor(R.color.color_ffffff))
 						.setSeparateTextSize(CommonUtils.getInstance(mContext).getPixel(38), CommonUtils.getInstance(mContext).getPixel(28))
 						.showView();
 			}
 			else
 			{
-				titleView.setText(mSongCategoryResult.getSongCategoryList().get(i).getTitle());
+				titleView.setText(sSongCategoryResult.getSongCategoryList().get(i).getTitle());
 			}
 			
 			ImageView button = (ImageView)categoryView.findViewById(R.id.button_add_song_category);
@@ -194,7 +194,7 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 				@Override
 				public void onClick(View v)
 				{
-					mOnSubTabsEventListener.onCreateSongList(mSongCategoryResult.getSongCategoryList().get(position));
+					mOnSubTabsEventListener.onCreateSongList(sSongCategoryResult.getSongCategoryList().get(position));
 				}
 			});
 			_BaseLayout.addView(categoryView);
@@ -249,7 +249,7 @@ public class MainSubSongCategoryFragment extends Fragment implements MainHolder
 	
 	public void setSongCategoryResultList(SongCategoryResult result)
 	{
-		mSongCategoryResult = result;
+		sSongCategoryResult = result;
 	}
 	
 	@Override

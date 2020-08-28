@@ -107,7 +107,7 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 	}
 	
 	private Context mContext;
-	private HomeDataResult mHomeDataResult;
+	private static HomeDataResult sHomeDataResult;
 	private OnMainSubTabsEventListener mOnMainSubTabsEventListener;
 	private HomeCardViewAdapter mHomeCardViewAdapter;
 	private GridLayoutManager mGridLayoutManager;
@@ -180,7 +180,7 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 			if (Feature.IS_MINIMUM_SUPPORT_TABLET_RADIO_DISPLAY == false)
 			{
 				Glide.with(mContext)
-						.load(mHomeDataResult.getNewReleaseList().get(i).image_url)
+						.load(sHomeDataResult.getNewReleaseList().get(i).image_url)
 						.transition(withCrossFade())
 						.into(_TodayThumbnailItemImageList.get(i));
 			}
@@ -264,16 +264,16 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 		if(Feature.IS_LANGUAGE_ENG)
 		{
 			mContentPlayObjectResultList.add(new HomeContentPlayObject(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.title_best_story), HomeContentPlayObject.CONTENT_BEST_STORY));
-			for(int i = 0; i < mHomeDataResult.getBestStoryList().size(); i++)
+			for(int i = 0; i < sHomeDataResult.getBestStoryList().size(); i++)
 			{
-				ContentPlayObject  contentPlayObject = getMainPlayObject(mHomeDataResult.getBestStoryList().get(i));
+				ContentPlayObject  contentPlayObject = getMainPlayObject(sHomeDataResult.getBestStoryList().get(i));
 				mContentPlayObjectResultList.add(new HomeContentPlayObject(contentPlayObject, HomeContentPlayObject.CONTENT_BEST_STORY));
 			}
 			
 			mContentPlayObjectResultList.add(new HomeContentPlayObject(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.title_best_song), HomeContentPlayObject.CONTENT_BEST_SONG));
-			for(int  i = 0; i < mHomeDataResult.getBestSongList().size(); i++)
+			for(int i = 0; i < sHomeDataResult.getBestSongList().size(); i++)
 			{
-				ContentPlayObject  contentPlayObject = getMainPlayObject(mHomeDataResult.getBestSongList().get(i));
+				ContentPlayObject  contentPlayObject = getMainPlayObject(sHomeDataResult.getBestSongList().get(i));
 				mContentPlayObjectResultList.add(new HomeContentPlayObject(contentPlayObject, HomeContentPlayObject.CONTENT_BEST_SONG));
 			}
 		}
@@ -281,13 +281,13 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 		{	
 			mContentPlayObjectResultList.add(new HomeContentPlayObject(CommonUtils.getInstance(mContext).getLanguageTypeString(R.array.title_autobiography), HomeContentPlayObject.CONTENT_AUTOBIOGRAPHY));
 
-			for(int i = 0; i <mHomeDataResult.getRecommendList().size(); i++)
+			for(int i = 0; i < sHomeDataResult.getRecommendList().size(); i++)
 			{
 				AutobiographyObject autobiographyObject = new AutobiographyObject(
-						mHomeDataResult.getRecommendList().get(i).title, 
-						mHomeDataResult.getRecommendList().get(i).subtitle,
-						mHomeDataResult.getRecommendList().get(i).target_url,
-						mHomeDataResult.getRecommendList().get(i).image_url);
+						sHomeDataResult.getRecommendList().get(i).title,
+						sHomeDataResult.getRecommendList().get(i).subtitle,
+						sHomeDataResult.getRecommendList().get(i).target_url,
+						sHomeDataResult.getRecommendList().get(i).image_url);
 				
 				mContentPlayObjectResultList.add(new HomeContentPlayObject(autobiographyObject, HomeContentPlayObject.CONTENT_AUTOBIOGRAPHY));
 			}
@@ -295,13 +295,13 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 		}
 		
 
-		for(int i = 0; i < mHomeDataResult.getFeatureList().size(); i++)
+		for(int i = 0; i < sHomeDataResult.getFeatureList().size(); i++)
 		{
-			Log.i(" i  : " + i + ", title : "+mHomeDataResult.getFeatureList().get(i).title);
-			mContentPlayObjectResultList.add(new HomeContentPlayObject(mHomeDataResult.getFeatureList().get(i).title, HomeContentPlayObject.CONTENT_DEFAULT));
+			Log.i(" i  : " + i + ", title : "+ sHomeDataResult.getFeatureList().get(i).title);
+			mContentPlayObjectResultList.add(new HomeContentPlayObject(sHomeDataResult.getFeatureList().get(i).title, HomeContentPlayObject.CONTENT_DEFAULT));
 			for(int  j = 0; j < FEATURE_ITEM_SIZE ; j++)
 			{
-				ContentPlayObject  contentPlayObject = getMainPlayObject(mHomeDataResult.getFeatureList().get(i).list.get(j));
+				ContentPlayObject  contentPlayObject = getMainPlayObject(sHomeDataResult.getFeatureList().get(i).list.get(j));
 				mContentPlayObjectResultList.add(new HomeContentPlayObject(contentPlayObject, HomeContentPlayObject.CONTENT_DEFAULT));
 			}
 		}
@@ -358,7 +358,7 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 			if( i == position)
 			{
 				Glide.with(mContext)
-				.load(mHomeDataResult.getNewReleaseList().get(i).image_url)
+				.load(sHomeDataResult.getNewReleaseList().get(i).image_url)
 				.transition(withCrossFade())
 				.into(_TodayTitleImage);
 				
@@ -366,11 +366,11 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 					
 					@Override
 					public void onClick(View v) {
-						Log.f("Today Story Item : " + mHomeDataResult.getNewReleaseList().get(position).getContentId() + " Play ");
+						Log.f("Today Story Item : " + sHomeDataResult.getNewReleaseList().get(position).getContentId() + " Play ");
 						GoogleAnalyticsHelper.getInstance(mContext).sendCurrentEvent(Common.ANALYTICS_CATEGORY_MAIN, 
 																				Common.ANALYTICS_ACTION_TODAYSTORY, 
-																				mHomeDataResult.getNewReleaseList().get(position).getContentId()+ Common.ANALYTICS_LABEL_PLAY);
-						mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(mHomeDataResult.getNewReleaseList().get(position)));
+																				sHomeDataResult.getNewReleaseList().get(position).getContentId()+ Common.ANALYTICS_LABEL_PLAY);
+						mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(sHomeDataResult.getNewReleaseList().get(position)));
 					}
 				});
 				
@@ -401,7 +401,7 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 	
 	private void insertBannerInformationData()
 	{
-		_BannerLinkView.setBannerInfomation(mHomeDataResult.getBannerList());
+		_BannerLinkView.setBannerInfomation(sHomeDataResult.getBannerList());
 		_BannerLinkView.setOnBannerClickListener(mOnBannerClickListener);
 	}
 	
@@ -496,8 +496,8 @@ public class MainSubHomeFragmentTablet extends Fragment implements MainHolder
 	
 	public void setHomeDataResult(HomeDataResult homeDataResult)
 	{
-		mHomeDataResult = homeDataResult;
-		NEW_RELEASE_DAY_SIZE = mHomeDataResult.getNewReleaseList().size();
+		sHomeDataResult = homeDataResult;
+		NEW_RELEASE_DAY_SIZE = sHomeDataResult.getNewReleaseList().size();
 	}
 	
 	public void notifyContentList()

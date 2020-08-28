@@ -2,14 +2,15 @@ package com.littlefox.chinese.edu.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.littlefox.chinese.edu.R;
@@ -110,7 +111,7 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 	private static final int TODAY_LINE_EXCEPTION_WIDTH = 4;
 
 	private Context mContext;
-	private HomeDataResult mHomeDataResult;
+	private static HomeDataResult sHomeDataResult;
 	private OnMainSubTabsEventListener mOnMainSubTabsEventListener;
 
 	
@@ -204,27 +205,27 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 			break;
 		case R.id.home_study_1_card_1_view:
 			GoogleAnalyticsHelper.getInstance(mContext).sendCurrentEvent(Common.ANALYTICS_CATEGORY_MAIN, 
-																	Common.ANALYTICS_ACTION_CONTENTPLAY + " " +mHomeDataResult.getFeatureList().get(0).list.get(0).cont_name, 
-																	mHomeDataResult.getFeatureList().get(0).list.get(0).getContentId() + Common.ANALYTICS_LABEL_PLAY);
-			mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(mHomeDataResult.getFeatureList().get(0).list.get(0)));
+																	Common.ANALYTICS_ACTION_CONTENTPLAY + " " + sHomeDataResult.getFeatureList().get(0).list.get(0).cont_name,
+																	sHomeDataResult.getFeatureList().get(0).list.get(0).getContentId() + Common.ANALYTICS_LABEL_PLAY);
+			mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(sHomeDataResult.getFeatureList().get(0).list.get(0)));
 			break;
 		case R.id.home_study_1_card_2_view:
 			GoogleAnalyticsHelper.getInstance(mContext).sendCurrentEvent(Common.ANALYTICS_CATEGORY_MAIN, 
-																	Common.ANALYTICS_ACTION_CONTENTPLAY + " " +mHomeDataResult.getFeatureList().get(0).list.get(1).cont_name, 
-																	mHomeDataResult.getFeatureList().get(0).list.get(1).getContentId() + Common.ANALYTICS_LABEL_PLAY);
-			mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(mHomeDataResult.getFeatureList().get(0).list.get(1)));
+																	Common.ANALYTICS_ACTION_CONTENTPLAY + " " + sHomeDataResult.getFeatureList().get(0).list.get(1).cont_name,
+																	sHomeDataResult.getFeatureList().get(0).list.get(1).getContentId() + Common.ANALYTICS_LABEL_PLAY);
+			mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(sHomeDataResult.getFeatureList().get(0).list.get(1)));
 			break;
 		case R.id.home_study_2_card_1_view:
 			GoogleAnalyticsHelper.getInstance(mContext).sendCurrentEvent(Common.ANALYTICS_CATEGORY_MAIN, 
-																	Common.ANALYTICS_ACTION_CONTENTPLAY + " " +mHomeDataResult.getFeatureList().get(1).list.get(0).cont_name, 
-																	mHomeDataResult.getFeatureList().get(1).list.get(0).getContentId() + Common.ANALYTICS_LABEL_PLAY);
-			mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(mHomeDataResult.getFeatureList().get(1).list.get(0)));
+																	Common.ANALYTICS_ACTION_CONTENTPLAY + " " + sHomeDataResult.getFeatureList().get(1).list.get(0).cont_name,
+																	sHomeDataResult.getFeatureList().get(1).list.get(0).getContentId() + Common.ANALYTICS_LABEL_PLAY);
+			mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(sHomeDataResult.getFeatureList().get(1).list.get(0)));
 			break;
 		case R.id.home_study_2_card_2_view:
 			GoogleAnalyticsHelper.getInstance(mContext).sendCurrentEvent(Common.ANALYTICS_CATEGORY_MAIN, 
-																	Common.ANALYTICS_ACTION_CONTENTPLAY + " " +mHomeDataResult.getFeatureList().get(1).list.get(1).cont_name, 
-																	mHomeDataResult.getFeatureList().get(1).list.get(1).getContentId() + Common.ANALYTICS_LABEL_PLAY);
-			mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(mHomeDataResult.getFeatureList().get(1).list.get(1)));
+																	Common.ANALYTICS_ACTION_CONTENTPLAY + " " + sHomeDataResult.getFeatureList().get(1).list.get(1).cont_name,
+																	sHomeDataResult.getFeatureList().get(1).list.get(1).getContentId() + Common.ANALYTICS_LABEL_PLAY);
+			mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(sHomeDataResult.getFeatureList().get(1).list.get(1)));
 			break;
 		case R.id.home_icon_introduce_littlefox:
 			mOnMainSubTabsEventListener.onStartStepLittlefoxIntroduce();
@@ -298,13 +299,13 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 		else
 		{
 
-			for(int i = 0 ; i < mHomeDataResult.getRecommendList().size(); i++)
+			for(int i = 0; i < sHomeDataResult.getRecommendList().size(); i++)
 			{
-				_AutobiographyInformationTitleList.get(i).setText(mHomeDataResult.getRecommendList().get(i).title);
-				_AutobiographyInformationSubtitleList.get(i).setText(mHomeDataResult.getRecommendList().get(i).subtitle);
+				_AutobiographyInformationTitleList.get(i).setText(sHomeDataResult.getRecommendList().get(i).title);
+				_AutobiographyInformationSubtitleList.get(i).setText(sHomeDataResult.getRecommendList().get(i).subtitle);
 				
 				Glide.with(mContext)
-						.load(mHomeDataResult.getRecommendList().get(i).image_url)
+						.load(sHomeDataResult.getRecommendList().get(i).image_url)
 						.transition(withCrossFade())
 						.into(_AutobiographyInformationImageList.get(i));
 			}
@@ -351,16 +352,16 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 		
 		for(int i = 0 ; i < FEATURE_SECTION_SIZE; i++)
 		{
-			_FeatureTitleList.get(i).setText(mHomeDataResult.getFeatureList().get(i).title);
+			_FeatureTitleList.get(i).setText(sHomeDataResult.getFeatureList().get(i).title);
 			
 			for(int j = 0; j < FEATURE_SECTION_SIZE; j++)
 			{
 				Glide.with(mContext)
-						.load(mHomeDataResult.getFeatureList().get(i).list.get(j).image_url)
+						.load(sHomeDataResult.getFeatureList().get(i).list.get(j).image_url)
 						.transition(withCrossFade())
 						.into(_FeatureImageList.get(ITEM_COUNT));
 
-				_FeatureSubTextList.get(ITEM_COUNT).setText(mHomeDataResult.getFeatureList().get(i).list.get(j).cont_name);
+				_FeatureSubTextList.get(ITEM_COUNT).setText(sHomeDataResult.getFeatureList().get(i).list.get(j).cont_name);
 				
 				ITEM_COUNT++;
 			}
@@ -397,7 +398,7 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 	
 	private void insertBannerInformationData()
 	{
-		_BannerLinkView.setBannerInfomation(mHomeDataResult.getBannerList());
+		_BannerLinkView.setBannerInfomation(sHomeDataResult.getBannerList());
 		_BannerLinkView.setOnBannerClickListener(mOnBannerClickListener);
 	}
 	
@@ -437,7 +438,7 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 			if( i == position)
 			{
 				Glide.with(mContext)
-						.load(mHomeDataResult.getNewReleaseList().get(i).image_url)
+						.load(sHomeDataResult.getNewReleaseList().get(i).image_url)
 						.transition(withCrossFade())
 						.into(_TodayImageView);
 
@@ -447,11 +448,11 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 					
 					@Override
 					public void onClick(View v) {
-						Log.f("Today Story Item : " + mHomeDataResult.getNewReleaseList().get(position).getContentId() + " Play ");
+						Log.f("Today Story Item : " + sHomeDataResult.getNewReleaseList().get(position).getContentId() + " Play ");
 						GoogleAnalyticsHelper.getInstance(mContext).sendCurrentEvent(Common.ANALYTICS_CATEGORY_MAIN, 
 																				Common.ANALYTICS_ACTION_TODAYSTORY, 
-																				mHomeDataResult.getNewReleaseList().get(position).getContentId()+ Common.ANALYTICS_LABEL_PLAY);
-						mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(mHomeDataResult.getNewReleaseList().get(position)));
+																				sHomeDataResult.getNewReleaseList().get(position).getContentId()+ Common.ANALYTICS_LABEL_PLAY);
+						mOnMainSubTabsEventListener.onPlayContent(getMainPlayObject(sHomeDataResult.getNewReleaseList().get(position)));
 					}
 				});
 			}
@@ -466,8 +467,8 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 	
 	public void setHomeDataResult(HomeDataResult homeDataResult)
 	{
-		mHomeDataResult = homeDataResult;
-		NEW_RELEASE_DAY_SIZE = mHomeDataResult.getNewReleaseList().size();
+		sHomeDataResult = homeDataResult;
+		NEW_RELEASE_DAY_SIZE = sHomeDataResult.getNewReleaseList().size();
 	}
 	
 	@OnClick({R.id.home_autobiography_title_text, R.id.home_button_autobiography, R.id.home_autobiography_image_1, R.id.home_autobiography_image_2, R.id.home_autobiography_image_3})
@@ -481,13 +482,13 @@ public class MainSubHomeFragment extends Fragment implements MainHolder
 			mOnMainSubTabsEventListener.onAutobiography(Common.WEBVIEW_AUTOBIOGRAPHY);
 			break;
 		case R.id.home_autobiography_image_1:
-			mOnMainSubTabsEventListener.onAutobiography(mHomeDataResult.getRecommendList().get(0).target_url);
+			mOnMainSubTabsEventListener.onAutobiography(sHomeDataResult.getRecommendList().get(0).target_url);
 			break;
 		case R.id.home_autobiography_image_2:
-			mOnMainSubTabsEventListener.onAutobiography(mHomeDataResult.getRecommendList().get(1).target_url);
+			mOnMainSubTabsEventListener.onAutobiography(sHomeDataResult.getRecommendList().get(1).target_url);
 			break;
 		case R.id.home_autobiography_image_3:
-			mOnMainSubTabsEventListener.onAutobiography(mHomeDataResult.getRecommendList().get(2).target_url);
+			mOnMainSubTabsEventListener.onAutobiography(sHomeDataResult.getRecommendList().get(2).target_url);
 			break;
 		}
 	}

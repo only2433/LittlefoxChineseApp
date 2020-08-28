@@ -175,6 +175,8 @@ public class CommonUtils
     	Log.f("APP VERSION : "+getPackageVersionName(Common.PACKAGE_NAME));
     	Log.f("Device ID : "+ CommonUtils.getInstance(sContext).getMacAddress());
     	Log.f("WIDTH PIXEL : " + MainApplication.sDisPlayMetrics.widthPixels+", HEIGHT PIXEL : " + MainApplication.sDisPlayMetrics.heightPixels);
+        Log.f("Available Storage : "+ getAvailableStorageSize());
+
     }
 
     /**
@@ -703,8 +705,6 @@ public class CommonUtils
         {
             result = (long)stat.getAvailableBlocks()* (long)stat.getBlockSize();
         }
-
-
         return result/(1024 * 1024);
     }
 
@@ -1093,6 +1093,8 @@ public class CommonUtils
 			return Common.GRADE_VERYGOOD;
 		}
 	}
+
+
 	
 	/**
 	 * 플레이 시간으로 프리뷰 시간을 구하는 메소드
