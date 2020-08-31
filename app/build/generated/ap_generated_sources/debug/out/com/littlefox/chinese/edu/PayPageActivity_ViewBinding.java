@@ -18,11 +18,11 @@ import java.lang.Override;
 public class PayPageActivity_ViewBinding implements Unbinder {
   private PayPageActivity target;
 
-  private View view7f0901ce;
+  private View view7f0901d2;
 
-  private View view7f0901cb;
+  private View view7f0901cf;
 
-  private View view7f0901cc;
+  private View view7f0901d0;
 
   @UiThread
   public PayPageActivity_ViewBinding(PayPageActivity target) {
@@ -39,7 +39,7 @@ public class PayPageActivity_ViewBinding implements Unbinder {
     target._PayTitleText = Utils.findRequiredViewAsType(source, R.id.pay_main_menu_title, "field '_PayTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.pay_main_close, "field '_CloseButton' and method 'onSelectClick'");
     target._CloseButton = Utils.castView(view, R.id.pay_main_close, "field '_CloseButton'", ImageView.class);
-    view7f0901ce = view;
+    view7f0901d2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class PayPageActivity_ViewBinding implements Unbinder {
     target._PayInformationMessageImage = Utils.findRequiredViewAsType(source, R.id.pay_information_message_image, "field '_PayInformationMessageImage'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.pay_layout_30days, "field '_Pay30DaysButton' and method 'onSelectClick'");
     target._Pay30DaysButton = Utils.castView(view, R.id.pay_layout_30days, "field '_Pay30DaysButton'", ImageView.class);
-    view7f0901cb = view;
+    view7f0901cf = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -59,7 +59,7 @@ public class PayPageActivity_ViewBinding implements Unbinder {
     target._Pay30DaysText = Utils.findRequiredViewAsType(source, R.id.pay_30days_message, "field '_Pay30DaysText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.pay_layout_subscription, "field '_PaySubscriptionButton' and method 'onSelectClick'");
     target._PaySubscriptionButton = Utils.castView(view, R.id.pay_layout_subscription, "field '_PaySubscriptionButton'", ImageView.class);
-    view7f0901cc = view;
+    view7f0901d0 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,11 +92,11 @@ public class PayPageActivity_ViewBinding implements Unbinder {
     target._Pay30DaysPriceText = null;
     target._PayDeviceWarningTextImageView = null;
 
-    view7f0901ce.setOnClickListener(null);
-    view7f0901ce = null;
-    view7f0901cb.setOnClickListener(null);
-    view7f0901cb = null;
-    view7f0901cc.setOnClickListener(null);
-    view7f0901cc = null;
+    view7f0901d2.setOnClickListener(null);
+    view7f0901d2 = null;
+    view7f0901cf.setOnClickListener(null);
+    view7f0901cf = null;
+    view7f0901d0.setOnClickListener(null);
+    view7f0901d0 = null;
   }
 }

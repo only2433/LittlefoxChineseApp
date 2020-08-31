@@ -18,11 +18,11 @@ import java.lang.Override;
 public class MainSubStudyDataFragment_ViewBinding implements Unbinder {
   private MainSubStudyDataFragment target;
 
-  private View view7f09027f;
-
-  private View view7f090281;
-
   private View view7f090283;
+
+  private View view7f090285;
+
+  private View view7f090287;
 
   @UiThread
   public MainSubStudyDataFragment_ViewBinding(final MainSubStudyDataFragment target, View source) {
@@ -32,7 +32,7 @@ public class MainSubStudyDataFragment_ViewBinding implements Unbinder {
     target._RecyclerView = Utils.findRequiredViewAsType(source, R.id.study_data_card_list_view, "field '_RecyclerView'", RecyclerView.class);
     target._ChoiceButtonLayout = Utils.findRequiredViewAsType(source, R.id.study_data_choice_button_layout, "field '_ChoiceButtonLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.study_data_first_button, "method 'OnChangeTab'");
-    view7f09027f = view;
+    view7f090283 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -40,7 +40,7 @@ public class MainSubStudyDataFragment_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.study_data_second_button, "method 'OnChangeTab'");
-    view7f090281 = view;
+    view7f090285 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -48,7 +48,7 @@ public class MainSubStudyDataFragment_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.study_data_third_button, "method 'OnChangeTab'");
-    view7f090283 = view;
+    view7f090287 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,11 +77,11 @@ public class MainSubStudyDataFragment_ViewBinding implements Unbinder {
     target._StudyDataTextViewList = null;
     target._StudyDataButtonList = null;
 
-    view7f09027f.setOnClickListener(null);
-    view7f09027f = null;
-    view7f090281.setOnClickListener(null);
-    view7f090281 = null;
     view7f090283.setOnClickListener(null);
     view7f090283 = null;
+    view7f090285.setOnClickListener(null);
+    view7f090285 = null;
+    view7f090287.setOnClickListener(null);
+    view7f090287 = null;
   }
 }

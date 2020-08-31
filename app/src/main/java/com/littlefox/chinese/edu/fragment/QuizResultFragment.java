@@ -2,13 +2,15 @@ package com.littlefox.chinese.edu.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.littlefox.chinese.edu.QuizActivity.OnQuizCommunicateListener;
 import com.littlefox.chinese.edu.QuizActivity.QuizCallback;
@@ -18,6 +20,7 @@ import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.logmonitor.Log;
+import com.ssomai.android.scalablelayout.ScalableLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +28,15 @@ import butterknife.OnClick;
 
 public class QuizResultFragment extends Fragment implements QuizCallback
 {
+	@BindView(R.id._quizContentsLayout)
+	ScalableLayout _QuizContentsLayout;
+
+	@BindView(R.id._quizContentsInfoLayout)
+	ScalableLayout _QuizContentsInfoLayout;
+
+	@BindView(R.id._quizResultButtonLayout)
+	ScalableLayout _QuizResultButtonLayout;
+
 	@BindView(R.id.quiz_title_correct_image)
 	ImageView _CorrectIconImage;
 	
@@ -76,6 +88,7 @@ public class QuizResultFragment extends Fragment implements QuizCallback
 		ButterKnife.bind(this, view);
 		initFont();
 		initResultView();
+		settingResultView();
 		return view;
 	}
 	
@@ -141,6 +154,18 @@ public class QuizResultFragment extends Fragment implements QuizCallback
 		_InCorrectCountText.setText(String.valueOf(mQuizTotalCount - mQuizCorrectCount));
 		setResultTitleText(mQuizTotalCount, mQuizCorrectCount);
 		Log.f("CorrectCount : "+ mQuizCorrectCount +" , InCorrectCount : "+ (mQuizTotalCount - mQuizCorrectCount));
+	}
+
+	private void settingResultView()
+	{
+		if(Feature.IS_TABLET == false)
+		{
+			_QuizContentsLayout.moveChildView(_QuizContentsInfoLayout, 500, 345, 919, 382);
+
+			RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) _QuizResultButtonLayout.getLayoutParams();
+			params.removeRule(RelativeLayout.BELOW);
+			params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		}
 	}
 	
 	@OnClick({R.id.quiz_save_button, R.id.quiz_replay_button})

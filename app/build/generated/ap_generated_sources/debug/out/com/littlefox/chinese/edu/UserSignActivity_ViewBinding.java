@@ -18,7 +18,7 @@ import java.lang.Override;
 public class UserSignActivity_ViewBinding implements Unbinder {
   private UserSignActivity target;
 
-  private View view7f0902d5;
+  private View view7f0902d9;
 
   @UiThread
   public UserSignActivity_ViewBinding(UserSignActivity target) {
@@ -34,7 +34,7 @@ public class UserSignActivity_ViewBinding implements Unbinder {
     target._MainTitleText = Utils.findRequiredViewAsType(source, R.id.sign_menu_title, "field '_MainTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.user_sign_close, "field '_UserSignCloseButton' and method 'onSelectClick'");
     target._UserSignCloseButton = Utils.castView(view, R.id.user_sign_close, "field '_UserSignCloseButton'", ImageView.class);
-    view7f0902d5 = view;
+    view7f0902d9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -58,7 +58,7 @@ public class UserSignActivity_ViewBinding implements Unbinder {
     target._ViewPager = null;
     target._ProgressWheelLayout = null;
 
-    view7f0902d5.setOnClickListener(null);
-    view7f0902d5 = null;
+    view7f0902d9.setOnClickListener(null);
+    view7f0902d9 = null;
   }
 }

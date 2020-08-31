@@ -18,7 +18,7 @@ import java.lang.Override;
 public class SignProvisionFragment_ViewBinding implements Unbinder {
   private SignProvisionFragment target;
 
-  private View view7f090239;
+  private View view7f09023d;
 
   @UiThread
   public SignProvisionFragment_ViewBinding(final SignProvisionFragment target, View source) {
@@ -29,7 +29,7 @@ public class SignProvisionFragment_ViewBinding implements Unbinder {
     target._WebView = Utils.findRequiredViewAsType(source, R.id.sign_provision_webview, "field '_WebView'", WebView.class);
     view = Utils.findRequiredView(source, R.id.sign_provision_next_button, "field '_NextButton' and method 'selectClick'");
     target._NextButton = Utils.castView(view, R.id.sign_provision_next_button, "field '_NextButton'", TextView.class);
-    view7f090239 = view;
+    view7f09023d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -51,7 +51,7 @@ public class SignProvisionFragment_ViewBinding implements Unbinder {
     target._NextButton = null;
     target._BaseLayout = null;
 
-    view7f090239.setOnClickListener(null);
-    view7f090239 = null;
+    view7f09023d.setOnClickListener(null);
+    view7f09023d = null;
   }
 }

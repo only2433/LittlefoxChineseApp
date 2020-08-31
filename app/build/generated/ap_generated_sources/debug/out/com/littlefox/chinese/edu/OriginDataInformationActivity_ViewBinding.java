@@ -18,7 +18,7 @@ import java.lang.Override;
 public class OriginDataInformationActivity_ViewBinding implements Unbinder {
   private OriginDataInformationActivity target;
 
-  private View view7f0901bc;
+  private View view7f0901c0;
 
   @UiThread
   public OriginDataInformationActivity_ViewBinding(OriginDataInformationActivity target) {
@@ -34,7 +34,7 @@ public class OriginDataInformationActivity_ViewBinding implements Unbinder {
     target._TitleText = Utils.findRequiredViewAsType(source, R.id.top_menu_title, "field '_TitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.origin_data_close, "field '_CloseButton' and method 'selectClick'");
     target._CloseButton = Utils.castView(view, R.id.origin_data_close, "field '_CloseButton'", ImageView.class);
-    view7f0901bc = view;
+    view7f0901c0 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -59,7 +59,7 @@ public class OriginDataInformationActivity_ViewBinding implements Unbinder {
     target._BaseLayout = null;
     target._ProgressWheelView = null;
 
-    view7f0901bc.setOnClickListener(null);
-    view7f0901bc = null;
+    view7f0901c0.setOnClickListener(null);
+    view7f0901c0 = null;
   }
 }

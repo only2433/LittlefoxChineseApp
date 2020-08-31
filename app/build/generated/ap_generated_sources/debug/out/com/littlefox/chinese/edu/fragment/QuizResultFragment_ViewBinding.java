@@ -10,21 +10,25 @@ import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
 import com.littlefox.chinese.edu.R;
+import com.ssomai.android.scalablelayout.ScalableLayout;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
 public class QuizResultFragment_ViewBinding implements Unbinder {
   private QuizResultFragment target;
 
-  private View view7f09020c;
+  private View view7f090210;
 
-  private View view7f090208;
+  private View view7f09020c;
 
   @UiThread
   public QuizResultFragment_ViewBinding(final QuizResultFragment target, View source) {
     this.target = target;
 
     View view;
+    target._QuizContentsLayout = Utils.findRequiredViewAsType(source, R.id._quizContentsLayout, "field '_QuizContentsLayout'", ScalableLayout.class);
+    target._QuizContentsInfoLayout = Utils.findRequiredViewAsType(source, R.id._quizContentsInfoLayout, "field '_QuizContentsInfoLayout'", ScalableLayout.class);
+    target._QuizResultButtonLayout = Utils.findRequiredViewAsType(source, R.id._quizResultButtonLayout, "field '_QuizResultButtonLayout'", ScalableLayout.class);
     target._CorrectIconImage = Utils.findRequiredViewAsType(source, R.id.quiz_title_correct_image, "field '_CorrectIconImage'", ImageView.class);
     target._CorrectCountText = Utils.findRequiredViewAsType(source, R.id.quiz_result_correct_text, "field '_CorrectCountText'", TextView.class);
     target._InCorrectCountText = Utils.findRequiredViewAsType(source, R.id.quiz_result_incorrect_text, "field '_InCorrectCountText'", TextView.class);
@@ -32,7 +36,7 @@ public class QuizResultFragment_ViewBinding implements Unbinder {
     target._QuizCorrectTitleText = Utils.findRequiredViewAsType(source, R.id.quiz_title_correct_text, "field '_QuizCorrectTitleText'", TextView.class);
     target._QuizInCorrectTitleText = Utils.findRequiredViewAsType(source, R.id.quiz_title_incorrect_text, "field '_QuizInCorrectTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.quiz_save_button, "method 'onSelectClick'");
-    view7f09020c = view;
+    view7f090210 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -40,7 +44,7 @@ public class QuizResultFragment_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.quiz_replay_button, "method 'onSelectClick'");
-    view7f090208 = view;
+    view7f09020c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,6 +60,9 @@ public class QuizResultFragment_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
+    target._QuizContentsLayout = null;
+    target._QuizContentsInfoLayout = null;
+    target._QuizResultButtonLayout = null;
     target._CorrectIconImage = null;
     target._CorrectCountText = null;
     target._InCorrectCountText = null;
@@ -63,9 +70,9 @@ public class QuizResultFragment_ViewBinding implements Unbinder {
     target._QuizCorrectTitleText = null;
     target._QuizInCorrectTitleText = null;
 
+    view7f090210.setOnClickListener(null);
+    view7f090210 = null;
     view7f09020c.setOnClickListener(null);
     view7f09020c = null;
-    view7f090208.setOnClickListener(null);
-    view7f090208 = null;
   }
 }

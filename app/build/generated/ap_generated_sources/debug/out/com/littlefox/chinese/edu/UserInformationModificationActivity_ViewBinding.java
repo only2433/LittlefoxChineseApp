@@ -18,7 +18,7 @@ import java.lang.Override;
 public class UserInformationModificationActivity_ViewBinding implements Unbinder {
   private UserInformationModificationActivity target;
 
-  private View view7f090180;
+  private View view7f090184;
 
   @UiThread
   public UserInformationModificationActivity_ViewBinding(
@@ -36,7 +36,7 @@ public class UserInformationModificationActivity_ViewBinding implements Unbinder
     target._TitleText = Utils.findRequiredViewAsType(source, R.id.myinfo_menu_title, "field '_TitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.myinfo_close, "field '_CloseButton' and method 'onSelectClick'");
     target._CloseButton = Utils.castView(view, R.id.myinfo_close, "field '_CloseButton'", ImageView.class);
-    view7f090180 = view;
+    view7f090184 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -60,7 +60,7 @@ public class UserInformationModificationActivity_ViewBinding implements Unbinder
     target._ViewPager = null;
     target._ProgressLayout = null;
 
-    view7f090180.setOnClickListener(null);
-    view7f090180 = null;
+    view7f090184.setOnClickListener(null);
+    view7f090184 = null;
   }
 }

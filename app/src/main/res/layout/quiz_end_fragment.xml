@@ -29,6 +29,7 @@
 
 
         <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/_quizContentsInfoLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/correct_blue"
@@ -126,12 +127,13 @@
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
     <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/_quizResultButtonLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/_quizContentsLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        app:scale_base_height="100"
+        app:scale_base_height="120"
         app:scale_base_width="1920">
 
         <ImageView

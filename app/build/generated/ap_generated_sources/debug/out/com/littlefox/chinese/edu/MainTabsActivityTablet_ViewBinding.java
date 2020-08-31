@@ -20,23 +20,23 @@ import java.lang.Override;
 public class MainTabsActivityTablet_ViewBinding implements Unbinder {
   private MainTabsActivityTablet target;
 
-  private View view7f0902c0;
+  private View view7f0902c4;
 
-  private View view7f0901a7;
+  private View view7f0901ab;
 
-  private View view7f0901a6;
+  private View view7f0901aa;
 
-  private View view7f09019d;
+  private View view7f0901a1;
 
-  private View view7f0901a9;
+  private View view7f0901ad;
 
-  private View view7f0901a8;
+  private View view7f0901ac;
 
-  private View view7f09019e;
+  private View view7f0901a2;
 
-  private View view7f09006e;
+  private View view7f090072;
 
-  private View view7f09006f;
+  private View view7f090073;
 
   @UiThread
   public MainTabsActivityTablet_ViewBinding(MainTabsActivityTablet target) {
@@ -56,7 +56,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     target._MainTitleText = Utils.findRequiredViewAsType(source, R.id.top_menu_title, "field '_MainTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.top_menu_setting, "field '_SettingButton' and method 'onSettingClick'");
     target._SettingButton = Utils.castView(view, R.id.top_menu_setting, "field '_SettingButton'", ImageView.class);
-    view7f0902c0 = view;
+    view7f0902c4 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -66,7 +66,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     target._NavigationLayout = Utils.findRequiredViewAsType(source, R.id.navigation_base_layout, "field '_NavigationLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.navi_my_study_record_layout, "field '_NaviStudyRecordLayout' and method 'onSettingClick'");
     target._NaviStudyRecordLayout = Utils.castView(view, R.id.navi_my_study_record_layout, "field '_NaviStudyRecordLayout'", ScalableLayout.class);
-    view7f0901a7 = view;
+    view7f0901ab = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,7 +75,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.navi_my_info_layout, "field '_NaviUserInfoLayout' and method 'onSettingClick'");
     target._NaviUserInfoLayout = Utils.castView(view, R.id.navi_my_info_layout, "field '_NaviUserInfoLayout'", ScalableLayout.class);
-    view7f0901a6 = view;
+    view7f0901aa = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -84,7 +84,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.navi_add_user_manage_layout, "field '_NaviAddChildLayout' and method 'onSettingClick'");
     target._NaviAddChildLayout = Utils.castView(view, R.id.navi_add_user_manage_layout, "field '_NaviAddChildLayout'", ScalableLayout.class);
-    view7f09019d = view;
+    view7f0901a1 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -93,7 +93,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.navi_question_layout, "field '_NaviQuestionLayout' and method 'onSettingClick'");
     target._NaviQuestionLayout = Utils.castView(view, R.id.navi_question_layout, "field '_NaviQuestionLayout'", ScalableLayout.class);
-    view7f0901a9 = view;
+    view7f0901ad = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -102,7 +102,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.navi_pay_layout, "field '_NaviPayLayout' and method 'onSettingClick'");
     target._NaviPayLayout = Utils.castView(view, R.id.navi_pay_layout, "field '_NaviPayLayout'", ScalableLayout.class);
-    view7f0901a8 = view;
+    view7f0901ac = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -111,7 +111,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.navi_content_present_layout, "field '_ContentPresentLayout' and method 'onSettingClick'");
     target._ContentPresentLayout = Utils.castView(view, R.id.navi_content_present_layout, "field '_ContentPresentLayout'", ScalableLayout.class);
-    view7f09019e = view;
+    view7f0901a2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -124,7 +124,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     target._NaviLoginUserNameText = Utils.findRequiredViewAsType(source, R.id.navi_user_name_text, "field '_NaviLoginUserNameText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.button_navi_logout, "field '_NaviLogoutButton' and method 'onSettingClick'");
     target._NaviLogoutButton = Utils.castView(view, R.id.button_navi_logout, "field '_NaviLogoutButton'", TextView.class);
-    view7f09006e = view;
+    view7f090072 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -132,7 +132,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.button_navi_user_select, "method 'onSettingClick'");
-    view7f09006f = view;
+    view7f090073 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -200,23 +200,23 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     target._NavigationViewPaidUserList = null;
     target._NavigationViewPaidAddChildList = null;
 
-    view7f0902c0.setOnClickListener(null);
-    view7f0902c0 = null;
-    view7f0901a7.setOnClickListener(null);
-    view7f0901a7 = null;
-    view7f0901a6.setOnClickListener(null);
-    view7f0901a6 = null;
-    view7f09019d.setOnClickListener(null);
-    view7f09019d = null;
-    view7f0901a9.setOnClickListener(null);
-    view7f0901a9 = null;
-    view7f0901a8.setOnClickListener(null);
-    view7f0901a8 = null;
-    view7f09019e.setOnClickListener(null);
-    view7f09019e = null;
-    view7f09006e.setOnClickListener(null);
-    view7f09006e = null;
-    view7f09006f.setOnClickListener(null);
-    view7f09006f = null;
+    view7f0902c4.setOnClickListener(null);
+    view7f0902c4 = null;
+    view7f0901ab.setOnClickListener(null);
+    view7f0901ab = null;
+    view7f0901aa.setOnClickListener(null);
+    view7f0901aa = null;
+    view7f0901a1.setOnClickListener(null);
+    view7f0901a1 = null;
+    view7f0901ad.setOnClickListener(null);
+    view7f0901ad = null;
+    view7f0901ac.setOnClickListener(null);
+    view7f0901ac = null;
+    view7f0901a2.setOnClickListener(null);
+    view7f0901a2 = null;
+    view7f090072.setOnClickListener(null);
+    view7f090072 = null;
+    view7f090073.setOnClickListener(null);
+    view7f090073 = null;
   }
 }

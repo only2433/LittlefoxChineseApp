@@ -21,9 +21,9 @@ import java.lang.Override;
 public class StoryContentListActivity_ViewBinding implements Unbinder {
   private StoryContentListActivity target;
 
-  private View view7f090278;
+  private View view7f09027c;
 
-  private View view7f09027b;
+  private View view7f09027f;
 
   @UiThread
   public StoryContentListActivity_ViewBinding(StoryContentListActivity target) {
@@ -44,7 +44,7 @@ public class StoryContentListActivity_ViewBinding implements Unbinder {
     target._ChoicePlayButtonLayout = Utils.findRequiredViewAsType(source, R.id.story_detail_choice_button_layout, "field '_ChoicePlayButtonLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.story_detail_first_button, "field '_ChoiceFirstButton' and method 'onItemSelected'");
     target._ChoiceFirstButton = Utils.castView(view, R.id.story_detail_first_button, "field '_ChoiceFirstButton'", TextView.class);
-    view7f090278 = view;
+    view7f09027c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class StoryContentListActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.story_detail_second_button, "field '_ChoiceSecondButton' and method 'onItemSelected'");
     target._ChoiceSecondButton = Utils.castView(view, R.id.story_detail_second_button, "field '_ChoiceSecondButton'", TextView.class);
-    view7f09027b = view;
+    view7f09027f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -81,9 +81,9 @@ public class StoryContentListActivity_ViewBinding implements Unbinder {
     target._ChoiceSecondButton = null;
     target._ProgressWheelLayout = null;
 
-    view7f090278.setOnClickListener(null);
-    view7f090278 = null;
-    view7f09027b.setOnClickListener(null);
-    view7f09027b = null;
+    view7f09027c.setOnClickListener(null);
+    view7f09027c = null;
+    view7f09027f.setOnClickListener(null);
+    view7f09027f = null;
   }
 }

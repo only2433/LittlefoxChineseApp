@@ -16,7 +16,7 @@ import java.lang.Override;
 public class SignInputInformationFragment_ViewBinding implements Unbinder {
   private SignInputInformationFragment target;
 
-  private View view7f090233;
+  private View view7f090237;
 
   @UiThread
   public SignInputInformationFragment_ViewBinding(final SignInputInformationFragment target,
@@ -33,7 +33,7 @@ public class SignInputInformationFragment_ViewBinding implements Unbinder {
     target._InputNicknameEditText = Utils.findRequiredViewAsType(source, R.id.sign_nickname_edit, "field '_InputNicknameEditText'", PaddingDrawableEditText.class);
     view = Utils.findRequiredView(source, R.id.sign_confirm_button, "field '_SignCheckButton' and method 'selectClick'");
     target._SignCheckButton = Utils.castView(view, R.id.sign_confirm_button, "field '_SignCheckButton'", TextView.class);
-    view7f090233 = view;
+    view7f090237 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -58,7 +58,7 @@ public class SignInputInformationFragment_ViewBinding implements Unbinder {
     target._InputNicknameEditText = null;
     target._SignCheckButton = null;
 
-    view7f090233.setOnClickListener(null);
-    view7f090233 = null;
+    view7f090237.setOnClickListener(null);
+    view7f090237 = null;
   }
 }

@@ -17,11 +17,11 @@ import java.lang.Override;
 public class UserInformationShowFragment_ViewBinding implements Unbinder {
   private UserInformationShowFragment target;
 
-  private View view7f0901c7;
+  private View view7f0901cb;
 
-  private View view7f09017f;
+  private View view7f090183;
 
-  private View view7f090182;
+  private View view7f090186;
 
   @UiThread
   public UserInformationShowFragment_ViewBinding(final UserInformationShowFragment target,
@@ -37,7 +37,7 @@ public class UserInformationShowFragment_ViewBinding implements Unbinder {
     target._PayNotYetTitleText = Utils.findRequiredViewAsType(source, R.id.pay_not_yet_title_text, "field '_PayNotYetTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.pay_enter_button, "field '_PayEnterButton' and method 'onSelectClick'");
     target._PayEnterButton = Utils.castView(view, R.id.pay_enter_button, "field '_PayEnterButton'", TextView.class);
-    view7f0901c7 = view;
+    view7f0901cb = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -51,7 +51,7 @@ public class UserInformationShowFragment_ViewBinding implements Unbinder {
     target._PhoneEditText = Utils.findRequiredViewAsType(source, R.id.myinfo_phone_text, "field '_PhoneEditText'", PaddingDrawableEditText.class);
     view = Utils.findRequiredView(source, R.id.myinfo_change_password_button, "field '_ChangePasswordButton' and method 'onSelectClick'");
     target._ChangePasswordButton = Utils.castView(view, R.id.myinfo_change_password_button, "field '_ChangePasswordButton'", TextView.class);
-    view7f09017f = view;
+    view7f090183 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -60,7 +60,7 @@ public class UserInformationShowFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.myinfo_info_modification_button, "field '_InfoModificationButton' and method 'onSelectClick'");
     target._InfoModificationButton = Utils.castView(view, R.id.myinfo_info_modification_button, "field '_InfoModificationButton'", TextView.class);
-    view7f090182 = view;
+    view7f090186 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -91,11 +91,11 @@ public class UserInformationShowFragment_ViewBinding implements Unbinder {
     target._ChangePasswordButton = null;
     target._InfoModificationButton = null;
 
-    view7f0901c7.setOnClickListener(null);
-    view7f0901c7 = null;
-    view7f09017f.setOnClickListener(null);
-    view7f09017f = null;
-    view7f090182.setOnClickListener(null);
-    view7f090182 = null;
+    view7f0901cb.setOnClickListener(null);
+    view7f0901cb = null;
+    view7f090183.setOnClickListener(null);
+    view7f090183 = null;
+    view7f090186.setOnClickListener(null);
+    view7f090186 = null;
   }
 }

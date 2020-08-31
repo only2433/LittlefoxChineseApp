@@ -18,11 +18,11 @@ import java.lang.Override;
 public class SongContentListActivity_ViewBinding implements Unbinder {
   private SongContentListActivity target;
 
-  private View view7f09024f;
-
   private View view7f090253;
 
   private View view7f090257;
+
+  private View view7f09025b;
 
   @UiThread
   public SongContentListActivity_ViewBinding(SongContentListActivity target) {
@@ -39,7 +39,7 @@ public class SongContentListActivity_ViewBinding implements Unbinder {
     target._TitleText = Utils.findRequiredViewAsType(source, R.id.song_content_list_title, "field '_TitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.song_content_list_close, "field '_CloseButton' and method 'onSelectClick'");
     target._CloseButton = Utils.castView(view, R.id.song_content_list_close, "field '_CloseButton'", ImageView.class);
-    view7f09024f = view;
+    view7f090253 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,7 +52,7 @@ public class SongContentListActivity_ViewBinding implements Unbinder {
     target._BottomButtonLayout = Utils.findRequiredViewAsType(source, R.id.song_detail_choice_button_layout, "field '_BottomButtonLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.song_detail_first_button, "field '_BottomFirstButton' and method 'onItemSelected'");
     target._BottomFirstButton = Utils.castView(view, R.id.song_detail_first_button, "field '_BottomFirstButton'", TextView.class);
-    view7f090253 = view;
+    view7f090257 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class SongContentListActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.song_detail_second_button, "field '_BottomSecondButton' and method 'onItemSelected'");
     target._BottomSecondButton = Utils.castView(view, R.id.song_detail_second_button, "field '_BottomSecondButton'", TextView.class);
-    view7f090257 = view;
+    view7f09025b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -88,11 +88,11 @@ public class SongContentListActivity_ViewBinding implements Unbinder {
     target._BottomFirstButton = null;
     target._BottomSecondButton = null;
 
-    view7f09024f.setOnClickListener(null);
-    view7f09024f = null;
     view7f090253.setOnClickListener(null);
     view7f090253 = null;
     view7f090257.setOnClickListener(null);
     view7f090257 = null;
+    view7f09025b.setOnClickListener(null);
+    view7f09025b = null;
   }
 }

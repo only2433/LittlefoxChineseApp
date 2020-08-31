@@ -18,7 +18,7 @@ import java.lang.Override;
 public class StepLittlefoxChineseIntroduceActivity_ViewBinding implements Unbinder {
   private StepLittlefoxChineseIntroduceActivity target;
 
-  private View view7f090271;
+  private View view7f090275;
 
   @UiThread
   public StepLittlefoxChineseIntroduceActivity_ViewBinding(
@@ -35,7 +35,7 @@ public class StepLittlefoxChineseIntroduceActivity_ViewBinding implements Unbind
     target._TitleText = Utils.findRequiredViewAsType(source, R.id.step_littlefox_title, "field '_TitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.step_littlefox_introduce_close, "field '_CloseButton' and method 'selectClick'");
     target._CloseButton = Utils.castView(view, R.id.step_littlefox_introduce_close, "field '_CloseButton'", ImageView.class);
-    view7f090271 = view;
+    view7f090275 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -60,7 +60,7 @@ public class StepLittlefoxChineseIntroduceActivity_ViewBinding implements Unbind
     target._BaseLayout = null;
     target._ProgressWheelView = null;
 
-    view7f090271.setOnClickListener(null);
-    view7f090271 = null;
+    view7f090275.setOnClickListener(null);
+    view7f090275 = null;
   }
 }

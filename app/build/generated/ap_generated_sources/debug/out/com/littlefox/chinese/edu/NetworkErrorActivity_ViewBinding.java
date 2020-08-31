@@ -16,7 +16,7 @@ import java.lang.Override;
 public class NetworkErrorActivity_ViewBinding implements Unbinder {
   private NetworkErrorActivity target;
 
-  private View view7f0901b3;
+  private View view7f0901b7;
 
   @UiThread
   public NetworkErrorActivity_ViewBinding(NetworkErrorActivity target) {
@@ -34,7 +34,7 @@ public class NetworkErrorActivity_ViewBinding implements Unbinder {
     target._RetryButtonText = Utils.findRequiredViewAsType(source, R.id.network_error_main_button_text, "field '_RetryButtonText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.network_error_retry_button, "field '_RetryButton' and method 'onSelectClick'");
     target._RetryButton = Utils.castView(view, R.id.network_error_retry_button, "field '_RetryButton'", ImageView.class);
-    view7f0901b3 = view;
+    view7f0901b7 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class NetworkErrorActivity_ViewBinding implements Unbinder {
     target._RetryButtonText = null;
     target._RetryButton = null;
 
-    view7f0901b3.setOnClickListener(null);
-    view7f0901b3 = null;
+    view7f0901b7.setOnClickListener(null);
+    view7f0901b7 = null;
   }
 }

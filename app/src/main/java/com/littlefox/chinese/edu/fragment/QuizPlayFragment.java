@@ -2,20 +2,24 @@ package com.littlefox.chinese.edu.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.littlefox.chinese.edu.QuizActivity.OnQuizCommunicateListener;
 import com.littlefox.chinese.edu.QuizActivity.QuizCallback;
 import com.littlefox.chinese.edu.R;
 import com.littlefox.chinese.edu.common.Common;
+import com.littlefox.chinese.edu.common.CommonUtils;
+import com.littlefox.chinese.edu.common.Feature;
 import com.littlefox.chinese.edu.common.Font;
 import com.littlefox.chinese.edu.object.QuizPictureInformation;
 import com.littlefox.chinese.edu.object.QuizTextInformation;
@@ -55,7 +59,13 @@ public class QuizPlayFragment extends Fragment implements QuizCallback
 	
 	@BindView(R.id.image_index_second_not_select_image)
 	ImageView _SecondNotSelectImage;
-	
+
+	@BindView(R.id._questionBackgroundLayout)
+	ScalableLayout _QuestionBackgroundLayout;
+
+	@BindView(R.id._questionNextButtonLayout)
+	ScalableLayout _QuestionNextButtonLayout;
+
 	@BindView(R.id.question_next_button)
 	ImageView _NextPlayButton;
 	
@@ -168,6 +178,8 @@ public class QuizPlayFragment extends Fragment implements QuizCallback
 		}
 		
 		_NextPlayButton.setAlpha(0.3f);
+
+		settingNextPlayLayout();
 	}
 	
 	private void initFont()
@@ -182,7 +194,23 @@ public class QuizPlayFragment extends Fragment implements QuizCallback
 		_FirstPictureImage.setImageBitmap(mQuizPictureInformation.getImageInformationList().get(0).getImage());
 		_SecondPictureImage.setImageBitmap(mQuizPictureInformation.getImageInformationList().get(1).getImage());
 	}
-	
+
+	private void settingNextPlayLayout()
+	{
+		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) _QuestionNextButtonLayout.getLayoutParams();
+		if(Feature.IS_TABLET)
+		{
+			params.addRule(RelativeLayout.BELOW, R.id._questionBackgroundLayout);
+			params.topMargin = CommonUtils.getInstance(mContext).getPixel(50);
+		}
+		else
+		{
+			params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		}
+		_QuestionNextButtonLayout.setLayoutParams(params);
+	}
+
+
 	private void setQuestionText()
 	{
 		int[] indexResource = {R.drawable.icon_index_1, R.drawable.icon_index_2, R.drawable.icon_index_3, R.drawable.icon_index_4};
