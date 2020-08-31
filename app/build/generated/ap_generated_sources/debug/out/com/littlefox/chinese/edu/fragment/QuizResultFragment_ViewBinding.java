@@ -16,9 +16,9 @@ import java.lang.Override;
 public class QuizResultFragment_ViewBinding implements Unbinder {
   private QuizResultFragment target;
 
-  private View view7f09020e;
+  private View view7f09020c;
 
-  private View view7f09020a;
+  private View view7f090208;
 
   @UiThread
   public QuizResultFragment_ViewBinding(final QuizResultFragment target, View source) {
@@ -32,7 +32,7 @@ public class QuizResultFragment_ViewBinding implements Unbinder {
     target._QuizCorrectTitleText = Utils.findRequiredViewAsType(source, R.id.quiz_title_correct_text, "field '_QuizCorrectTitleText'", TextView.class);
     target._QuizInCorrectTitleText = Utils.findRequiredViewAsType(source, R.id.quiz_title_incorrect_text, "field '_QuizInCorrectTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.quiz_save_button, "method 'onSelectClick'");
-    view7f09020e = view;
+    view7f09020c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -40,7 +40,7 @@ public class QuizResultFragment_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.quiz_replay_button, "method 'onSelectClick'");
-    view7f09020a = view;
+    view7f090208 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -63,9 +63,9 @@ public class QuizResultFragment_ViewBinding implements Unbinder {
     target._QuizCorrectTitleText = null;
     target._QuizInCorrectTitleText = null;
 
-    view7f09020e.setOnClickListener(null);
-    view7f09020e = null;
-    view7f09020a.setOnClickListener(null);
-    view7f09020a = null;
+    view7f09020c.setOnClickListener(null);
+    view7f09020c = null;
+    view7f090208.setOnClickListener(null);
+    view7f090208 = null;
   }
 }

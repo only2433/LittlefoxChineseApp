@@ -17,13 +17,13 @@ import java.lang.Override;
 public class QuizPlayFragment_ViewBinding implements Unbinder {
   private QuizPlayFragment target;
 
-  private View view7f0901fe;
+  private View view7f0901fc;
 
   private View view7f09011d;
 
   private View view7f09011f;
 
-  private View view7f0901fd;
+  private View view7f0901fb;
 
   @UiThread
   public QuizPlayFragment_ViewBinding(final QuizPlayFragment target, View source) {
@@ -36,7 +36,7 @@ public class QuizPlayFragment_ViewBinding implements Unbinder {
     target._TextQuestionTypeLayout = Utils.findRequiredViewAsType(source, R.id.question_text_layout, "field '_TextQuestionTypeLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.question_play_button, "field '_PlaySoundButton' and method 'onSelectImage'");
     target._PlaySoundButton = Utils.castView(view, R.id.question_play_button, "field '_PlaySoundButton'", ImageView.class);
-    view7f0901fe = view;
+    view7f0901fc = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class QuizPlayFragment_ViewBinding implements Unbinder {
     target._SecondNotSelectImage = Utils.findRequiredViewAsType(source, R.id.image_index_second_not_select_image, "field '_SecondNotSelectImage'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.question_next_button, "field '_NextPlayButton' and method 'onSelectImage'");
     target._NextPlayButton = Utils.castView(view, R.id.question_next_button, "field '_NextPlayButton'", ImageView.class);
-    view7f0901fd = view;
+    view7f0901fb = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,13 +92,13 @@ public class QuizPlayFragment_ViewBinding implements Unbinder {
     target._SecondNotSelectImage = null;
     target._NextPlayButton = null;
 
-    view7f0901fe.setOnClickListener(null);
-    view7f0901fe = null;
+    view7f0901fc.setOnClickListener(null);
+    view7f0901fc = null;
     view7f09011d.setOnClickListener(null);
     view7f09011d = null;
     view7f09011f.setOnClickListener(null);
     view7f09011f = null;
-    view7f0901fd.setOnClickListener(null);
-    view7f0901fd = null;
+    view7f0901fb.setOnClickListener(null);
+    view7f0901fb = null;
   }
 }

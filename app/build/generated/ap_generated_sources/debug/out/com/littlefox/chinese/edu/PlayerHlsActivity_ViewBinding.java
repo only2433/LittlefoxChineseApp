@@ -21,15 +21,15 @@ import java.lang.Override;
 public class PlayerHlsActivity_ViewBinding implements Unbinder {
   private PlayerHlsActivity target;
 
-  private View view7f0901ef;
+  private View view7f0901ee;
 
   private View view7f0901e5;
 
-  private View view7f0901eb;
-
-  private View view7f0901e9;
+  private View view7f0901ea;
 
   private View view7f0901e8;
+
+  private View view7f0901e7;
 
   private View view7f09001c;
 
@@ -49,7 +49,7 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
 
   private View view7f09001a;
 
-  private View view7f0901f2;
+  private View view7f0901f1;
 
   private View view7f09000c;
 
@@ -72,7 +72,7 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     target._TopTitleText = Utils.findRequiredViewAsType(source, R.id.player_top_title, "field '_TopTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.player_subtitle_button, "field '_TopCaptionSettingButton' and method 'onPlayerButtonClick'");
     target._TopCaptionSettingButton = Utils.castView(view, R.id.player_subtitle_button, "field '_TopCaptionSettingButton'", ImageView.class);
-    view7f0901ef = view;
+    view7f0901ee = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -95,7 +95,7 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     target._PlayButtonLayout = Utils.findRequiredViewAsType(source, R.id.player_play_button_layout, "field '_PlayButtonLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.player_prev_button, "field '_PrevButton' and method 'onPlayerButtonClick'");
     target._PrevButton = Utils.castView(view, R.id.player_prev_button, "field '_PrevButton'", ImageView.class);
-    view7f0901eb = view;
+    view7f0901ea = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -104,7 +104,7 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.player_play_button, "field '_PlayButton' and method 'onPlayerButtonClick'");
     target._PlayButton = Utils.castView(view, R.id.player_play_button, "field '_PlayButton'", ImageView.class);
-    view7f0901e9 = view;
+    view7f0901e8 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -113,7 +113,7 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.player_next_button, "field '_NextButton' and method 'onPlayerButtonClick'");
     target._NextButton = Utils.castView(view, R.id.player_next_button, "field '_NextButton'", ImageView.class);
-    view7f0901e8 = view;
+    view7f0901e7 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -223,7 +223,7 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     target._PlayListTitleText = Utils.findRequiredViewAsType(source, R.id._playListTitleText, "field '_PlayListTitleText'", TextView.class);
     target._PlaySpeedListTitleText = Utils.findRequiredViewAsType(source, R.id._playSpeedListTitleText, "field '_PlaySpeedListTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.preview_close_button, "method 'onDisplayButtonClick'");
-    view7f0901f2 = view;
+    view7f0901f1 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -301,16 +301,16 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     target._PlayListTitleText = null;
     target._PlaySpeedListTitleText = null;
 
-    view7f0901ef.setOnClickListener(null);
-    view7f0901ef = null;
+    view7f0901ee.setOnClickListener(null);
+    view7f0901ee = null;
     view7f0901e5.setOnClickListener(null);
     view7f0901e5 = null;
-    view7f0901eb.setOnClickListener(null);
-    view7f0901eb = null;
-    view7f0901e9.setOnClickListener(null);
-    view7f0901e9 = null;
+    view7f0901ea.setOnClickListener(null);
+    view7f0901ea = null;
     view7f0901e8.setOnClickListener(null);
     view7f0901e8 = null;
+    view7f0901e7.setOnClickListener(null);
+    view7f0901e7 = null;
     view7f09001c.setOnClickListener(null);
     view7f09001c = null;
     view7f0901d6.setOnClickListener(null);
@@ -329,8 +329,8 @@ public class PlayerHlsActivity_ViewBinding implements Unbinder {
     view7f090017 = null;
     view7f09001a.setOnClickListener(null);
     view7f09001a = null;
-    view7f0901f2.setOnClickListener(null);
-    view7f0901f2 = null;
+    view7f0901f1.setOnClickListener(null);
+    view7f0901f1 = null;
     view7f09000c.setOnClickListener(null);
     view7f09000c = null;
     view7f090010.setOnClickListener(null);

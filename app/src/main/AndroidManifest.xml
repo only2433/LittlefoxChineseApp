@@ -119,15 +119,8 @@
             android:screenOrientation="sensor"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme_Main" >
-        </activity>        
-
-        
-        <activity
-            android:name=".PlayerActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" >
         </activity>
+
 
         <activity
             android:name=".PlayerHlsActivity"

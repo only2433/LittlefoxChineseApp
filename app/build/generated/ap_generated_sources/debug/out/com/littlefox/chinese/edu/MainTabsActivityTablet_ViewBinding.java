@@ -20,7 +20,7 @@ import java.lang.Override;
 public class MainTabsActivityTablet_ViewBinding implements Unbinder {
   private MainTabsActivityTablet target;
 
-  private View view7f0902c2;
+  private View view7f0902c0;
 
   private View view7f0901a7;
 
@@ -56,7 +56,7 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     target._MainTitleText = Utils.findRequiredViewAsType(source, R.id.top_menu_title, "field '_MainTitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.top_menu_setting, "field '_SettingButton' and method 'onSettingClick'");
     target._SettingButton = Utils.castView(view, R.id.top_menu_setting, "field '_SettingButton'", ImageView.class);
-    view7f0902c2 = view;
+    view7f0902c0 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -200,8 +200,8 @@ public class MainTabsActivityTablet_ViewBinding implements Unbinder {
     target._NavigationViewPaidUserList = null;
     target._NavigationViewPaidAddChildList = null;
 
-    view7f0902c2.setOnClickListener(null);
-    view7f0902c2 = null;
+    view7f0902c0.setOnClickListener(null);
+    view7f0902c0 = null;
     view7f0901a7.setOnClickListener(null);
     view7f0901a7 = null;
     view7f0901a6.setOnClickListener(null);

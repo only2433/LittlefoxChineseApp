@@ -22,15 +22,15 @@ public class MainSubHomeFragment_ViewBinding implements Unbinder {
 
   private View view7f0900e1;
 
-  private View view7f0902b2;
-
-  private View view7f0902b6;
-
-  private View view7f0902b8;
+  private View view7f0902b0;
 
   private View view7f0902b4;
 
-  private View view7f0902af;
+  private View view7f0902b6;
+
+  private View view7f0902b2;
+
+  private View view7f0902ad;
 
   private View view7f09010d;
 
@@ -84,7 +84,7 @@ public class MainSubHomeFragment_ViewBinding implements Unbinder {
     target._BannerLinkView = Utils.findRequiredViewAsType(source, R.id.home_banner_view, "field '_BannerLinkView'", BannerLinkView.class);
     target._AutobiographyBaseLayout = Utils.findRequiredViewAsType(source, R.id.home_autobiography_base_layout, "field '_AutobiographyBaseLayout'", ScalableLayout.class);
     view = Utils.findRequiredView(source, R.id.today_monday_text, "method 'onSelectedOnDay'");
-    view7f0902b2 = view;
+    view7f0902b0 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,22 +92,6 @@ public class MainSubHomeFragment_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.today_tuesday_text, "method 'onSelectedOnDay'");
-    view7f0902b6 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onSelectedOnDay(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.today_wendsday_text, "method 'onSelectedOnDay'");
-    view7f0902b8 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onSelectedOnDay(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.today_thursday_text, "method 'onSelectedOnDay'");
     view7f0902b4 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -115,8 +99,24 @@ public class MainSubHomeFragment_ViewBinding implements Unbinder {
         target.onSelectedOnDay(p0);
       }
     });
+    view = Utils.findRequiredView(source, R.id.today_wendsday_text, "method 'onSelectedOnDay'");
+    view7f0902b6 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onSelectedOnDay(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.today_thursday_text, "method 'onSelectedOnDay'");
+    view7f0902b2 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onSelectedOnDay(p0);
+      }
+    });
     view = Utils.findRequiredView(source, R.id.today_friday_text, "method 'onSelectedOnDay'");
-    view7f0902af = view;
+    view7f0902ad = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -290,16 +290,16 @@ public class MainSubHomeFragment_ViewBinding implements Unbinder {
     view7f0900e0 = null;
     view7f0900e1.setOnClickListener(null);
     view7f0900e1 = null;
-    view7f0902b2.setOnClickListener(null);
-    view7f0902b2 = null;
-    view7f0902b6.setOnClickListener(null);
-    view7f0902b6 = null;
-    view7f0902b8.setOnClickListener(null);
-    view7f0902b8 = null;
+    view7f0902b0.setOnClickListener(null);
+    view7f0902b0 = null;
     view7f0902b4.setOnClickListener(null);
     view7f0902b4 = null;
-    view7f0902af.setOnClickListener(null);
-    view7f0902af = null;
+    view7f0902b6.setOnClickListener(null);
+    view7f0902b6 = null;
+    view7f0902b2.setOnClickListener(null);
+    view7f0902b2 = null;
+    view7f0902ad.setOnClickListener(null);
+    view7f0902ad = null;
     view7f09010d.setOnClickListener(null);
     view7f09010d = null;
     view7f09010e.setOnClickListener(null);

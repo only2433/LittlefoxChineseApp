@@ -18,7 +18,7 @@ import java.lang.Override;
 public class StudyRecordActivity_ViewBinding implements Unbinder {
   private StudyRecordActivity target;
 
-  private View view7f09028c;
+  private View view7f09028a;
 
   @UiThread
   public StudyRecordActivity_ViewBinding(StudyRecordActivity target) {
@@ -33,7 +33,7 @@ public class StudyRecordActivity_ViewBinding implements Unbinder {
     target._TitleText = Utils.findRequiredViewAsType(source, R.id.study_record_title, "field '_TitleText'", TextView.class);
     view = Utils.findRequiredView(source, R.id.study_record_close, "field '_CloseButton' and method 'selectClick'");
     target._CloseButton = Utils.castView(view, R.id.study_record_close, "field '_CloseButton'", ImageView.class);
-    view7f09028c = view;
+    view7f09028a = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -58,7 +58,7 @@ public class StudyRecordActivity_ViewBinding implements Unbinder {
     target._BaseLayout = null;
     target._ProgressWheelView = null;
 
-    view7f09028c.setOnClickListener(null);
-    view7f09028c = null;
+    view7f09028a.setOnClickListener(null);
+    view7f09028a = null;
   }
 }

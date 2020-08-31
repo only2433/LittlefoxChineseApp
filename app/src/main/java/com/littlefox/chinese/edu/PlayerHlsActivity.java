@@ -343,6 +343,9 @@ public class PlayerHlsActivity extends BaseActivity
                             TempleteAlertDialog.DEFAULT_BUTTON_TYPE_2,
                             CommonUtils.getInstance(PlayerHlsActivity.this).getLanguageTypeString(R.array.message_longtime_play_warning));
                     break;
+                case MESSAGE_PLAYER_EVENT_COMPLETE:
+                    isPlayerEventBeing = false;
+                    break;
             }
         }
     };
@@ -378,6 +381,7 @@ public class PlayerHlsActivity extends BaseActivity
     private static final int MESSAGE_FAIL_MOVIE_LOADING			= 13;
     private static final int MESSAGE_LONGTIME_WATCH_WARNING		= 14;
     private static final int MESSAGE_CAPTION_LAYOUT_SETTING		= 15;
+    private static final int MESSAGE_PLAYER_EVENT_COMPLETE      = 16;
 
     private static final int LAYOUT_TYPE_DEFAULT 				= 0;
     private static final int LAYOUT_TYPE_PREVIEW_PLAY 			= 1;
@@ -398,8 +402,8 @@ public class PlayerHlsActivity extends BaseActivity
     private static final float[] PLAY_SPEED_LIST = { 0.7f, 0.85f, 1.0f, 1.15f, 1.3f };
     private static final int DEFAULT_SPEED_INDEX = 2;
 
-    private PlayerStatus mCurrentPlayerStatus = PlayerStatus.STOP;
 
+    private PlayerStatus mCurrentPlayerStatus = PlayerStatus.STOP;
     private ContentPlayObject mContentPlayObject;
     private FadeAnimationController mFadeAnimationController;
     private boolean isVideoLoadingComplete = false;
@@ -414,7 +418,6 @@ public class PlayerHlsActivity extends BaseActivity
     private Vibrator mVibrator;
     private PlayedContentDBHelper mPlayedContentDBHelper;
     private String mCurrentPlayContentId = "";
-
     private ArrayList<CaptionDetailInformation> mCaptionInformationList = new ArrayList<CaptionDetailInformation>();
     private int mCurrentCaptionIndex = 0;
 
@@ -437,6 +440,7 @@ public class PlayerHlsActivity extends BaseActivity
     private PlayerListAdapter mPlayerListAdapter;
     private PlayerSpeedListAdapter mPlayerSpeedListAdapter;
     private int mCurrentPlaySpeedIndex = -1;
+    private boolean isPlayerEventBeing = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -2127,23 +2131,37 @@ public class PlayerHlsActivity extends BaseActivity
         @Override
         public void onClickPlayItem(String fcid)
         {
+            if(isPlayerEventBeing)
+            {
+                return;
+            }
+
+            isPlayerEventBeing = true;
             Log.f("fcid : "+fcid);
             mCurrentPlayPosition = getSelectedPositionFromFcID(fcid);
             requestPlaySaveRecord();
             enablePlayListAnimation(false);
             settingLayout(LAYOUT_TYPE_DEFAULT);
             mMainHandler.sendEmptyMessageDelayed(MESSAGE_SELECT_PLAY, DURATION_PLAY);
+            mMainHandler.sendEmptyMessageDelayed(MESSAGE_PLAYER_EVENT_COMPLETE, SECOND);
         }
 
         @Override
         public void onClickSpeedIndex(int index)
         {
+            if(isPlayerEventBeing)
+            {
+                return;
+            }
+
+            isPlayerEventBeing = true;
             Log.f("index : "+index);
             CommonUtils.getInstance(PlayerHlsActivity.this).setSharedPreference(Common.PARAMS_PLAYER_SPEED_INDEX, index);
             mCurrentPlaySpeedIndex = index;
             settingVideoSpeed();
             enablePlaySpeedListAnimation(false);
             enableBackgroudAnimation(false);
+            mMainHandler.sendEmptyMessageDelayed(MESSAGE_PLAYER_EVENT_COMPLETE, SECOND);
         }
     };
 
