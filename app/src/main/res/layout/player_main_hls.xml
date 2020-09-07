@@ -155,7 +155,7 @@
             android:textColor="@color/color_ffffff"
             app:scale_height="150"
             app:scale_left="46"
-            app:scale_textsize="34"
+            app:scale_textsize="32"
             app:scale_top="0"
             app:scale_width="104" />
 
@@ -186,7 +186,7 @@
             android:textColor="@color/color_ffffff"
             app:scale_height="150"
             app:scale_left="1574"
-            app:scale_textsize="34"
+            app:scale_textsize="32"
             app:scale_top="0"
             app:scale_width="104" />
 

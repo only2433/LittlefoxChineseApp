@@ -61,6 +61,18 @@
             app:scale_width="150" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
+    <ImageView
+        android:id="@+id/_playerOptionBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:alpha = "0.5"
+        android:background="@color/color_black"
+        android:gravity="center" />
+
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:id="@+id/player_top_base_layout"
         android:layout_width="match_parent"
@@ -158,7 +170,7 @@
             android:textColor="@color/color_ffffff"
             app:scale_height="150"
             app:scale_left="46"
-            app:scale_textsize="34"
+            app:scale_textsize="32"
             app:scale_top="0"
             app:scale_width="104" />
 
@@ -189,7 +201,7 @@
             android:textColor="@color/color_ffffff"
             app:scale_height="150"
             app:scale_left="1574"
-            app:scale_textsize="34"
+            app:scale_textsize="32"
             app:scale_top="0"
             app:scale_width="104" />
 
