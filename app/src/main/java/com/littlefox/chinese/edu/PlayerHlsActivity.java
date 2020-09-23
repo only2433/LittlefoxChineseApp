@@ -645,13 +645,15 @@ public class PlayerHlsActivity extends BaseActivity
         if(mContentPlayObject.getSelectedPosition() == -1)
         {
             list = mContentPlayObject.getPlayObjectList();
+            mPlayerListAdapter = new PlayerListAdapter(this, mCurrentPlayPosition, list);
         }
         else
         {
             list.add(mContentPlayObject.getPlayObjectList().get(mContentPlayObject.getSelectedPosition()));
+            mPlayerListAdapter = new PlayerListAdapter(this, 0, list);
         }
 
-        mPlayerListAdapter = new PlayerListAdapter(this, mCurrentPlayPosition, list);
+
         mPlayerListAdapter.setOnPlayEventListener(mPlayerEventListener);
         _PlayerListView.setLayoutManager(new LinearLayoutScrollerManager(this));
         _PlayerListView.setAdapter(mPlayerListAdapter);
@@ -822,7 +824,6 @@ public class PlayerHlsActivity extends BaseActivity
         //플레이 타이머 보여줌
         mPlayer.setPlayWhenReady(true);
         enableTimer(true);
-        mPlayerListAdapter.setCurrentPlayPosition(mCurrentPlayPosition);
         mMainHandler.sendEmptyMessageDelayed(MESSAGE_VIDEO_VISIBLE, DURATION_GONE_BACKGROUND);
     }
 

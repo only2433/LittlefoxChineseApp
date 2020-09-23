@@ -63,7 +63,16 @@ public class PlayerListAdapter extends RecyclerView.Adapter<PlayerListAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, final int position)
     {
         Glide.with(mContext).load(mDataList.get(position).image_url).transition(withCrossFade()).into(holder._ItemTitleImage);
-        holder._ItemTitleText.setText(mDataList.get(position).getTitle());
+
+        if(mDataList.get(position).getPosition().equals(""))
+        {
+            holder._ItemTitleText.setText(mDataList.get(position).getTitle());
+        }
+        else
+        {
+            holder._ItemTitleText.setText(mDataList.get(position).getPosition() +". "+mDataList.get(position).getTitle());
+        };
+
 
         if(mCurrentPosition == position)
         {

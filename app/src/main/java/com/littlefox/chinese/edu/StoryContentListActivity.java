@@ -474,11 +474,7 @@ public class StoryContentListActivity extends BaseActivity
 				Log.f("");
 				return false;
 			}
-
-
 		}).into(_StudyContentListMainImageView);
-
-	   
 	}
 	
 	private void showInfoDialog()
@@ -519,10 +515,6 @@ public class StoryContentListActivity extends BaseActivity
 	private void requestContentListInformation()
 	{
 		Log.f("Content List Request ID : " + mContentListTitleObject.getStoryKeyId());
-		//ContentListAsync async;
-		//async = new ContentListAsync(this, mContentListTitleObject.getStoryKeyId(), mRequestListener);
-		//async.execute();
-
 		ContentListCoroutine coroutine = new ContentListCoroutine(this,mRequestListener);
 		coroutine.setData(mContentListTitleObject.getStoryKeyId());
 		coroutine.execute();
@@ -1134,6 +1126,14 @@ public class StoryContentListActivity extends BaseActivity
 			}
 		}
 	};
+
+	private void setPositionContents()
+	{
+		for(int i = 0; i < mContentItemList.size(); i++)
+		{
+			mContentItemList.get(i).setPosition(i+1);
+		}
+	}
 	
 	private AsyncListener mRequestListener = new AsyncListener()
 	{
@@ -1166,7 +1166,7 @@ public class StoryContentListActivity extends BaseActivity
 			if(((BaseResult)mObject).getResult().equals(BaseResult.RESULT_OK))
 			{
 				mContentItemList 	= ((ContentListResult)mObject).getContentList();
-				
+				setPositionContents();
 				if(mContentListTitleObject.getSeriesStatus().equals(ContentListTitleObject.SERIES_ING))
 				{
 					Collections.reverse(mContentItemList);

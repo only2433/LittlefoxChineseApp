@@ -10,7 +10,8 @@ import java.io.Serializable;
 public class PlayObject implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	
+
+	private int position				= 0;
 	public String fc_id					= "";
 	public String image_url 			= "";
 	public String cont_name				= "";
@@ -35,6 +36,29 @@ public class PlayObject implements Serializable
 	public String getPlayTime()
 	{
 		return play_time;
+	}
+
+
+	public void setPosition(int position)
+	{
+		this.position = position;
+	}
+
+	public String getPosition()
+	{
+		if(position == 0)
+		{
+			return "";
+		}
+
+		if(position < 10)
+		{
+			return "0" + String.valueOf(position);
+		}
+		else
+		{
+			return String.valueOf(position);
+		}
 	}
 	
 }
