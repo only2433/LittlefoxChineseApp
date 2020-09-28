@@ -1,6 +1,8 @@
 package com.littlefox.chinese.edu.adapter;
 
 import android.content.Context;
+import android.os.Build;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +72,18 @@ public class PlayerListAdapter extends RecyclerView.Adapter<PlayerListAdapter.Vi
         }
         else
         {
-            holder._ItemTitleText.setText(mDataList.get(position).getPosition() +". "+mDataList.get(position).getTitle());
+            String titleText = String.format(mContext.getResources().getString(R.string.text_play_list),
+                    mDataList.get(position).getPosition(),
+                    mDataList.get(position).getTitle());
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            {
+                holder._ItemTitleText.setText(Html.fromHtml(titleText,Html.FROM_HTML_MODE_LEGACY));
+            }
+            else
+            {
+                holder._ItemTitleText.setText(Html.fromHtml(titleText));
+            }
         };
 
 
