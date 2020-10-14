@@ -14,7 +14,6 @@ import com.littlefox.logmonitor.Log;
  */
 public class InAppInformation
 {
-    
 	private String inAppType = BillingClientHelper.IN_APP_FREE_USER;
 	private long inAppStartDay = 0L;
 	private long inAppEndDay = 0L;
