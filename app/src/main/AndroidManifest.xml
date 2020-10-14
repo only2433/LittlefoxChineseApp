@@ -189,11 +189,6 @@
             android:theme="@style/AppTheme_Main" >
         </activity>
 
-        
-        <receiver
-            android:name=".receiver.GooglePayCheckReceiver"
-            />
-        
         <!--
           WakefulBroadcastReceiver that will receive intents from GCM
           services and hand them to the custom IntentService.

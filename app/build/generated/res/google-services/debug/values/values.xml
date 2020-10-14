@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">670368007911-njugr94cr2ltd2vt1b3m2jk0j5hk43jj.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://chineseedu-1005.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">670368007911</string>
+    <string name="google_api_key" translatable="false">AIzaSyC-Tvd2sJxE6fn8DJPXoyeABVyEQnb0R5I</string>
+    <string name="google_app_id" translatable="false">1:670368007911:android:78bafe8238c43c10</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC-Tvd2sJxE6fn8DJPXoyeABVyEQnb0R5I</string>
+    <string name="google_storage_bucket" translatable="false">chineseedu-1005.appspot.com</string>
+    <string name="project_id" translatable="false">chineseedu-1005</string>
+</resources>

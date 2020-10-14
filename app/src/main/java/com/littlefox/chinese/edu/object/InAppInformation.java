@@ -3,8 +3,7 @@ package com.littlefox.chinese.edu.object;
 import android.content.Context;
 
 import com.littlefox.chinese.edu.R;
-import com.littlefox.chinese.edu.billing.InAppPurchase;
-import com.littlefox.chinese.edu.common.Common;
+import com.littlefox.chinese.edu.billing.BillingClientHelper;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.logmonitor.Log;
 
@@ -16,13 +15,13 @@ import com.littlefox.logmonitor.Log;
 public class InAppInformation
 {
     
-	private String inAppType = InAppPurchase.IN_APP_FREE_USER;
+	private String inAppType = BillingClientHelper.IN_APP_FREE_USER;
 	private long inAppStartDay = 0L;
 	private long inAppEndDay = 0L;
 	
 	public InAppInformation()
 	{
-		inAppType = InAppPurchase.IN_APP_FREE_USER;
+		inAppType = BillingClientHelper.IN_APP_FREE_USER;
 		inAppStartDay = 0L;
 		inAppEndDay = 0L;
 	}
@@ -44,15 +43,11 @@ public class InAppInformation
 	
 	public String getInAppTitle(Context context)
 	{
-		if(inAppType.equals(InAppPurchase.IN_APP_CONSUMABLE_1_MONTH))
+		if(inAppType.equals(BillingClientHelper.IN_APP_CONSUMABLE_1_MONTH))
 		{
 			return CommonUtils.getInstance(context).getLanguageTypeString(R.array.title_pay_1_month);
 		}
-		else if(inAppType.equals(InAppPurchase.IN_APP_CONSUMABLE_1_YEAR))
-		{
-			return CommonUtils.getInstance(context).getLanguageTypeString(R.array.title_pay_1_year);
-		}
-		else if(inAppType.equals(InAppPurchase.IN_APP_SUBSCRIPTION_1_MONTH))
+		else if(inAppType.equals(BillingClientHelper.IN_APP_SUBSCRIPTION_1_MONTH))
 		{
 			return CommonUtils.getInstance(context).getLanguageTypeString(R.array.title_pay_subscription);
 		}

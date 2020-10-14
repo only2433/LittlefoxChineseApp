@@ -7,6 +7,7 @@
     <string name="product_download_all_item_message">You have successfully purchased all stories. Do you want to download now?</string>
     <string name="product_already_paid">This story has been purchased already.</string>
     <string name="product_is_null">Your purchase cannot be completed. \nIn-app purchases are disabled on your device. </string>
+    <string name="product_user_canceled">User Canceled Product.</string>
     <string name="title_facebook_login">Login</string>
     <string name="app_id">1472967599665510</string>
     <!-- for kakaolink -->

@@ -2,17 +2,18 @@ package com.littlefox.chinese.edu.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.littlefox.chinese.edu.R;
 import com.littlefox.chinese.edu.UserInformationModificationActivity.OnUserInformationListener;
 import com.littlefox.chinese.edu.UserInformationModificationActivity.UserInformationHolder;
-import com.littlefox.chinese.edu.billing.InAppPurchase;
+import com.littlefox.chinese.edu.billing.BillingClientHelper;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
@@ -114,7 +115,7 @@ public class UserInformationShowFragment extends Fragment implements UserInforma
 	private void init()
 	{
 		mInAppInformation = (InAppInformation) CommonUtils.getInstance(mContext).getPreferenceObject(Common.PARAMS_INAPP_INFO, InAppInformation.class);
-		if(mInAppInformation.getInAppType().equals(InAppPurchase.IN_APP_FREE_USER))
+		if(mInAppInformation.getInAppType().equals(BillingClientHelper.IN_APP_FREE_USER))
 		{
 			_PayCompleteLayout.setVisibility(View.GONE);
 			_PayNotYetLayout.setVisibility(View.VISIBLE);

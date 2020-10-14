@@ -31,7 +31,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.littlefox.chinese.edu.analytics.GoogleAnalyticsHelper;
-import com.littlefox.chinese.edu.billing.InAppPurchase;
+import com.littlefox.chinese.edu.billing.BillingClientHelper;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
@@ -63,7 +63,6 @@ import com.littlefox.chinese.edu.object.UserTotalInformationObject;
 import com.littlefox.chinese.edu.object.result.InitAppResult;
 import com.littlefox.chinese.edu.object.result.MainInformationResult;
 import com.littlefox.chinese.edu.object.result.base.BaseResult;
-import com.littlefox.chinese.edu.receiver.GooglePayCheckReceiver;
 import com.littlefox.library.system.async.listener.AsyncListener;
 import com.littlefox.logmonitor.Log;
 import com.ssomai.android.scalablelayout.ScalableLayout;
@@ -279,7 +278,7 @@ public class MainTabsActivity extends BaseActivity
 	private int mChangeIndex = -1;
 	private InitAppResult mInitResult;
 	private IACController mLocalIacController;
-	private GooglePayCheckReceiver mGooglePayCheckReceiver;
+
 	private PlayedContentDBHelper mPlayedContentDBHelper;
 	
 	@Override
@@ -314,14 +313,9 @@ public class MainTabsActivity extends BaseActivity
 		initFont();
 		initText();
 		initIACInformation();
-		initGooglepayCheckReceiver();
 	}
 	
-	private void initGooglepayCheckReceiver()
-	{
-		mGooglePayCheckReceiver = new GooglePayCheckReceiver();
-		mGooglePayCheckReceiver.register(this);
-	}
+
 	
 	private void initFont()
 	{
@@ -405,12 +399,7 @@ public class MainTabsActivity extends BaseActivity
 		super.onResume();
 		mPlayedContentDBHelper = PlayedContentDBHelper.getInstance(this);
 		MainSystemFactory.getInstance().setCurrentMode(MainSystemFactory.MODE_MAIN);
-		
-		if(mGooglePayCheckReceiver.isReceiveEvent())
-		{
-			settingLoginUser();
-			mGooglePayCheckReceiver.initReceiveEvent();
-		}
+
 		initTransition(false);
 		
 		Log.f("");
@@ -434,8 +423,6 @@ public class MainTabsActivity extends BaseActivity
 	protected void onDestroy()
 	{
 		super.onDestroy();
-
-		mGooglePayCheckReceiver.unRegister(this);
 		deleteAllContentVideoFile();
 		mPlayedContentDBHelper.release();
 		Log.f("");
@@ -607,7 +594,7 @@ public class MainTabsActivity extends BaseActivity
     	{
     		_NaviAddChildLayout.setVisibility(View.VISIBLE);
     		
-    		if(inAppInformation.getInAppType().equals(InAppPurchase.IN_APP_FREE_USER))
+    		if(inAppInformation.getInAppType().equals(BillingClientHelper.IN_APP_FREE_USER))
     		{
     			for(int i = 0 ; i < NAVIGATION_USER_MENU_SIZE; i++)
         		{
@@ -628,7 +615,7 @@ public class MainTabsActivity extends BaseActivity
     	{
     		_NaviAddChildLayout.setVisibility(View.GONE);
     		
-    		if(inAppInformation.getInAppType().equals(InAppPurchase.IN_APP_FREE_USER))
+    		if(inAppInformation.getInAppType().equals(BillingClientHelper.IN_APP_FREE_USER))
     		{
     			for(int i = 0 ; i < NAVIGATION_ADDCHILD_MENU_SIZE; i++)
         		{

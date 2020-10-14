@@ -5,18 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.annotation.Nullable;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
-import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
-import androidx.drawerlayout.widget.DrawerLayout;
 import android.transition.Explode;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,8 +14,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
-import com.littlefox.chinese.edu.billing.InAppPurchase;
+import com.littlefox.chinese.edu.billing.BillingClientHelper;
 import com.littlefox.chinese.edu.common.Common;
 import com.littlefox.chinese.edu.common.CommonUtils;
 import com.littlefox.chinese.edu.common.Feature;
@@ -59,7 +59,6 @@ import com.littlefox.chinese.edu.object.UserTotalInformationObject;
 import com.littlefox.chinese.edu.object.result.InitAppResult;
 import com.littlefox.chinese.edu.object.result.MainInformationResult;
 import com.littlefox.chinese.edu.object.result.base.BaseResult;
-import com.littlefox.chinese.edu.receiver.GooglePayCheckReceiver;
 import com.littlefox.library.system.async.listener.AsyncListener;
 import com.littlefox.library.view.scroller.FixedSpeedScroller;
 import com.littlefox.logmonitor.Log;
@@ -274,7 +273,6 @@ public class MainTabsActivityTablet extends BaseActivity
 	private int mChangeIndex = -1;
 	private InitAppResult mInitResult;
 	private IACController mLocalIacController;
-	private GooglePayCheckReceiver mGooglePayCheckReceiver;
 	private FixedSpeedScroller mFixedSpeedScroller;
 	private PlayedContentDBHelper mPlayedContentDBHelper;
 	@Override
@@ -310,8 +308,7 @@ public class MainTabsActivityTablet extends BaseActivity
 		initIACInformation();
 		_MainBaseLayout.closeDrawer(_NavigationLayout);
 		Log.i("_MainBaseTopBarLayout size : " + _MainBaseTopBarLayout.getHeight() + " : visible :  " + _MainBaseTopBarLayout.getVisibility());
-		
-		initGooglepayCheckReceiver();
+
 		_NavigationLayout.setOnTouchListener(new OnTouchListener()
 		{
 			@Override
@@ -328,11 +325,6 @@ public class MainTabsActivityTablet extends BaseActivity
 		super.onResume();
 		mPlayedContentDBHelper = PlayedContentDBHelper.getInstance(this);
 		MainSystemFactory.getInstance().setCurrentMode(MainSystemFactory.MODE_MAIN);
-		if(mGooglePayCheckReceiver.isReceiveEvent())
-		{
-			settingLoginUser();
-			mGooglePayCheckReceiver.initReceiveEvent();
-		}
 		Log.f("");
 		initTransition(false);
 		
@@ -356,8 +348,6 @@ public class MainTabsActivityTablet extends BaseActivity
 	protected void onDestroy()
 	{
 		super.onDestroy();
-
-		mGooglePayCheckReceiver.unRegister(this);
 		deleteAllContentVideoFile();
 		makeAvailableStorageSizeToPlay();
 		mPlayedContentDBHelper.release();
@@ -441,12 +431,7 @@ public class MainTabsActivityTablet extends BaseActivity
 		String result = FileUtils.getStringFromFile(Common.PATH_APP_ROOT+Common.FILE_MAIN_INFO);
 		mMainInformationResult = new Gson().fromJson(result, MainInformationResult.class);
 	}
-	
-	private void initGooglepayCheckReceiver()
-	{
-		mGooglePayCheckReceiver = new GooglePayCheckReceiver();
-		mGooglePayCheckReceiver.register(this);
-	}
+
 	
     private void initIACInformation()
     {
@@ -812,7 +797,7 @@ public class MainTabsActivityTablet extends BaseActivity
     	{
     		_NaviAddChildLayout.setVisibility(View.VISIBLE);
     		
-    		if(inAppInformation.getInAppType().equals(InAppPurchase.IN_APP_FREE_USER))
+    		if(inAppInformation.getInAppType().equals(BillingClientHelper.IN_APP_FREE_USER))
     		{
     			for(int i = 0 ; i < NAVIGATION_USER_MENU_SIZE; i++)
         		{
@@ -833,7 +818,7 @@ public class MainTabsActivityTablet extends BaseActivity
     	{
     		_NaviAddChildLayout.setVisibility(View.GONE);
     		
-    		if(inAppInformation.getInAppType().equals(InAppPurchase.IN_APP_FREE_USER))
+    		if(inAppInformation.getInAppType().equals(BillingClientHelper.IN_APP_FREE_USER))
     		{
     			for(int i = 0 ; i < NAVIGATION_ADDCHILD_MENU_SIZE; i++)
         		{
