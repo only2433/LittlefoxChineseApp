@@ -550,50 +550,7 @@ public class IntroLoadingActivity extends BaseActivity
 
 			}
 
-			/*@Override
-			public void onCheckPurchaseItemForInApp()
-			{
-				InAppInformation inappInformation;
-				String payType = BillingClientHelper.IN_APP_FREE_USER;
-				Purchase consumable = mBillingClientHelper.getPurchasedInAppItemResult(BillingClientHelper.IN_APP_CONSUMABLE_1_MONTH);
-				if(consumable != null)
-				{
-					// 결제한지 1달이 지낫을때 Cosume시키고 무료회원으로 전환한다.
-					payType = BillingClientHelper.IN_APP_CONSUMABLE_1_MONTH;
-					Log.f("consumable order ID : "+ consumable.getOrderId());
-					Log.f("consumable getItemType : IN APP");
-					Log.f("consumable getPurchaseState : "+ consumable.getPurchaseState());
-					Log.f("consumable getPurchaseTime Real : "+ consumable.getPurchaseTime());
-					Log.f("consumable getPurchaseTime : "+ CommonUtils.getInstance(IntroLoadingActivity.this).getDateTime(consumable.getPurchaseTime()));
 
-
-					Log.f("Purchase : 1 Month");
-					inappInformation = new InAppInformation(BillingClientHelper.IN_APP_CONSUMABLE_1_MONTH, consumable.getPurchaseTime(), CommonUtils.getInstance(IntroLoadingActivity.this).getAdded1Month(consumable.getPurchaseTime()));
-					CommonUtils.getInstance(IntroLoadingActivity.this).setPreferenceObject(Common.PARAMS_INAPP_INFO, inappInformation);
-
-					if(CommonUtils.getInstance(IntroLoadingActivity.this).isOverPayDay(inappInformation.getInAppEndDay()))
-					{
-						Log.f("Purchase Over 30 days is ended. ==== Consumable");
-						mBillingClientHelper.consumeItem(consumable);
-						payType = BillingClientHelper.IN_APP_FREE_USER;
-					}
-				}
-
-				if(payType.equals(BillingClientHelper.IN_APP_FREE_USER))
-				{
-					Log.f("Not Purchase : Free User");
-					Feature.IS_FREE_USER = true;
-					InAppInformation inappinformation = new InAppInformation();
-					CommonUtils.getInstance(IntroLoadingActivity.this).setPreferenceObject(Common.PARAMS_INAPP_INFO, inappinformation);
-				}
-				else
-				{
-					Feature.IS_FREE_USER = false;
-					Log.f("Purchase : Paid User");
-
-				}
-				mIntroHandler.sendEmptyMessage(MESSAGE_GET_INIT_APP_INFO);
-			} */
 
 			@Override
 			public void onCheckPurchaseItem()

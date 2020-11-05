@@ -830,6 +830,7 @@ public class MainTabsActivity extends BaseActivity
 	
 	private void processActiviryResult(int requestCode, int resultCode, Intent data)
 	{
+		Log.f("requestCode : "+requestCode+", resultCode : "+resultCode);
 		if (resultCode == RESULT_OK)
 		{
 			switch (requestCode)
@@ -1003,7 +1004,15 @@ public class MainTabsActivity extends BaseActivity
 		{
 			if(NetworkUtil.isConnectNetwork(MainTabsActivity.this))
 			{
-				MainSystemFactory.getInstance().startActivityNoAnimation(MainSystemFactory.MODE_PLAYER, contentPlayObject);
+				if(Feature.IS_FREE_USER)
+				{
+					MainSystemFactory.getInstance().startActivityNoAnimationForResult(MainSystemFactory.MODE_PLAYER, REQUEST_PAY_STATUS, contentPlayObject);
+				}
+				else
+				{
+					MainSystemFactory.getInstance().startActivityNoAnimation(MainSystemFactory.MODE_PLAYER, contentPlayObject);
+
+				}
 			}
 			else
 			{

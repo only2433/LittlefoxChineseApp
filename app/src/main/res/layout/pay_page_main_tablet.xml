@@ -69,6 +69,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="fitXY"
+                        android:visibility="gone"
                         android:src="@drawable/payment_recurring__tablet"
                         app:scale_height="440"
                         app:scale_left="330"
@@ -82,7 +83,7 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/payment_1month_tablet"
                         app:scale_height="440"
-                        app:scale_left="981"
+                        app:scale_left="655"
                         app:scale_top="16"
                         app:scale_width="609" />
 
@@ -92,6 +93,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/color_e24c4d"
+                        android:visibility="gone"
                         app:scale_height="82"
                         app:scale_left="340"
                         app:scale_textsize="33"
@@ -105,7 +107,7 @@
                         android:gravity="center"
                         android:textColor="@color/color_18b5b2"
                         app:scale_height="82"
-                        app:scale_left="991"
+                        app:scale_left="665"
                         app:scale_textsize="33"
                         app:scale_top="201"
                         app:scale_width="589" />
@@ -115,6 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:visibility="gone"
                         android:textColor="@color/color_white"
                         app:scale_height="140"
                         app:scale_left="330"
@@ -129,7 +132,7 @@
                         android:gravity="center"
                         android:textColor="@color/color_white"
                         app:scale_height="140"
-                        app:scale_left="981"
+                        app:scale_left="655"
                         app:scale_textsize="40"
                         app:scale_top="313"
                         app:scale_width="609" />
@@ -138,6 +141,7 @@
                 <com.ssomai.android.scalablelayout.ScalableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:scale_base_height="65"
                     app:scale_base_width="1920" >
 

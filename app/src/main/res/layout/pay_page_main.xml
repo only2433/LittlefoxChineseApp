@@ -80,6 +80,7 @@
 		<com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:scale_base_height="450"
             app:scale_base_width="1080" >
 
@@ -166,6 +167,7 @@
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:scale_base_height="65"
             app:scale_base_width="1080" >
 

@@ -230,7 +230,6 @@ public class BillingClientHelper implements PurchasesUpdatedListener, ConsumeRes
                     mResponseSkuDetailList.addAll(list);
                 }
 
-                SkuDetails item = getSkuDetailData(BillingClientHelper.IN_APP_SUBSCRIPTION_1_MONTH);
                 iIBillingClientListener.onSkuDetailQueryFinished(BillingClient.SkuType.SUBS);
             }
             else

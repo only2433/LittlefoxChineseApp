@@ -26,7 +26,7 @@ public class InAppInformation
 	}
 	public InAppInformation(String appType, long appStartDay, long appEndDay)
 	{
-		Log.f("appType : "+appType);
+		Log.f("appType  : "+appType);
 		Log.f("AppStartDay : "+appStartDay);
 		Log.f("AppEndDay : "+appEndDay);
 		

@@ -839,6 +839,7 @@ public class MainTabsActivityTablet extends BaseActivity
     
 	private void processActiviryResult(int requestCode, int resultCode, Intent data)
 	{
+		Log.f("requestCode : "+requestCode+", resultCode : "+resultCode);
 		if (resultCode == RESULT_OK)
 		{
 			switch (requestCode)
@@ -1081,7 +1082,7 @@ public class MainTabsActivityTablet extends BaseActivity
 		{
 			if(NetworkUtil.isConnectNetwork(MainTabsActivityTablet.this))
 			{
-				MainSystemFactory.getInstance().startActivityNoAnimation(MainSystemFactory.MODE_PLAYER, contentPlayObject);
+				MainSystemFactory.getInstance().startActivityNoAnimationForResult(MainSystemFactory.MODE_PLAYER, REQUEST_PAY_COMPLETE, contentPlayObject);
 			}
 			else
 			{

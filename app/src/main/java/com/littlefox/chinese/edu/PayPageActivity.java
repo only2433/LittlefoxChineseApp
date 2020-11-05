@@ -117,7 +117,7 @@ public class PayPageActivity extends BaseActivity
 	private static final int PAY_ITEM_1YEAR			= 2;
 
 	private static final int DURATION_ANIMATION = 300;
-	private static final int DURATION_PURCHASE_COMPLETE = 1000;
+	private static final int DURATION_PURCHASE_COMPLETE = 500;
 
 	private BillingClientHelper mBillingClientHelper;
 	private int mCurrentPayItemCode = -1;
@@ -355,6 +355,7 @@ public class PayPageActivity extends BaseActivity
 							break;
 					}
 					Log.f("서버에게 결제정보 전달 성공");
+					mMainHandler.sendEmptyMessageDelayed(MESSAGE_PURCHASE_COMPLETE, DURATION_PURCHASE_COMPLETE);
 				}
 				else
 				{
@@ -506,7 +507,7 @@ public class PayPageActivity extends BaseActivity
 						sendPaymentInformationForServer(getPaymentInformation(Common.PAYMENT_ID_SUBSCRIPTION, purchaseItem));
 						break;
 				}
-				mMainHandler.sendEmptyMessageDelayed(MESSAGE_PURCHASE_COMPLETE, DURATION_PURCHASE_COMPLETE);
+
 			}
 
 			@Override

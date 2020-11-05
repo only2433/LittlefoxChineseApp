@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.only2433:LittlefoxSystemLibrary:2.0.5@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4fb249ac9e97ea6579f4ea198076b267/jetified-LittlefoxSystemLibrary-2.0.5/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4fb249ac9e97ea6579f4ea198076b267/jetified-LittlefoxSystemLibrary-2.0.5/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4fb249ac9e97ea6579f4ea198076b267/jetified-LittlefoxSystemLibrary-2.0.5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fd7416678f0e5a7e1f8af97c42f608ca/jetified-LittlefoxSystemLibrary-2.0.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fd7416678f0e5a7e1f8af97c42f608ca/jetified-LittlefoxSystemLibrary-2.0.5/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fd7416678f0e5a7e1f8af97c42f608ca/jetified-LittlefoxSystemLibrary-2.0.5/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
