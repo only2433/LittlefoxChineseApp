@@ -260,8 +260,8 @@ public class MainTabsActivityTablet extends BaseActivity
 	private static final int[] TAB_IMAGE_ICONS = { R.drawable.choice_top_bar_icon_home, R.drawable.choice_top_bar_icon_story, R.drawable.choice_top_bar_icon_song, R.drawable.choice_top_bar_icon_study_data};
 	private static final int[] TITLE_STRINGS = {R.array.main_title_home, R.array.main_title_story, R.array.main_title_song, R.array.main_title_study_data};
 	
-	private static final int REQUEST_MODIFICATION_RENEW 	= 0;
-	private static final int REQUEST_PAY_COMPLETE 			= 1;
+	private static final int REQUEST_MODIFICATION_RENEW 	= 1000;
+	public static final int REQUEST_PAY_COMPLETE 			= 1001;
 	
 	private  List<Fragment> mFragmentList;
 	private MainSelectionPagerAdapter mMainSelectionPagerAdapter;
@@ -1003,7 +1003,7 @@ public class MainTabsActivityTablet extends BaseActivity
 			/**
 			 *  무료회원은 스토리 컨텐트 리스트 에서 플레이 이후에 결제 페이지에서 결제후 정보를 컨텐트 리스트가 받아서 정보를 리턴해 주기 위해 사용
 			 */
-			
+			Log.f("");
 			if (NetworkUtil.isConnectNetwork(MainTabsActivityTablet.this) == false) 
 			{
 				MainSystemFactory.getInstance().startActivityWithAnimation(MainSystemFactory.MODE_NETWORK_ERROR);
@@ -1080,6 +1080,7 @@ public class MainTabsActivityTablet extends BaseActivity
 		@Override
 		public void onPlayContent(ContentPlayObject contentPlayObject)
 		{
+			Log.f("");
 			if(NetworkUtil.isConnectNetwork(MainTabsActivityTablet.this))
 			{
 				MainSystemFactory.getInstance().startActivityNoAnimationForResult(MainSystemFactory.MODE_PLAYER, REQUEST_PAY_COMPLETE, contentPlayObject);

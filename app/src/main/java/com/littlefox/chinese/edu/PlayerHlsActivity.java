@@ -1,6 +1,7 @@
 package com.littlefox.chinese.edu;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
@@ -441,6 +442,7 @@ public class PlayerHlsActivity extends BaseActivity
     private PlayerSpeedListAdapter mPlayerSpeedListAdapter;
     private int mCurrentPlaySpeedIndex = -1;
     private boolean isPlayerEventBeing = false;
+    public static final int REQUEST_PAY_COMPLETE = 1001;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -1905,8 +1907,7 @@ public class PlayerHlsActivity extends BaseActivity
                 break;
             case R.id._previewBackgroundRect:
                 GoogleAnalyticsHelper.getInstance(this).sendCurrentEvent(Common.ANALYTICS_CATEGORY_PLAYER, Common.ANALYTICS_ACTION_PAYMENT);
-                finish();
-                MainSystemFactory.getInstance().startActivityNoAnimation(MainSystemFactory.MODE_PAY_PAGE);
+                MainSystemFactory.getInstance().startActivityNoAnimationForResult(MainSystemFactory.MODE_PAY_PAGE, REQUEST_PAY_COMPLETE);
                 break;
             //TODO : 추후 지원 예정
 		/*case R.id.preview_youtube_layout:
@@ -2036,6 +2037,25 @@ public class PlayerHlsActivity extends BaseActivity
                 enablePlaySpeedListAnimation(false);
                 break;
 
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        Log.f("onActivityResult(" + requestCode + "," + resultCode + "," + data);
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (resultCode == RESULT_OK)
+        {
+            switch (requestCode)
+            {
+                case REQUEST_PAY_COMPLETE:
+                    setResult(RESULT_OK);
+                    finish();
+                    break;
+            }
         }
     }
 
