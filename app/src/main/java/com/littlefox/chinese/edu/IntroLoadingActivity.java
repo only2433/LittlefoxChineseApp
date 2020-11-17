@@ -236,8 +236,6 @@ public class IntroLoadingActivity extends BaseActivity
 
 		} else
 		{
-			// 다음 부분은 항상 허용일 경우에 해당이 됩니다.
-			// writeFile();
 			settingLogFile();
 			init();
 		}
